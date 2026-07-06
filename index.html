@@ -25,7 +25,7 @@
                 <li><a href="#about">About</a></li>
             </ul>
         </nav>
-        <a href="#waitlist" class="cta-btn small">Get Early Access</a>
+        <a href="https://docs.google.com/forms/d/1hww2H7_qp7PdtWvE0mOhhWzYBvze8hCnfWXuDJ1FhMU/viewform" target="_blank" rel="noopener noreferrer" class="cta-btn small">Get Early Access</a>
     </header>
 
     <main>
@@ -34,10 +34,9 @@
                 <span class="badge">Coming Soon</span>
                 <h1 class="gradient-text">Elevate Your Study Experience</h1>
                 <p>Unlock the power of organized learning with <strong>Study Plan Bundles</strong> and advanced progress tracking. PillarStudy is designed for achievers.</p>
-                <form class="waitlist-form glassmorphism" id="waitlist" onsubmit="event.preventDefault(); alert('Thanks for joining the waitlist!');">
-                    <input type="email" placeholder="Enter your email address" required>
-                    <button type="submit" class="cta-btn">Join Waitlist</button>
-                </form>
+                <div class="hero-cta-wrapper" style="margin-top: 30px;">
+                    <a href="https://docs.google.com/forms/d/1hww2H7_qp7PdtWvE0mOhhWzYBvze8hCnfWXuDJ1FhMU/viewform" target="_blank" rel="noopener noreferrer" class="cta-btn" style="font-size: 1.1rem; padding: 15px 40px;">Sign Up for Beta</a>
+                </div>
             </div>
         </section>
 
@@ -49,25 +48,33 @@
                 <div class="features-content">
                     <div class="feature-step" data-step="1">
                         <div class="feature-text glassmorphism">
-                            <div class="icon">📚</div>
-                            <h2>Study Plan Bundles</h2>
-                            <p>Curate, combine, and conquer your materials. Build comprehensive study plans that adapt to your exact learning style and goals.</p>
+                            <div class="icon">👥</div>
+                            <h2>Social Learning & Leaderboards</h2>
+                            <p>Create shared reading plans with friends and family. Track group progress, compete on the leaderboard, and share insights to stay motivated together.</p>
                         </div>
                     </div>
                     
                     <div class="feature-step" data-step="2">
                         <div class="feature-text glassmorphism">
-                            <div class="icon">📈</div>
-                            <h2>Linked Progress Logic</h2>
-                            <p>Visualize your success. Our intelligent linked progress logic ensures that every small step contributes to your macro goals.</p>
+                            <div class="icon">🧠</div>
+                            <h2>Smart Memorization (SRS)</h2>
+                            <p>Master key concepts faster. Our Leitner Spaced Repetition System automatically tracks your progression stages and optimizes your warmup and review schedules.</p>
                         </div>
                     </div>
                     
                     <div class="feature-step" data-step="3">
                         <div class="feature-text glassmorphism">
-                            <div class="icon">🔒</div>
-                            <h2>Bank-Grade Security</h2>
-                            <p>Focus purely on learning. Your personal data, notes, and progress are protected with state-of-the-art encryption standards.</p>
+                            <div class="icon">🎴</div>
+                            <h2>Active Recall Flashcards</h2>
+                            <p>Test your memory with customizable cloze deletions and hidden keywords. Simply tap to reveal blanks and solidify your understanding through active recall.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-step" data-step="4">
+                        <div class="feature-text glassmorphism">
+                            <div class="icon">🎯</div>
+                            <h2>Adaptive Review Checks</h2>
+                            <p>Reinforce what you've learned. Our adaptive multiple-choice questions seamlessly switch between Learning and Reviewing modes to target your weak spots.</p>
                         </div>
                     </div>
                 </div>
@@ -77,26 +84,11 @@
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
                         <div class="phone-screen-container">
-                            <!-- Drop screenshots here -->
-                            <!-- Ensure images have the class 'screen-img' -->
-                            <div class="screen-img active" id="screen-1">
-                                <div class="placeholder-content">
-                                    <div class="placeholder-icon">📚</div>
-                                    <span>App Screenshot 1</span>
-                                </div>
-                            </div>
-                            <div class="screen-img" id="screen-2">
-                                <div class="placeholder-content">
-                                    <div class="placeholder-icon">📈</div>
-                                    <span>App Screenshot 2</span>
-                                </div>
-                            </div>
-                            <div class="screen-img" id="screen-3">
-                                <div class="placeholder-content">
-                                    <div class="placeholder-icon">🔒</div>
-                                    <span>App Screenshot 3</span>
-                                </div>
-                            </div>
+                            <!-- Drop screenshots here: Update the src attributes to match your dropped files -->
+                            <img src="assets/leaderboard.png" alt="Leaderboard" class="screen-img active" id="screen-1">
+                            <img src="assets/leitner-srs.png" alt="Leitner SRS" class="screen-img" id="screen-2">
+                            <img src="assets/flashcards.png" alt="Active Recall" class="screen-img" id="screen-3">
+                            <img src="assets/review-checks.png" alt="Adaptive Review" class="screen-img" id="screen-4">
                         </div>
                     </div>
                 </div>
@@ -105,7 +97,7 @@
 
         <section class="bottom-cta">
             <h2 class="gradient-text">Ready to transform your study habits?</h2>
-            <a href="#waitlist" class="cta-btn" onclick="document.getElementById('waitlist').scrollIntoView({behavior: 'smooth'})">Join the Waitlist Now</a>
+            <a href="https://docs.google.com/forms/d/1hww2H7_qp7PdtWvE0mOhhWzYBvze8hCnfWXuDJ1FhMU/viewform" target="_blank" rel="noopener noreferrer" class="cta-btn">Sign Up for Beta Now</a>
         </section>
 
     </main>
