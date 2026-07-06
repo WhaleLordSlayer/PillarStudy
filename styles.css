@@ -103,6 +103,7 @@ h1, h2, h3, .logo {
     max-width: 1200px;
     z-index: 100;
     border-radius: 100px;
+    transition: background 0.3s ease, border 0.3s ease;
 }
 
 .logo {
@@ -231,49 +232,168 @@ nav a:hover {
     color: var(--text-muted);
 }
 
-/* Features */
-.features-section {
-    padding: 100px 5%;
+/* Parallax Scroller Section */
+.parallax-wrapper {
+    position: relative;
+    width: 100%;
+    padding: 0 5%;
     max-width: 1200px;
     margin: 0 auto;
-    text-align: center;
 }
 
-.section-title {
-    font-size: 2.5rem;
-    margin-bottom: 60px;
+.parallax-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
 }
 
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+/* Left Side: Scrolling Content */
+.features-content {
+    width: 50%;
+    padding-top: 10vh; /* space before the first feature starts */
+    padding-bottom: 30vh; /* space after the last feature ends */
 }
 
-.feature-card {
-    padding: 40px 30px;
+.feature-step {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 40px;
+}
+
+.feature-text {
+    padding: 40px;
     text-align: left;
-    transition: transform 0.3s ease, background 0.3s ease;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 0.3;
+    transform: scale(0.95);
 }
 
-.feature-card:hover {
-    transform: translateY(-10px);
-    background: rgba(255, 255, 255, 0.05);
+.feature-step.active .feature-text {
+    opacity: 1;
+    transform: scale(1);
 }
 
-.feature-card .icon {
+.feature-text .icon {
     font-size: 3rem;
     margin-bottom: 20px;
 }
 
-.feature-card h3 {
-    font-size: 1.5rem;
+.feature-text h2 {
+    font-size: 2rem;
     margin-bottom: 15px;
     color: white;
 }
 
-.feature-card p {
+.feature-text p {
     color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+/* Right Side: Sticky Phone */
+.phone-sticky-container {
+    width: 50%;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.phone-frame {
+    width: 320px;
+    height: 650px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 8px solid #2a2a35;
+    border-radius: 40px;
+    position: relative;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), inset 0 0 0 2px rgba(255,255,255,0.1);
+    overflow: hidden;
+}
+
+.phone-notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 25px;
+    background: #2a2a35;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    z-index: 10;
+}
+
+.phone-screen-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1e1e2d, #151521);
+    border-radius: 32px; /* Inner radius */
+    overflow: hidden;
+}
+
+/* Phone Screen Images */
+.screen-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateY(20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+}
+
+/* When the user replaces placeholders with real imgs, standard styling will apply */
+img.screen-img {
+    object-fit: cover;
+}
+
+.screen-img.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Placeholder styling inside the phone */
+.placeholder-content {
+    text-align: center;
+    padding: 20px;
+    color: var(--text-muted);
+}
+.placeholder-icon {
+    font-size: 4rem;
+    margin-bottom: 10px;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.screen-img#screen-1 { background: rgba(139, 92, 246, 0.1); }
+.screen-img#screen-2 { background: rgba(6, 182, 212, 0.1); }
+.screen-img#screen-3 { background: rgba(236, 72, 153, 0.1); }
+
+/* Bottom CTA */
+.bottom-cta {
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 20px;
+}
+.bottom-cta .gradient-text {
+    font-size: 3rem;
 }
 
 /* Footer */
@@ -285,6 +405,36 @@ nav a:hover {
 }
 
 /* Responsive */
+@media (max-width: 992px) {
+    .parallax-container {
+        flex-direction: column;
+    }
+    .features-content {
+        width: 100%;
+        padding-top: 5vh;
+        padding-bottom: 5vh;
+    }
+    .feature-step {
+        min-height: auto;
+        padding: 40px 0;
+        padding-right: 0;
+    }
+    .phone-sticky-container {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 40px 0;
+    }
+    .phone-frame {
+        width: 280px;
+        height: 570px;
+    }
+    .feature-text {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 @media (max-width: 768px) {
     .gradient-text { font-size: 2.5rem; }
     .hero p { font-size: 1.1rem; }

@@ -21,7 +21,7 @@
         <div class="logo">PillarStudy</div>
         <nav>
             <ul>
-                <li><a href="#features">Features</a></li>
+                <li><a href="#parallax-features">Features</a></li>
                 <li><a href="#about">About</a></li>
             </ul>
         </nav>
@@ -41,26 +41,73 @@
             </div>
         </section>
 
-        <section id="features" class="features-section">
-            <h2 class="section-title">Why PillarStudy?</h2>
-            <div class="features-grid">
-                <div class="feature-card glassmorphism">
-                    <div class="icon">📚</div>
-                    <h3>Study Plan Bundles</h3>
-                    <p>Curate, combine, and conquer your materials with comprehensive study plans tailored to your goals.</p>
+        <!-- Parallax Scroller Section -->
+        <section id="parallax-features" class="parallax-wrapper">
+            <div class="parallax-container">
+                
+                <!-- Left side: Scrolling Text Content -->
+                <div class="features-content">
+                    <div class="feature-step" data-step="1">
+                        <div class="feature-text glassmorphism">
+                            <div class="icon">📚</div>
+                            <h2>Study Plan Bundles</h2>
+                            <p>Curate, combine, and conquer your materials. Build comprehensive study plans that adapt to your exact learning style and goals.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-step" data-step="2">
+                        <div class="feature-text glassmorphism">
+                            <div class="icon">📈</div>
+                            <h2>Linked Progress Logic</h2>
+                            <p>Visualize your success. Our intelligent linked progress logic ensures that every small step contributes to your macro goals.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-step" data-step="3">
+                        <div class="feature-text glassmorphism">
+                            <div class="icon">🔒</div>
+                            <h2>Bank-Grade Security</h2>
+                            <p>Focus purely on learning. Your personal data, notes, and progress are protected with state-of-the-art encryption standards.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="feature-card glassmorphism">
-                    <div class="icon">📈</div>
-                    <h3>Progress Tracking</h3>
-                    <p>Visualize your success. Our linked progress logic ensures you always know where you stand.</p>
-                </div>
-                <div class="feature-card glassmorphism">
-                    <div class="icon">🔒</div>
-                    <h3>Bank-Grade Security</h3>
-                    <p>Your data is protected with state-of-the-art security, giving you peace of mind to focus on learning.</p>
+
+                <!-- Right side: Sticky Phone Mockup -->
+                <div class="phone-sticky-container">
+                    <div class="phone-frame">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen-container">
+                            <!-- Drop screenshots here -->
+                            <!-- Ensure images have the class 'screen-img' -->
+                            <div class="screen-img active" id="screen-1">
+                                <div class="placeholder-content">
+                                    <div class="placeholder-icon">📚</div>
+                                    <span>App Screenshot 1</span>
+                                </div>
+                            </div>
+                            <div class="screen-img" id="screen-2">
+                                <div class="placeholder-content">
+                                    <div class="placeholder-icon">📈</div>
+                                    <span>App Screenshot 2</span>
+                                </div>
+                            </div>
+                            <div class="screen-img" id="screen-3">
+                                <div class="placeholder-content">
+                                    <div class="placeholder-icon">🔒</div>
+                                    <span>App Screenshot 3</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <section class="bottom-cta">
+            <h2 class="gradient-text">Ready to transform your study habits?</h2>
+            <a href="#waitlist" class="cta-btn" onclick="document.getElementById('waitlist').scrollIntoView({behavior: 'smooth'})">Join the Waitlist Now</a>
+        </section>
+
     </main>
 
     <footer class="footer">
