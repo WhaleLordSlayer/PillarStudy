@@ -407,31 +407,42 @@ img.screen-img {
 /* Responsive */
 @media (max-width: 992px) {
     .parallax-container {
-        flex-direction: column;
-    }
-    .features-content {
-        width: 100%;
-        padding-top: 5vh;
-        padding-bottom: 5vh;
-    }
-    .feature-step {
-        min-height: auto;
-        padding: 40px 0;
-        padding-right: 0;
+        display: flex;
+        flex-direction: column-reverse;
     }
     .phone-sticky-container {
         width: 100%;
-        height: auto;
-        position: relative;
-        padding: 40px 0;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+        padding: 0;
+        z-index: 0;
     }
     .phone-frame {
         width: 280px;
         height: 570px;
+        transform: scale(0.85);
+    }
+    .features-content {
+        width: 100%;
+        position: relative;
+        z-index: 10;
+        margin-top: -100vh;
+        padding-top: 60vh;
+        padding-bottom: 20vh;
+    }
+    .feature-step {
+        min-height: 100vh;
+        padding: 0;
+        align-items: flex-end;
+        padding-bottom: 40px;
     }
     .feature-text {
         opacity: 1;
         transform: scale(1);
+        background: rgba(10, 10, 15, 0.95);
+        border: 1px solid rgba(255,255,255,0.1);
+        box-shadow: 0 10px 40px rgba(0,0,0,0.8);
     }
 }
 
