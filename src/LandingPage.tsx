@@ -28,7 +28,7 @@ export default function LandingPage() {
                       <h1 className="hero-gradient-text">Transform Your Gospel Study</h1>
                       <p>Experience seamless <strong>scripture scrolling</strong>, connect with others through <strong>Come, Follow Me groups</strong>, and lock in knowledge with advanced <strong>memorization tools</strong>.</p>
                       <div style={{ marginTop: '30px' }}>
-                          <a href="#" className="cta-btn" style={{ fontSize: '1.1rem', padding: '15px 40px' }}>
+                          <a href="https://forms.gle/7osedC87npSxrRMB9" target="_blank" rel="noopener noreferrer" className="cta-btn" style={{ fontSize: '1.1rem', padding: '15px 40px' }}>
                             Sign Up for Beta
                           </a>
                           <div style={{ marginTop: '16px', color: 'var(--text-tertiary)', fontSize: '0.9rem', fontWeight: 500 }}>
@@ -100,7 +100,7 @@ export default function LandingPage() {
 
           <section className="bottom-cta">
               <h2 className="gradient-text">Ready to transform your study habits?</h2>
-              <a href="#" className="cta-btn">Sign Up for Beta Now</a>
+              <a href="https://forms.gle/7osedC87npSxrRMB9" target="_blank" rel="noopener noreferrer" className="cta-btn">Sign Up for Beta Now</a>
           </section>
       </main>
 
