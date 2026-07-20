@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { UserPlus, Users, MessageSquare, ShieldCheck } from 'lucide-react';
+import { UserPlus, ShieldCheck } from 'lucide-react';
 
 export default function Groups() {
   const [showInviteModal, setShowInviteModal] = useState(false);

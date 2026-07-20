@@ -1,4 +1,4 @@
-import { BookOpen, CheckCircle, ChevronRight, Play } from 'lucide-react';
+import { BookOpen, Play } from 'lucide-react';
 
 export default function StudyPlans() {
   return (
@@ -13,13 +13,11 @@ export default function StudyPlans() {
           title="New Testament Foundations" 
           progress={45} 
           image="/assets/study_plan.png" 
-          active={true}
         />
         <PlanCard 
           title="Daily Proverbs" 
           progress={12} 
           image="/assets/dashboard.png"
-          active={true}
         />
       </div>
 
@@ -35,7 +33,7 @@ export default function StudyPlans() {
   );
 }
 
-function PlanCard({ title, progress, image, active }: { title: string, progress: number, image: string, active: boolean }) {
+function PlanCard({ title, progress, image }: { title: string, progress: number, image: string }) {
   return (
     <div className="glass" style={{
       borderRadius: 'var(--radius-md)',
@@ -59,8 +57,8 @@ function PlanCard({ title, progress, image, active }: { title: string, progress:
       <div style={{ flex: 1 }}>
         <h3 style={{ fontSize: '1rem', marginBottom: '4px' }}>{title}</h3>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-          <div style={{ flex: 1, height: '6px', background: 'rgba(255,255,255,0.1)', borderRadius: '3px', overflow: 'hidden' }}>
-            <div style={{ width: `${progress}%`, height: '100%', background: 'var(--gradient-accent)', borderRadius: '3px' }} />
+          <div style={{ flex: 1 }}>
+            <ProgressBar progress={progress} color="var(--gradient-accent)" />
           </div>
           <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>{progress}%</span>
         </div>
@@ -107,6 +105,14 @@ function DiscoverCard({ title, icon, color }: { title: string, icon: React.React
         {icon}
       </div>
       <span style={{ fontSize: '0.9rem', fontWeight: 500 }}>{title}</span>
+    </div>
+  );
+}
+
+function ProgressBar({ progress, color }: { progress: number, color: string }) {
+  return (
+    <div style={{ height: '6px', background: 'rgba(255,255,255,0.1)', borderRadius: '3px', overflow: 'hidden' }}>
+      <div style={{ width: `${progress}%`, height: '100%', background: color, borderRadius: '3px' }} />
     </div>
   );
 }

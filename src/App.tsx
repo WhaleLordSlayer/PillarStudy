@@ -12,7 +12,7 @@ export default function App() {
 
   useEffect(() => {
     let aborted = false;
-    let currentTimeout: NodeJS.Timeout;
+    let currentTimeout: ReturnType<typeof setTimeout>;
 
     const wait = (ms: number) => new Promise(resolve => {
       currentTimeout = setTimeout(resolve, ms);

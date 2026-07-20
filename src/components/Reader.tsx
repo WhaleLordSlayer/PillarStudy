@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { ChevronLeft, Bookmark, Edit3, Share, Heart, GitBranch } from 'lucide-react';
+import { ChevronLeft, Bookmark, Edit3, Share, GitBranch } from 'lucide-react';
 
 interface ReaderProps {
   onClose: () => void;
