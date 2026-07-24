@@ -27,7 +27,7 @@ export default function LandingPage() {
               <div className="hero-container-centered">
                   <div className="hero-content-top">
                       <h1 className="hero-gradient-text">Transform Your Gospel Study</h1>
-                      <p>Experience seamless <strong>scripture scrolling</strong>, connect with others through <strong>Come, Follow Me groups</strong>, and lock in knowledge with advanced <strong>memorization tools</strong>.</p>
+                      <p>Experience seamless <strong>scripture scrolling</strong>, connect with others through <strong>groups</strong>, and lock in knowledge with advanced <strong>memorization tools</strong>.</p>
                       <div style={{ marginTop: '30px' }}>
                           <a href="#" className="cta-btn" style={{ fontSize: '1.1rem', padding: '15px 40px' }}>
                             Sign Up for Beta
@@ -81,7 +81,7 @@ export default function LandingPage() {
 
                   <div className="feature-card glassmorphism">
                       <div className="icon">👥</div>
-                      <h2>Come, Follow Me Groups</h2>
+                      <h2>Groups</h2>
                       <p>Study together. Create or join groups, synchronize your daily reading progress, and share your spiritual reflections with friends and family.</p>
                   </div>
 
