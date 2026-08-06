@@ -106,6 +106,9 @@ export default function LandingPage() {
 
       <footer className="footer">
           <p>&copy; 2026 Cultivate Study. All rights reserved.</p>
+          <p style={{ fontSize: '0.85rem', marginTop: '12px' }}>
+              <a href="/privacy" style={{ color: 'var(--text-secondary)' }}>Privacy Policy</a>
+          </p>
           <p style={{ fontSize: '0.8rem', color: 'var(--text-tertiary)', marginTop: '20px', maxWidth: '700px', margin: '20px auto 0', lineHeight: 1.5 }}>
               Cultivate Study is an independent application and is not affiliated with, nor officially supported or endorsed by, The Church of Jesus Christ of Latter-day Saints.
           </p>
