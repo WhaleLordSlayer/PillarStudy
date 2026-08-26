@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { buildPillarJoinUrl, normalizeJoinCode } from './invite'
+import { buildPillarJoinUrl, normalizeInviteToken, normalizeJoinCode } from './invite'
 
 type CopyState = 'idle' | 'copied' | 'failed'
 
@@ -31,10 +31,14 @@ async function copyText(value: string): Promise<boolean> {
 }
 
 export default function JoinPage() {
-  const code = normalizeJoinCode(new URLSearchParams(window.location.search).get('code'))
+  const params = new URLSearchParams(window.location.search)
+  const code = normalizeJoinCode(params.get('code'))
+  const inviteToken = normalizeInviteToken(params.get('inviteToken'))
   const [copyState, setCopyState] = useState<CopyState>('idle')
 
-  if (!code) {
+  if (!code || !inviteToken) {
+    const displayCode = code
+    const hasDisplayCode = Boolean(displayCode)
     return (
       <main className="join-page">
         <section className="join-card join-card-invalid" aria-labelledby="invalid-title">
@@ -43,10 +47,23 @@ export default function JoinPage() {
             <span>Cultivate Study</span>
           </div>
           <p className="join-eyebrow">Group invite</p>
-          <h1 id="invalid-title">This invite link isn’t valid</h1>
+          <h1 id="invalid-title">This invite link {hasDisplayCode ? 'is incomplete' : 'isn’t valid'}</h1>
           <p className="join-copy">
-            Ask your friend for a fresh Cultivate invite link or the six-character join code.
+            {hasDisplayCode
+              ? 'Ask your friend for a fresh Cultivate invite link. A secure invite link is required to open Cultivate.'
+              : 'Ask your friend for a fresh Cultivate invite link.'}
           </p>
+          {hasDisplayCode && (
+            <div className="join-code-panel">
+              <div>
+                <p className="join-label">Join code</p>
+                <p className="join-code" aria-label={`Join code ${displayCode}`}>{displayCode}</p>
+              </div>
+              <button className="join-copy-button" type="button" onClick={async () => setCopyState(await copyText(displayCode) ? 'copied' : 'failed')}>
+                {copyState === 'copied' ? 'Copied' : 'Copy Code'}
+              </button>
+            </div>
+          )}
           <a className="join-secondary-link" href="/">Return to Cultivate</a>
         </section>
       </main>
@@ -60,7 +77,7 @@ export default function JoinPage() {
   const handleOpen = () => {
     // Opening the installed app is always an explicit user action. The page
     // remains the fallback when the custom scheme is unavailable.
-    window.location.assign(buildPillarJoinUrl(code))
+    window.location.assign(buildPillarJoinUrl(code, inviteToken))
   }
 
   return (
