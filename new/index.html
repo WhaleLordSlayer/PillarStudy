@@ -1,14 +1,278 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="noindex, nofollow" />
-    <title>Cultivate Study — New Website Preview</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#07111f" />
+  <meta name="description" content="Cultivate Study is a modern scripture study experience for Latter-day Saints." />
+  <title>Cultivate Study — New Website Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+<div class="site-shell">
+  <section class="hero">
+    <div class="container">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand-lockup" href="#top" aria-label="Cultivate Study home">
+          <svg class="brand-mark" viewBox="0 0 320 320" role="img" aria-label="Cultivate Study logo">
+            <defs>
+              <linearGradient id="cultivate-gradient" x1="42" y1="46" x2="265" y2="270" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#08B3A9" />
+                <stop offset="1" stop-color="#18D2BC" />
+              </linearGradient>
+            </defs>
+            <path fill="url(#cultivate-gradient)" d="M158.7 39L134.5 42.1 112.5 49.5 90.3 62.3 74.3 76 57.7 97.2 48.5 115.6 41.9 139.6 40.3 161.5 43.1 185.8 50.3 207.5 62.5 228.9 76.8 245.2 98.8 261.6 119.2 271 140.4 276.6 167.4 278.1 195.5 273.6 220 263.6 243.4 247.8 262.3 227.9 263.1 224.8 261.3 221.8 247 211 243.2 210.8 225.1 229.4 208.2 241.1 187.3 250.1 168.9 253.1 168.9 222 170.2 209.8 174.5 194.4 183.7 177.1 192.7 165.9 207 152.9 220.7 144.4 230.9 140.4 212.1 155.2 197.3 171.2 185.8 190.4 182.2 201.6 195 201.6 208.7 198.8 219.7 194.4 233 186 245.2 173.5 255.4 156.9 261.8 137.3 263.3 111.5 261.8 111.3 248.5 111.5 229.9 114.8 206.4 124.5 190.4 136 177.6 150.3 168.9 165.6 162.6 185.3 159.2 205.4 150.3 180.4 145.7 173 137.5 164.3 129.1 158.5 118.4 153.9 107.4 151.6 97.7 151.3 98 163.3 101.3 176.6 106.4 186.8 113.6 195.2 119.4 199.6 127.8 203.4 135.5 204.9 144.9 204.4 142.6 197.5 135.8 187 117.4 170.2 133 177.6 141.6 185.5 146.5 192.2 150.8 201.1 153.6 213.6 154.1 253.1 143.4 252.1 130.1 248.5 115.6 242.2 105.4 235.8 88.5 220.7 79.4 208.2 70.2 188.6 66.3 171.7 65.8 151.6 69.2 133.5 76.8 114.8 87.3 99.3 98.8 87.5 113.3 77.1 127.6 70.2 145.5 65.3 164.6 64.1 187.3 67.9 202.6 74 222.8 87.5 227.6 85.7 240.4 73.2 239.6 69.7 230.4 61.8 218.7 54.1 205.4 47.7 184 41.3Z" />
+          </svg>
+          <span class="brand-name">Cultivate Study</span>
+        </a>
+        <div class="nav-links">
+          <a href="#study">Study</a>
+          <a href="#together">Study Spaces</a>
+          <a href="#practice">Mastery</a>
+          <a class="nav-cta" href="#beta">Join the beta</a>
+        </div>
+      </nav>
+
+      <div class="hero-grid" id="top">
+        <div class="hero-copy">
+          <span class="eyebrow">Cultivate Study · Closed beta</span>
+          <h1>Read deeply.<br>See the connections.<br>Study together.</h1>
+          <p>Cultivate is a modern scripture study experience for Latter-day Saints — bringing focused reading, connected study tools, practice, and shared study into one place.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#beta">Join the beta</a>
+            <a class="btn btn-secondary" href="#study">Explore Cultivate</a>
+          </div>
+          <div class="beta-note">Built independently for scripture study. Private notes stay private.</div>
+        </div>
+
+        <div class="device-stage" aria-label="Cultivate reader preview">
+          <div class="ipad">
+            <div class="screen reader-screen">
+              <aside class="mock-side">
+                <div class="tiny-title">Reading tools</div>
+                <div class="mock-list">
+                  <span></span><span></span><span class="active"></span><span></span><span></span><span></span>
+                </div>
+              </aside>
+              <main class="mock-reader">
+                <div class="mock-toolbar"></div>
+                <div class="mock-verse-label">● NEPHI₁</div>
+                <div class="mock-verse">And it came to pass that I beheld that the great mother of abominations did gather together multitudes upon the face of all the earth...</div>
+                <div class="story-pill">
+                  <small>Story · 4 of 6</small>
+                  <strong>The conflict between the two churches</strong>
+                  <div class="story-bars"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                </div>
+              </main>
+              <aside class="mock-panel">
+                <div class="tiny-title">Study</div>
+                <h4>1 Nephi 14:13</h4>
+                <div class="mock-tabs"><b>Connections</b><span>Notes</span><span>Explore</span></div>
+                <div class="related"><div></div><div></div><div></div><div></div></div>
+              </aside>
+            </div>
+          </div>
+          <div class="float-card">
+            <small>Connected study</small>
+            <strong>Related scriptures, right beside the text.</strong>
+            <p>Follow a connection without losing your place.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="study">
+    <div class="container">
+      <div class="section-heading">
+        <span class="kicker">One study environment</span>
+        <h2>Scripture is connected. Your study should be too.</h2>
+        <p>Cultivate keeps reading, discovery, personal study, and practice close to the text — so moving deeper does not mean bouncing between disconnected tools.</p>
+      </div>
+
+      <div class="product-row">
+        <div class="product-copy">
+          <span class="eyebrow" style="color:#4c897c">01 · Reader</span>
+          <h3>Built around scripture, not around screens.</h3>
+          <p>Read in a focused modern reader, then open the study tools you need without leaving the passage behind.</p>
+          <ul class="feature-list">
+            <li>Scroller and traditional reading modes</li>
+            <li>Notes, bookmarks, highlights, and your own scripture links</li>
+            <li>Related passages and study context beside the text on larger screens</li>
+          </ul>
+        </div>
+        <div class="app-shot" aria-label="Reader and study pane mockup">
+          <div class="screen reader-screen" style="border-radius:0">
+            <aside class="mock-side"><div class="tiny-title">Now reading</div><div class="mock-list"><span></span><span class="active"></span><span></span><span></span><span></span></div></aside>
+            <main class="mock-reader"><div class="mock-toolbar"></div><div class="mock-verse-label">● NEPHI₁</div><div class="mock-verse">And it came to pass that I beheld that the great mother of abominations did gather together multitudes upon the face of all the earth...</div><div class="story-pill"><small>Story</small><strong>The conflict between the two churches</strong><div class="story-bars"><i></i><i></i><i></i><i></i><i></i><i></i></div></div></main>
+            <aside class="mock-panel"><div class="tiny-title">Study</div><h4>1 Nephi 14:13</h4><div class="mock-tabs"><b>Connections</b><span>Notes</span><span>Explore</span></div><div class="related"><div></div><div></div><div></div><div></div></div></aside>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-row reverse">
+        <div class="product-copy">
+          <span class="eyebrow" style="color:#4c897c">02 · Explore</span>
+          <h3>Follow the connections without being told what to think.</h3>
+          <p>Cultivate connects passages to related scriptures, topics, people, places, events, and narrative context so you can explore the source material for yourself.</p>
+          <ul class="feature-list">
+            <li>Topical browsing built around scripture references</li>
+            <li>Explorer context for people, places, events, and story flow</li>
+            <li>Connections stay traceable back to the underlying scripture</li>
+          </ul>
+        </div>
+        <div class="app-shot topic-shot" aria-label="Topical guide mockup">
+          <aside class="topic-list">
+            <div class="segment"></div>
+            <h4>Jesus Christ &amp; the Atonement</h4>
+            <div class="topic-item">Advocate</div>
+            <div class="topic-item">Birth of Christ</div>
+            <div class="topic-item">Christ</div>
+            <div class="topic-item active">CHRIST'S REIGN ON EARTH</div>
+            <div class="topic-item">Coming of Christ</div>
+            <div class="topic-item">Justification</div>
+          </aside>
+          <main class="topic-main">
+            <span class="k">Topic</span>
+            <h4>CHRIST'S REIGN ON EARTH</h4>
+            <small>21 scriptures</small>
+            <div class="scripture-tab"></div>
+            <div class="scripture-lines">
+              <div><b>Isaiah 11:6</b><span>The wolf also shall dwell with the lamb, and the leopard shall lie down with the kid...</span></div>
+              <div><b>Isaiah 11:7</b><span>And the cow and the bear shall feed; their young ones shall lie down together...</span></div>
+              <div><b>Isaiah 11:9</b><span>The earth shall be full of the knowledge of the Lord, as the waters cover the sea.</span></div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark-section" id="together">
+    <div class="container">
+      <div class="section-heading">
+        <span class="kicker">Study Spaces</span>
+        <h2>Study together without making everything public.</h2>
+        <p>Families, friends, classes, and study groups can share a common reading experience while personal study remains personal.</p>
+      </div>
+
+      <div class="product-row">
+        <div class="product-copy">
+          <h3>Your people. Your pace. Your private notes.</h3>
+          <p>Study Spaces bring shared reading progress and deliberate sharing into Cultivate without turning your notebook into a social feed.</p>
+          <ul class="feature-list">
+            <li>Read together and see shared progress</li>
+            <li>Share a specific Shared Thought when you choose</li>
+            <li>Private notes remain private unless you explicitly share an entry</li>
+            <li>Built for families, friends, classes, and other study groups</li>
+          </ul>
+        </div>
+        <div class="spaces-card" aria-label="Study Space mockup">
+          <div class="spaces-top">
+            <div><span class="eyebrow">Family study</span><h3 style="margin:10px 0 0">Come, Follow Me</h3></div>
+            <div class="avatar-stack"><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="space-row"><div><strong>This week's reading</strong><small>Genesis 24–27</small></div><div class="progress-line"><i></i></div></div>
+          <div class="space-row"><div><strong>4 members active</strong><small>Shared progress updates quietly as everyone reads.</small></div><div style="color:#72d8cd">72%</div></div>
+          <div class="thought">
+            <div class="thought-head"><span>Shared Thought</span><span>Genesis 24:27</span></div>
+            <p>One thought from a private note can be shared with the group without exposing the rest of the note.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="practice">
+    <div class="container">
+      <div class="section-heading">
+        <span class="kicker">Mastery</span>
+        <h2>Remember the verses you want to carry with you.</h2>
+        <p>Practice selected passages with focused exercises, then see how your consistency and progress are growing over time.</p>
+      </div>
+
+      <div class="product-row">
+        <div class="product-copy">
+          <h3>Practice that asks you to recall, not just reread.</h3>
+          <p>Mastery turns the passages you choose into short practice sessions with different ways to rebuild and remember the text.</p>
+          <ul class="feature-list">
+            <li>Focused practice sets</li>
+            <li>Scramble-style recall exercises</li>
+            <li>A daily practice flow that keeps sessions manageable</li>
+          </ul>
+        </div>
+        <div class="app-shot mastery-shot" aria-label="Mastery practice mockup">
+          <div class="practice-card">
+            <span class="k">Today's practice · 3 of 5</span>
+            <h4>Abraham 2:9</h4>
+            <small>from Abraham 2:9–11</small>
+            <div class="answer-box"></div>
+            <div class="chips"><span>and I will bless thee above measure,</span><span>that in their hands they shall bear this ministry</span><span>And I will make of thee a great nation,</span><span>and thou shalt be a blessing</span></div>
+            <div class="check-bar"></div>
+          </div>
+          <aside class="practice-side"><span class="eyebrow" style="color:#789a80">Practice</span><b>3 of 5</b><div class="meta">THIS PASSAGE<br><strong>Abraham 2:9</strong></div><div class="meta">STATUS<br><strong>New</strong></div><div class="meta">MODE<br><strong>Auto · Scramble</strong></div></aside>
+        </div>
+      </div>
+
+      <div class="product-row reverse">
+        <div class="product-copy">
+          <h3>Gentle progress, not pressure.</h3>
+          <p>Cultivate can show the rhythm of your study without making scripture feel like a game you failed to play.</p>
+          <ul class="feature-list">
+            <li>Momentum that reflects recent consistency</li>
+            <li>Simple study-day rhythm instead of guilt-heavy streak pressure</li>
+            <li>Progress tied back to the passages and sets you are actually practicing</li>
+          </ul>
+        </div>
+        <div class="app-shot progress-shot" aria-label="Progress mockup">
+          <div class="momentum-card">
+            <span class="k">Your momentum</span>
+            <div class="momentum-flex"><div class="ring"><strong>43</strong></div><div><strong>Your routine is growing.</strong><p style="color:#78827f;margin:7px 0 0">A gentle signal of how your recent consistency is growing.</p></div></div>
+            <div class="rhythm"><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          </div>
+          <div class="today-card"><strong>Cultivate chose these for you.</strong><p>A few focused minutes make steady progress.</p></div>
+          <div class="today-card"><strong>Your sets</strong><p>Keep the passages you care about close and see what you have mastered.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:10px">
+    <div class="container">
+      <div class="section-heading">
+        <span class="kicker">Built differently</span>
+        <h2>A study tool should earn your trust.</h2>
+      </div>
+      <div class="principles">
+        <article class="principle"><span class="num">01 · PRIVATE BY DEFAULT</span><h3>Your personal study is yours.</h3><p>Notes and private study content are not exposed to a Study Space just because you choose to share one thought.</p></article>
+        <article class="principle"><span class="num">02 · CONNECTIONS, NOT ANSWERS</span><h3>Explore the evidence yourself.</h3><p>Cultivate is designed to connect scripture, context, and study data — not to replace your interpretation of the text.</p></article>
+        <article class="principle"><span class="num">03 · INDEPENDENT</span><h3>Built as a project worth supporting.</h3><p>Cultivate Study is independently developed and is not an official product of The Church of Jesus Christ of Latter-day Saints.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta" id="beta">
+    <div class="container">
+      <span class="eyebrow">Closed beta</span>
+      <h2>Help shape the next version of Cultivate.</h2>
+      <p>Cultivate is actively being built and tested. If this is the kind of scripture study experience you have been looking for, I would love to have you along for the beta.</p>
+      <a class="btn btn-primary" href="mailto:cultivatestudy@gmail.com?subject=Cultivate%20Study%20Beta">Ask to join the beta</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <strong style="color:white">Cultivate Study</strong>
+        <div class="disclaimer">Cultivate Study is an independent application and is not affiliated with, officially supported by, or endorsed by The Church of Jesus Christ of Latter-day Saints.</div>
+      </div>
+      <div class="footer-links"><a href="/privacy/">Privacy</a><a href="mailto:cultivatestudy@gmail.com">Contact</a></div>
+    </div>
+  </footer>
+</div>
+</body>
 </html>
