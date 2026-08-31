@@ -14,6 +14,7 @@ export default defineConfig({
         main: resolve(projectRoot, 'index.html'),
         join: resolve(projectRoot, 'join/index.html'),
         privacy: resolve(projectRoot, 'privacy/index.html'),
+        new: resolve(projectRoot, 'new/index.html'),
       },
     },
   },
