@@ -12,6 +12,12 @@
       <h1>Book of Mormon Graph QA</h1>
       <span class="pill">Read-only internal viewer</span>
       <span class="pill muted" id="meta-counts">Loading graph…</span>
+      <div class="build-badge" id="build-badge" title="VIEW-001 Build Identity">
+        <span class="badge-label">Build</span>
+        <span class="badge-item" id="build-time"></span>
+        <span class="badge-item" id="build-commit"></span>
+        <span class="badge-item" id="build-hash"></span>
+      </div>
     </div>
     <div class="search-wrap">
       <input id="search-input" class="search" type="search" placeholder="Search name, alias, or ID  (press /)" autocomplete="off">
@@ -22,16 +28,18 @@
         <select id="hop-depth">
           <option value="1" selected>1 hop</option>
           <option value="2">2 hops</option>
+          <option value="3">3 hops</option>
         </select>
       </label>
       <button id="btn-fit" type="button">Fit</button>
       <button id="btn-recenter" type="button">Recenter</button>
       <button id="btn-path" type="button">Find path</button>
       <button id="btn-reset" type="button">Reset</button>
+      <button id="btn-toggle-filters" class="btn-mobile-only" type="button">Filters ⚙️</button>
     </div>
   </header>
 
-  <section class="filters">
+  <section class="filters" id="filters-bar">
     <div class="filter-group">
       <span class="filter-label">Nodes</span>
       <label class="chk"><input type="checkbox" data-node-type="PERSON" checked> People</label>
@@ -43,12 +51,26 @@
       <label class="chk optional"><input type="checkbox" data-node-type="VERSE"> Verses</label>
     </div>
     <div class="filter-group">
+      <span class="filter-label">People Scope</span>
+      <label class="chk"><input type="checkbox" data-people-filter="MVP_MAJOR" checked> Major</label>
+      <label class="chk"><input type="checkbox" data-people-filter="MVP_SUPPORTING" checked> Supporting</label>
+      <label class="chk"><input type="checkbox" data-people-filter="RESOLVED" checked> Resolved</label>
+      <label class="chk"><input type="checkbox" data-people-filter="CROSSWALK_REVIEW" checked> Review</label>
+      <label class="chk optional"><input type="checkbox" data-people-filter="DEFERRED"> Include Deferred</label>
+    </div>
+    <div class="filter-group">
       <span class="filter-label">Edges</span>
       <label class="chk"><input type="checkbox" data-edge-class="canonical" checked> Canonical</label>
-      <label class="chk"><input type="checkbox" data-edge-class="context" checked> Context</label>
+      <label class="chk optional"><input type="checkbox" data-edge-class="context"> Context</label>
       <label class="chk optional"><input type="checkbox" data-edge-class="provenance"> Provenance</label>
-      <label class="chk optional"><input type="checkbox" data-edge-class="advisory"> Advisory</label>
+      <label class="chk optional"><input type="checkbox" data-edge-class="advisory"> Advisory / Candidate</label>
       <label class="chk optional"><input type="checkbox" data-edge-class="attribution"> Speaker / narrator</label>
+    </div>
+    <div class="filter-group">
+      <span class="filter-label">Secondary Edges</span>
+      <label class="chk"><input type="radio" name="secondary-mode" value="dim" checked> Dim</label>
+      <label class="chk"><input type="radio" name="secondary-mode" value="hide"> Hide</label>
+      <label class="chk"><input type="radio" name="secondary-mode" value="show"> Show</label>
     </div>
   </section>
 
@@ -65,6 +87,9 @@
           <marker id="arrow-canonical" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
             <path d="M 0 0 L 10 5 L 0 10 z" fill="#34d399"></path>
           </marker>
+          <marker id="arrow-canonical-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(52, 211, 153, 0.3)"></path>
+          </marker>
           <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
             <rect width="6" height="6" fill="#0b1220"></rect>
             <line x1="0" y1="0" x2="0" y2="6" stroke="#64748b" stroke-width="2"></line>
@@ -76,20 +101,26 @@
         </g>
       </svg>
       <aside class="legend" id="legend">
-        <h3>Legend</h3>
-        <div class="legend-row"><svg width="28" height="18"><circle cx="9" cy="9" r="7" class="lg-person"></circle></svg> Person</div>
-        <div class="legend-row"><svg width="28" height="18"><polygon points="9,2 16,6.5 16,13.5 9,18 2,13.5 2,6.5" class="lg-group"></polygon></svg> Group</div>
-        <div class="legend-row"><svg width="28" height="18"><rect x="2" y="3" width="14" height="12" rx="3" class="lg-place"></rect></svg> Place</div>
-        <div class="legend-row"><svg width="28" height="18"><polygon points="9,2 16,9 9,16 2,9" class="lg-event"></polygon></svg> Event</div>
-        <div class="legend-row"><span class="edge-swatch solid"></span> Canonical claim</div>
-        <div class="legend-row"><span class="edge-swatch dashed"></span> Context / occurrence</div>
-        <div class="legend-row muted"><span class="edge-swatch dotted"></span> Provenance (off)</div>
-        <div class="legend-row muted"><span class="edge-swatch dashdot"></span> Advisory (off)</div>
-        <div class="legend-row muted"><span class="edge-swatch attribution"></span> Speaker / narrator (off)</div>
-        <p class="legend-note">Context is exact-mention co-occurrence, not membership.</p>
-        <p class="legend-note">Speaker/narrator attribution is not historical presence.</p>
-        <p class="legend-note">Position is not time or map.</p>
+        <div class="legend-header">
+          <h3>Legend</h3>
+          <button id="btn-toggle-legend" class="btn-icon" type="button" aria-label="Toggle Legend">✕</button>
+        </div>
+        <div id="legend-body">
+          <div class="legend-row"><svg width="28" height="18"><circle cx="9" cy="9" r="7" class="lg-person"></circle></svg> Person</div>
+          <div class="legend-row"><svg width="28" height="18"><polygon points="9,2 16,6.5 16,13.5 9,18 2,13.5 2,6.5" class="lg-group"></polygon></svg> Group</div>
+          <div class="legend-row"><svg width="28" height="18"><rect x="2" y="3" width="14" height="12" rx="3" class="lg-place"></rect></svg> Place</div>
+          <div class="legend-row"><svg width="28" height="18"><polygon points="9,2 16,9 9,16 2,9" class="lg-event"></polygon></svg> Event</div>
+          <div class="legend-row"><span class="edge-swatch solid"></span> Canonical claim</div>
+          <div class="legend-row"><span class="edge-swatch dashed"></span> Context / occurrence</div>
+          <div class="legend-row muted"><span class="edge-swatch dotted"></span> Provenance (off)</div>
+          <div class="legend-row muted"><span class="edge-swatch dashdot"></span> Advisory (off)</div>
+          <div class="legend-row muted"><span class="edge-swatch attribution"></span> Speaker / narrator (off)</div>
+          <p class="legend-note">Context is exact-mention co-occurrence, not membership.</p>
+          <p class="legend-note">Speaker/narrator attribution is not historical presence.</p>
+          <p class="legend-note">Position is not time or map.</p>
+        </div>
       </aside>
+      <button id="btn-show-legend" class="btn-legend-toggle" type="button" hidden>Legend ℹ️</button>
       <div class="hud" id="hud"></div>
       <div class="zoom-controls">
         <button id="btn-zoom-in" type="button">+</button>
@@ -98,15 +129,19 @@
       </div>
     </main>
     <aside class="inspector" id="inspector">
-      <div class="inspector-tabs">
-        <button class="tab active" data-tab="node" type="button">Node</button>
-        <button class="tab" data-tab="edge" type="button">Edge</button>
-        <button class="tab" data-tab="evidence" type="button">Evidence</button>
+      <div class="inspector-header">
+        <div class="inspector-tabs">
+          <button class="tab active" data-tab="node" type="button">Node</button>
+          <button class="tab" data-tab="edge" type="button">Edge</button>
+          <button class="tab" data-tab="evidence" type="button">Evidence</button>
+        </div>
+        <button id="btn-toggle-inspector" class="btn-icon" type="button" title="Close Inspector">✕</button>
       </div>
       <div id="insp-node" class="tab-body"></div>
       <div id="insp-edge" class="tab-body" hidden></div>
       <div id="insp-evidence" class="tab-body" hidden></div>
     </aside>
+    <button id="btn-show-inspector" class="btn-inspector-toggle" type="button" hidden>Inspector 📋</button>
   </div>
 
   <footer class="footer">
