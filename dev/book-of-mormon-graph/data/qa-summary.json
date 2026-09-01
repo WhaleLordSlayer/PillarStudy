@@ -1,0 +1,616 @@
+{
+  "advisory_edge_count": 95,
+  "attribution_edge_count": 585,
+  "canonical_edge_count": 14,
+  "edge_counts_by_class": {
+    "advisory": 95,
+    "attribution": 585,
+    "canonical": 14,
+    "context": 1069,
+    "provenance": 276
+  },
+  "edge_counts_by_type": {
+    "biblical_parallel": 1,
+    "canonical_claim_evidence": 24,
+    "collective_subdivision_variant": 2,
+    "determiner_variant": 4,
+    "dynastic_variant": 1,
+    "ecclesiastical_institution_variant": 1,
+    "entity_source_provenance": 207,
+    "event_secondary_verse_span": 45,
+    "exact_duplicate_candidate": 3,
+    "exact_event_group_source_containment": 156,
+    "faction_subset_variant": 1,
+    "father_of": 1,
+    "group_occurrence_event_context": 369,
+    "historical_biblical_variant": 1,
+    "institution_member_variant": 1,
+    "lexical_variant": 13,
+    "military_coalition_variant": 1,
+    "military_collective_variant": 5,
+    "military_faction_variant": 1,
+    "military_population_variant": 2,
+    "military_synonym": 1,
+    "morphological_variant": 1,
+    "name_variant": 1,
+    "orthographic_variant": 2,
+    "parent_of": 8,
+    "patronymic_variant": 1,
+    "phrasal_demonym_variant": 4,
+    "phrasal_variant": 10,
+    "population_military_variant": 4,
+    "scripture_same_verse": 544,
+    "sibling_of": 5,
+    "singular_plural_variant": 10,
+    "source_attested_renaming": 1,
+    "speaker_narrator_attribution": 585,
+    "theological_equivalent": 4,
+    "title_variant": 3,
+    "weak_identity_review_candidate": 16
+  },
+  "empty_default_neighborhood_primary_count": 700,
+  "empty_neighborhood_primary_count": 450,
+  "exact_mention_context_edge_count": 544,
+  "expansion_cap": 24,
+  "graph_sha256": "1af8dfd40521a93898e19be0c9d4ab045ac88d000639ab243ce4483b9e19bd4c",
+  "high_degree_seed_examples": {
+    "lamanites": {
+      "default_neighbor_count": 197,
+      "display_name": "Lamanites",
+      "expansion_cap": 24,
+      "hidden_remainder_count": 173,
+      "id": "group:000078",
+      "initial_visible_count": 24,
+      "initial_visible_ids": [
+        "group:000086",
+        "event:000134",
+        "event:000091",
+        "event:000084",
+        "event:000103",
+        "event:000181",
+        "event:000072",
+        "event:000246",
+        "event:000323",
+        "place:000167",
+        "place:000244",
+        "group:000028",
+        "event:000288",
+        "event:000362",
+        "event:000365",
+        "group:000116",
+        "event:000012",
+        "event:000036",
+        "event:000192",
+        "event:000301",
+        "event:000373",
+        "event:000002",
+        "event:000197",
+        "event:000237"
+      ]
+    },
+    "nephites": {
+      "default_neighbor_count": 152,
+      "display_name": "Nephites",
+      "expansion_cap": 24,
+      "hidden_remainder_count": 128,
+      "id": "group:000086",
+      "initial_visible_count": 24,
+      "initial_visible_ids": [
+        "group:000078",
+        "event:000256",
+        "event:000363",
+        "event:000091",
+        "event:000012",
+        "event:000002",
+        "event:000197",
+        "event:000237",
+        "group:000029",
+        "group:000122",
+        "event:000288",
+        "event:000362",
+        "event:000365",
+        "place:000244",
+        "event:000103",
+        "event:000181",
+        "group:000135",
+        "group:000116",
+        "event:000072",
+        "group:000007",
+        "event:000175",
+        "event:000423",
+        "event:000134",
+        "event:000331"
+      ]
+    }
+  },
+  "node_counts_by_type": {
+    "EVENT": 453,
+    "EVIDENCE": 24,
+    "GROUP": 135,
+    "PERSON": 207,
+    "PLACE": 279,
+    "SOURCE": 9,
+    "VERSE": 45
+  },
+  "qa_examples": {
+    "armies_of_the_lamanites": {
+      "by_edge_class": {
+        "advisory": 3,
+        "attribution": 3,
+        "context": 35
+      },
+      "by_relationship_type": {
+        "group_occurrence_event_context": 9,
+        "military_synonym": 1,
+        "population_military_variant": 1,
+        "scripture_same_verse": 26,
+        "singular_plural_variant": 1,
+        "speaker_narrator_attribution": 3
+      },
+      "default_neighbor_count": 35,
+      "default_visible_degree": 35,
+      "degree": 41,
+      "display_name": "the armies of the Lamanites",
+      "exact_mention_edge_count": 26,
+      "id": "group:000028",
+      "neighbor_count": 40,
+      "speaker_narrator_edge_count": 3,
+      "type": "GROUP"
+    },
+    "armies_of_the_nephites": {
+      "by_edge_class": {
+        "advisory": 3,
+        "attribution": 1,
+        "context": 23
+      },
+      "by_relationship_type": {
+        "exact_event_group_source_containment": 1,
+        "group_occurrence_event_context": 8,
+        "lexical_variant": 1,
+        "population_military_variant": 1,
+        "scripture_same_verse": 14,
+        "singular_plural_variant": 1,
+        "speaker_narrator_attribution": 1
+      },
+      "default_neighbor_count": 23,
+      "default_visible_degree": 23,
+      "degree": 27,
+      "display_name": "armies of the Nephites",
+      "exact_mention_edge_count": 14,
+      "id": "group:000029",
+      "neighbor_count": 26,
+      "speaker_narrator_edge_count": 1,
+      "type": "GROUP"
+    },
+    "battle_at_riplah": {
+      "by_edge_class": {
+        "context": 16,
+        "provenance": 1
+      },
+      "by_relationship_type": {
+        "event_secondary_verse_span": 1,
+        "group_occurrence_event_context": 16
+      },
+      "default_neighbor_count": 16,
+      "default_visible_degree": 16,
+      "degree": 17,
+      "display_name": "The Battle At Riplah",
+      "exact_mention_edge_count": 0,
+      "id": "event:000091",
+      "neighbor_count": 17,
+      "speaker_narrator_edge_count": 0,
+      "type": "EVENT"
+    },
+    "captain_moroni": {
+      "by_edge_class": {
+        "provenance": 1
+      },
+      "by_relationship_type": {
+        "entity_source_provenance": 1
+      },
+      "default_neighbor_count": 0,
+      "default_visible_degree": 0,
+      "degree": 1,
+      "display_name": "Captain Moroni",
+      "exact_mention_edge_count": 0,
+      "id": "person:000189",
+      "neighbor_count": 1,
+      "speaker_narrator_edge_count": 0,
+      "type": "PERSON"
+    },
+    "christ_appears_bountiful": {
+      "by_edge_class": {
+        "context": 1,
+        "provenance": 1
+      },
+      "by_relationship_type": {
+        "event_secondary_verse_span": 1,
+        "group_occurrence_event_context": 1
+      },
+      "default_neighbor_count": 1,
+      "default_visible_degree": 1,
+      "degree": 2,
+      "display_name": "Christ Appears In The Land Bountiful",
+      "exact_mention_edge_count": 0,
+      "id": "event:000419",
+      "neighbor_count": 2,
+      "speaker_narrator_edge_count": 0,
+      "type": "EVENT"
+    },
+    "cumorah_hill": {
+      "by_edge_class": {
+        "attribution": 1,
+        "context": 2
+      },
+      "by_relationship_type": {
+        "scripture_same_verse": 2,
+        "speaker_narrator_attribution": 1
+      },
+      "default_neighbor_count": 2,
+      "default_visible_degree": 2,
+      "degree": 3,
+      "display_name": "cumorah",
+      "exact_mention_edge_count": 2,
+      "id": "place:000150",
+      "neighbor_count": 3,
+      "speaker_narrator_edge_count": 1,
+      "type": "PLACE"
+    },
+    "cumorah_land": {
+      "by_edge_class": {
+        "attribution": 1,
+        "context": 2
+      },
+      "by_relationship_type": {
+        "scripture_same_verse": 2,
+        "speaker_narrator_attribution": 1
+      },
+      "default_neighbor_count": 2,
+      "default_visible_degree": 2,
+      "degree": 3,
+      "display_name": "cumorah",
+      "exact_mention_edge_count": 2,
+      "id": "place:000024",
+      "neighbor_count": 3,
+      "speaker_narrator_edge_count": 1,
+      "type": "PLACE"
+    },
+    "jesus_appears_bountiful": {
+      "by_edge_class": {},
+      "by_relationship_type": {},
+      "default_neighbor_count": 0,
+      "default_visible_degree": 0,
+      "degree": 0,
+      "display_name": "Jesus appears to the people in the land Bountiful",
+      "exact_mention_edge_count": 0,
+      "id": "event:000292",
+      "neighbor_count": 0,
+      "speaker_narrator_edge_count": 0,
+      "type": "EVENT"
+    },
+    "lamanites": {
+      "by_edge_class": {
+        "advisory": 2,
+        "attribution": 23,
+        "context": 197
+      },
+      "by_relationship_type": {
+        "exact_event_group_source_containment": 54,
+        "group_occurrence_event_context": 37,
+        "phrasal_variant": 1,
+        "population_military_variant": 1,
+        "scripture_same_verse": 106,
+        "speaker_narrator_attribution": 23
+      },
+      "default_neighbor_count": 197,
+      "default_visible_degree": 197,
+      "degree": 222,
+      "display_name": "Lamanites",
+      "exact_mention_edge_count": 106,
+      "id": "group:000078",
+      "neighbor_count": 220,
+      "speaker_narrator_edge_count": 23,
+      "type": "GROUP"
+    },
+    "mormon": {
+      "by_edge_class": {
+        "attribution": 210,
+        "provenance": 1
+      },
+      "by_relationship_type": {
+        "entity_source_provenance": 1,
+        "speaker_narrator_attribution": 210
+      },
+      "default_neighbor_count": 0,
+      "default_visible_degree": 0,
+      "degree": 211,
+      "display_name": "Mormon",
+      "exact_mention_edge_count": 0,
+      "id": "person:000200",
+      "neighbor_count": 211,
+      "speaker_narrator_edge_count": 210,
+      "type": "PERSON"
+    },
+    "nephites": {
+      "by_edge_class": {
+        "advisory": 4,
+        "attribution": 21,
+        "context": 152
+      },
+      "by_relationship_type": {
+        "ecclesiastical_institution_variant": 1,
+        "exact_event_group_source_containment": 58,
+        "group_occurrence_event_context": 31,
+        "phrasal_variant": 2,
+        "population_military_variant": 1,
+        "scripture_same_verse": 63,
+        "speaker_narrator_attribution": 21
+      },
+      "default_neighbor_count": 152,
+      "default_visible_degree": 152,
+      "degree": 177,
+      "display_name": "Nephites",
+      "exact_mention_edge_count": 63,
+      "id": "group:000086",
+      "neighbor_count": 174,
+      "speaker_narrator_edge_count": 21,
+      "type": "GROUP"
+    },
+    "people_of_ammon": {
+      "by_edge_class": {
+        "advisory": 2,
+        "attribution": 2,
+        "context": 24
+      },
+      "by_relationship_type": {
+        "group_occurrence_event_context": 8,
+        "lexical_variant": 1,
+        "scripture_same_verse": 16,
+        "source_attested_renaming": 1,
+        "speaker_narrator_attribution": 2
+      },
+      "default_neighbor_count": 24,
+      "default_visible_degree": 24,
+      "degree": 28,
+      "display_name": "the people of Ammon",
+      "exact_mention_edge_count": 16,
+      "id": "group:000093",
+      "neighbor_count": 27,
+      "speaker_narrator_edge_count": 2,
+      "type": "GROUP"
+    },
+    "people_of_anti_nephi_lehi": {
+      "by_edge_class": {
+        "advisory": 1,
+        "attribution": 1,
+        "context": 14
+      },
+      "by_relationship_type": {
+        "exact_event_group_source_containment": 3,
+        "group_occurrence_event_context": 3,
+        "phrasal_variant": 1,
+        "scripture_same_verse": 8,
+        "speaker_narrator_attribution": 1
+      },
+      "default_neighbor_count": 14,
+      "default_visible_degree": 14,
+      "degree": 16,
+      "display_name": "The people of Anti-Nephi-Lehi",
+      "exact_mention_edge_count": 8,
+      "id": "group:000096",
+      "neighbor_count": 15,
+      "speaker_narrator_edge_count": 1,
+      "type": "GROUP"
+    },
+    "title_of_liberty": {
+      "by_edge_class": {},
+      "by_relationship_type": {},
+      "default_neighbor_count": 0,
+      "default_visible_degree": 0,
+      "degree": 0,
+      "display_name": "Moroni raises Title of Liberty and people rally",
+      "exact_mention_edge_count": 0,
+      "id": "event:000122",
+      "neighbor_count": 0,
+      "speaker_narrator_edge_count": 0,
+      "type": "EVENT"
+    },
+    "zarahemla_city": {
+      "by_edge_class": {
+        "attribution": 7,
+        "context": 9
+      },
+      "by_relationship_type": {
+        "scripture_same_verse": 9,
+        "speaker_narrator_attribution": 7
+      },
+      "default_neighbor_count": 9,
+      "default_visible_degree": 9,
+      "degree": 16,
+      "display_name": "zarahemla",
+      "exact_mention_edge_count": 9,
+      "id": "place:000253",
+      "neighbor_count": 16,
+      "speaker_narrator_edge_count": 7,
+      "type": "PLACE"
+    },
+    "zarahemla_land": {
+      "by_edge_class": {
+        "attribution": 9,
+        "context": 36
+      },
+      "by_relationship_type": {
+        "scripture_same_verse": 36,
+        "speaker_narrator_attribution": 9
+      },
+      "default_neighbor_count": 36,
+      "default_visible_degree": 36,
+      "degree": 45,
+      "display_name": "zarahemla",
+      "exact_mention_edge_count": 36,
+      "id": "place:000244",
+      "neighbor_count": 45,
+      "speaker_narrator_edge_count": 9,
+      "type": "PLACE"
+    }
+  },
+  "read_only": true,
+  "schema_version": "VIEW-001-graph-v1",
+  "secondary_bounded_event_count": 59,
+  "source_only_event_count": 394,
+  "speaker_narrator_edge_count": 585,
+  "top_default_degree": [
+    {
+      "default_neighbor_count": 197,
+      "display_name": "Lamanites",
+      "id": "group:000078"
+    },
+    {
+      "default_neighbor_count": 152,
+      "display_name": "Nephites",
+      "id": "group:000086"
+    },
+    {
+      "default_neighbor_count": 59,
+      "display_name": "the people of Nephi",
+      "id": "group:000116"
+    },
+    {
+      "default_neighbor_count": 36,
+      "display_name": "zarahemla",
+      "id": "place:000244"
+    },
+    {
+      "default_neighbor_count": 35,
+      "display_name": "the armies of the Lamanites",
+      "id": "group:000028"
+    },
+    {
+      "default_neighbor_count": 30,
+      "display_name": "church of God",
+      "id": "group:000046"
+    },
+    {
+      "default_neighbor_count": 28,
+      "display_name": "Zoramites",
+      "id": "group:000135"
+    },
+    {
+      "default_neighbor_count": 27,
+      "display_name": "people of the Lord",
+      "id": "group:000121"
+    },
+    {
+      "default_neighbor_count": 26,
+      "display_name": "nephi",
+      "id": "place:000167"
+    },
+    {
+      "default_neighbor_count": 24,
+      "display_name": "the people of Ammon",
+      "id": "group:000093"
+    },
+    {
+      "default_neighbor_count": 23,
+      "display_name": "armies of the Nephites",
+      "id": "group:000029"
+    },
+    {
+      "default_neighbor_count": 23,
+      "display_name": "The people of the Lamanites",
+      "id": "group:000120"
+    },
+    {
+      "default_neighbor_count": 21,
+      "display_name": "the people of the Nephites",
+      "id": "group:000122"
+    },
+    {
+      "default_neighbor_count": 20,
+      "display_name": "Amalekites",
+      "id": "group:000004"
+    },
+    {
+      "default_neighbor_count": 19,
+      "display_name": "Amlicites",
+      "id": "group:000007"
+    }
+  ],
+  "top_degree": [
+    {
+      "degree": 222,
+      "display_name": "Lamanites",
+      "id": "group:000078"
+    },
+    {
+      "degree": 211,
+      "display_name": "Mormon",
+      "id": "person:000200"
+    },
+    {
+      "degree": 177,
+      "display_name": "Nephites",
+      "id": "group:000086"
+    },
+    {
+      "degree": 98,
+      "display_name": "Cultivate-derived Hilton/Hopkin speaker artifacts",
+      "id": "src:cultivate-hilton-hopkin-speakers-derived"
+    },
+    {
+      "degree": 74,
+      "display_name": "A Dictionary of the Book of Mormon",
+      "id": "src:reynolds-1891-dictionary"
+    },
+    {
+      "degree": 70,
+      "display_name": "the people of Nephi",
+      "id": "group:000116"
+    },
+    {
+      "degree": 55,
+      "display_name": "Moroni",
+      "id": "person:000082"
+    },
+    {
+      "degree": 45,
+      "display_name": "zarahemla",
+      "id": "place:000244"
+    },
+    {
+      "degree": 44,
+      "display_name": "The Lord",
+      "id": "person:000179"
+    },
+    {
+      "degree": 41,
+      "display_name": "the armies of the Lamanites",
+      "id": "group:000028"
+    },
+    {
+      "degree": 39,
+      "display_name": "church of God",
+      "id": "group:000046"
+    },
+    {
+      "degree": 39,
+      "display_name": "Nephi",
+      "id": "person:000038"
+    },
+    {
+      "degree": 37,
+      "display_name": "people of the Lord",
+      "id": "group:000121"
+    },
+    {
+      "degree": 35,
+      "display_name": "Jesus Christ",
+      "id": "person:000195"
+    },
+    {
+      "degree": 35,
+      "display_name": "nephi",
+      "id": "place:000167"
+    }
+  ]
+}

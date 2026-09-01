@@ -7,706 +7,123 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header Bar -->
-  <header class="header-bar">
-    <div class="header-top">
-      <div class="header-title-area">
-        <h1 class="header-title">Book of Mormon Graph QA</h1>
-        <span class="badge-milestone">Read-only internal viewer</span>
-        <span class="badge badge-neutral" id="meta-counts-badge">Loading bundle...</span>
-      </div>
-      <div style="display: flex; gap: 8px; align-items: center;">
-        <nav class="header-nav">
-          <button class="nav-tab active" data-tab="browser">1. Entity Browser</button>
-          <button class="nav-tab" data-tab="inspector">2. Entity Inspector</button>
-          <button class="nav-tab" data-tab="compare">3. Side-by-side Compare</button>
-          <button class="nav-tab" data-tab="connections">4. Connection Inspector</button>
-        </nav>
-      </div>
+  <header class="topbar">
+    <div class="brand">
+      <h1>Book of Mormon Graph QA</h1>
+      <span class="pill">Read-only internal viewer</span>
+      <span class="pill muted" id="meta-counts">Loading graph…</span>
     </div>
-
-    <!-- Review Progress Strip (Hidden in Read-Only Mode) -->
-    <div class="review-progress-bar" style="display: none;">
-      <div class="review-progress-items">
-        <div class="progress-item">
-          <span class="progress-label">Entities Reviewed:</span>
-          <span class="progress-val" id="prog-entities">0 / 1074</span>
-        </div>
-        <div class="progress-item">
-          <span class="progress-label">Connections Reviewed:</span>
-          <span class="progress-val" id="prog-connections">0 / 1285</span>
-        </div>
-        <div class="progress-item">
-          <span class="progress-label">Suspected Duplicates:</span>
-          <span class="progress-val" id="prog-duplicates" style="color: #fbbf24;">0</span>
-        </div>
-        <div class="progress-item">
-          <span class="progress-label">Should Not Surface:</span>
-          <span class="progress-val" id="prog-suppress" style="color: #f87171;">0</span>
-        </div>
-        <div class="progress-item">
-          <span class="progress-label">PM Flagged:</span>
-          <span class="progress-val" id="prog-pm" style="color: #f87171;">🚩 0</span>
-        </div>
-      </div>
-      <div style="font-size: 11px; color: var(--text-muted);">
-        Snapshot: <code style="color: #38bdf8;">qa-bundle.json</code> (Read-Only)
-      </div>
+    <div class="search-wrap">
+      <input id="search-input" class="search" type="search" placeholder="Search name, alias, or ID  (press /)" autocomplete="off">
+      <div id="search-results" class="search-results" hidden></div>
     </div>
-    
-    <!-- Presets Bar -->
-    <div class="presets-bar" id="presets-bar">
-      <span class="presets-label">Flagship QA Presets:</span>
-      <!-- Dynamic preset pills inserted by app.js -->
+    <div class="toolbar">
+      <label>Hops
+        <select id="hop-depth">
+          <option value="1" selected>1 hop</option>
+          <option value="2">2 hops</option>
+        </select>
+      </label>
+      <button id="btn-fit" type="button">Fit</button>
+      <button id="btn-recenter" type="button">Recenter</button>
+      <button id="btn-path" type="button">Find path</button>
+      <button id="btn-reset" type="button">Reset</button>
     </div>
   </header>
 
-  <!-- Main Container -->
-  <main class="container">
-    <!-- TAB 1: ENTITY BROWSER -->
-    <section id="pane-browser" class="tab-pane active">
-      <div class="controls-bar">
-        <input type="text" id="browser-search" class="input" placeholder="Search name, alias, stable ID (e.g. group:000078, Lamanites, Amnihu)..." style="flex: 2; min-width: 250px;">
-        
-        <select id="browser-type-filter" class="select">
-          <option value="all">All Entity Types</option>
-          <option value="person">Person</option>
-          <option value="place">Place</option>
-          <option value="group">Group</option>
-          <option value="event">Event</option>
-        </select>
-
-        <select id="browser-status-filter" class="select">
-          <option value="all">All Evidence Types</option>
-          <option value="scripture">Scripture-Backed Only</option>
-          <option value="speaker">Speaker Attribution Only</option>
-          <option value="source_only">Source/Chronology-Only</option>
-        </select>
-
-        <!-- Review Queue / Filter -->
-        <select id="browser-review-filter" class="select">
-          <option value="all">All Review States</option>
-          <option value="unreviewed">Unreviewed Only</option>
-          <option value="reviewed">Reviewed Only</option>
-          <option value="pm_flagged">🚩 Flagged for PM Review</option>
-          <option value="Healthy">Healthy</option>
-          <option value="Suspected duplicate">Suspected Duplicate</option>
-          <option value="Source artifact">Source Artifact</option>
-          <option value="Generic unnamed reference">Generic Unnamed Reference</option>
-          <option value="Event-bounded distinct entity">Event-Bounded Distinct</option>
-          <option value="Ambiguous">Ambiguous</option>
-          <option value="hide_recommended">Hide Recommended</option>
-          <option value="presentation_issues">Presentation Issues Flagged</option>
-        </select>
-
-        <select id="browser-sort" class="select">
-          <option value="name_asc">Sort: Name (A-Z)</option>
-          <option value="id_asc">Sort: ID (Asc)</option>
-          <option value="scripture_desc">Sort: Scripture Passages (High-Low)</option>
-          <option value="derived_desc">Sort: Derived Neighbors (High-Low)</option>
-          <option value="canonical_desc">Sort: Canonical Relations (High-Low)</option>
-        </select>
-        
-        <button id="browser-reset-btn" class="btn btn-sm">Reset</button>
-      </div>
-
-      <!-- Stats Grid -->
-      <div class="stats-grid" id="browser-stats-grid">
-        <div class="stat-box">
-          <div class="stat-label">Matching Entities</div>
-          <div class="stat-val" id="stat-total-matching">0</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-label">People</div>
-          <div class="stat-val" id="stat-people-count">0</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-label">Places</div>
-          <div class="stat-val" id="stat-places-count">0</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-label">Groups</div>
-          <div class="stat-val" id="stat-groups-count">0</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-label">Events</div>
-          <div class="stat-val" id="stat-events-count">0</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-label">Scripture-Backed</div>
-          <div class="stat-val" id="stat-scripture-count" style="color: #4ade80;">0</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-label">Source/Chron-Only</div>
-          <div class="stat-val" id="stat-sourceonly-count" style="color: #f87171;">0</div>
-        </div>
-      </div>
-
-      <!-- Entity Table -->
-      <div class="table-wrapper">
-        <table class="qa-table" id="browser-table">
-          <thead>
-            <tr>
-              <th>Stable ID</th>
-              <th>Type</th>
-              <th>Display Name & Aliases</th>
-              <th>Scripture Passages</th>
-              <th>First & Last Scripture Locator</th>
-              <th>Neighbors</th>
-              <th>Evidence Status</th>
-              <th>Review State</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody id="browser-table-body">
-            <tr><td colspan="9" style="text-align: center; color: var(--text-muted);">Loading entities...</td></tr>
-          </tbody>
-        </table>
-      </div>
-      
-      <div class="pagination-bar">
-        <div id="browser-page-info">Showing 0 of 0</div>
-        <div style="display: flex; gap: 8px;">
-          <button id="browser-prev-btn" class="btn btn-sm">Previous</button>
-          <button id="browser-next-btn" class="btn btn-sm">Next</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- TAB 2: ENTITY INSPECTOR -->
-    <section id="pane-inspector" class="tab-pane">
-      <div class="controls-bar">
-        <label style="font-weight: 600;">Select Entity to Inspect:</label>
-        <input type="text" id="inspector-entity-input" list="entities-datalist" class="input" placeholder="Type entity name or ID..." style="flex: 2; min-width: 250px;">
-        <datalist id="entities-datalist"></datalist>
-        <button id="inspector-load-btn" class="btn btn-primary">Inspect</button>
-        <button id="inspector-review-btn" class="btn btn-review">✏️ Review Entity</button>
-        <button id="inspector-copy-link-btn" class="btn">📋 Copy Deep Link</button>
-        <button id="inspector-compare-btn" class="btn">⚖️ Compare</button>
-        <button id="inspector-connections-btn" class="btn">🔗 Connections</button>
-      </div>
-
-      <div id="inspector-content">
-        <!-- Entity Details Card -->
-        <div class="card" id="inspector-header-card">
-          <div class="card-header">
-            <div style="display: flex; gap: 8px; align-items: center;">
-              <span id="insp-type-badge" class="badge">Type</span>
-              <span id="insp-status-badge" class="badge">Status</span>
-              <span id="insp-review-badge" class="badge badge-neutral">Unreviewed</span>
-              <span id="insp-pm-badge" class="badge badge-warning" style="display: none;">🚩 PM Review</span>
-            </div>
-            <span id="insp-id-badge" class="code-id">entity:000000</span>
-          </div>
-          <h2 id="insp-display-name" style="font-size: 22px; margin-bottom: 8px;">Select an entity to inspect</h2>
-          <div id="insp-aliases-row" style="color: var(--text-secondary); font-size: 13px;"></div>
-        </div>
-
-        <!-- 4 Section Layout -->
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-          <!-- Left Column: Identity & Provenance -->
-          <div>
-            <!-- Identity Record Card -->
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">1. Canonical Identity & Type Metadata</h3>
-              </div>
-              <div id="insp-identity-body" style="font-size: 13px;"></div>
-            </div>
-
-            <!-- Canonical Relationships Card -->
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">2. Canonical Relationships & Hierarchy</h3>
-                <span id="insp-canon-count-badge" class="badge badge-canonical">0 Claims</span>
-              </div>
-              <div id="insp-canonical-body"></div>
-            </div>
-
-            <!-- Review History Card (Hidden in Read-Only Mode) -->
-            <div class="card" id="insp-review-card" style="display: none;">
-              <div class="card-header">
-                <h3 class="card-title">Review History</h3>
-                <button class="btn btn-sm btn-review" onclick="openEntityReviewModal(state.inspector.selectedEntityId)">+ Add Judgment</button>
-              </div>
-              <div id="insp-review-history-body" class="history-panel">
-                <p style="color: var(--text-muted);">No review records recorded yet.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right Column: Evidence & Neighborhood -->
-          <div>
-            <!-- Scripture vs Provenance Card -->
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">3. Evidence & Locators</h3>
-              </div>
-              
-              <!-- Evidence Sub-tabs -->
-              <div class="sub-tabs">
-                <button class="sub-tab-btn active" data-subtab="scripture" id="subtab-btn-scripture">Exact Scripture (0)</button>
-                <button class="sub-tab-btn" data-subtab="speaker" id="subtab-btn-speaker">Speaker Attributions (0)</button>
-                <button class="sub-tab-btn" data-subtab="internal" id="subtab-btn-internal">⚠️ Internal Locators (0)</button>
-              </div>
-
-              <!-- Sub-pane: Scripture -->
-              <div id="subpane-scripture" class="sub-pane active" style="max-height: 350px; overflow-y: auto;">
-                <div id="insp-scripture-list"></div>
-              </div>
-
-              <!-- Sub-pane: Speaker -->
-              <div id="subpane-speaker" class="sub-pane" style="max-height: 350px; overflow-y: auto;">
-                <div id="insp-speaker-list"></div>
-              </div>
-
-              <!-- Sub-pane: Internal Locators -->
-              <div id="subpane-internal" class="sub-pane" style="max-height: 350px; overflow-y: auto;">
-                <div class="warning-box" style="margin-top: 0; margin-bottom: 12px;">
-                  <strong>⚠️ Provenance Warning:</strong> The following locators are 19th-century chronicle entries (<code>chron:*</code>) or dictionary units (<code>du:*</code>). They do NOT represent literal mentions in canonical scripture text.
-                </div>
-                <div id="insp-internal-list"></div>
-              </div>
-            </div>
-
-            <!-- Connected Neighborhood Card -->
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">4. Connected Entities by Kind</h3>
-                <span id="insp-deriv-count-badge" class="badge badge-derived">0 Associations</span>
-              </div>
-              
-              <!-- Neighborhood Kind Sub-tabs -->
-              <div class="sub-tabs">
-                <button class="sub-tab-btn active" data-subtab="n-people" id="subtab-btn-n-people">People (0)</button>
-                <button class="sub-tab-btn" data-subtab="n-places" id="subtab-btn-n-places">Places (0)</button>
-                <button class="sub-tab-btn" data-subtab="n-groups" id="subtab-btn-n-groups">Groups (0)</button>
-                <button class="sub-tab-btn" data-subtab="n-events" id="subtab-btn-n-events">Events (0)</button>
-              </div>
-
-              <div id="subpane-n-people" class="sub-pane active" style="max-height: 300px; overflow-y: auto;">
-                <div id="insp-n-people-list"></div>
-              </div>
-              <div id="subpane-n-places" class="sub-pane" style="max-height: 300px; overflow-y: auto;">
-                <div id="insp-n-places-list"></div>
-              </div>
-              <div id="subpane-n-groups" class="sub-pane" style="max-height: 300px; overflow-y: auto;">
-                <div id="insp-n-groups-list"></div>
-              </div>
-              <div id="subpane-n-events" class="sub-pane" style="max-height: 300px; overflow-y: auto;">
-                <div id="insp-n-events-list"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TAB 3: SIDE-BY-SIDE COMPARE & PAIR REVIEW -->
-    <section id="pane-compare" class="tab-pane">
-      <div class="controls-bar">
-        <div style="display: flex; gap: 8px; flex: 1; align-items: center;">
-          <label style="font-weight: 600;">Entity A:</label>
-          <input type="text" id="compare-entity-a" list="entities-datalist" class="input" placeholder="Name or ID A..." style="flex: 1;">
-        </div>
-
-        <button id="compare-swap-btn" class="btn" title="Swap A and B">⇄ Swap</button>
-
-        <div style="display: flex; gap: 8px; flex: 1; align-items: center;">
-          <label style="font-weight: 600;">Entity B:</label>
-          <input type="text" id="compare-entity-b" list="entities-datalist" class="input" placeholder="Name or ID B..." style="flex: 1;">
-        </div>
-
-        <button id="compare-run-btn" class="btn btn-primary">Compare</button>
-        <button id="compare-copy-link-btn" class="btn">📋 Copy Link</button>
-      </div>
-
-      <!-- Diagnostic Overlap Metrics Banner -->
-      <div class="metrics-banner" id="compare-metrics-banner">
-        <div class="metrics-title">
-          <span>📊 Diagnostic Overlap Metrics</span>
-          <span style="font-size: 11px; font-weight: normal; color: #cbd5e1;">(Derived QA Signals for Duplicate Inspection)</span>
-        </div>
-        <div class="metrics-row">
-          <div class="metric-item">
-            <div class="metric-label">Shared Passages</div>
-            <div class="metric-val" id="metric-shared-passages">0</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-label">Passage Min-Ratio</div>
-            <div class="metric-val" id="metric-passage-min-ratio">0.000</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-label">Passage Jaccard</div>
-            <div class="metric-val" id="metric-passage-jaccard">0.000</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-label">Shared Neighbors</div>
-            <div class="metric-val" id="metric-shared-neighbors">0</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-label">Neighbor Jaccard</div>
-            <div class="metric-val" id="metric-neighbor-jaccard">0.000</div>
-          </div>
-        </div>
-        <div class="notice-box" style="margin-bottom: 0;">
-          <strong>QA Notice:</strong> These overlap metrics are diagnostic signals to help human reviewers evaluate suspected duplicate entities. They are NOT canonical claims or automated merge decisions.
-        </div>
-      </div>
-
-      <!-- Side-by-Side Entity Comparison Grid -->
-      <div class="compare-grid">
-        <div class="compare-card" id="compare-card-a">
-          <h3 style="color: #38bdf8; margin-bottom: 8px;">Entity A</h3>
-          <div id="compare-body-a">Select Entity A</div>
-        </div>
-        <div class="compare-card" id="compare-card-b">
-          <h3 style="color: #c084fc; margin-bottom: 8px;">Entity B</h3>
-          <div id="compare-body-b">Select Entity B</div>
-        </div>
-      </div>
-
-      <!-- Pair / Cluster Review Card (Hidden in Read-Only Mode) -->
-      <div class="card" id="pair-review-card" style="display: none; margin-top: 16px; border: 1px solid #7c3aed;">
-        <div class="card-header">
-          <div style="display: flex; gap: 8px; align-items: center;">
-            <h3 class="card-title" style="color: #c084fc;">⚖️ Entity Pair Review Judgment</h3>
-            <span id="pair-review-status-badge" class="badge badge-neutral">Unreviewed Pair</span>
-          </div>
-          <span style="font-size: 11px; color: var(--text-muted);">Non-Destructive Review Only (No Merge)</span>
-        </div>
-
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-          <div>
-            <div class="form-group">
-              <label class="form-label">Pair / Identity Relationship Judgment:</label>
-              <div class="radio-group">
-                <label class="radio-label">
-                  <input type="radio" name="pair-judgment" value="Keep distinct" checked>
-                  <span>Keep distinct</span>
-                </label>
-                <label class="radio-label">
-                  <input type="radio" name="pair-judgment" value="Likely same identity">
-                  <span>Likely same identity (Recommend merge)</span>
-                </label>
-                <label class="radio-label">
-                  <input type="radio" name="pair-judgment" value="Likely alias">
-                  <span>Likely alias</span>
-                </label>
-                <label class="radio-label">
-                  <input type="radio" name="pair-judgment" value="Likely contextual role rather than standalone entity">
-                  <span>Likely contextual role</span>
-                </label>
-                <label class="radio-label">
-                  <input type="radio" name="pair-judgment" value="Needs more evidence">
-                  <span>Needs more evidence</span>
-                </label>
-              </div>
-            </div>
-
-            <div class="form-group" style="margin-top: 10px;">
-              <label class="form-label">Reviewer Note / Rationale:</label>
-              <textarea id="pair-note-input" class="textarea" placeholder="Explain why these two entities should be merged, kept distinct, or treated as aliases..."></textarea>
-            </div>
-
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
-              <label class="checkbox-label" style="background: transparent; border: none; padding: 0;">
-                <input type="checkbox" id="pair-pm-flag">
-                <span style="color: #fca5a5; font-weight: 600;">🚩 Flag for PM Review</span>
-              </label>
-              <button id="save-pair-review-btn" class="btn btn-review">Save Pair Review</button>
-            </div>
-          </div>
-
-          <div>
-            <div class="form-group">
-              <label class="form-label">Pair Review Audit History:</label>
-              <div id="pair-history-body" class="history-panel" style="max-height: 220px;">
-                <p style="color: var(--text-muted);">No prior reviews for this pair.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Shared Passages & Shared Neighbors Comparison Tables -->
-      <div style="margin-top: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title">Shared Scripture Passages</h3>
-            <span id="compare-shared-p-badge" class="badge badge-neutral">0</span>
-          </div>
-          <div id="compare-shared-passages-list" style="max-height: 300px; overflow-y: auto;">
-            <p style="color: var(--text-muted); font-size: 13px;">No shared passages.</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title">Overlapping Neighbors</h3>
-            <span id="compare-shared-n-badge" class="badge badge-neutral">0</span>
-          </div>
-          <div id="compare-shared-neighbors-list" style="max-height: 300px; overflow-y: auto;">
-            <p style="color: var(--text-muted); font-size: 13px;">No shared neighbors.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TAB 4: CONNECTION INSPECTOR -->
-    <section id="pane-connections" class="tab-pane">
-      <div class="controls-bar">
-        <label style="font-weight: 600;">Inspect Connections For:</label>
-        <input type="text" id="connections-entity-input" list="entities-datalist" class="input" placeholder="Select entity..." style="flex: 2; min-width: 200px;">
-        
-        <select id="connections-type-filter" class="select">
-          <option value="all">All Neighbor Types</option>
-          <option value="person">Person</option>
-          <option value="place">Place</option>
-          <option value="group">Group</option>
-          <option value="event">Event</option>
-        </select>
-
-        <select id="connections-basis-filter" class="select">
-          <option value="all">All Connection Bases</option>
-          <option value="canonical_relationship">Canonical Claims</option>
-          <option value="scripture_same_verse">Same-Verse Co-occurrence</option>
-          <option value="event_context_containment">Event Containment</option>
-        </select>
-
-        <!-- Salience Review Filter -->
-        <select id="connections-salience-filter" class="select">
-          <option value="all">All Salience Reviews</option>
-          <option value="unreviewed">Unreviewed Only</option>
-          <option value="reviewed">Reviewed Only</option>
-          <option value="Primary">Primary</option>
-          <option value="Supporting">Supporting</option>
-          <option value="Background">Background</option>
-          <option value="Should not surface">Should Not Surface</option>
-        </select>
-
-        <select id="connections-sort" class="select">
-          <option value="support_desc">Sort: Support Count (High-Low)</option>
-          <option value="shared_p_desc">Sort: Shared Passages (High-Low)</option>
-          <option value="min_ratio_desc">Sort: Min Overlap Ratio (High-Low)</option>
-          <option value="jaccard_desc">Sort: Jaccard Overlap (High-Low)</option>
-          <option value="name_asc">Sort: Neighbor Name (A-Z)</option>
-        </select>
-
-        <button id="connections-load-btn" class="btn btn-primary">Inspect</button>
-        <button id="connections-copy-link-btn" class="btn">📋 Copy Link</button>
-      </div>
-
-      <!-- Entity Connection Stats -->
-      <div class="stats-grid" id="connections-stats-grid">
-        <div class="stat-box">
-          <div class="stat-label">Total Connections</div>
-          <div class="stat-val" id="conn-stat-total">0</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-label">Canonical Claims</div>
-          <div class="stat-val" id="conn-stat-canonical" style="color: #34d399;">0</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-label">Same-Verse Links</div>
-          <div class="stat-val" id="conn-stat-sameverse" style="color: #60a5fa;">0</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-label">Event Containments</div>
-          <div class="stat-val" id="conn-stat-containment" style="color: #fbbf24;">0</div>
-        </div>
-      </div>
-
-      <!-- Connection Table -->
-      <div class="table-wrapper">
-        <table class="qa-table" id="connections-table">
-          <thead>
-            <tr>
-              <th>Neighbor Name</th>
-              <th>Neighbor ID</th>
-              <th>Neighbor Kind</th>
-              <th>Category</th>
-              <th>Association / Predicate</th>
-              <th>Support</th>
-              <th>Occurrences (A vs B)</th>
-              <th>Shared Verses</th>
-              <th>Overlap Ratios (Min / Jaccard)</th>
-              <th>Salience Review</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody id="connections-table-body">
-            <tr><td colspan="11" style="text-align: center; color: var(--text-muted);">Select an entity to view connections.</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-  </main>
-
-  <!-- MODAL: ENTITY QUALITY REVIEW -->
-  <div class="modal-overlay" id="modal-entity-review">
-    <div class="modal-box">
-      <div class="modal-header">
-        <div>
-          <h3 class="modal-title" id="m-ent-title">Entity Quality Review</h3>
-          <span style="font-size: 11px; color: var(--text-muted);">Shortcuts: [H] Healthy, [D] Duplicate, [S] Source Artifact, [G] Generic, [A] Ambiguous</span>
-        </div>
-        <button class="modal-close-btn" onclick="closeModal('modal-entity-review')">✕</button>
-      </div>
-
-      <input type="hidden" id="m-ent-id">
-
-      <!-- Judgment -->
-      <div class="form-group">
-        <label class="form-label">Entity Quality Judgment:</label>
-        <div class="radio-group">
-          <label class="radio-label"><input type="radio" name="m-ent-judgment" value="Healthy" checked><span>Healthy (H)</span></label>
-          <label class="radio-label"><input type="radio" name="m-ent-judgment" value="Suspected duplicate"><span>Suspected Duplicate (D)</span></label>
-          <label class="radio-label"><input type="radio" name="m-ent-judgment" value="Source artifact"><span>Source Artifact (S)</span></label>
-          <label class="radio-label"><input type="radio" name="m-ent-judgment" value="Generic unnamed reference"><span>Generic Unnamed (G)</span></label>
-          <label class="radio-label"><input type="radio" name="m-ent-judgment" value="Event-bounded distinct entity"><span>Event-Bounded Distinct (E)</span></label>
-          <label class="radio-label"><input type="radio" name="m-ent-judgment" value="Ambiguous"><span>Ambiguous (A)</span></label>
-        </div>
-      </div>
-
-      <!-- Visibility -->
-      <div class="form-group">
-        <label class="form-label">Recommended Explorer Visibility:</label>
-        <div style="display: flex; gap: 12px;">
-          <label class="radio-label"><input type="radio" name="m-ent-vis" value="Show" checked><span>Show</span></label>
-          <label class="radio-label"><input type="radio" name="m-ent-vis" value="Hide"><span>Hide</span></label>
-          <label class="radio-label"><input type="radio" name="m-ent-vis" value="Unsure"><span>Unsure</span></label>
-        </div>
-      </div>
-
-      <!-- Presentation Issue Flags -->
-      <div class="form-group">
-        <label class="form-label">Presentation Issue Flags (Optional):</label>
-        <div class="checkbox-grid">
-          <label class="checkbox-label"><input type="checkbox" name="m-ent-pres" value="Bad display name"><span>Bad display name</span></label>
-          <label class="checkbox-label"><input type="checkbox" name="m-ent-pres" value="Internal locator leaking"><span>Internal locator leaking</span></label>
-          <label class="checkbox-label"><input type="checkbox" name="m-ent-pres" value="Missing scripture context"><span>Missing scripture context</span></label>
-          <label class="checkbox-label"><input type="checkbox" name="m-ent-pres" value="Vague connection wording"><span>Vague connection wording</span></label>
-          <label class="checkbox-label"><input type="checkbox" name="m-ent-pres" value="Profile too thin"><span>Profile too thin</span></label>
-          <label class="checkbox-label"><input type="checkbox" name="m-ent-pres" value="Duplicate-looking profile"><span>Duplicate-looking profile</span></label>
-          <label class="checkbox-label"><input type="checkbox" name="m-ent-pres" value="Other"><span>Other</span></label>
-        </div>
-      </div>
-
-      <!-- Reviewer Notes -->
-      <div class="form-group">
-        <label class="form-label">Reviewer Notes & Rationale:</label>
-        <textarea id="m-ent-note" class="textarea" placeholder="Explain why this judgment was assigned..."></textarea>
-      </div>
-
-      <div style="display: flex; justify-content: space-between; align-items: center;">
-        <label class="checkbox-label" style="background: transparent; border: none; padding: 0;">
-          <input type="checkbox" id="m-ent-pm-flag">
-          <span style="color: #fca5a5; font-weight: 600;">🚩 Flag for PM Review</span>
-        </label>
-        <div style="display: flex; gap: 8px;">
-          <button class="btn" onclick="closeModal('modal-entity-review')">Cancel</button>
-          <button class="btn btn-review" id="m-ent-save-btn">Save Review</button>
-        </div>
-      </div>
-
-      <!-- History -->
-      <div class="form-group" style="margin-top: 10px;">
-        <label class="form-label">Prior Review History:</label>
-        <div id="m-ent-history" class="history-panel">
-          <p style="color: var(--text-muted);">No prior records.</p>
-        </div>
-      </div>
+  <section class="filters">
+    <div class="filter-group">
+      <span class="filter-label">Nodes</span>
+      <label class="chk"><input type="checkbox" data-node-type="PERSON" checked> People</label>
+      <label class="chk"><input type="checkbox" data-node-type="GROUP" checked> Groups</label>
+      <label class="chk"><input type="checkbox" data-node-type="PLACE" checked> Places</label>
+      <label class="chk"><input type="checkbox" data-node-type="EVENT" checked> Events</label>
+      <label class="chk optional"><input type="checkbox" data-node-type="SOURCE"> Sources</label>
+      <label class="chk optional"><input type="checkbox" data-node-type="EVIDENCE"> Evidence</label>
+      <label class="chk optional"><input type="checkbox" data-node-type="VERSE"> Verses</label>
     </div>
+    <div class="filter-group">
+      <span class="filter-label">Edges</span>
+      <label class="chk"><input type="checkbox" data-edge-class="canonical" checked> Canonical</label>
+      <label class="chk"><input type="checkbox" data-edge-class="context" checked> Context</label>
+      <label class="chk optional"><input type="checkbox" data-edge-class="provenance"> Provenance</label>
+      <label class="chk optional"><input type="checkbox" data-edge-class="advisory"> Advisory</label>
+      <label class="chk optional"><input type="checkbox" data-edge-class="attribution"> Speaker / narrator</label>
+    </div>
+  </section>
+
+  <div class="workspace">
+    <main class="canvas-wrap">
+      <div id="empty-state" class="empty-state">
+        <h2>Search to seed the graph</h2>
+        <p>Default view is one entity plus its immediate neighborhood. The full dataset is never drawn.</p>
+        <div id="qa-chips" class="qa-chips"></div>
+      </div>
+      <div id="load-error" class="load-error" hidden></div>
+      <svg id="graph" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Relationship canvas">
+        <defs>
+          <marker id="arrow-canonical" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#34d399"></path>
+          </marker>
+          <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <rect width="6" height="6" fill="#0b1220"></rect>
+            <line x1="0" y1="0" x2="0" y2="6" stroke="#64748b" stroke-width="2"></line>
+          </pattern>
+        </defs>
+        <g id="viewport">
+          <g id="edges"></g>
+          <g id="nodes"></g>
+        </g>
+      </svg>
+      <aside class="legend" id="legend">
+        <h3>Legend</h3>
+        <div class="legend-row"><svg width="28" height="18"><circle cx="9" cy="9" r="7" class="lg-person"></circle></svg> Person</div>
+        <div class="legend-row"><svg width="28" height="18"><polygon points="9,2 16,6.5 16,13.5 9,18 2,13.5 2,6.5" class="lg-group"></polygon></svg> Group</div>
+        <div class="legend-row"><svg width="28" height="18"><rect x="2" y="3" width="14" height="12" rx="3" class="lg-place"></rect></svg> Place</div>
+        <div class="legend-row"><svg width="28" height="18"><polygon points="9,2 16,9 9,16 2,9" class="lg-event"></polygon></svg> Event</div>
+        <div class="legend-row"><span class="edge-swatch solid"></span> Canonical claim</div>
+        <div class="legend-row"><span class="edge-swatch dashed"></span> Context / occurrence</div>
+        <div class="legend-row muted"><span class="edge-swatch dotted"></span> Provenance (off)</div>
+        <div class="legend-row muted"><span class="edge-swatch dashdot"></span> Advisory (off)</div>
+        <div class="legend-row muted"><span class="edge-swatch attribution"></span> Speaker / narrator (off)</div>
+        <p class="legend-note">Context is exact-mention co-occurrence, not membership.</p>
+        <p class="legend-note">Speaker/narrator attribution is not historical presence.</p>
+        <p class="legend-note">Position is not time or map.</p>
+      </aside>
+      <div class="hud" id="hud"></div>
+      <div class="zoom-controls">
+        <button id="btn-zoom-in" type="button">+</button>
+        <button id="btn-zoom-out" type="button">−</button>
+        <button id="btn-zoom-sel" type="button">Selection</button>
+      </div>
+    </main>
+    <aside class="inspector" id="inspector">
+      <div class="inspector-tabs">
+        <button class="tab active" data-tab="node" type="button">Node</button>
+        <button class="tab" data-tab="edge" type="button">Edge</button>
+        <button class="tab" data-tab="evidence" type="button">Evidence</button>
+      </div>
+      <div id="insp-node" class="tab-body"></div>
+      <div id="insp-edge" class="tab-body" hidden></div>
+      <div id="insp-evidence" class="tab-body" hidden></div>
+    </aside>
   </div>
 
-  <!-- MODAL: CONNECTION SALIENCE REVIEW -->
-  <div class="modal-overlay" id="modal-conn-review">
-    <div class="modal-box">
-      <div class="modal-header">
-        <div>
-          <h3 class="modal-title" id="m-conn-title">Connection Quality & Salience Review</h3>
-          <span style="font-size: 11px; color: var(--text-muted);">Shortcuts: [1] Primary, [2] Supporting, [3] Background, [4] Should not surface</span>
-        </div>
-        <button class="modal-close-btn" onclick="closeModal('modal-conn-review')">✕</button>
-      </div>
+  <footer class="footer">
+    Canonical = accepted Family claim. Context = exact mention observation. Speaker/narrator overlay ≠ presence. Layout ≠ time or geography. Advisory is not a defect.
+  </footer>
 
-      <input type="hidden" id="m-conn-assoc-id">
-      <input type="hidden" id="m-conn-entity-a">
-      <input type="hidden" id="m-conn-entity-b">
-
-      <!-- Context Panel -->
-      <div id="m-conn-context" style="background: var(--bg-secondary); border: 1px solid var(--border-color); padding: 10px; border-radius: 6px; font-size: 12px;"></div>
-
-      <!-- Salience Judgment -->
-      <div class="form-group">
-        <label class="form-label">Reviewer Salience Judgment (Gold Set):</label>
-        <div class="radio-group">
-          <label class="radio-label"><input type="radio" name="m-conn-salience" value="Primary" checked><span>Primary (1)</span></label>
-          <label class="radio-label"><input type="radio" name="m-conn-salience" value="Supporting"><span>Supporting (2)</span></label>
-          <label class="radio-label"><input type="radio" name="m-conn-salience" value="Background"><span>Background (3)</span></label>
-          <label class="radio-label"><input type="radio" name="m-conn-salience" value="Should not surface"><span>Should not surface (4)</span></label>
-        </div>
+  <div id="path-modal" class="modal" hidden>
+    <div class="modal-card">
+      <h3>Find connection</h3>
+      <p class="warn">Shortest graph path — not a historical relationship. Uses currently visible edge classes only.</p>
+      <label>From <input id="path-from" placeholder="entity id"></label>
+      <label>To <input id="path-to" placeholder="entity id"></label>
+      <div class="modal-actions">
+        <button id="path-run" type="button">Find</button>
+        <button id="path-close" type="button">Close</button>
       </div>
-
-      <!-- Reason Code -->
-      <div class="form-group">
-        <label class="form-label">Salience Reason Code:</label>
-        <select id="m-conn-reason" class="select" style="width: 100%;">
-          <option value="meaningful_specific_connection">meaningful_specific_connection</option>
-          <option value="strong_event_context">strong_event_context</option>
-          <option value="repeated_scripture_overlap">repeated_scripture_overlap</option>
-          <option value="single_same_verse_cooccurrence">single_same_verse_cooccurrence</option>
-          <option value="ubiquitous_entity_noise">ubiquitous_entity_noise</option>
-          <option value="weak_source_only_link">weak_source_only_link</option>
-          <option value="duplicate_entity_artifact">duplicate_entity_artifact</option>
-          <option value="semantically_misleading">semantically_misleading</option>
-          <option value="other">other</option>
-        </select>
-      </div>
-
-      <!-- Notes -->
-      <div class="form-group">
-        <label class="form-label">Reviewer Notes:</label>
-        <textarea id="m-conn-note" class="textarea" placeholder="Explain why this connection is Primary, Background, or Should not surface..."></textarea>
-      </div>
-
-      <div style="display: flex; justify-content: space-between; align-items: center;">
-        <label class="checkbox-label" style="background: transparent; border: none; padding: 0;">
-          <input type="checkbox" id="m-conn-pm-flag">
-          <span style="color: #fca5a5; font-weight: 600;">🚩 Flag for PM Review</span>
-        </label>
-        <div style="display: flex; gap: 8px;">
-          <button class="btn" onclick="closeModal('modal-conn-review')">Cancel</button>
-          <button class="btn btn-review" id="m-conn-save-btn">Save Salience Review</button>
-        </div>
-      </div>
-
-      <!-- History -->
-      <div class="form-group" style="margin-top: 10px;">
-        <label class="form-label">Prior Review History:</label>
-        <div id="m-conn-history" class="history-panel">
-          <p style="color: var(--text-muted);">No prior records.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL: EXPORT SUMMARY -->
-  <div class="modal-overlay" id="modal-export-summary">
-    <div class="modal-box" style="max-width: 800px;">
-      <div class="modal-header">
-        <h3 class="modal-title">Review Ledger Summary Export</h3>
-        <button class="modal-close-btn" onclick="closeModal('modal-export-summary')">✕</button>
-      </div>
-      <p style="font-size: 12px; color: var(--text-secondary);">
-        This derived summary captures the latest state of all entity reviews, pair comparisons, and connection salience gold set records.
-      </p>
-      <textarea id="export-summary-text" class="textarea" style="height: 350px; font-family: var(--font-mono); font-size: 11px;" readonly></textarea>
-      <div style="display: flex; justify-content: flex-end; gap: 8px;">
-        <button class="btn" onclick="copyToClipboard(document.getElementById('export-summary-text').value, 'Summary JSON copied!')">📋 Copy JSON</button>
-        <button class="btn btn-primary" onclick="closeModal('modal-export-summary')">Done</button>
-      </div>
+      <pre id="path-result"></pre>
     </div>
   </div>
 
