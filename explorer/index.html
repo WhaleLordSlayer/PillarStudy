@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#07111f" />
-  <meta name="description" content="Cultivate Book of Mormon Explorer — Follow people, places, events, and groups through the scripture narrative." />
+  <meta name="description" content="Cultivate Book of Mormon Explorer — Interactive, card-based navigation through people, places, events, and groups." />
   <title>Book of Mormon Explorer — Cultivate Study</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,7 @@
 </head>
 <body>
 <div class="site-shell">
-  <!-- HERO HEADER -->
+  <!-- TOP NAV & HERO -->
   <header class="hero" id="top">
     <div class="container">
       <nav class="nav" aria-label="Primary navigation">
@@ -25,372 +25,153 @@
           <span>Cultivate Study</span>
         </a>
         <div class="nav-links">
-          <a href="#explore-workbench">Explore</a>
-          <a href="#narrative-doorway">Narrative</a>
-          <a href="#who-speaking">Who's Speaking</a>
-          <a href="#data-foundation">Open Data</a>
-          <a class="nav-cta" href="#beta">Join Beta</a>
+          <a href="#workbench">Explorer Workbench</a>
+          <a href="#chapters">Chapter Stories</a>
+          <a href="/dev/book-of-mormon-graph/" target="_blank">Technical QA Graph ↗</a>
+          <a class="nav-cta" href="/join/">Join Beta</a>
         </div>
       </nav>
 
-      <div class="hero-grid">
-        <div class="hero-copy">
-          <span class="eyebrow">Book of Mormon Explorer · Structured Narrative Graph</span>
-          <h1>The Book of Mormon, Connected.</h1>
-          <p>Follow the people, places, events, and groups through the sacred record. Explorer turns scripture into a traceable web of narrative moments, historical context, and primary scripture references.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#explore-workbench">Start Exploring</a>
-            <a class="btn btn-secondary" href="/dev/book-of-mormon-graph/" target="_blank">View Graph Canvas ↗</a>
-          </div>
-          <div class="signature-row">
-            <span>1,000+ Entities</span>
-            <span>Traceable Relationships</span>
-            <span>Narrative Timelines</span>
-            <span>Scripture Provenance</span>
-          </div>
-        </div>
-
-        <div class="hero-stage">
-          <div class="hero-ipad">
-            <div class="ipad-toolbar">
-              <span>Book of Mormon Explorer</span>
-              <span>1 Nephi 14</span>
-            </div>
-            <div class="ipad-body">
-              <aside class="ipad-side">
-                <small>NAVIGATION</small>
-                <div class="tool active">Explorer View</div>
-                <div class="tool">People</div>
-                <div class="tool">Places</div>
-                <div class="tool">Events</div>
-              </aside>
-              <main class="ipad-verse">
-                <div class="speaker-chip"><i></i> NEPHI₁</div>
-                <p>And it came to pass that I beheld that the great mother of abominations did gather together multitudes upon the face of all the earth...</p>
-                <div class="story-card">
-                  <small>STORY · 4 OF 6</small>
-                  <strong>The conflict between the two churches</strong>
-                  <div class="segments"><i></i><i></i><i></i><i class="on"></i><i></i><i></i></div>
-                </div>
-              </main>
-              <aside class="ipad-study">
-                <small>CONNECTED ENTITIES</small>
-                <h4>1 Nephi 14:13</h4>
-                <div class="study-tabs">
-                  <b>People</b><span>Places</span><span>Events</span>
-                </div>
-                <div class="connection-row">Nephi (Son of Lehi)</div>
-                <div class="connection-row">Lehi (Patriarch)</div>
-                <div class="connection-row">Great and Abominable Church</div>
-              </aside>
-            </div>
-          </div>
-          <div class="hero-float explorer-float">
-            <small>RELATIONSHIPS</small>
-            <strong>People · Places · Events · Groups</strong>
-          </div>
-          <div class="hero-float space-float">
-            <small>PROVENANCE</small>
-            <strong>Every link grounded in verse text.</strong>
-          </div>
+      <div class="hero-header">
+        <span class="eyebrow">Book of Mormon Explorer · Structured Narrative Graph</span>
+        <h1>The Book of Mormon, Connected.</h1>
+        <p>Explore the sacred record through an intuitive, card-based interface. Follow characters, key places, historical events, and groups through the narrative, with every connection grounded in scripture.</p>
+        <div class="signature-row">
+          <span id="meta-entities-count">1,152 Entities</span>
+          <span id="meta-edges-count">2,039 Verified Connections</span>
+          <span>Chronological Timelines</span>
+          <span>Zero Network Graph Clutter</span>
         </div>
       </div>
     </div>
   </header>
 
-  <main>
-    <!-- SECTION 1: INTERACTIVE EXPLORER WORKBENCH -->
-    <section class="section explorer-section" id="explore-workbench">
-      <div class="container">
-        <div class="section-number light-number">01</div>
-        <div class="section-heading explorer-heading">
-          <span class="kicker bright">Custom-Built Explorer</span>
-          <h2>A structured doorway into the text.</h2>
-          <p>Explorer is not an encyclopedia. It is a connected data system mapping every person, place, event, and group to the narrative moments and scripture verses where they appear.</p>
-        </div>
+  <!-- MAIN INTERACTIVE EXPLORER WORKSPACE -->
+  <main class="explorer-main" id="workbench">
+    <div class="container">
+      <div class="explorer-workspace-grid">
+        
+        <!-- LEFT SIDEBAR: Search, Category Filters, Entity Browser -->
+        <aside class="sidebar-panel app-frame">
+          <div class="search-box-wrap">
+            <svg class="search-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="search-input" class="search-input-field" placeholder="Search 1,000+ entities..." autocomplete="off">
+            <div id="search-dropdown" class="search-dropdown"></div>
+          </div>
 
-        <div class="explorer-intro-grid">
-          <div class="explorer-copy-block">
-            <span class="mini-kicker">Interactive Search & Starters</span>
-            <h3>Start anywhere in the story.</h3>
-            <p>Search across 1,000+ entities or begin with curated story moments that make the narrative graph immediately accessible and intuitive.</p>
+          <div class="filter-pills" id="filter-pills">
+            <button class="active" data-filter="ALL">All</button>
+            <button data-filter="PERSON">People</button>
+            <button data-filter="EVENT">Events</button>
+            <button data-filter="PLACE">Places</button>
+            <button data-filter="GROUP">Groups</button>
           </div>
-          <div class="explorer-home app-frame">
-            <div class="mobile-chrome"><span>‹ Explorer</span></div>
-            <small>BOOK OF MORMON</small>
-            <h4>Explore</h4>
-            <p>Follow people, places, events, and groups through the story.</p>
-            <div class="search-bar">
-              <span>⌕</span>
-              <input type="text" id="interactive-search" placeholder="Search Nephi, Alma, Zarahemla, Lamanites..." autocomplete="off">
-            </div>
-            <div class="filter-pills" id="filter-pills">
-              <button class="active" data-filter="all">All</button>
-              <button data-filter="people">People</button>
-              <button data-filter="events">Events</button>
-              <button data-filter="places">Places</button>
-              <button data-filter="groups">Groups</button>
-            </div>
-            <h5>Start with a story</h5>
-            <div class="starter-grid" id="starters-container">
-              <div class="starter-card" data-entity="abinadi">
-                <em>EVENTS TO FOLLOW</em>
-                <strong>Abinadi condemned and put to death</strong>
-              </div>
-              <div class="starter-card" data-entity="nephi">
-                <em>PEOPLE TO KNOW</em>
-                <strong>Nephi (Son of Lehi)</strong>
-              </div>
-              <div class="starter-card" data-entity="zarahemla">
-                <em>PLACES IN THE STORY</em>
-                <strong>Zarahemla, City of</strong>
-              </div>
-              <div class="starter-card" data-entity="moroni">
-                <em>NARRATIVE HEROES</em>
-                <strong>Captain Moroni & Title of Liberty</strong>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <!-- DYNAMIC ENTITY RECORD SHOWCASE -->
-        <div class="explorer-person-grid" id="narrative-doorway">
-          <div class="person-record app-frame" id="entity-card-frame">
-            <div class="person-card">
-              <small id="entity-kind">PERSON</small>
-              <h4 id="entity-name">Nephi (Son of Lehi)</h4>
-              <div class="person-stats">
-                <span><b id="stat-people">10</b>People</span>
-                <span><b id="stat-events">14</b>Events</span>
-                <span><b id="stat-places">7</b>Places</span>
-                <span><b id="stat-groups">3</b>Groups</span>
-                <span><b id="stat-refs">14</b>Passages</span>
-              </div>
-            </div>
-            <div class="person-tabs" id="entity-tabs">
-              <button class="active" data-tab="overview">Overview</button>
-              <button data-tab="people">Connected People</button>
-              <button data-tab="events">Timeline</button>
-              <button data-tab="places">Places</button>
-            </div>
-            <div class="record-card" id="tab-content-area">
-              <div class="card-label">KEY CONNECTIONS <span id="view-mode-label">Interactive Preview</span></div>
-              <div class="key-people" id="entity-pills-area">
-                <div>Lehi (Patriarch)</div>
-                <div>Sariah</div>
-                <div>Laman</div>
-              </div>
-              <div class="timeline-list" id="entity-timeline-area">
-                <div>
-                  <i></i>
-                  <b>Lehi's family departs Jerusalem into the wilderness</b>
-                  <small>1 Nephi 2:1–5</small>
-                </div>
-                <div>
-                  <i></i>
-                  <b>Sons of Lehi obtain the brass plates from Laban</b>
-                  <small>1 Nephi 3:1–4:38</small>
-                </div>
-                <div>
-                  <i></i>
-                  <b>Nephi's expanded vision of the tree of life</b>
-                  <small>1 Nephi 11:1–14:30</small>
-                </div>
-              </div>
-            </div>
+          <div class="sidebar-heading">Curated Starting Points</div>
+          <div class="starter-list" id="starter-list">
+            <!-- Dynamically populated -->
           </div>
-          <div class="explorer-copy-block person-copy">
-            <span class="mini-kicker">From entity to context</span>
-            <h3>A person is a doorway into the narrative.</h3>
-            <p>Every person connects to parents, siblings, leaders, disciples, and opposing forces, grounding their story in specific historical events, geographical locations, and sacred verses.</p>
-            <div class="connection-path">
-              <span>Nephi</span>
-              <b>→</b>
-              <span>Events</span>
-              <b>→</b>
-              <span>People</span>
-              <b>→</b>
-              <span>Places</span>
-              <b>→</b>
-              <span>Scripture</span>
-            </div>
-          </div>
-        </div>
+        </aside>
 
-        <!-- VERSE BRIDGE -->
-        <div class="verse-bridge-grid">
-          <div class="explorer-copy-block">
-            <span class="mini-kicker">Explorer meets the reader</span>
-            <h3>Verse-level context without leaving your study.</h3>
-            <p>While reading 1 Nephi 1:4, open Explore to immediately discover the entities active in that verse — such as Lehi and Jerusalem — and transition seamlessly into their full records.</p>
+        <!-- RIGHT MAIN AREA: Dynamic Entity Profile, Tabs, and Connections -->
+        <section class="profile-panel app-frame">
+          <!-- BREADCRUMBS -->
+          <div class="breadcrumb-trail" id="breadcrumbs">
+            <!-- Dynamically populated trail -->
           </div>
-          <div class="verse-sheet app-frame">
-            <div class="sheet-handle"></div>
-            <small>STUDY PASSAGE</small>
-            <h4>1 Nephi 1:4</h4>
-            <div class="sheet-tabs">
-              <span>Notes</span>
-              <span>Connections</span>
-              <b>Explore</b>
-            </div>
-            <div class="sheet-label">IN THIS VERSE</div>
-            <div class="entity-row">
-              <i>○</i>
-              <div><b>Lehi</b><small>Person · Prophet & Patriarch</small></div>
-              <span>›</span>
-            </div>
-            <div class="entity-row">
-              <i>⌖</i>
-              <div><b>Jerusalem</b><small>Place · City of Origin</small></div>
-              <span>›</span>
-            </div>
-            <p class="sheet-hint">Tap any entity to open its narrative connection tree.</p>
-          </div>
-        </div>
 
-        <!-- CHAPTER NARRATIVE TIMELINE -->
-        <div class="chapter-grid">
-          <div class="chapter-sheet app-frame">
-            <div class="sheet-handle"></div>
-            <small>EXPLORE CHAPTER</small>
-            <h4>1 Nephi 1</h4>
-            <div class="chapter-summary">
-              <em>CHAPTER SUMMARY</em>
-              <strong>Nephi introduces his record, and Lehi receives a vision of God and the coming destruction of Jerusalem.</strong>
-              <p>Move from the chapter overview into the actual narrative moments that structure the text.</p>
+          <!-- PROFILE HEADER -->
+          <div class="profile-card-header">
+            <span class="type-badge badge-person" id="profile-type-badge">PERSON</span>
+            <div class="profile-title-row">
+              <h2 id="profile-name">Nephi (Son of Lehi)</h2>
+              <span class="locators-badge" id="profile-locators">1 Nephi 1:1 – 2 Nephi 33:15</span>
             </div>
-            <div class="timeline-title">NARRATIVE TIMELINE · 3 KEY MOMENTS</div>
-            <div class="chapter-timeline">
-              <div>
-                <i>1</i>
-                <b>Nephi's Introduction and Purpose</b>
-                <span>Verses 1–3</span>
-                <p>Nephi introduces himself, his lineage, and the spiritual purpose of his record.</p>
-              </div>
-              <div>
-                <i>2</i>
-                <b>Lehi's Prophetic Call</b>
-                <span>Verses 4–6</span>
-                <p>Lehi prays with all his heart for his people and sees a pillar of fire.</p>
-              </div>
-              <div>
-                <i>3</i>
-                <b>Lehi's Vision of the Heavenly Host</b>
-                <span>Verses 7–10</span>
-                <p>Lehi is carried away in vision and sees God sitting upon His throne.</p>
-              </div>
-            </div>
-          </div>
-          <div class="explorer-copy-block chapter-copy">
-            <span class="mini-kicker">Narrative structure</span>
-            <h3>Chapters become stories, not just verse blocks.</h3>
-            <p>The chapter Explorer structures continuous text into distinct story moments, allowing readers to track movement, prophecy, conflict, and resolution with clarity.</p>
-            <div class="quiet-note">
-              Every timeline moment is bound to verifiable verse spans, ensuring the structure stays true to the source text.
-            </div>
-          </div>
-        </div>
 
-        <div class="explorer-principle">
-          <div>
-            <span class="eyebrow dark-eyebrow">The product rule</span>
-            <h3>Cultivate connects the data. You study the scripture.</h3>
+            <!-- STATS COUNTERS -->
+            <div class="stats-grid">
+              <div class="stat-box active" data-tab="people">
+                <b id="stat-people">10</b>
+                <span>People</span>
+              </div>
+              <div class="stat-box" data-tab="events">
+                <b id="stat-events">14</b>
+                <span>Events</span>
+              </div>
+              <div class="stat-box" data-tab="places">
+                <b id="stat-places">7</b>
+                <span>Places</span>
+              </div>
+              <div class="stat-box" data-tab="groups">
+                <b id="stat-groups">3</b>
+                <span>Groups</span>
+              </div>
+              <div class="stat-box" data-tab="verses">
+                <b id="stat-verses">26</b>
+                <span>Verses</span>
+              </div>
+            </div>
           </div>
-          <p>Explorer is designed around traceable relationships and source passages. Follow the connection, open the scripture, and study it for yourself.</p>
-        </div>
+
+          <!-- TABS -->
+          <div class="profile-tabs" id="profile-tabs">
+            <button class="active" data-tab="overview">Overview</button>
+            <button data-tab="people">Connected People</button>
+            <button data-tab="events">Narrative Timeline</button>
+            <button data-tab="places">Places & Geography</button>
+            <button data-tab="groups">Groups & Peoples</button>
+            <button data-tab="verses">Scripture References</button>
+          </div>
+
+          <!-- DYNAMIC TAB CONTENT AREA -->
+          <div id="tab-content">
+            <!-- Dynamically rendered -->
+          </div>
+
+          <!-- CONNECTION PATH FINDER TOOL -->
+          <div class="path-finder-box">
+            <h4>Find Narrative Path Between Entities</h4>
+            <p>Trace how any two people, events, or places in the Book of Mormon connect through narrative and kinship.</p>
+            <div class="path-inputs">
+              <select id="path-from-select"></select>
+              <span style="font-weight: 800; color: #8fa099;">to</span>
+              <select id="path-to-select"></select>
+              <button class="btn btn-primary" id="find-path-btn" style="padding: 10px 18px; font-size: 0.8rem;">Find Connection</button>
+            </div>
+            <div id="path-results-area" style="display: none;">
+              <div class="path-result-trail" id="path-trail-items"></div>
+            </div>
+          </div>
+        </section>
+
       </div>
-    </section>
-
-    <!-- SECTION 2: WHO'S SPEAKING -->
-    <section class="section speaking-section" id="who-speaking">
-      <div class="container">
-        <div class="section-number">02</div>
-        <div class="speaking-grid">
-          <div class="speaking-copy">
-            <span class="kicker">Who’s Speaking</span>
-            <h2>Know who is behind the words.</h2>
-            <p>Speaker labels stay close to the verse as narration, quotation, dialogue, prophecy, and recorded sermon shift through a chapter. That speaker becomes another direct doorway into Explorer.</p>
-            <div class="path-line">
-              <span>Verse</span>
-              <b>→</b>
-              <span>Speaker</span>
-              <b>→</b>
-              <span>Person</span>
-              <b>→</b>
-              <span>Events</span>
-              <b>→</b>
-              <span>Scripture</span>
-            </div>
-          </div>
-          <div class="speaker-demo">
-            <div class="speaker-demo-top">
-              <span>1 NEPHI 1:2</span>
-              <span>Verse 2 of 20</span>
-            </div>
-            <div class="speaker-highlight">
-              <div class="speaker-dot"></div>
-              <div>
-                <small>WHO’S SPEAKING</small>
-                <strong>NEPHI₁</strong>
-              </div>
-              <span class="open-label">Open Nephi Profile →</span>
-            </div>
-            <blockquote>Yea, I make a record in the language of my father, which consists of the learning of the Jews and the language of the Egyptians.</blockquote>
-            <div class="story-mini">
-              <small>NARRATIVE CONTEXT</small>
-              <strong>Nephi's Introduction and Purpose</strong>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 3: OPEN DATA & PROVENANCE -->
-    <section class="section data-section" id="data-foundation">
-      <div class="container">
-        <div class="data-grid">
-          <div class="data-copy">
-            <span class="kicker bright">The Cultivate Data Project</span>
-            <h2>The app is only the first thing built on this graph.</h2>
-            <p>Explorer, Who’s Speaking, narrative context, and entity relationships depend on an open, verified scripture data layer. That foundation is built around traceable sources so useful relationships can be inspected with confidence.</p>
-            <p class="community-copy">We make our research and data models open for developers, educators, and the wider study community.</p>
-          </div>
-          <div class="data-principles">
-            <div>
-              <span>01</span>
-              <strong>Connect the sources.</strong>
-              <p>Relationships point back directly to scripture locators and verified claims.</p>
-            </div>
-            <div>
-              <span>02</span>
-              <strong>Preserve the provenance.</strong>
-              <p>The reasoning behind a connection matters just as much as the connection itself.</p>
-            </div>
-            <div>
-              <span>03</span>
-              <strong>Let readers study.</strong>
-              <p>The data layer supplies structure without replacing your own spiritual discovery.</p>
-            </div>
-          </div>
-        </div>
-        <div class="data-statement">
-          Building scripture-study infrastructure — and a polished experience that shows what it makes possible.
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 4: BETA CTA -->
-    <section class="beta-section" id="beta">
-      <div class="container beta-inner">
-        <div>
-          <span class="kicker">Closed Beta</span>
-          <h2>Experience the Explorer first.</h2>
-          <p>Cultivate is actively being built and tested. Join the beta and help refine a new way to read, explore, remember, and study scripture together.</p>
-        </div>
-        <a class="btn btn-primary big-btn" href="/join/">Join the Beta</a>
-      </div>
-    </section>
+    </div>
   </main>
+
+  <!-- CHAPTER STORY MOMENTS SHOWCASE -->
+  <section class="chapter-showcase-section" id="chapters">
+    <div class="container">
+      <div style="max-width: 780px; margin-bottom: 28px;">
+        <span class="mini-kicker">Narrative Structure</span>
+        <h2 style="font-size: clamp(2.2rem, 4vw, 3.4rem); letter-spacing: -0.04em; margin: 10px 0 14px;">Chapters as Living Stories</h2>
+        <p style="color: var(--muted); font-size: 1.05rem; line-height: 1.65;">Select a major chapter to explore its chronological narrative timeline and discover the entities active in those sacred moments.</p>
+      </div>
+
+      <div class="chapter-selector-bar" id="chapter-selector-bar">
+        <button class="chapter-btn active" data-chapter="1ne1">1 Nephi 1</button>
+        <button class="chapter-btn" data-chapter="1ne3">1 Nephi 3–4 (Brass Plates)</button>
+        <button class="chapter-btn" data-chapter="1ne11">1 Nephi 11–14 (Vision of Tree)</button>
+        <button class="chapter-btn" data-chapter="mosiah2">Mosiah 2–5 (King Benjamin)</button>
+        <button class="chapter-btn" data-chapter="mosiah17">Mosiah 17 (Abinadi & Alma)</button>
+        <button class="chapter-btn" data-chapter="alma46">Alma 46 (Title of Liberty)</button>
+        <button class="chapter-btn" data-chapter="3ne11">3 Nephi 11 (Christ Appears)</button>
+      </div>
+
+      <div class="app-frame" style="padding: 32px; background: #fff;" id="chapter-content-box">
+        <!-- Dynamically rendered chapter content -->
+      </div>
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <footer class="footer">
