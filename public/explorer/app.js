@@ -130,9 +130,6 @@
       document.getElementById("meta-entities-count").textContent = `${state.nodes.size.toLocaleString()} Entities`;
       document.getElementById("meta-edges-count").textContent = `${state.edges.size.toLocaleString()} Verified Connections`;
 
-      // Populate path finder selects
-      populatePathSelects();
-
       // Render Starters
       renderStarterList();
 
@@ -496,9 +493,6 @@
       });
     });
 
-    // Path Finder
-    document.getElementById("find-path-btn").addEventListener("click", computePath);
-
     // Chapter selector buttons
     document.querySelectorAll(".chapter-btn").forEach(btn => {
       btn.addEventListener("click", () => {
@@ -507,67 +501,6 @@
         renderChapter(btn.getAttribute("data-chapter"));
       });
     });
-  }
-
-  function populatePathSelects() {
-    const fromSelect = document.getElementById("path-from-select");
-    const toSelect = document.getElementById("path-to-select");
-    
-    const prominent = ["nephi", "lehi", "abinadi", "alma-the-elder", "alma-the-younger", "captain-moroni", "king-benjamin", "ammon-son-of-mosiah", "zarahemla-city", "lamanites", "nephites"];
-    
-    fromSelect.innerHTML = prominent.map(id => {
-      const n = state.nodes.get(id);
-      return `<option value="${id}">${n ? n.display_name : id}</option>`;
-    }).join('');
-
-    toSelect.innerHTML = prominent.map(id => {
-      const n = state.nodes.get(id);
-      return `<option value="${id}" ${id === 'zarahemla-city' ? 'selected' : ''}>${n ? n.display_name : id}</option>`;
-    }).join('');
-  }
-
-  function computePath() {
-    const fromId = document.getElementById("path-from-select").value;
-    const toId = document.getElementById("path-to-select").value;
-    if (fromId === toId) return;
-
-    // BFS Shortest Path
-    const queue = [[fromId]];
-    const visited = new Set([fromId]);
-    let pathFound = null;
-
-    while (queue.length > 0) {
-      const path = queue.shift();
-      const curr = path[path.length - 1];
-
-      if (curr === toId) {
-        pathFound = path;
-        break;
-      }
-
-      const neighbors = state.adj.get(curr) || [];
-      for (const conn of neighbors) {
-        const nextId = conn.targetNode.id;
-        if (!visited.has(nextId)) {
-          visited.add(nextId);
-          queue.push([...path, nextId]);
-        }
-      }
-    }
-
-    const resArea = document.getElementById("path-results-area");
-    const trail = document.getElementById("path-trail-items");
-    resArea.style.display = "block";
-
-    if (pathFound) {
-      trail.innerHTML = pathFound.map((id, idx) => {
-        const n = state.nodes.get(id);
-        const name = n ? n.display_name : id;
-        return `<span onclick="window.selectEntityById('${id}')">${name}</span>${idx < pathFound.length - 1 ? '<b>→</b>' : ''}`;
-      }).join('');
-    } else {
-      trail.innerHTML = '<div style="color: var(--muted); font-size: 0.84rem;">No direct path found within active dataset bounds.</div>';
-    }
   }
 
   function renderChapter(chapterKey) {
