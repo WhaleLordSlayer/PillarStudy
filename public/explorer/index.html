@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#07111f" />
-  <meta name="description" content="Cultivate Book of Mormon Explorer — Interactive, card-based navigation through people, places, events, and groups." />
+  <meta name="description" content="Cultivate Book of Mormon Explorer — Interactive, card-based navigation through people, places, events, and groups across the entire Book of Mormon." />
   <title>Book of Mormon Explorer — Cultivate Study</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,7 +26,7 @@
         </a>
         <div class="nav-links">
           <a href="#workbench">Explorer Workbench</a>
-          <a href="#chapters">Chapter Stories</a>
+          <a href="#book-narratives">Books & Timelines</a>
           <a class="nav-cta" href="/join/">Join Beta</a>
         </div>
       </nav>
@@ -36,10 +36,10 @@
         <h1>The Book of Mormon, Connected.</h1>
         <p>Explore the sacred record through an intuitive, card-based interface. Follow characters, key places, historical events, and groups through the narrative, with every connection grounded in scripture.</p>
         <div class="signature-row">
-          <span id="meta-entities-count">1,152 Entities</span>
-          <span id="meta-edges-count">2,039 Verified Connections</span>
-          <span>Chronological Timelines</span>
-          <span>Zero Network Graph Clutter</span>
+          <span id="meta-entities-count">1,363 Entities</span>
+          <span id="meta-edges-count">2,653 Verified Connections</span>
+          <span>15 Books of Scripture</span>
+          <span>Zero Diagram Clutter</span>
         </div>
       </div>
     </div>
@@ -132,27 +132,37 @@
     </div>
   </main>
 
-  <!-- CHAPTER STORY MOMENTS SHOWCASE -->
-  <section class="chapter-showcase-section" id="chapters">
+  <!-- BOOK-BY-BOOK NARRATIVE VIEWER SECTION (ALL 15 BOOKS) -->
+  <section class="book-narrative-section" id="book-narratives">
     <div class="container">
-      <div style="max-width: 780px; margin-bottom: 28px;">
-        <span class="mini-kicker">Narrative Structure</span>
-        <h2 style="font-size: clamp(2.2rem, 4vw, 3.4rem); letter-spacing: -0.04em; margin: 10px 0 14px;">Chapters as Living Stories</h2>
-        <p style="color: var(--muted); font-size: 1.05rem; line-height: 1.65;">Select a major chapter to explore its chronological narrative timeline and discover the entities active in those sacred moments.</p>
+      <div style="max-width: 820px; margin-bottom: 24px;">
+        <span class="mini-kicker">Chronological Narrative Exploration</span>
+        <h2 style="font-size: clamp(2.2rem, 4vw, 3.4rem); letter-spacing: -0.04em; margin: 10px 0 14px;">The Book of Mormon, Book by Book</h2>
+        <p style="color: var(--muted); font-size: 1.05rem; line-height: 1.65;">Select any of the 15 books of the Book of Mormon to explore its overarching story, narrative event timeline, and active characters. Click any entity to inspect it in the Explorer Workbench.</p>
       </div>
 
-      <div class="chapter-selector-bar" id="chapter-selector-bar">
-        <button class="chapter-btn active" data-chapter="1ne1">1 Nephi 1</button>
-        <button class="chapter-btn" data-chapter="1ne3">1 Nephi 3–4 (Brass Plates)</button>
-        <button class="chapter-btn" data-chapter="1ne11">1 Nephi 11–14 (Vision of Tree)</button>
-        <button class="chapter-btn" data-chapter="mosiah2">Mosiah 2–5 (King Benjamin)</button>
-        <button class="chapter-btn" data-chapter="mosiah17">Mosiah 17 (Abinadi & Alma)</button>
-        <button class="chapter-btn" data-chapter="alma46">Alma 46 (Title of Liberty)</button>
-        <button class="chapter-btn" data-chapter="3ne11">3 Nephi 11 (Christ Appears)</button>
+      <!-- 15 BOOK SELECTOR PILLS -->
+      <div class="book-scroll-nav" id="book-scroll-nav">
+        <button class="book-pill-btn active" data-book="1 Nephi">1 Nephi</button>
+        <button class="book-pill-btn" data-book="2 Nephi">2 Nephi</button>
+        <button class="book-pill-btn" data-book="Jacob">Jacob</button>
+        <button class="book-pill-btn" data-book="Enos">Enos</button>
+        <button class="book-pill-btn" data-book="Jarom">Jarom</button>
+        <button class="book-pill-btn" data-book="Omni">Omni</button>
+        <button class="book-pill-btn" data-book="Words of Mormon">Words of Mormon</button>
+        <button class="book-pill-btn" data-book="Mosiah">Mosiah</button>
+        <button class="book-pill-btn" data-book="Alma">Alma</button>
+        <button class="book-pill-btn" data-book="Helaman">Helaman</button>
+        <button class="book-pill-btn" data-book="3 Nephi">3 Nephi</button>
+        <button class="book-pill-btn" data-book="4 Nephi">4 Nephi</button>
+        <button class="book-pill-btn" data-book="Mormon">Mormon</button>
+        <button class="book-pill-btn" data-book="Ether">Ether</button>
+        <button class="book-pill-btn" data-book="Moroni">Moroni</button>
       </div>
 
-      <div class="app-frame" style="padding: 32px; background: #fff;" id="chapter-content-box">
-        <!-- Dynamically rendered chapter content -->
+      <!-- BOOK CONTENT DISPLAY CARD -->
+      <div class="app-frame book-display-card" id="book-content-box">
+        <!-- Dynamically rendered book narrative -->
       </div>
     </div>
   </section>
