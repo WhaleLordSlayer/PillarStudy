@@ -1,8 +1,8 @@
-/* BGV2-009R Bible Graph Visual QA Explorer. Node-RED style vanilla SVG canvas. */
+/* BGV2-009R Bible Graph QA - Node-RED style SVG relationship explorer with auto-spacing & drag-and-drop */
 (() => {
-  const EXPAND_CAP = 30;
-  const WARN_NODES = 140;
-  const REFUSE_NODES = 240;
+  const EXPAND_CAP = 24;
+  const WARN_NODES = 120;
+  const REFUSE_NODES = 200;
 
   const state = {
     bundle: null,
@@ -15,8 +15,8 @@
     visible: new Set(),
     expanded: new Set(),
     pinned: new Set(),
+    hiddenRemainder: new Map(),
     positions: new Map(),
-    velocities: new Map(),
     hudNotice: "",
     filters: {
       node: { PERSON: true, PLACE: true, GROUP: true, EVENT: true },
@@ -60,6 +60,85 @@
     { id: "BGV2-009-D-001", name: "Elijah journey thin (Finding)", type: "FINDING", cls: "chip-finding" },
   ];
 
+  const BIBLE_BOOK_ORDER = {
+    "genesis": 1, "exodus": 2, "leviticus": 3, "numbers": 4, "deuteronomy": 5,
+    "joshua": 6, "judges": 7, "ruth": 8, "1-samuel": 9, "2-samuel": 10,
+    "1-kings": 11, "2-kings": 12, "1-chronicles": 13, "2-chronicles": 14,
+    "ezra": 15, "nehemiah": 16, "esther": 17, "job": 18, "psalms": 19,
+    "proverbs": 20, "ecclesiastes": 21, "song-of-solomon": 22, "isaiah": 23,
+    "jeremiah": 24, "lamentations": 25, "ezekiel": 26, "daniel": 27,
+    "hosea": 28, "joel": 29, "amos": 30, "obadiah": 31, "jonah": 32,
+    "micah": 33, "nahum": 34, "habakkuk": 35, "zephaniah": 36, "haggai": 37,
+    "zechariah": 38, "malachi": 39,
+    "matthew": 40, "mark": 41, "luke": 42, "john": 43, "acts": 44,
+    "romans": 45, "1-corinthians": 46, "2-corinthians": 47, "galatians": 48,
+    "ephesians": 49, "philippians": 50, "colossians": 51, "1-thessalonians": 52,
+    "2-thessalonians": 53, "1-timothy": 54, "2-timothy": 55, "titus": 56,
+    "philemon": 57, "hebrews": 58, "james": 59, "1-peter": 60, "2-peter": 61,
+    "1-john": 62, "2-john": 63, "3-john": 64, "jude": 65, "revelation": 66
+  };
+
+  function parseBibleRef(ref) {
+    if (!ref || typeof ref !== "string") return [999, 999, 999];
+    const clean = ref.replace(/^(ot|nt):/, "").toLowerCase();
+    const parts = clean.split(":");
+    const book = parts[0];
+    const ch = parseInt(parts[1], 10) || 0;
+    const v = parseInt(parts[2], 10) || 0;
+    const rank = BIBLE_BOOK_ORDER[book] || 900;
+    return [rank, ch, v];
+  }
+
+  function compareEventsByScripture(aId, bId) {
+    const aNode = state.nodes.get(aId) || {};
+    const bNode = state.nodes.get(bId) || {};
+    const aLoc = aNode.first_locator || (aNode.scripture_ranges && aNode.scripture_ranges[0]) || "";
+    const bLoc = bNode.first_locator || (bNode.scripture_ranges && bNode.scripture_ranges[0]) || "";
+    const [aB, aC, aV] = parseBibleRef(aLoc);
+    const [bB, bC, bV] = parseBibleRef(bLoc);
+    if (aB !== bB) return aB - bB;
+    if (aC !== bC) return aC - bC;
+    if (aV !== bV) return aV - bV;
+    return (aNode.display_name || aId).localeCompare(bNode.display_name || bId);
+  }
+
+  function wrapEventName(name, maxLine1 = 18, maxLine2 = 24) {
+    if (!name) return ["", ""];
+    const words = name.split(" ");
+    const line1 = [];
+    const line2 = [];
+    let curLen = 0;
+    for (const w of words) {
+      if (!line2.length && (curLen + w.length + (line1.length ? 1 : 0) <= maxLine1)) {
+        line1.push(w);
+        curLen += w.length + (line1.length > 1 ? 1 : 0);
+      } else {
+        line2.push(w);
+      }
+    }
+    if (!line2.length) return [line1.join(" "), ""];
+    let l2Str = line2.join(" ");
+    if (l2Str.length > maxLine2) {
+      l2Str = l2Str.slice(0, maxLine2 - 1) + "…";
+    }
+    return [line1.join(" "), l2Str];
+  }
+
+  function formatNodeLabel(node, x, y) {
+    const name = node.display_name || node.id;
+    if (node.type === "EVENT") {
+      const [l1, l2] = wrapEventName(name, 18, 24);
+      if (l2) {
+        return `<text class="node-label node-label-event" x="${x}" y="${y + 28}" text-anchor="middle">
+          <tspan x="${x}" dy="0">${escapeHtml(l1)}</tspan>
+          <tspan x="${x}" dy="13">${escapeHtml(l2)}</tspan>
+        </text>`;
+      }
+      return `<text class="node-label node-label-event" x="${x}" y="${y + 32}" text-anchor="middle">${escapeHtml(l1)}</text>`;
+    }
+    return `<text class="node-label" x="${x}" y="${y + 34}" text-anchor="middle">${escapeHtml(truncate(name, 26))}</text>`;
+  }
+
   const el = {
     svg: document.getElementById("graph"),
     viewport: document.getElementById("viewport"),
@@ -86,9 +165,8 @@
     findingAreaFilter: document.getElementById("finding-area-filter"),
   };
 
-  function escapeHtml(str) {
-    if (!str) return "";
-    return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  function escapeHtml(value) {
+    return String(value ?? "").replace(/[&<>"']/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]));
   }
 
   function truncate(str, len) {
@@ -160,59 +238,26 @@
     }
   }
 
-  function seedGraph(nodeId) {
-    if (!state.nodes.has(nodeId)) {
-      // Find match in search index
-      const hit = state.search.find(s => s.id === nodeId || s.display_name.toLowerCase() === nodeId.toLowerCase());
-      if (hit && state.nodes.has(hit.id)) nodeId = hit.id;
-      else return;
-    }
-
-    state.seed = nodeId;
-    state.visible.clear();
-    state.expanded.clear();
-    state.pinned.clear();
-    state.positions.clear();
-    state.velocities.clear();
-
-    state.visible.add(nodeId);
-    state.expanded.add(nodeId);
-
-    // Expand N hops
-    expandNeighborhood(nodeId, state.hop);
-
-    el.empty.hidden = true;
-    selectEntity("node", nodeId);
-    layoutAndRender();
-  }
-
-  function expandNeighborhood(centerId, hops) {
-    const queue = [{ id: centerId, depth: 0 }];
-    const visited = new Set([centerId]);
-
-    while (queue.length > 0) {
-      const curr = queue.shift();
-      if (curr.depth >= hops) continue;
-
-      const neigh = state.neighborhood[curr.id] || { canonical_neighbors: [] };
-      const rawList = neigh.canonical_neighbors || [];
-
-      for (const nId of rawList) {
-        if (!visited.has(nId) && state.nodes.has(nId)) {
-          const nNode = state.nodes.get(nId);
-          if (filterPasses(nNode)) {
-            visited.add(nId);
-            state.visible.add(nId);
-            queue.push({ id: nId, depth: curr.depth + 1 });
-            if (state.visible.size >= REFUSE_NODES) break;
+  function neighborsOf(id) {
+    const out = [];
+    const seen = new Set();
+    state.edges.forEach((e) => {
+      if (e.source === id || e.target === id) {
+        const otherId = e.source === id ? e.target : e.source;
+        if (!seen.has(otherId) && state.nodes.has(otherId)) {
+          const otherNode = state.nodes.get(otherId);
+          if (nodePassesFilter(otherNode)) {
+            seen.add(otherId);
+            out.push({ node: otherNode, edge: e });
           }
         }
       }
-      if (state.visible.size >= REFUSE_NODES) break;
-    }
+    });
+    return out;
   }
 
-  function filterPasses(node) {
+  function nodePassesFilter(node) {
+    if (!node) return false;
     if (!state.filters.node[node.type]) return false;
     const corpus = node.corpus_membership || "BOTH";
     if (!state.filters.corpus[corpus]) return false;
@@ -221,133 +266,482 @@
     return true;
   }
 
-  function layoutAndRender() {
-    const nodeIds = Array.from(state.visible);
-    if (nodeIds.length === 0) return;
-
-    // Arrange nodes on radial orbits
-    const svgRect = el.svg.getBoundingClientRect();
-    const cx = svgRect.width / 2 || 450;
-    const cy = svgRect.height / 2 || 350;
-
-    if (!state.positions.has(state.seed)) {
-      state.positions.set(state.seed, { x: cx, y: cy });
+  function seedGraph(nodeId) {
+    if (!state.nodes.has(nodeId)) {
+      const hit = state.search.find(s => s.id === nodeId || s.display_name.toLowerCase() === nodeId.toLowerCase());
+      if (hit && state.nodes.has(hit.id)) nodeId = hit.id;
+      else return;
     }
 
-    const otherNodes = nodeIds.filter(id => id !== state.seed);
-    const angleStep = (2 * Math.PI) / Math.max(otherNodes.length, 1);
-    const radius = Math.min(260, 90 + otherNodes.length * 10);
+    state.seed = nodeId;
+    state.visible = new Set([nodeId]);
+    state.expanded = new Set([nodeId]);
+    state.pinned = new Set();
+    state.hiddenRemainder = new Map();
+    state.hudNotice = "";
 
-    otherNodes.forEach((id, idx) => {
-      if (!state.positions.has(id)) {
-        const angle = idx * angleStep;
-        state.positions.set(id, {
-          x: cx + radius * Math.cos(angle),
-          y: cy + radius * Math.sin(angle)
+    expandNode(nodeId, state.hop);
+
+    state.selection = { kind: "node", id: nodeId };
+    layoutAll(true);
+    render();
+    fitGraph();
+  }
+
+  function expandNode(id, hops) {
+    const queue = [{ id, depth: 0 }];
+    const queued = new Set([id]);
+    while (queue.length) {
+      const cur = queue.shift();
+      if (cur.depth >= hops) continue;
+      const neigh = neighborsOf(cur.id);
+      let addedHere = 0;
+      const remainder = [];
+      for (const item of neigh) {
+        if (state.visible.has(item.node.id)) {
+          if (!queued.has(item.node.id) && cur.depth + 1 < hops) {
+            queued.add(item.node.id);
+            queue.push({ id: item.node.id, depth: cur.depth + 1 });
+          }
+          continue;
+        }
+        if (addedHere >= EXPAND_CAP) {
+          remainder.push(item.node.id);
+          continue;
+        }
+        if (state.visible.size >= REFUSE_NODES) {
+          remainder.push(item.node.id);
+          state.hudNotice = `Refusing to add more nodes (cap ${REFUSE_NODES}). Visual QA bounds respected.`;
+          continue;
+        }
+        state.visible.add(item.node.id);
+        addedHere += 1;
+        if (!queued.has(item.node.id) && cur.depth + 1 < hops) {
+          queued.add(item.node.id);
+          queue.push({ id: item.node.id, depth: cur.depth + 1 });
+        }
+      }
+      if (remainder.length) state.hiddenRemainder.set(cur.id, remainder);
+      else state.hiddenRemainder.delete(cur.id);
+    }
+    state.expanded.add(id);
+  }
+
+  /* Auto-spacing tiered layout engine matching Book of Mormon QA viewer */
+  function layoutAll(reset) {
+    if (!state.seed) return;
+    const seedNode = state.nodes.get(state.seed);
+    const isEventSeed = seedNode && seedNode.type === "EVENT";
+    const seedPos = reset
+      ? (isEventSeed ? { x: 0, y: 0 } : { x: 0, y: -240 })
+      : state.positions.get(state.seed) || (isEventSeed ? { x: 0, y: 0 } : { x: 0, y: -240 });
+    state.positions.set(state.seed, seedPos);
+
+    const hopOf = new Map([[state.seed, 0]]);
+    const parentsOf = new Map([[state.seed, []]]);
+    const q = [state.seed];
+
+    while (q.length) {
+      const id = q.shift();
+      neighborsOf(id).forEach((item) => {
+        if (!state.visible.has(item.node.id)) return;
+        if (!hopOf.has(item.node.id)) {
+          hopOf.set(item.node.id, (hopOf.get(id) || 0) + 1);
+          parentsOf.set(item.node.id, [id]);
+          q.push(item.node.id);
+        } else if (hopOf.get(item.node.id) === (hopOf.get(id) || 0) + 1) {
+          if (!parentsOf.has(item.node.id)) parentsOf.set(item.node.id, []);
+          parentsOf.get(item.node.id).push(id);
+        }
+      });
+    }
+    state.visible.forEach((id) => {
+      if (!hopOf.has(id)) hopOf.set(id, 1);
+    });
+
+    const maxHop = Math.max(1, ...[...hopOf.values()]);
+    const byHop = new Map();
+    state.visible.forEach((id) => {
+      if (id === state.seed) return;
+      const hop = hopOf.get(id) || 1;
+      if (!byHop.has(hop)) byHop.set(hop, []);
+      byHop.get(hop).push(id);
+    });
+
+    if (isEventSeed) {
+      // Event-centric layout
+      const hop1 = byHop.get(1) || [];
+      const people = hop1.filter((id) => (state.nodes.get(id) || {}).type === "PERSON");
+      const places = hop1.filter((id) => (state.nodes.get(id) || {}).type === "PLACE");
+      const groups = hop1.filter((id) => (state.nodes.get(id) || {}).type === "GROUP");
+      const others = hop1.filter((id) => {
+        const t = (state.nodes.get(id) || {}).type;
+        return t !== "PERSON" && t !== "PLACE" && t !== "GROUP";
+      });
+
+      // Participating People on top shelf (y = -220)
+      if (people.length) {
+        people.sort((a, b) => (state.nodes.get(a)?.display_name || a).localeCompare(state.nodes.get(b)?.display_name || b));
+        const spacing = 190;
+        const totalW = (people.length - 1) * spacing;
+        const startX = seedPos.x - totalW / 2;
+        people.forEach((id, i) => {
+          if (state.pinned.has(id) && state.positions.has(id) && !reset) return;
+          state.positions.set(id, { x: startX + i * spacing, y: seedPos.y - 220 });
         });
       }
-    });
 
-    renderSvg();
-  }
-
-  function renderSvg() {
-    el.edges.innerHTML = "";
-    el.nodes.innerHTML = "";
-
-    const visibleList = Array.from(state.visible);
-    const visibleSet = state.visible;
-
-    // Render Edges
-    state.edges.forEach(e => {
-      if (visibleSet.has(e.source) && visibleSet.has(e.target)) {
-        const p1 = state.positions.get(e.source);
-        const p2 = state.positions.get(e.target);
-        if (!p1 || !p2) return;
-
-        const isRev = e.review_status === "REVIEW_REQUIRED";
-        const isPart = e.relationship_type && e.relationship_type.includes("PARTICIPATED");
-        const cls = `edge-path ${isPart ? 'participation' : ''} ${isRev ? 'review' : ''}`;
-        const marker = isRev ? "url(#arrow-review)" : "url(#arrow-canonical)";
-
-        const pathEl = document.createElementNS("http://www.w3.org/2000/svg", "path");
-        pathEl.setAttribute("d", `M ${p1.x} ${p1.y} L ${p2.x} ${p2.y}`);
-        pathEl.setAttribute("class", cls);
-        pathEl.setAttribute("marker-end", marker);
-        pathEl.onclick = (ev) => {
-          ev.stopPropagation();
-          selectEntity("edge", e.id);
-        };
-        el.edges.appendChild(pathEl);
-      }
-    });
-
-    // Render Nodes
-    visibleList.forEach(id => {
-      const node = state.nodes.get(id);
-      const pos = state.positions.get(id);
-      if (!node || !pos) return;
-
-      const isSeed = id === state.seed;
-      const isSel = state.selection.id === id;
-      const isRev = node.review_status === "REVIEW_REQUIRED";
-      const hasFindings = node.audit_findings && node.audit_findings.length > 0;
-
-      const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
-      g.setAttribute("class", `node ${node.type.toLowerCase()} ${isSeed ? 'seed' : ''} ${isSel ? 'selected' : ''} ${isRev ? 'review' : ''}`);
-      g.setAttribute("transform", `translate(${pos.x}, ${pos.y})`);
-
-      let shapeHtml = "";
-      if (node.type === "PERSON") {
-        shapeHtml = `<circle cx="0" cy="0" r="16" class="node-shape node-circle"></circle>`;
-      } else if (node.type === "PLACE") {
-        shapeHtml = `<rect x="-16" y="-13" width="32" height="26" rx="4" class="node-shape node-place"></rect>`;
-      } else if (node.type === "GROUP") {
-        shapeHtml = `<polygon points="0,-16 14,-8 14,8 0,16 -14,8 -14,-8" class="node-shape node-group"></polygon>`;
-      } else if (node.type === "EVENT") {
-        shapeHtml = `<polygon points="0,-16 16,0 0,16 -16,0" class="node-shape node-event"></polygon>`;
+      // Places & Groups on bottom shelf (y = 220)
+      const bottomNodes = [...places, ...groups, ...others];
+      if (bottomNodes.length) {
+        bottomNodes.sort((a, b) => (state.nodes.get(a)?.display_name || a).localeCompare(state.nodes.get(b)?.display_name || b));
+        const spacing = 200;
+        const totalW = (bottomNodes.length - 1) * spacing;
+        const startX = seedPos.x - totalW / 2;
+        bottomNodes.forEach((id, i) => {
+          if (state.pinned.has(id) && state.positions.has(id) && !reset) return;
+          state.positions.set(id, { x: startX + i * spacing, y: seedPos.y + 220 });
+        });
       }
 
-      const label = truncate(node.display_name || node.id, 22);
-      const labelHtml = `<text class="node-label ${node.type === 'EVENT' ? 'node-label-event' : ''}" x="0" y="28" text-anchor="middle">${escapeHtml(label)}</text>`;
-      const findingBadge = hasFindings ? `<text class="node-badge-finding" x="12" y="-12">⚠️</text>` : "";
-
-      g.innerHTML = shapeHtml + labelHtml + findingBadge;
-
-      g.onclick = (ev) => {
-        ev.stopPropagation();
-        selectEntity("node", id);
-      };
-
-      g.ondblclick = (ev) => {
-        ev.stopPropagation();
-        seedGraph(id);
-      };
-
-      el.nodes.appendChild(g);
-    });
-
-    updateHud();
-  }
-
-  function selectEntity(kind, id) {
-    state.selection = { kind, id };
-
-    // Update active tabs
-    document.querySelectorAll(".inspector-tabs .tab").forEach(t => {
-      t.classList.toggle("active", t.getAttribute("data-tab") === kind);
-    });
-    ["insp-node", "insp-edge", "insp-evidence", "insp-findings"].forEach(d => {
-      document.getElementById(d).hidden = d !== `insp-${kind}`;
-    });
-
-    if (kind === "node") {
-      renderNodeInspector(id);
-    } else if (kind === "edge") {
-      renderEdgeInspector(id);
+      // Hop 2+ nodes
+      for (let h = 2; h <= maxHop; h += 1) {
+        const nodesAtHop = byHop.get(h) || [];
+        if (!nodesAtHop.length) continue;
+        const spacing = 180;
+        const totalW = (nodesAtHop.length - 1) * spacing;
+        const startX = seedPos.x - totalW / 2;
+        nodesAtHop.forEach((id, i) => {
+          if (state.pinned.has(id) && state.positions.has(id) && !reset) return;
+          state.positions.set(id, { x: startX + i * spacing, y: seedPos.y + 220 + (h - 1) * 200 });
+        });
+      }
+      return;
     }
 
-    renderSvg();
+    // Person / Entity tiered layout
+    const yGap = 260;
+    const spacing = 190;
+
+    for (let h = 1; h <= maxHop; h += 1) {
+      const nodesAtHop = byHop.get(h) || [];
+      if (!nodesAtHop.length) continue;
+
+      const peopleNodes = nodesAtHop.filter((id) => (state.nodes.get(id) || {}).type === "PERSON");
+      const eventNodes = nodesAtHop.filter((id) => (state.nodes.get(id) || {}).type === "EVENT");
+      const placeNodes = nodesAtHop.filter((id) => (state.nodes.get(id) || {}).type === "PLACE");
+      const groupNodes = nodesAtHop.filter((id) => (state.nodes.get(id) || {}).type === "GROUP");
+
+      const tiers = [];
+      if (peopleNodes.length) tiers.push({ type: "PERSON", ids: peopleNodes });
+      if (eventNodes.length) tiers.push({ type: "EVENT", ids: eventNodes });
+      if (placeNodes.length) tiers.push({ type: "PLACE", ids: placeNodes });
+      if (groupNodes.length) tiers.push({ type: "GROUP", ids: groupNodes });
+
+      let currentTierY = seedPos.y + (h - 1) * yGap + (tiers.length > 1 ? 210 : yGap);
+
+      tiers.forEach((tier) => {
+        const ids = tier.ids;
+        if (tier.type === "EVENT") {
+          ids.sort(compareEventsByScripture);
+        } else {
+          ids.sort((aId, bId) => {
+            const aPars = parentsOf.get(aId) || [];
+            const bPars = parentsOf.get(bId) || [];
+            const aParXs = aPars.map((p) => (state.positions.get(p) || {}).x).filter((x) => x !== undefined);
+            const bParXs = bPars.map((p) => (state.positions.get(p) || {}).x).filter((x) => x !== undefined);
+            const aAvgX = aParXs.length ? aParXs.reduce((sum, v) => sum + v, 0) / aParXs.length : 0;
+            const bAvgX = bParXs.length ? bParXs.reduce((sum, v) => sum + v, 0) / bParXs.length : 0;
+            if (Math.abs(aAvgX - bAvgX) > 1e-3) return aAvgX - bAvgX;
+
+            const aNode = state.nodes.get(aId) || {};
+            const bNode = state.nodes.get(bId) || {};
+            return (aNode.display_name || aId).localeCompare(bNode.display_name || bId);
+          });
+        }
+
+        const N = ids.length;
+        const tierSpacing = tier.type === "EVENT" ? 220 : spacing;
+        const totalW = (N - 1) * tierSpacing;
+        const startX = seedPos.x - totalW / 2;
+
+        ids.forEach((id, i) => {
+          if (state.pinned.has(id) && state.positions.has(id) && !reset) return;
+          const x = startX + i * tierSpacing;
+          let curve = 0;
+          if (N > 2) {
+            const normPos = (i - (N - 1) / 2) / ((N - 1) / 2);
+            curve = normPos * normPos * 25;
+          }
+          state.positions.set(id, { x, y: currentTierY + curve });
+        });
+
+        currentTierY += 240;
+      });
+    }
+  }
+
+  function visibleEdges() {
+    const out = [];
+    state.edges.forEach((edge) => {
+      if (!state.visible.has(edge.source) || !state.visible.has(edge.target)) return;
+      const a = state.nodes.get(edge.source);
+      const b = state.nodes.get(edge.target);
+      if (!a || !b || !nodePassesFilter(a) || !nodePassesFilter(b)) return;
+      out.push(edge);
+    });
+    return out;
+  }
+
+  function shapeFor(node, x, y, selected) {
+    const seed = node.id === state.seed;
+    const isRev = node.review_status === "REVIEW_REQUIRED";
+    const cls = [
+      "node-shape",
+      `node-${node.type.toLowerCase()}`,
+      seed ? "node-seed" : "",
+      selected ? "node-selected" : "",
+      isRev ? "node-review" : "",
+    ].filter(Boolean).join(" ");
+
+    if (node.type === "PERSON") return `<circle class="${cls}" cx="${x}" cy="${y}" r="18" data-id="${node.id}"></circle>`;
+    if (node.type === "GROUP") return `<polygon class="${cls}" data-id="${node.id}" points="${hex(x, y, 20)}"></polygon>`;
+    if (node.type === "PLACE") return `<rect class="${cls}" data-id="${node.id}" x="${x - 16}" y="${y - 14}" width="32" height="28" rx="6"></rect>`;
+    if (node.type === "EVENT") return `<polygon class="${cls}" data-id="${node.id}" points="${x},${y - 20} ${x + 16},${y} ${x},${y + 20} ${x - 16},${y}"></polygon>`;
+    return `<rect class="${cls}" data-id="${node.id}" x="${x - 16}" y="${y - 12}" width="32" height="24" rx="4"></rect>`;
+  }
+
+  function hex(x, y, r) {
+    const pts = [];
+    for (let i = 0; i < 6; i += 1) {
+      const a = (Math.PI / 3) * i - Math.PI / 6;
+      pts.push(`${x + Math.cos(a) * r},${y + Math.sin(a) * r}`);
+    }
+    return pts.join(" ");
+  }
+
+  function render() {
+    if (!state.seed) return;
+    el.empty.hidden = true;
+    const edges = visibleEdges();
+    const selectedEdge = state.selection.kind === "edge" ? state.selection.id : null;
+    const selectedNode = state.selection.kind === "node" ? state.selection.id : null;
+    const focusNodeId = selectedNode || state.seed;
+
+    // Render Edges with SVG lines & markers
+    el.edges.innerHTML = edges.map((edge) => {
+      const isPrimary = (edge.source === focusNodeId || edge.target === focusNodeId);
+      const isSecondary = !isPrimary;
+      if (isSecondary && state.secondaryMode === "hide") return "";
+
+      const a = state.positions.get(edge.source);
+      const b = state.positions.get(edge.target);
+      if (!a || !b) return "";
+      const selected = edge.id === selectedEdge;
+      const isRev = edge.review_status === "REVIEW_REQUIRED";
+      const isPart = edge.relationship_type && edge.relationship_type.includes("PARTICIPATED");
+
+      const marker = isRev
+        ? "url(#arrow-review)"
+        : (isPrimary ? "url(#arrow-canonical)" : "url(#arrow-canonical-dim)");
+
+      const showLabel = (isPrimary || selected || state.secondaryMode === "show");
+      const label = showLabel ? edge.ui_label : "";
+      const mx = (a.x + b.x) / 2;
+      const my = (a.y + b.y) / 2;
+
+      const cls = [
+        "edge-line",
+        isPart ? "edge-participation" : "edge-canonical",
+        isRev ? "edge-review" : "",
+        isPrimary ? "edge-primary" : "edge-secondary",
+        selected ? "edge-selected" : "",
+      ].filter(Boolean).join(" ");
+
+      return `<g class="edge-g" data-id="${edge.id}">
+        <line class="${cls}" data-id="${edge.id}" x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" marker-end="${marker}"></line>
+        ${label ? `<text class="edge-label ${isPrimary ? "edge-label-primary" : "edge-label-secondary"}" x="${mx}" y="${my - 5}" text-anchor="middle">${escapeHtml(label)}</text>` : ""}
+      </g>`;
+    }).join("");
+
+    // Render Nodes with shape, badge, and label
+    el.nodes.innerHTML = [...state.visible].map((id) => {
+      const node = state.nodes.get(id);
+      const pos = state.positions.get(id) || { x: 0, y: 0 };
+      if (!nodePassesFilter(node)) return "";
+      const rem = (state.hiddenRemainder.get(id) || []).length;
+      const badge = rem ? `+${rem}` : (node.audit_findings && node.audit_findings.length > 0 ? "⚠️" : node.type);
+      const isFocus = id === focusNodeId;
+      const isSel = id === selectedNode;
+      return `<g class="node-g ${isFocus ? "node-focused" : ""}" data-id="${id}" transform="translate(0,0)">
+        <title>${escapeHtml(node.display_name)} (${node.id})</title>
+        ${shapeFor(node, pos.x, pos.y, isSel || isFocus)}
+        <text class="node-badge" x="${pos.x}" y="${pos.y - 24}" text-anchor="middle">${escapeHtml(badge)}</text>
+        ${formatNodeLabel(node, pos.x, pos.y)}
+      </g>`;
+    }).join("");
+
+    const nCount = [...state.visible].filter((id) => nodePassesFilter(state.nodes.get(id))).length;
+    const hopLabel = `${state.hop} hop${state.hop > 1 ? "s" : ""}`;
+    const drawnEdges = edges.filter((e) => {
+      const isPrimary = (e.source === focusNodeId || e.target === focusNodeId);
+      return isPrimary || state.secondaryMode !== "hide";
+    });
+    const focusName = state.nodes.get(focusNodeId)?.display_name || focusNodeId;
+    el.hud.textContent = state.hudNotice || `${nCount} drawn nodes (${hopLabel}) · ${drawnEdges.length} connections (focus: ${truncate(focusName, 20)}) · BGV2-009R dataset`;
+
+    bindCanvasEvents();
+    renderInspectors();
+  }
+
+  function screenToWorld(evt) {
+    const rect = el.svg.getBoundingClientRect();
+    const x = (evt.clientX - rect.left - state.pan.x) / state.scale;
+    const y = (evt.clientY - rect.top - state.pan.y) / state.scale;
+    return { x, y };
+  }
+
+  function applyView() {
+    el.viewport.setAttribute("transform", `translate(${state.pan.x} ${state.pan.y}) scale(${state.scale})`);
+  }
+
+  function fitGraph() {
+    const pts = [...state.visible].map((id) => state.positions.get(id)).filter(Boolean);
+    if (!pts.length) return;
+    const xs = pts.map((p) => p.x);
+    const ys = pts.map((p) => p.y);
+    const minX = Math.min(...xs) - 80;
+    const maxX = Math.max(...xs) + 80;
+    const minY = Math.min(...ys) - 80;
+    const maxY = Math.max(...ys) + 80;
+    const rect = el.svg.getBoundingClientRect();
+    const scale = Math.min(rect.width / (maxX - minX), rect.height / (maxY - minY), 1.8);
+    state.scale = Math.max(0.2, scale * 0.9);
+    state.pan.x = rect.width / 2 - ((minX + maxX) / 2) * state.scale;
+    state.pan.y = rect.height / 2 - ((minY + maxY) / 2) * state.scale;
+    applyView();
+  }
+
+  function zoomToSelection() {
+    const id = state.selection.kind === "node" ? state.selection.id : state.seed;
+    const pos = state.positions.get(id);
+    if (!pos) return;
+    const rect = el.svg.getBoundingClientRect();
+    state.scale = Math.max(state.scale, 1.2);
+    state.pan.x = rect.width / 2 - pos.x * state.scale;
+    state.pan.y = rect.height / 2 - pos.y * state.scale;
+    applyView();
+  }
+
+  /* Interactive Canvas Drag & Drop and Pan Event Handlers */
+  function bindCanvasEvents() {
+    el.svg.onwheel = (evt) => {
+      evt.preventDefault();
+      const before = screenToWorld(evt);
+      const factor = evt.deltaY < 0 ? 1.12 : 0.9;
+      state.scale = Math.min(4, Math.max(0.15, state.scale * factor));
+      const after = screenToWorld(evt);
+      state.pan.x += (after.x - before.x) * state.scale;
+      state.pan.y += (after.y - before.y) * state.scale;
+      applyView();
+    };
+
+    const handleStart = (clientX, clientY, targetEl) => {
+      const target = targetEl.closest("[data-id]");
+      if (target && target.tagName !== "line" && !target.classList.contains("edge-line")) {
+        const id = target.getAttribute("data-id");
+        if (state.nodes.has(id)) {
+          state.dragging = {
+            id,
+            start: screenToWorld({ clientX, clientY }),
+            orig: { ...state.positions.get(id) },
+            screenStart: { x: clientX, y: clientY },
+          };
+          return true;
+        }
+      }
+      if (target && target.classList.contains("edge-line")) {
+        selectEdge(target.getAttribute("data-id"));
+        return true;
+      }
+      state.panning = { x: clientX - state.pan.x, y: clientY - state.pan.y };
+      el.viewport.classList.add("panning");
+      return true;
+    };
+
+    const handleMove = (clientX, clientY) => {
+      if (state.dragging) {
+        const now = screenToWorld({ clientX, clientY });
+        const orig = state.dragging.orig;
+        const start = state.dragging.start;
+        state.positions.set(state.dragging.id, { x: orig.x + now.x - start.x, y: orig.y + now.y - start.y });
+        state.pinned.add(state.dragging.id);
+        render();
+        return true;
+      }
+      if (state.panning) {
+        state.pan.x = clientX - state.panning.x;
+        state.pan.y = clientY - state.panning.y;
+        applyView();
+        return true;
+      }
+      return false;
+    };
+
+    const handleEnd = (clientX, clientY) => {
+      if (state.dragging) {
+        const dx = clientX - (state.dragging.screenStart ? state.dragging.screenStart.x : clientX);
+        const dy = clientY - (state.dragging.screenStart ? state.dragging.screenStart.y : clientY);
+        if (Math.hypot(dx, dy) < 8) selectNode(state.dragging.id);
+        state.dragging = null;
+      }
+      state.panning = null;
+      el.viewport.classList.remove("panning");
+    };
+
+    el.svg.onmousedown = (evt) => handleStart(evt.clientX, evt.clientY, evt.target);
+    window.onmousemove = (evt) => handleMove(evt.clientX, evt.clientY);
+    window.onmouseup = (evt) => handleEnd(evt.clientX, evt.clientY);
+
+    el.svg.ondblclick = (evt) => {
+      const target = evt.target.closest("[data-id]");
+      if (target && state.nodes.has(target.getAttribute("data-id"))) {
+        const id = target.getAttribute("data-id");
+        seedGraph(id);
+      }
+    };
+  }
+
+  function selectNode(id) {
+    state.selection = { kind: "node", id };
+    document.querySelectorAll(".inspector-tabs .tab").forEach(t => {
+      t.classList.toggle("active", t.getAttribute("data-tab") === "node");
+    });
+    ["insp-node", "insp-edge", "insp-evidence", "insp-findings"].forEach(d => {
+      document.getElementById(d).hidden = d !== "insp-node";
+    });
+    renderInspectors();
+    render();
+  }
+
+  function selectEdge(id) {
+    state.selection = { kind: "edge", id };
+    document.querySelectorAll(".inspector-tabs .tab").forEach(t => {
+      t.classList.toggle("active", t.getAttribute("data-tab") === "edge");
+    });
+    ["insp-node", "insp-edge", "insp-evidence", "insp-findings"].forEach(d => {
+      document.getElementById(d).hidden = d !== "insp-edge";
+    });
+    renderInspectors();
+    render();
+  }
+
+  function renderInspectors() {
+    if (state.selection.kind === "node" && state.selection.id) {
+      renderNodeInspector(state.selection.id);
+    } else if (state.selection.kind === "edge" && state.selection.id) {
+      renderEdgeInspector(state.selection.id);
+    }
   }
 
   function renderNodeInspector(id) {
@@ -357,14 +751,13 @@
     const isRev = node.review_status === "REVIEW_REQUIRED";
     const findings = node.audit_findings || [];
 
-    // Find connected edges
     const famRels = [];
     const eventParts = [];
     state.edges.forEach(e => {
       if (e.source === id || e.target === id) {
         const otherId = e.source === id ? e.target : e.source;
         const otherNode = state.nodes.get(otherId);
-        if (e.relationship_type.includes("OF")) {
+        if (e.relationship_type && e.relationship_type.includes("OF")) {
           famRels.push({ edge: e, other: otherNode, role: e.ui_label });
         } else {
           eventParts.push({ edge: e, other: otherNode, role: e.ui_label });
@@ -575,19 +968,16 @@
   window.inspectById = (id) => {
     if (!state.visible.has(id)) {
       state.visible.add(id);
-      layoutAndRender();
+      layoutAll(false);
+      render();
     }
-    selectEntity("node", id);
+    selectNode(id);
   };
 
   window.reseed = (id) => seedGraph(id);
 
-  function updateHud() {
-    el.hud.textContent = `Active nodes: ${state.visible.size} | Selection: ${state.selection.id || 'None'}`;
-  }
-
   function bindEvents() {
-    // Search
+    // Autocomplete Search
     el.search.addEventListener("input", (e) => {
       const q = e.target.value.toLowerCase().trim();
       if (!q) {
@@ -633,30 +1023,40 @@
       }
     });
 
-    // Hop depth
+    // Hop depth dropdown
     document.getElementById("hop-depth").addEventListener("change", (e) => {
       state.hop = parseInt(e.target.value, 10);
       if (state.seed) {
-        state.visible.clear();
-        state.visible.add(state.seed);
-        expandNeighborhood(state.seed, state.hop);
-        layoutAndRender();
+        state.visible = new Set([state.seed]);
+        expandNode(state.seed, state.hop);
+        layoutAll(true);
+        render();
+        fitGraph();
       }
     });
 
-    // Zoom buttons
+    // Toolbar buttons
     document.getElementById("btn-zoom-in").addEventListener("click", () => {
       state.scale *= 1.25;
-      el.viewport.setAttribute("transform", `translate(${state.pan.x}, ${state.pan.y}) scale(${state.scale})`);
+      applyView();
     });
     document.getElementById("btn-zoom-out").addEventListener("click", () => {
       state.scale *= 0.8;
-      el.viewport.setAttribute("transform", `translate(${state.pan.x}, ${state.pan.y}) scale(${state.scale})`);
+      applyView();
     });
     document.getElementById("btn-fit").addEventListener("click", fitGraph);
     document.getElementById("btn-recenter").addEventListener("click", fitGraph);
+    document.getElementById("btn-zoom-sel").addEventListener("click", zoomToSelection);
     document.getElementById("btn-reset").addEventListener("click", () => {
       if (state.seed) seedGraph(state.seed);
+    });
+
+    // Secondary edges radio mode
+    document.querySelectorAll("input[name='secondary-mode']").forEach(radio => {
+      radio.addEventListener("change", (e) => {
+        state.secondaryMode = e.target.value;
+        render();
+      });
     });
 
     // Findings button & modal
@@ -688,17 +1088,19 @@
       document.getElementById("btn-show-legend").hidden = true;
     });
 
-    // Inspector toggle
-    document.getElementById("btn-toggle-inspector").addEventListener("click", () => {
-      document.getElementById("inspector").style.display = "none";
-      document.getElementById("btn-show-inspector").hidden = false;
-    });
-    document.getElementById("btn-show-inspector").addEventListener("click", () => {
-      document.getElementById("inspector").style.display = "flex";
-      document.getElementById("btn-show-inspector").hidden = true;
+    // Inspector tabs
+    document.querySelectorAll(".inspector-tabs .tab").forEach(tab => {
+      tab.addEventListener("click", () => {
+        document.querySelectorAll(".inspector-tabs .tab").forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+        const tabName = tab.getAttribute("data-tab");
+        ["insp-node", "insp-edge", "insp-evidence", "insp-findings"].forEach(id => {
+          document.getElementById(id).hidden = id !== `insp-${tabName}`;
+        });
+      });
     });
 
-    // Filters
+    // Filters checkboxes
     document.querySelectorAll("#filters-bar input[type='checkbox']").forEach(chk => {
       chk.addEventListener("change", () => {
         if (chk.dataset.nodeType) state.filters.node[chk.dataset.nodeType] = chk.checked;
@@ -706,10 +1108,10 @@
         if (chk.dataset.statusFilter) state.filters.status[chk.dataset.statusFilter] = chk.checked;
         if (chk.dataset.edgeClass) state.filters.edge[chk.dataset.edgeClass] = chk.checked;
         if (state.seed) {
-          state.visible.clear();
-          state.visible.add(state.seed);
-          expandNeighborhood(state.seed, state.hop);
-          layoutAndRender();
+          state.visible = new Set([state.seed]);
+          expandNode(state.seed, state.hop);
+          layoutAll(true);
+          render();
         }
       });
     });
@@ -723,41 +1125,6 @@
       el.pathModal.hidden = true;
     });
     document.getElementById("path-run").addEventListener("click", runPathFinder);
-
-    // Pan & Drag on SVG
-    bindSvgPanAndDrag();
-  }
-
-  function fitGraph() {
-    state.pan = { x: 0, y: 0 };
-    state.scale = 1;
-    el.viewport.setAttribute("transform", "translate(0, 0) scale(1)");
-  }
-
-  function bindSvgPanAndDrag() {
-    let isPanning = false;
-    let startPan = { x: 0, y: 0 };
-
-    el.svg.addEventListener("mousedown", (e) => {
-      if (e.target === el.svg || e.target === el.viewport) {
-        isPanning = true;
-        startPan = { x: e.clientX - state.pan.x, y: e.clientY - state.pan.y };
-        el.viewport.classList.add("panning");
-      }
-    });
-
-    window.addEventListener("mousemove", (e) => {
-      if (isPanning) {
-        state.pan.x = e.clientX - startPan.x;
-        state.pan.y = e.clientY - startPan.y;
-        el.viewport.setAttribute("transform", `translate(${state.pan.x}, ${state.pan.y}) scale(${state.scale})`);
-      }
-    });
-
-    window.addEventListener("mouseup", () => {
-      isPanning = false;
-      el.viewport.classList.remove("panning");
-    });
   }
 
   function runPathFinder() {
@@ -785,7 +1152,7 @@
         break;
       }
 
-      const neighbors = state.neighborhood[curr]?.canonical_neighbors || [];
+      const neighbors = neighborsOf(curr).map(item => item.node.id);
       for (const nId of neighbors) {
         if (!visited.has(nId) && state.nodes.has(nId)) {
           visited.add(nId);
@@ -800,9 +1167,9 @@
         return `${idx + 1}. [${n?.type || 'NODE'}] ${n?.display_name || id}`;
       }).join("\n → ");
 
-      // Add all to visible
       pathFound.forEach(id => state.visible.add(id));
-      layoutAndRender();
+      layoutAll(false);
+      render();
     } else {
       el.pathResult.textContent = "No path found between selected entities within active canonical graph bounds.";
     }
