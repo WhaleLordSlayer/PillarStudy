@@ -196,7 +196,7 @@ body {
 .node-label-event { font-size: 10.5px; fill: #fde68a; font-weight: 500; }
 .node-badge { fill: var(--muted); font-size: 8.5px; pointer-events: none; letter-spacing: 0.04em; }
 
-/* SVG Edge Styling with Primary/Secondary Auto-Spacing Highlighting */
+/* SVG Edge Styling with Primary/Secondary Highlighting */
 .edge-line { fill: none; cursor: pointer; transition: opacity 0.15s ease, stroke-width 0.15s ease; }
 .edge-canonical { stroke: var(--canonical); stroke-width: 2; }
 .edge-participation { stroke: var(--participation); stroke-width: 1.8; stroke-dasharray: 6 4; }
@@ -334,8 +334,20 @@ body {
   transition: all 0.12s ease;
 }
 .rel-item:hover { border-color: var(--person); background: #172554; }
+.rel-item-event { border-left: 3px solid #fbbf24; background: #131722; }
+.rel-item-event:hover { border-color: #fbbf24; background: #261f10; }
 .rel-name { font-weight: 600; color: var(--text); }
 .rel-role { font-size: 10px; color: var(--muted); text-transform: uppercase; }
+
+.empty-notice {
+  font-size: 11px;
+  font-style: italic;
+  color: #94a3b8;
+  padding: 8px 10px;
+  background: #0b1220;
+  border: 1px dashed #334155;
+  border-radius: 6px;
+}
 
 .finding-card {
   background: #1c1407;

@@ -1,8 +1,10 @@
-/* BGV2-009R Bible Graph QA - Node-RED style SVG relationship explorer with auto-spacing & drag-and-drop */
+/* BGV2-009R Bible Graph Visual QA Explorer.
+   Certified deterministic node-link visual QA viewer.
+   All names resolved from Candidate B certified registries. */
 (() => {
-  const EXPAND_CAP = 24;
-  const WARN_NODES = 120;
-  const REFUSE_NODES = 200;
+  const EXPAND_CAP = 30;
+  const WARN_NODES = 140;
+  const REFUSE_NODES = 240;
 
   const state = {
     bundle: null,
@@ -34,30 +36,31 @@
   };
 
   const QA_STARTERS = [
-    { id: "candb_264ecdb186e5596797b5", name: "David", type: "PERSON", cls: "chip-person" },
+    { id: "candb_c782837629d7000f31ac", name: "Jesus", type: "PERSON", cls: "chip-person" },
     { id: "candb_611090afebb9d9c27696", name: "Paul", type: "PERSON", cls: "chip-person" },
-    { id: "candb_b0a6a5756ecb79418f0a", name: "Elijah", type: "PERSON", cls: "chip-person" },
+    { id: "candb_c660f27793a87076795a", name: "Peter", type: "PERSON", cls: "chip-person" },
+    { id: "candb_ce00b6b7755b1ce2efd8", name: "Moses", type: "PERSON", cls: "chip-person" },
+    { id: "candb_264ecdb186e5596797b5", name: "David", type: "PERSON", cls: "chip-person" },
     { id: "candb_2673b6dee819a2125c7a", name: "Abraham", type: "PERSON", cls: "chip-person" },
     { id: "candb_1a679fddcb8aedc7976b", name: "Jacob", type: "PERSON", cls: "chip-person" },
-    { id: "candb_0ae72ee82945943832ce", name: "Daniel", type: "PERSON", cls: "chip-person" },
     { id: "candb_0e77b0ad8939293d2295", name: "Ruth", type: "PERSON", cls: "chip-person" },
     { id: "candb_53a06e8b55a4b8b5d96f", name: "Samuel", type: "PERSON", cls: "chip-person" },
+    { id: "candb_b0a6a5756ecb79418f0a", name: "Elijah", type: "PERSON", cls: "chip-person" },
+    { id: "candb_0ae72ee82945943832ce", name: "Daniel", type: "PERSON", cls: "chip-person" },
     { id: "candb_d6976ad1227da79b7ee5", name: "Esther", type: "PERSON", cls: "chip-person" },
-    { id: "candb_00dec8e09abb7be8fed6", name: "Melchizedek", type: "PERSON", cls: "chip-person" },
     { id: "candbpl_3a3c12c0219fcb2c6a85", name: "Jerusalem", type: "PLACE", cls: "chip-place" },
     { id: "candbpl_007ad55822ce179d59c2", name: "Nazareth", type: "PLACE", cls: "chip-place" },
     { id: "candbpl_07bcf25d27c7f2fe12d9", name: "Bethlehem", type: "PLACE", cls: "chip-place" },
     { id: "candbpl_7a258a04aa3e7e2f6ece", name: "Capernaum", type: "PLACE", cls: "chip-place" },
     { id: "candbpl_67f14b367080a7692354", name: "Rome", type: "PLACE", cls: "chip-place" },
     { id: "candbpl_086e560f01a2e4c3c56f", name: "Antioch", type: "PLACE", cls: "chip-place" },
-    { id: "candbpl_21cd1522b002ec3bdb3f", name: "Egypt", type: "PLACE", cls: "chip-place" },
     { id: "candbgrp_75d3419f7585b78364ac", name: "Israelites", type: "GROUP", cls: "chip-group" },
     { id: "candbgrp_7c9da7b2a64c585c544e", name: "Pharisees", type: "GROUP", cls: "chip-group" },
     { id: "candbgrp_a33118933068e2ee2a10", name: "Sadducees", type: "GROUP", cls: "chip-group" },
     { id: "candbgrp_b2569f2e3a17e08929eb", name: "Romans", type: "GROUP", cls: "chip-group" },
-    { id: "candbevt_00083426993e8e0f833e", name: "Saul in David's power", type: "EVENT", cls: "chip-event" },
+    { id: "candbevt_00083426993e8e0f833e", name: "Saul in David's power (Event)", type: "EVENT", cls: "chip-event" },
+    { id: "BGV2-009-D-006", name: "Ruth journey thin (Finding)", type: "FINDING", cls: "chip-finding" },
     { id: "BGV2-009-D-002", name: "Paul journey thin (Finding)", type: "FINDING", cls: "chip-finding" },
-    { id: "BGV2-009-D-001", name: "Elijah journey thin (Finding)", type: "FINDING", cls: "chip-finding" },
   ];
 
   const BIBLE_BOOK_ORDER = {
@@ -196,7 +199,7 @@
       const totalNodes = state.nodes.size;
       const totalEdges = state.edges.size;
       const totalFindings = state.auditFindings.length;
-      el.counts.textContent = `${totalNodes.toLocaleString()} entities · ${totalEdges.toLocaleString()} edges · ${totalFindings} findings`;
+      el.counts.textContent = `${totalNodes.toLocaleString()} entities · ${totalEdges.toLocaleString()} connections · ${totalFindings} findings`;
 
       renderQAChips();
       checkUrlParams();
@@ -327,7 +330,6 @@
     state.expanded.add(id);
   }
 
-  /* Auto-spacing tiered layout engine matching Book of Mormon QA viewer */
   function layoutAll(reset) {
     if (!state.seed) return;
     const seedNode = state.nodes.get(state.seed);
@@ -369,7 +371,6 @@
     });
 
     if (isEventSeed) {
-      // Event-centric layout
       const hop1 = byHop.get(1) || [];
       const people = hop1.filter((id) => (state.nodes.get(id) || {}).type === "PERSON");
       const places = hop1.filter((id) => (state.nodes.get(id) || {}).type === "PLACE");
@@ -379,7 +380,6 @@
         return t !== "PERSON" && t !== "PLACE" && t !== "GROUP";
       });
 
-      // Participating People on top shelf (y = -220)
       if (people.length) {
         people.sort((a, b) => (state.nodes.get(a)?.display_name || a).localeCompare(state.nodes.get(b)?.display_name || b));
         const spacing = 190;
@@ -391,7 +391,6 @@
         });
       }
 
-      // Places & Groups on bottom shelf (y = 220)
       const bottomNodes = [...places, ...groups, ...others];
       if (bottomNodes.length) {
         bottomNodes.sort((a, b) => (state.nodes.get(a)?.display_name || a).localeCompare(state.nodes.get(b)?.display_name || b));
@@ -404,7 +403,6 @@
         });
       }
 
-      // Hop 2+ nodes
       for (let h = 2; h <= maxHop; h += 1) {
         const nodesAtHop = byHop.get(h) || [];
         if (!nodesAtHop.length) continue;
@@ -419,7 +417,6 @@
       return;
     }
 
-    // Person / Entity tiered layout
     const yGap = 260;
     const spacing = 190;
 
@@ -433,8 +430,9 @@
       const groupNodes = nodesAtHop.filter((id) => (state.nodes.get(id) || {}).type === "GROUP");
 
       const tiers = [];
-      if (peopleNodes.length) tiers.push({ type: "PERSON", ids: peopleNodes });
+      // Put Events first/prominently in tier structure so narrative links are obvious!
       if (eventNodes.length) tiers.push({ type: "EVENT", ids: eventNodes });
+      if (peopleNodes.length) tiers.push({ type: "PERSON", ids: peopleNodes });
       if (placeNodes.length) tiers.push({ type: "PLACE", ids: placeNodes });
       if (groupNodes.length) tiers.push({ type: "GROUP", ids: groupNodes });
 
@@ -528,7 +526,7 @@
     const selectedNode = state.selection.kind === "node" ? state.selection.id : null;
     const focusNodeId = selectedNode || state.seed;
 
-    // Render Edges with SVG lines & markers
+    // Render Edges
     el.edges.innerHTML = edges.map((edge) => {
       const isPrimary = (edge.source === focusNodeId || edge.target === focusNodeId);
       const isSecondary = !isPrimary;
@@ -564,7 +562,7 @@
       </g>`;
     }).join("");
 
-    // Render Nodes with shape, badge, and label
+    // Render Nodes
     el.nodes.innerHTML = [...state.visible].map((id) => {
       const node = state.nodes.get(id);
       const pos = state.positions.get(id) || { x: 0, y: 0 };
@@ -633,7 +631,6 @@
     applyView();
   }
 
-  /* Interactive Canvas Drag & Drop and Pan Event Handlers */
   function bindCanvasEvents() {
     el.svg.onwheel = (evt) => {
       evt.preventDefault();
@@ -744,6 +741,7 @@
     }
   }
 
+  /* Person Inspector matching detailed requirements */
   function renderNodeInspector(id) {
     const node = state.nodes.get(id);
     if (!node) return;
@@ -751,19 +749,122 @@
     const isRev = node.review_status === "REVIEW_REQUIRED";
     const findings = node.audit_findings || [];
 
-    const famRels = [];
+    // Collect distinct connection categories
     const eventParts = [];
+    const famRels = [];
+    const groupRels = [];
+
     state.edges.forEach(e => {
       if (e.source === id || e.target === id) {
         const otherId = e.source === id ? e.target : e.source;
         const otherNode = state.nodes.get(otherId);
-        if (e.relationship_type && e.relationship_type.includes("OF")) {
-          famRels.push({ edge: e, other: otherNode, role: e.ui_label });
-        } else {
-          eventParts.push({ edge: e, other: otherNode, role: e.ui_label });
+        if (!otherNode) return;
+
+        if (otherNode.type === "EVENT" || (e.relationship_type && e.relationship_type.includes("PARTICIPATED_IN_EVENT"))) {
+          eventParts.push({ edge: e, event: otherNode, role: e.ui_label });
+        } else if (otherNode.type === "GROUP") {
+          groupRels.push({ edge: e, group: otherNode, role: e.ui_label });
+        } else if (otherNode.type === "PERSON" && e.relationship_type && e.relationship_type.includes("OF")) {
+          famRels.push({ edge: e, person: otherNode, role: e.ui_label });
         }
       }
     });
+
+    // Build Event Participation HTML section
+    let eventSectionHtml = "";
+    if (eventParts.length > 0) {
+      eventSectionHtml = `
+        <div class="insp-section">
+          <h4>Event Participation (${eventParts.length})</h4>
+          <div class="rel-list">
+            ${eventParts.map(item => {
+              const ev = item.event;
+              const isEventRev = ev.review_status === "REVIEW_REQUIRED" || item.edge.review_status === "REVIEW_REQUIRED";
+              const scripture = (ev.scripture_ranges && ev.scripture_ranges.length) ? ev.scripture_ranges.join(', ') : (item.edge.scripture_locators ? item.edge.scripture_locators.join(', ') : '');
+              return `
+                <div class="rel-item rel-item-event" onclick="window.inspectById('${ev.id}')">
+                  <div style="flex: 1; min-width: 0;">
+                    <div class="rel-name" style="color: #fde68a;">${escapeHtml(ev.display_name)}</div>
+                    <div style="display: flex; gap: 6px; align-items: center; margin-top: 3px; flex-wrap: wrap;">
+                      <span class="tag ${isEventRev ? 'tag-review' : 'tag-accepted'}">${isEventRev ? 'REVIEW_REQUIRED' : 'ACCEPTED'}</span>
+                      <span class="tag tag-event">EVENT</span>
+                      <span class="rel-role">${escapeHtml(item.role)}</span>
+                    </div>
+                    ${scripture ? `<div style="font-family: var(--mono); font-size: 10px; color: #7dd3fc; margin-top: 3px;">📖 ${escapeHtml(scripture)}</div>` : ''}
+                  </div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </div>
+      `;
+    } else {
+      eventSectionHtml = `
+        <div class="insp-section">
+          <h4>Event Participation (0)</h4>
+          <div class="empty-notice">No certified event participation relationships</div>
+        </div>
+      `;
+    }
+
+    // Build Family Connections HTML section
+    let familySectionHtml = "";
+    if (famRels.length > 0) {
+      familySectionHtml = `
+        <div class="insp-section">
+          <h4>Family Connections (${famRels.length})</h4>
+          <div class="rel-list">
+            ${famRels.map(item => `
+              <div class="rel-item" onclick="window.inspectById('${item.person.id}')">
+                <div>
+                  <div class="rel-name">${escapeHtml(item.person.display_name)}</div>
+                  <div class="rel-role">${escapeHtml(item.role)}</div>
+                </div>
+                <div style="display: flex; gap: 4px; align-items: center;">
+                  <span class="tag ${item.edge.review_status === 'REVIEW_REQUIRED' ? 'tag-review' : 'tag-accepted'}">${item.edge.review_status}</span>
+                  <span class="tag tag-person">PERSON</span>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    } else if (node.type === "PERSON") {
+      familySectionHtml = `
+        <div class="insp-section">
+          <h4>Family Connections (0)</h4>
+          <div class="empty-notice">No certified family connections</div>
+        </div>
+      `;
+    }
+
+    // Build Group Relationships HTML section
+    let groupSectionHtml = "";
+    if (groupRels.length > 0) {
+      groupSectionHtml = `
+        <div class="insp-section">
+          <h4>Group Relationships (${groupRels.length})</h4>
+          <div class="rel-list">
+            ${groupRels.map(item => `
+              <div class="rel-item" onclick="window.inspectById('${item.group.id}')">
+                <div>
+                  <div class="rel-name">${escapeHtml(item.group.display_name)}</div>
+                  <div class="rel-role">${escapeHtml(item.role)}</div>
+                </div>
+                <span class="tag tag-group">GROUP</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    } else if (node.type === "PERSON") {
+      groupSectionHtml = `
+        <div class="insp-section">
+          <h4>Group Relationships (0)</h4>
+          <div class="empty-notice">No certified group relationships</div>
+        </div>
+      `;
+    }
 
     el.inspNode.innerHTML = `
       <div class="insp-title-row">
@@ -786,8 +887,8 @@
               <span>[${f.severity}] ${escapeHtml(f.finding_id)}</span>
               <small>Area ${f.area}</small>
             </div>
-            <div class="finding-desc">${escapeHtml(f.title)}: ${escapeHtml(f.description)}</div>
-            <div class="finding-action">Action: ${escapeHtml(f.recommended_action)}</div>
+            <div class="finding-desc"><b>${escapeHtml(f.title)}</b>: ${escapeHtml(f.description)}</div>
+            <div class="finding-action">Recommended Action: ${escapeHtml(f.recommended_action)}</div>
           </div>
         `).join('')}
       </div>
@@ -795,7 +896,7 @@
 
       ${node.scripture_ranges && node.scripture_ranges.length > 0 ? `
       <div class="insp-section">
-        <h4>Scripture Ranges</h4>
+        <h4>Scripture Anchor</h4>
         <div style="font-family: var(--mono); font-size: 11px; color: #7dd3fc;">${node.scripture_ranges.join(', ')}</div>
       </div>
       ` : ''}
@@ -808,39 +909,9 @@
       </div>
       ` : ''}
 
-      ${famRels.length > 0 ? `
-      <div class="insp-section">
-        <h4>Family Connections (${famRels.length})</h4>
-        <div class="rel-list">
-          ${famRels.map(r => `
-            <div class="rel-item" onclick="window.inspectById('${r.other.id}')">
-              <div>
-                <div class="rel-name">${escapeHtml(r.other.display_name)}</div>
-                <div class="rel-role">${escapeHtml(r.role)}</div>
-              </div>
-              <span class="tag tag-${r.other.type.toLowerCase()}">${r.other.type}</span>
-            </div>
-          `).join('')}
-        </div>
-      </div>
-      ` : ''}
-
-      ${eventParts.length > 0 ? `
-      <div class="insp-section">
-        <h4>Event Participation (${eventParts.length})</h4>
-        <div class="rel-list">
-          ${eventParts.map(r => `
-            <div class="rel-item" onclick="window.inspectById('${r.other.id}')">
-              <div>
-                <div class="rel-name">${escapeHtml(r.other.display_name)}</div>
-                <div class="rel-role">${escapeHtml(r.role)}</div>
-              </div>
-              <span class="tag tag-${r.other.type.toLowerCase()}">${r.other.type}</span>
-            </div>
-          `).join('')}
-        </div>
-      </div>
-      ` : ''}
+      ${eventSectionHtml}
+      ${familySectionHtml}
+      ${groupSectionHtml}
 
       <div class="insp-section">
         <button class="action" onclick="window.reseed('${node.id}')" style="width: 100%; padding: 8px;">Seed graph from this node</button>
@@ -977,7 +1048,6 @@
   window.reseed = (id) => seedGraph(id);
 
   function bindEvents() {
-    // Autocomplete Search
     el.search.addEventListener("input", (e) => {
       const q = e.target.value.toLowerCase().trim();
       if (!q) {
@@ -1015,7 +1085,6 @@
       seedGraph(id);
     };
 
-    // Keyboard shortcut /
     document.addEventListener("keydown", (e) => {
       if (e.key === "/" && document.activeElement !== el.search) {
         e.preventDefault();
@@ -1023,7 +1092,6 @@
       }
     });
 
-    // Hop depth dropdown
     document.getElementById("hop-depth").addEventListener("change", (e) => {
       state.hop = parseInt(e.target.value, 10);
       if (state.seed) {
@@ -1035,7 +1103,6 @@
       }
     });
 
-    // Toolbar buttons
     document.getElementById("btn-zoom-in").addEventListener("click", () => {
       state.scale *= 1.25;
       applyView();
@@ -1051,7 +1118,6 @@
       if (state.seed) seedGraph(state.seed);
     });
 
-    // Secondary edges radio mode
     document.querySelectorAll("input[name='secondary-mode']").forEach(radio => {
       radio.addEventListener("change", (e) => {
         state.secondaryMode = e.target.value;
@@ -1059,7 +1125,6 @@
       });
     });
 
-    // Findings button & modal
     document.getElementById("btn-findings").addEventListener("click", () => {
       el.findingsModal.hidden = false;
       renderFindingsList(el.findingSevFilter.value, el.findingAreaFilter.value);
@@ -1078,7 +1143,6 @@
       renderFindingsList(el.findingSevFilter.value, el.findingAreaFilter.value);
     });
 
-    // Legend toggle
     document.getElementById("btn-toggle-legend").addEventListener("click", () => {
       document.getElementById("legend").hidden = true;
       document.getElementById("btn-show-legend").hidden = false;
@@ -1088,7 +1152,6 @@
       document.getElementById("btn-show-legend").hidden = true;
     });
 
-    // Inspector tabs
     document.querySelectorAll(".inspector-tabs .tab").forEach(tab => {
       tab.addEventListener("click", () => {
         document.querySelectorAll(".inspector-tabs .tab").forEach(t => t.classList.remove("active"));
@@ -1100,7 +1163,6 @@
       });
     });
 
-    // Filters checkboxes
     document.querySelectorAll("#filters-bar input[type='checkbox']").forEach(chk => {
       chk.addEventListener("change", () => {
         if (chk.dataset.nodeType) state.filters.node[chk.dataset.nodeType] = chk.checked;
@@ -1116,7 +1178,6 @@
       });
     });
 
-    // Path modal
     document.getElementById("btn-path").addEventListener("click", () => {
       el.pathModal.hidden = false;
       if (state.selection.id) el.pathFrom.value = state.selection.id;
