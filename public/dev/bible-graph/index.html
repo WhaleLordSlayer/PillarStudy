@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bible Graph QA — Read-only internal viewer (BGV2-009R)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <h1>Bible Graph QA</h1>
+      <span class="pill">Read-only internal viewer</span>
+      <span class="pill muted" id="meta-counts">Loading graph…</span>
+      <div class="build-badge" id="build-badge" title="BGV2-009R Build Identity">
+        <span class="badge-label">Packet</span>
+        <span class="badge-item" id="build-time">BGV2-009</span>
+        <span class="badge-item" id="build-commit">dfeeeff</span>
+        <span class="badge-item" id="build-hash">BGV2-009R</span>
+      </div>
+    </div>
+    <div class="search-wrap">
+      <input id="search-input" class="search" type="search" placeholder="Search person, place, group, event, or finding (press /)" autocomplete="off">
+      <div id="search-results" class="search-results" hidden></div>
+    </div>
+    <div class="toolbar">
+      <label>Hops
+        <select id="hop-depth">
+          <option value="1" selected>1 hop</option>
+          <option value="2">2 hops</option>
+          <option value="3">3 hops</option>
+        </select>
+      </label>
+      <button id="btn-fit" type="button">Fit</button>
+      <button id="btn-recenter" type="button">Recenter</button>
+      <button id="btn-path" type="button">Find path</button>
+      <button id="btn-findings" type="button" class="btn-findings-alert">Findings (29) ⚠️</button>
+      <button id="btn-reset" type="button">Reset</button>
+      <button id="btn-toggle-filters" class="btn-mobile-only" type="button">Filters ⚙️</button>
+    </div>
+  </header>
+
+  <section class="filters" id="filters-bar">
+    <div class="filter-group">
+      <span class="filter-label">Nodes</span>
+      <label class="chk"><input type="checkbox" data-node-type="PERSON" checked> People</label>
+      <label class="chk"><input type="checkbox" data-node-type="PLACE" checked> Places</label>
+      <label class="chk"><input type="checkbox" data-node-type="GROUP" checked> Groups</label>
+      <label class="chk"><input type="checkbox" data-node-type="EVENT" checked> Events</label>
+    </div>
+    <div class="filter-group">
+      <span class="filter-label">Corpus Scope</span>
+      <label class="chk"><input type="checkbox" data-corpus-filter="OT" checked> Old Testament</label>
+      <label class="chk"><input type="checkbox" data-corpus-filter="NT" checked> New Testament</label>
+      <label class="chk"><input type="checkbox" data-corpus-filter="BOTH" checked> Cross-Testament</label>
+    </div>
+    <div class="filter-group">
+      <span class="filter-label">Status</span>
+      <label class="chk"><input type="checkbox" data-status-filter="ACCEPTED" checked> Accepted</label>
+      <label class="chk"><input type="checkbox" data-status-filter="REVIEW_REQUIRED" checked> <span class="status-indicator review">Review Required</span></label>
+    </div>
+    <div class="filter-group">
+      <span class="filter-label">Edges</span>
+      <label class="chk"><input type="checkbox" data-edge-class="canonical" checked> Canonical</label>
+      <label class="chk"><input type="checkbox" data-edge-class="family" checked> Family</label>
+      <label class="chk"><input type="checkbox" data-edge-class="participation" checked> Participation</label>
+    </div>
+    <div class="filter-group">
+      <span class="filter-label">Secondary Edges</span>
+      <label class="chk"><input type="radio" name="secondary-mode" value="dim" checked> Dim</label>
+      <label class="chk"><input type="radio" name="secondary-mode" value="hide"> Hide</label>
+      <label class="chk"><input type="radio" name="secondary-mode" value="show"> Show</label>
+    </div>
+  </section>
+
+  <div class="workspace">
+    <main class="canvas-wrap">
+      <div id="empty-state" class="empty-state">
+        <h2>Search to seed the Bible graph</h2>
+        <p>Default view is one entity plus its immediate neighborhood. Explore people, places, events, groups, and BGV2-009 audit findings.</p>
+        <div id="qa-chips" class="qa-chips"></div>
+      </div>
+      <div id="load-error" class="load-error" hidden></div>
+      <svg id="graph" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bible Relationship canvas">
+        <defs>
+          <marker id="arrow-canonical" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#34d399"></path>
+          </marker>
+          <marker id="arrow-canonical-dim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(52, 211, 153, 0.3)"></path>
+          </marker>
+          <marker id="arrow-review" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#f59e0b"></path>
+          </marker>
+          <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <rect width="6" height="6" fill="#0b1220"></rect>
+            <line x1="0" y1="0" x2="0" y2="6" stroke="#f59e0b" stroke-width="2"></line>
+          </pattern>
+        </defs>
+        <g id="viewport">
+          <g id="edges"></g>
+          <g id="nodes"></g>
+        </g>
+      </svg>
+      <aside class="legend" id="legend">
+        <div class="legend-header">
+          <h3>Legend</h3>
+          <button id="btn-toggle-legend" class="btn-icon" type="button" aria-label="Toggle Legend">✕</button>
+        </div>
+        <div id="legend-body">
+          <div class="legend-row"><svg width="28" height="18"><circle cx="9" cy="9" r="7" class="lg-person"></circle></svg> Person</div>
+          <div class="legend-row"><svg width="28" height="18"><rect x="2" y="3" width="14" height="12" rx="3" class="lg-place"></rect></svg> Place</div>
+          <div class="legend-row"><svg width="28" height="18"><polygon points="9,2 16,6.5 16,13.5 9,18 2,13.5 2,6.5" class="lg-group"></polygon></svg> Group</div>
+          <div class="legend-row"><svg width="28" height="18"><polygon points="9,2 16,9 9,16 2,9" class="lg-event"></polygon></svg> Event</div>
+          <div class="legend-row"><span class="edge-swatch solid"></span> Canonical claim</div>
+          <div class="legend-row"><span class="edge-swatch participation"></span> Event Participation</div>
+          <div class="legend-row"><span class="edge-swatch review-dashed"></span> Review Required claim</div>
+          <p class="legend-note">Family claims: PARENT_OF, CHILD_OF, SIBLING_OF, SPOUSE_OF.</p>
+          <p class="legend-note">Participation: Person → Event, Event → Place, Event → Group.</p>
+          <p class="legend-note">Position is not chronology or map coordinate.</p>
+        </div>
+      </aside>
+      <button id="btn-show-legend" class="btn-legend-toggle" type="button" hidden>Legend ℹ️</button>
+      <div class="hud" id="hud"></div>
+      <div class="zoom-controls">
+        <button id="btn-zoom-in" type="button">+</button>
+        <button id="btn-zoom-out" type="button">−</button>
+        <button id="btn-zoom-sel" type="button">Selection</button>
+      </div>
+    </main>
+    <aside class="inspector" id="inspector">
+      <div class="inspector-header">
+        <div class="inspector-tabs">
+          <button class="tab active" data-tab="node" type="button">Node</button>
+          <button class="tab" data-tab="edge" type="button">Edge</button>
+          <button class="tab" data-tab="evidence" type="button">Evidence</button>
+          <button class="tab" data-tab="findings" type="button" id="tab-findings-btn">Findings</button>
+        </div>
+        <button id="btn-toggle-inspector" class="btn-icon" type="button" title="Close Inspector">✕</button>
+      </div>
+      <div id="insp-node" class="tab-body"></div>
+      <div id="insp-edge" class="tab-body" hidden></div>
+      <div id="insp-evidence" class="tab-body" hidden></div>
+      <div id="insp-findings" class="tab-body" hidden></div>
+    </aside>
+    <button id="btn-show-inspector" class="btn-inspector-toggle" type="button" hidden>Inspector 📋</button>
+  </div>
+
+  <footer class="footer">
+    Bible Graph QA · BGV2-009R certified dataset · 1,385 entities · 7,093 connections · 29 audit findings · Read-only internal viewer
+  </footer>
+
+  <div id="path-modal" class="modal" hidden>
+    <div class="modal-card">
+      <h3>Find connection</h3>
+      <p class="warn">Shortest graph path across canonical family and participation connections.</p>
+      <label>From <input id="path-from" placeholder="candidate_id or name"></label>
+      <label>To <input id="path-to" placeholder="candidate_id or name"></label>
+      <div class="modal-actions">
+        <button id="path-run" type="button">Find</button>
+        <button id="path-close" type="button">Close</button>
+      </div>
+      <pre id="path-result"></pre>
+    </div>
+  </div>
+
+  <div id="findings-modal" class="modal" hidden>
+    <div class="modal-card findings-modal-card">
+      <div class="findings-modal-header">
+        <h3>BGV2-009 Audit Findings (29 Total)</h3>
+        <button id="findings-close-btn" class="btn-icon" type="button">✕</button>
+      </div>
+      <div class="findings-filter-bar">
+        <label>Severity:
+          <select id="finding-sev-filter">
+            <option value="ALL">All (29)</option>
+            <option value="MEDIUM">Medium (18)</option>
+            <option value="LOW">Low (5)</option>
+            <option value="INFO">Info (6)</option>
+          </select>
+        </label>
+        <label>Area:
+          <select id="finding-area-filter">
+            <option value="ALL">All Areas</option>
+            <option value="B">Area B: Major Stories</option>
+            <option value="C">Area C: Narrative Slices</option>
+            <option value="D">Area D: Person Journeys</option>
+            <option value="E">Area E: Place Mapping</option>
+            <option value="F">Area F: Group Coverage</option>
+            <option value="G">Area G: Family Anchors</option>
+          </select>
+        </label>
+      </div>
+      <div id="findings-list-container" class="findings-list-container"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

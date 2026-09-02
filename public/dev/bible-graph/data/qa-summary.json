@@ -1,0 +1,21 @@
+{
+  "milestone": "BGV2-009",
+  "packet_sha": "dfeeeff7eececec493fab5873d90a1745965665b",
+  "status": "BGV2-009R_CERTIFIED",
+  "entities_total": 3185,
+  "edges_total": 7093,
+  "findings_total": 29,
+  "findings_by_severity": {
+    "CRITICAL": 0,
+    "HIGH": 0,
+    "MEDIUM": 18,
+    "LOW": 5,
+    "INFO": 6
+  },
+  "review_required_summary": {
+    "events": 81,
+    "groups": 1,
+    "people": 13,
+    "places": 0
+  }
+}
