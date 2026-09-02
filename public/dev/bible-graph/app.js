@@ -51,7 +51,7 @@
     { id: "candbpl_67f14b367080a7692354", name: "Rome", type: "PLACE", cls: "chip-place" },
     { id: "candbpl_086e560f01a2e4c3c56f", name: "Antioch", type: "PLACE", cls: "chip-place" },
     { id: "candbpl_21cd1522b002ec3bdb3f", name: "Egypt", type: "PLACE", cls: "chip-place" },
-    { id: "candbgrp_593cb83fc88f344bf679", name: "Israelites", type: "GROUP", cls: "chip-group" },
+    { id: "candbgrp_75d3419f7585b78364ac", name: "Israelites", type: "GROUP", cls: "chip-group" },
     { id: "candbgrp_7c9da7b2a64c585c544e", name: "Pharisees", type: "GROUP", cls: "chip-group" },
     { id: "candbgrp_a33118933068e2ee2a10", name: "Sadducees", type: "GROUP", cls: "chip-group" },
     { id: "candbgrp_b2569f2e3a17e08929eb", name: "Romans", type: "GROUP", cls: "chip-group" },
