@@ -1,0 +1,13 @@
+{
+  "constraints": [
+    "No secrets",
+    "No absolute machine paths",
+    "Candidate A is comparison-only and excluded",
+    "Forbidden interpretive predicates excluded"
+  ],
+  "description": "Self-contained deterministic JSON bundle for Explorer visual QA.",
+  "files": {
+    "visual_qa_bundle.json": "Primary bundle with entities, edges, findings, and map suitability."
+  },
+  "schema_version": "bgv2-009-visual-qa-1"
+}
