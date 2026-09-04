@@ -1,6 +1,6 @@
-/* BGV2-009R Bible Graph Visual QA Explorer.
+/* BGV2-009X Bible Graph Visual QA Explorer.
    Certified deterministic node-link visual QA viewer.
-   All names resolved from Candidate B certified registries. */
+   Mobile-friendly with full touch, pinch-to-zoom, and responsive layout. */
 (() => {
   const EXPAND_CAP = 30;
   const WARN_NODES = 140;
@@ -33,13 +33,17 @@
     scale: 1,
     dragging: null,
     panning: null,
+    pinch: null,
+    lastTap: 0,
   };
 
   const QA_STARTERS = [
     { id: "candb_c782837629d7000f31ac", name: "Jesus", type: "PERSON", cls: "chip-person" },
+    { id: "candb_93670769b51aa505d3d6", name: "John the Baptist", type: "PERSON", cls: "chip-person" },
     { id: "candb_611090afebb9d9c27696", name: "Paul", type: "PERSON", cls: "chip-person" },
     { id: "candb_c660f27793a87076795a", name: "Peter", type: "PERSON", cls: "chip-person" },
     { id: "candb_ce00b6b7755b1ce2efd8", name: "Moses", type: "PERSON", cls: "chip-person" },
+    { id: "candb_6a6f0ea0bfbd133657e9", name: "Joseph of Egypt", type: "PERSON", cls: "chip-person" },
     { id: "candb_264ecdb186e5596797b5", name: "David", type: "PERSON", cls: "chip-person" },
     { id: "candb_2673b6dee819a2125c7a", name: "Abraham", type: "PERSON", cls: "chip-person" },
     { id: "candb_1a679fddcb8aedc7976b", name: "Jacob", type: "PERSON", cls: "chip-person" },
@@ -53,14 +57,11 @@
     { id: "candbpl_07bcf25d27c7f2fe12d9", name: "Bethlehem", type: "PLACE", cls: "chip-place" },
     { id: "candbpl_7a258a04aa3e7e2f6ece", name: "Capernaum", type: "PLACE", cls: "chip-place" },
     { id: "candbpl_67f14b367080a7692354", name: "Rome", type: "PLACE", cls: "chip-place" },
-    { id: "candbpl_086e560f01a2e4c3c56f", name: "Antioch", type: "PLACE", cls: "chip-place" },
     { id: "candbgrp_75d3419f7585b78364ac", name: "Israelites", type: "GROUP", cls: "chip-group" },
     { id: "candbgrp_7c9da7b2a64c585c544e", name: "Pharisees", type: "GROUP", cls: "chip-group" },
-    { id: "candbgrp_a33118933068e2ee2a10", name: "Sadducees", type: "GROUP", cls: "chip-group" },
-    { id: "candbgrp_b2569f2e3a17e08929eb", name: "Romans", type: "GROUP", cls: "chip-group" },
-    { id: "candbevt_00083426993e8e0f833e", name: "Saul in David's power (Event)", type: "EVENT", cls: "chip-event" },
+    { id: "candbevt_071602f1f2d738fd7379", name: "Baptism of Jesus (Event)", type: "EVENT", cls: "chip-event" },
+    { id: "candbevt_15706fc2750048f4e7e5", name: "Transfiguration (Event)", type: "EVENT", cls: "chip-event" },
     { id: "BGV2-009-D-006", name: "Ruth journey thin (Finding)", type: "FINDING", cls: "chip-finding" },
-    { id: "BGV2-009-D-002", name: "Paul journey thin (Finding)", type: "FINDING", cls: "chip-finding" },
   ];
 
   const BIBLE_BOOK_ORDER = {
@@ -154,10 +155,15 @@
     hud: document.getElementById("hud"),
     counts: document.getElementById("meta-counts"),
     chips: document.getElementById("qa-chips"),
+    inspector: document.getElementById("inspector"),
     inspNode: document.getElementById("insp-node"),
     inspEdge: document.getElementById("insp-edge"),
     inspEvidence: document.getElementById("insp-evidence"),
     inspFindings: document.getElementById("insp-findings"),
+    filtersBar: document.getElementById("filters-bar"),
+    btnShowInspector: document.getElementById("btn-show-inspector"),
+    legend: document.getElementById("legend"),
+    btnShowLegend: document.getElementById("btn-show-legend"),
     pathModal: document.getElementById("path-modal"),
     pathFrom: document.getElementById("path-from"),
     pathTo: document.getElementById("path-to"),
@@ -430,7 +436,6 @@
       const groupNodes = nodesAtHop.filter((id) => (state.nodes.get(id) || {}).type === "GROUP");
 
       const tiers = [];
-      // Put Events first/prominently in tier structure so narrative links are obvious!
       if (eventNodes.length) tiers.push({ type: "EVENT", ids: eventNodes });
       if (peopleNodes.length) tiers.push({ type: "PERSON", ids: peopleNodes });
       if (placeNodes.length) tiers.push({ type: "PLACE", ids: placeNodes });
@@ -586,16 +591,16 @@
       return isPrimary || state.secondaryMode !== "hide";
     });
     const focusName = state.nodes.get(focusNodeId)?.display_name || focusNodeId;
-    el.hud.textContent = state.hudNotice || `${nCount} drawn nodes (${hopLabel}) · ${drawnEdges.length} connections (focus: ${truncate(focusName, 20)}) · BGV2-009R dataset`;
+    el.hud.textContent = state.hudNotice || `${nCount} nodes (${hopLabel}) · ${drawnEdges.length} connections (focus: ${truncate(focusName, 20)}) · BGV2-009X dataset`;
 
     bindCanvasEvents();
     renderInspectors();
   }
 
-  function screenToWorld(evt) {
+  function screenToWorld(pt) {
     const rect = el.svg.getBoundingClientRect();
-    const x = (evt.clientX - rect.left - state.pan.x) / state.scale;
-    const y = (evt.clientY - rect.top - state.pan.y) / state.scale;
+    const x = (pt.clientX - rect.left - state.pan.x) / state.scale;
+    const y = (pt.clientY - rect.top - state.pan.y) / state.scale;
     return { x, y };
   }
 
@@ -631,7 +636,19 @@
     applyView();
   }
 
+  function getTouchDistance(t1, t2) {
+    return Math.hypot(t1.clientX - t2.clientX, t1.clientY - t2.clientY);
+  }
+
+  function getTouchCenter(t1, t2) {
+    return {
+      clientX: (t1.clientX + t2.clientX) / 2,
+      clientY: (t1.clientY + t2.clientY) / 2,
+    };
+  }
+
   function bindCanvasEvents() {
+    // Wheel zoom
     el.svg.onwheel = (evt) => {
       evt.preventDefault();
       const before = screenToWorld(evt);
@@ -643,7 +660,7 @@
       applyView();
     };
 
-    const handleStart = (clientX, clientY, targetEl) => {
+    const handlePointerStart = (clientX, clientY, targetEl) => {
       const target = targetEl.closest("[data-id]");
       if (target && target.tagName !== "line" && !target.classList.contains("edge-line")) {
         const id = target.getAttribute("data-id");
@@ -666,7 +683,7 @@
       return true;
     };
 
-    const handleMove = (clientX, clientY) => {
+    const handlePointerMove = (clientX, clientY) => {
       if (state.dragging) {
         const now = screenToWorld({ clientX, clientY });
         const orig = state.dragging.orig;
@@ -685,28 +702,92 @@
       return false;
     };
 
-    const handleEnd = (clientX, clientY) => {
+    const handlePointerEnd = (clientX, clientY) => {
       if (state.dragging) {
         const dx = clientX - (state.dragging.screenStart ? state.dragging.screenStart.x : clientX);
         const dy = clientY - (state.dragging.screenStart ? state.dragging.screenStart.y : clientY);
-        if (Math.hypot(dx, dy) < 8) selectNode(state.dragging.id);
+        if (Math.hypot(dx, dy) < 10) selectNode(state.dragging.id);
         state.dragging = null;
       }
       state.panning = null;
       el.viewport.classList.remove("panning");
     };
 
-    el.svg.onmousedown = (evt) => handleStart(evt.clientX, evt.clientY, evt.target);
-    window.onmousemove = (evt) => handleMove(evt.clientX, evt.clientY);
-    window.onmouseup = (evt) => handleEnd(evt.clientX, evt.clientY);
+    // Mouse Listeners
+    el.svg.onmousedown = (evt) => handlePointerStart(evt.clientX, evt.clientY, evt.target);
+    window.onmousemove = (evt) => handlePointerMove(evt.clientX, evt.clientY);
+    window.onmouseup = (evt) => handlePointerEnd(evt.clientX, evt.clientY);
+
+    // Touch Listeners (Mobile & Tablet)
+    el.svg.ontouchstart = (evt) => {
+      if (evt.touches.length === 1) {
+        const t = evt.touches[0];
+        const now = Date.now();
+        const target = evt.target.closest("[data-id]");
+        if (target && state.nodes.has(target.getAttribute("data-id")) && now - state.lastTap < 300) {
+          evt.preventDefault();
+          seedGraph(target.getAttribute("data-id"));
+          state.lastTap = 0;
+          return;
+        }
+        state.lastTap = now;
+        handlePointerStart(t.clientX, t.clientY, evt.target);
+      } else if (evt.touches.length === 2) {
+        evt.preventDefault();
+        state.dragging = null;
+        state.panning = null;
+        state.pinch = {
+          dist: getTouchDistance(evt.touches[0], evt.touches[1]),
+          center: screenToWorld(getTouchCenter(evt.touches[0], evt.touches[1])),
+          initScale: state.scale,
+        };
+      }
+    };
+
+    window.ontouchmove = (evt) => {
+      if (evt.touches.length === 1 && (state.dragging || state.panning)) {
+        evt.preventDefault();
+        const t = evt.touches[0];
+        handlePointerMove(t.clientX, t.clientY);
+      } else if (evt.touches.length === 2 && state.pinch) {
+        evt.preventDefault();
+        const newDist = getTouchDistance(evt.touches[0], evt.touches[1]);
+        const factor = newDist / (state.pinch.dist || 1);
+        const targetScale = Math.min(4, Math.max(0.15, state.pinch.initScale * factor));
+        
+        const center = getTouchCenter(evt.touches[0], evt.touches[1]);
+        const rect = el.svg.getBoundingClientRect();
+        
+        state.scale = targetScale;
+        state.pan.x = (center.clientX - rect.left) - state.pinch.center.x * state.scale;
+        state.pan.y = (center.clientY - rect.top) - state.pinch.center.y * state.scale;
+        applyView();
+      }
+    };
+
+    window.ontouchend = (evt) => {
+      if (state.pinch && evt.touches.length < 2) {
+        state.pinch = null;
+      }
+      if (state.dragging || state.panning) {
+        const t = evt.changedTouches[0];
+        handlePointerEnd(t ? t.clientX : 0, t ? t.clientY : 0);
+      }
+    };
 
     el.svg.ondblclick = (evt) => {
       const target = evt.target.closest("[data-id]");
       if (target && state.nodes.has(target.getAttribute("data-id"))) {
-        const id = target.getAttribute("data-id");
-        seedGraph(id);
+        seedGraph(target.getAttribute("data-id"));
       }
     };
+  }
+
+  function openMobileInspector() {
+    if (window.innerWidth <= 768 && el.inspector) {
+      el.inspector.classList.add("open");
+      if (el.btnShowInspector) el.btnShowInspector.hidden = true;
+    }
   }
 
   function selectNode(id) {
@@ -719,6 +800,7 @@
     });
     renderInspectors();
     render();
+    openMobileInspector();
   }
 
   function selectEdge(id) {
@@ -731,6 +813,7 @@
     });
     renderInspectors();
     render();
+    openMobileInspector();
   }
 
   function renderInspectors() {
@@ -741,7 +824,6 @@
     }
   }
 
-  /* Person Inspector matching detailed requirements */
   function renderNodeInspector(id) {
     const node = state.nodes.get(id);
     if (!node) return;
@@ -749,7 +831,6 @@
     const isRev = node.review_status === "REVIEW_REQUIRED";
     const findings = node.audit_findings || [];
 
-    // Collect distinct connection categories
     const eventParts = [];
     const famRels = [];
     const groupRels = [];
@@ -770,7 +851,6 @@
       }
     });
 
-    // Build Event Participation HTML section
     let eventSectionHtml = "";
     if (eventParts.length > 0) {
       eventSectionHtml = `
@@ -807,7 +887,6 @@
       `;
     }
 
-    // Build Family Connections HTML section
     let familySectionHtml = "";
     if (famRels.length > 0) {
       familySectionHtml = `
@@ -838,7 +917,6 @@
       `;
     }
 
-    // Build Group Relationships HTML section
     let groupSectionHtml = "";
     if (groupRels.length > 0) {
       groupSectionHtml = `
@@ -914,7 +992,7 @@
       ${groupSectionHtml}
 
       <div class="insp-section">
-        <button class="action" onclick="window.reseed('${node.id}')" style="width: 100%; padding: 8px;">Seed graph from this node</button>
+        <button class="action" onclick="window.reseed('${node.id}')" style="width: 100%; padding: 10px; font-weight: 600;">Seed graph from this entity</button>
       </div>
     `;
 
@@ -971,7 +1049,7 @@
       </div>
       <div class="insp-section">
         <h4>Provenance Basis</h4>
-        <p>Canonical Bible Graph V2 Certified Export (BGV2-009R).</p>
+        <p>Canonical Bible Graph V2 Certified Export (BGV2-009X).</p>
         <p style="color: var(--muted); font-size: 11px; margin-top: 4px;">Candidate A prior art is strictly excluded. All relationships are source-backed canonical claims.</p>
       </div>
     `;
@@ -1103,20 +1181,63 @@
       }
     });
 
+    document.getElementById("btn-fit").addEventListener("click", fitGraph);
+    document.getElementById("btn-recenter").addEventListener("click", fitGraph);
     document.getElementById("btn-zoom-in").addEventListener("click", () => {
-      state.scale *= 1.25;
+      state.scale = Math.min(4, state.scale * 1.25);
       applyView();
     });
     document.getElementById("btn-zoom-out").addEventListener("click", () => {
-      state.scale *= 0.8;
+      state.scale = Math.max(0.15, state.scale * 0.8);
       applyView();
     });
-    document.getElementById("btn-fit").addEventListener("click", fitGraph);
-    document.getElementById("btn-recenter").addEventListener("click", fitGraph);
     document.getElementById("btn-zoom-sel").addEventListener("click", zoomToSelection);
     document.getElementById("btn-reset").addEventListener("click", () => {
       if (state.seed) seedGraph(state.seed);
     });
+
+    // Mobile UI Toggles
+    const btnToggleFilters = document.getElementById("btn-toggle-filters");
+    if (btnToggleFilters) {
+      btnToggleFilters.addEventListener("click", () => {
+        el.filtersBar.classList.toggle("open");
+      });
+    }
+    const btnCloseFiltersMobile = document.getElementById("btn-close-filters-mobile");
+    if (btnCloseFiltersMobile) {
+      btnCloseFiltersMobile.addEventListener("click", () => {
+        el.filtersBar.classList.remove("open");
+      });
+    }
+
+    const btnToggleInspector = document.getElementById("btn-toggle-inspector");
+    if (btnToggleInspector) {
+      btnToggleInspector.addEventListener("click", () => {
+        el.inspector.classList.remove("open");
+        if (el.btnShowInspector) el.btnShowInspector.hidden = false;
+      });
+    }
+    if (el.btnShowInspector) {
+      el.btnShowInspector.addEventListener("click", () => {
+        el.inspector.classList.add("open");
+        el.btnShowInspector.hidden = true;
+      });
+    }
+
+    const btnToggleLegend = document.getElementById("btn-toggle-legend");
+    if (btnToggleLegend) {
+      btnToggleLegend.addEventListener("click", () => {
+        el.legend.classList.remove("open");
+        el.legend.hidden = true;
+        if (el.btnShowLegend) el.btnShowLegend.hidden = false;
+      });
+    }
+    if (el.btnShowLegend) {
+      el.btnShowLegend.addEventListener("click", () => {
+        el.legend.hidden = false;
+        el.legend.classList.toggle("open");
+      });
+    }
 
     document.querySelectorAll("input[name='secondary-mode']").forEach(radio => {
       radio.addEventListener("change", (e) => {
@@ -1141,15 +1262,6 @@
     });
     el.findingAreaFilter.addEventListener("change", () => {
       renderFindingsList(el.findingSevFilter.value, el.findingAreaFilter.value);
-    });
-
-    document.getElementById("btn-toggle-legend").addEventListener("click", () => {
-      document.getElementById("legend").hidden = true;
-      document.getElementById("btn-show-legend").hidden = false;
-    });
-    document.getElementById("btn-show-legend").addEventListener("click", () => {
-      document.getElementById("legend").hidden = false;
-      document.getElementById("btn-show-legend").hidden = true;
     });
 
     document.querySelectorAll(".inspector-tabs .tab").forEach(tab => {
