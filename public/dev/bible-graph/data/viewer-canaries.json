@@ -1,0 +1,745 @@
+{
+  "all": [
+    {
+      "expected_neighbor_counts": {
+        "group_count": 0,
+        "person_count": 2,
+        "place_count": 3
+      },
+      "expected_scripture_ranges": [
+        "matthew:3:13-15",
+        "mark:1:9-10"
+      ],
+      "expected_source": {
+        "primary_source_id": "dssu_bible_church_history_stories_1922",
+        "primary_structural_anchor": "dssu1922:gospel:lesson:8:outline:section:2",
+        "source_kind": "DSSU",
+        "source_native_title": "Jesus comes to John"
+      },
+      "id": "candbevt_69b800a2c1be74b84d5e",
+      "label": "Baptism of Jesus",
+      "type": "EVENT"
+    },
+    {
+      "expected_neighbor_counts": {
+        "group_count": 1,
+        "person_count": 1,
+        "place_count": 1
+      },
+      "expected_scripture_ranges": [
+        "matthew:5:1-7:29"
+      ],
+      "expected_source": {
+        "primary_source_id": "dssu_bible_church_history_stories_1922",
+        "primary_structural_anchor": "dssu1922:gospel:lesson:11",
+        "source_kind": "DSSU",
+        "source_native_title": "THE SERMON ON THE MOUNT"
+      },
+      "id": "candbevt_6a00e4d4d06eb3b7eaab",
+      "label": "Sermon on the Mount",
+      "type": "EVENT"
+    },
+    {
+      "expected_neighbor_counts": {
+        "group_count": 1,
+        "person_count": 0,
+        "place_count": 2
+      },
+      "expected_scripture_ranges": [
+        "matthew:8:23-27",
+        "mark:4:35-41",
+        "luke:8:22-26"
+      ],
+      "expected_source": {
+        "primary_source_id": "dssu_bible_church_history_stories_1922",
+        "primary_structural_anchor": "dssu1922:gospel:lesson:24:outline:section:2",
+        "source_kind": "DSSU",
+        "source_native_title": "Jesus's Power Manifest"
+      },
+      "id": "candbevt_75eb82c30bcba3f8e59c",
+      "label": "Jesus Calms the Storm",
+      "type": "EVENT"
+    },
+    {
+      "expected_neighbor_counts": {
+        "group_count": 0,
+        "person_count": 1,
+        "place_count": 1
+      },
+      "expected_scripture_ranges": [
+        "john:9:1-7"
+      ],
+      "expected_source": {
+        "primary_source_id": "dssu_bible_church_history_stories_1922",
+        "primary_structural_anchor": "dssu1922:gospel:lesson:14:outline:section:2",
+        "source_kind": "DSSU",
+        "source_native_title": "The Blind Man"
+      },
+      "id": "candbevt_8f4bdcf62cac48577e45",
+      "label": "Blind Man",
+      "type": "EVENT"
+    },
+    {
+      "expected_neighbor_counts": {
+        "group_count": 1,
+        "person_count": 6,
+        "place_count": 2
+      },
+      "expected_scripture_ranges": [
+        "john:11:1-16"
+      ],
+      "expected_source": {
+        "primary_source_id": "dssu_bible_church_history_stories_1922",
+        "primary_structural_anchor": "dssu1922:gospel:lesson:18:outline:section:2",
+        "source_kind": "DSSU",
+        "source_native_title": "The Message to Jesus"
+      },
+      "id": "candbevt_0944e0492bbef3b0c4c0",
+      "label": "Death of Lazarus",
+      "type": "EVENT"
+    },
+    {
+      "expected_neighbor_counts": {
+        "group_count": 1,
+        "person_count": 5,
+        "place_count": 0
+      },
+      "expected_scripture_ranges": [
+        "john:11:38-45"
+      ],
+      "expected_source": {
+        "primary_source_id": "dssu_bible_church_history_stories_1922",
+        "primary_structural_anchor": "dssu1922:gospel:lesson:18:outline:section:5",
+        "source_kind": "DSSU",
+        "source_native_title": "At the grave"
+      },
+      "id": "candbevt_1fb95e9c7a9ea1ad7c5e",
+      "label": "Raising Lazarus",
+      "type": "EVENT"
+    },
+    {
+      "expected_neighbor_counts": {
+        "group_count": 0,
+        "person_count": 5,
+        "place_count": 1
+      },
+      "expected_scripture_ranges": [
+        "john:12:1-3",
+        "matthew:26:6-10",
+        "mark:14:3-6"
+      ],
+      "expected_source": {
+        "primary_source_id": "dssu_bible_church_history_stories_1922",
+        "primary_structural_anchor": "dssu1922:gospel:lesson:29:outline:section:5",
+        "source_kind": "DSSU",
+        "source_native_title": "The anointing"
+      },
+      "id": "candbevt_34458bb8473619f1ef03",
+      "label": "Bethany Anointing",
+      "type": "EVENT"
+    },
+    {
+      "expected_neighbor_counts": {
+        "group_count": 0,
+        "person_count": 7,
+        "place_count": 1
+      },
+      "expected_scripture_ranges": [
+        "matthew:17:1-13",
+        "mark:9:2-13",
+        "luke:9:28-36"
+      ],
+      "expected_source": {
+        "primary_source_id": "berean_standard_bible",
+        "primary_structural_anchor": "verified-gap:bsb:v5.9:parallel:transfiguration",
+        "source_kind": "BSB",
+        "source_native_title": "The Transfiguration"
+      },
+      "id": "candbevt_4fa2585bf1a1affa788a",
+      "label": "Transfiguration",
+      "type": "EVENT"
+    },
+    {
+      "expected_neighbor_counts": {
+        "group_count": 3,
+        "person_count": 11,
+        "place_count": 5
+      },
+      "expected_scripture_ranges": [
+        "matthew:27:33-56",
+        "mark:15:24-41",
+        "luke:23:33-49",
+        "john:19:18-30"
+      ],
+      "expected_source": {
+        "primary_source_id": "dssu_bible_church_history_stories_1922",
+        "primary_structural_anchor": "dssu1922:gospel:lesson:33:outline:section:2",
+        "source_kind": "DSSU",
+        "source_native_title": "The Crucifixion"
+      },
+      "id": "candbevt_25c91d7636f4a892940e",
+      "label": "Crucifixion",
+      "type": "EVENT"
+    },
+    {
+      "expected_neighbor_counts": {
+        "group_count": 0,
+        "person_count": 7,
+        "place_count": 3
+      },
+      "expected_scripture_ranges": [
+        "john:20:1-18",
+        "matthew:28:1-10",
+        "mark:16:1-8",
+        "luke:24:1-12"
+      ],
+      "expected_source": {
+        "primary_source_id": "dssu_bible_church_history_stories_1922",
+        "primary_structural_anchor": "dssu1922:gospel:lesson:34:outline:section:3",
+        "source_kind": "DSSU",
+        "source_native_title": "The Risen Lord Appears"
+      },
+      "id": "candbevt_e31aef530926ce9d218f",
+      "label": "Resurrection",
+      "type": "EVENT"
+    },
+    {
+      "expected_neighbor_counts": {
+        "group_count": 1,
+        "person_count": 2,
+        "place_count": 5
+      },
+      "expected_scripture_ranges": [
+        "luke:24:50-53",
+        "acts:1:6-11"
+      ],
+      "expected_source": {
+        "primary_source_id": "dssu_bible_church_history_stories_1922",
+        "primary_structural_anchor": "dssu1922:gospel:lesson:35:outline:section:2",
+        "source_kind": "DSSU",
+        "source_native_title": "He Ascends to Heaven"
+      },
+      "id": "candbevt_5be960b2467bde257b31",
+      "label": "Ascension",
+      "type": "EVENT"
+    },
+    {
+      "expected_neighbor_counts": {
+        "group_count": 9,
+        "person_count": 6,
+        "place_count": 18
+      },
+      "expected_scripture_ranges": [
+        "acts:2:1-41"
+      ],
+      "expected_source": {
+        "primary_source_id": "dssu_bible_church_history_stories_1922",
+        "primary_structural_anchor": "dssu1922:gospel:lesson:36:outline:section:3",
+        "source_kind": "DSSU",
+        "source_native_title": "Peter's Great Testimony"
+      },
+      "id": "candbevt_540e827db9d481e58585",
+      "label": "Pentecost",
+      "type": "EVENT"
+    },
+    {
+      "expected_neighbor_counts": {
+        "event_count": 21
+      },
+      "expected_source": {
+        "corpus_membership": "NT",
+        "tipnr_source_record_id": "Paul@Act.7.58=G3972G"
+      },
+      "id": "candb_611090afebb9d9c27696",
+      "label": "Paul",
+      "type": "PERSON"
+    },
+    {
+      "expected_neighbor_counts": {
+        "group_count": 0,
+        "person_count": 2,
+        "place_count": 2
+      },
+      "expected_scripture_ranges": [
+        "acts:9:1-7"
+      ],
+      "expected_source": {
+        "primary_source_id": "berean_standard_bible",
+        "primary_structural_anchor": "s1:acts:9:1-9:7",
+        "source_kind": "BSB",
+        "source_native_title": "The Road to Damascus"
+      },
+      "id": "candbevt_24feaaa70ab3b146b2ee",
+      "label": "Road to Damascus",
+      "type": "EVENT"
+    },
+    {
+      "expected_neighbor_counts": {
+        "group_count": 0,
+        "person_count": 0,
+        "place_count": 0
+      },
+      "expected_scripture_ranges": [
+        "genesis:1:1-31"
+      ],
+      "expected_source": {
+        "primary_source_id": "berean_standard_bible",
+        "primary_structural_anchor": "s1:genesis:1:1-1:31",
+        "source_kind": "BSB",
+        "source_native_title": "The Creation"
+      },
+      "id": "candbevt_f752fea2b4c0784f6249",
+      "label": "The Creation",
+      "type": "EVENT"
+    },
+    {
+      "expected_neighbor_counts": {
+        "group_count": 0,
+        "person_count": 4,
+        "place_count": 0
+      },
+      "expected_scripture_ranges": [
+        "genesis:6:8-11"
+      ],
+      "expected_source": {
+        "primary_source_id": "berean_standard_bible",
+        "primary_structural_anchor": "s1:genesis:6:8-6:11",
+        "source_kind": "BSB",
+        "source_native_title": "Noah’s Favor with God"
+      },
+      "id": "candbevt_d07696a1656533c8411e",
+      "label": "Noah's Favor with God",
+      "type": "EVENT"
+    },
+    {
+      "expected_neighbor_counts": {
+        "group_count": 0,
+        "person_count": 3,
+        "place_count": 3
+      },
+      "expected_scripture_ranges": [
+        "exodus:12:31-40"
+      ],
+      "expected_source": {
+        "primary_source_id": "berean_standard_bible",
+        "primary_structural_anchor": "s1:exodus:12:31-12:40",
+        "source_kind": "BSB",
+        "source_native_title": "The Exodus Begins"
+      },
+      "id": "candbevt_cf05bcbec64d9c9f9c14",
+      "label": "The Exodus Begins",
+      "type": "EVENT"
+    },
+    {
+      "expected_neighbor_counts": {
+        "group_count": 5,
+        "person_count": 10,
+        "place_count": 4
+      },
+      "expected_scripture_ranges": [
+        "exodus:3:1-21"
+      ],
+      "expected_source": {
+        "primary_source_id": "berean_standard_bible",
+        "primary_structural_anchor": "s1:exodus:3:1-3:21",
+        "source_kind": "BSB",
+        "source_native_title": "Moses at the Burning Bush"
+      },
+      "id": "candbevt_dc18c71e425b03f47f02",
+      "label": "Moses at the Burning Bush",
+      "type": "EVENT"
+    },
+    {
+      "expected_neighbor_counts": {
+        "group_count": 0,
+        "person_count": 6,
+        "place_count": 6
+      },
+      "expected_scripture_ranges": [
+        "1-samuel:17:38-58"
+      ],
+      "expected_source": {
+        "primary_source_id": "berean_standard_bible",
+        "primary_structural_anchor": "s1:1-samuel:17:38-17:58",
+        "source_kind": "BSB",
+        "source_native_title": "David Slays Goliath"
+      },
+      "id": "candbevt_c504560da7044e18770d",
+      "label": "David Slays Goliath",
+      "type": "EVENT"
+    }
+  ],
+  "nt_examples": [
+    {
+      "expected_neighbor_counts": {
+        "group_count": 0,
+        "person_count": 2,
+        "place_count": 3
+      },
+      "expected_scripture_ranges": [
+        "matthew:3:13-15",
+        "mark:1:9-10"
+      ],
+      "expected_source": {
+        "primary_source_id": "dssu_bible_church_history_stories_1922",
+        "primary_structural_anchor": "dssu1922:gospel:lesson:8:outline:section:2",
+        "source_kind": "DSSU",
+        "source_native_title": "Jesus comes to John"
+      },
+      "id": "candbevt_69b800a2c1be74b84d5e",
+      "label": "Baptism of Jesus",
+      "type": "EVENT"
+    },
+    {
+      "expected_neighbor_counts": {
+        "group_count": 1,
+        "person_count": 1,
+        "place_count": 1
+      },
+      "expected_scripture_ranges": [
+        "matthew:5:1-7:29"
+      ],
+      "expected_source": {
+        "primary_source_id": "dssu_bible_church_history_stories_1922",
+        "primary_structural_anchor": "dssu1922:gospel:lesson:11",
+        "source_kind": "DSSU",
+        "source_native_title": "THE SERMON ON THE MOUNT"
+      },
+      "id": "candbevt_6a00e4d4d06eb3b7eaab",
+      "label": "Sermon on the Mount",
+      "type": "EVENT"
+    },
+    {
+      "expected_neighbor_counts": {
+        "group_count": 1,
+        "person_count": 0,
+        "place_count": 2
+      },
+      "expected_scripture_ranges": [
+        "matthew:8:23-27",
+        "mark:4:35-41",
+        "luke:8:22-26"
+      ],
+      "expected_source": {
+        "primary_source_id": "dssu_bible_church_history_stories_1922",
+        "primary_structural_anchor": "dssu1922:gospel:lesson:24:outline:section:2",
+        "source_kind": "DSSU",
+        "source_native_title": "Jesus's Power Manifest"
+      },
+      "id": "candbevt_75eb82c30bcba3f8e59c",
+      "label": "Jesus Calms the Storm",
+      "type": "EVENT"
+    },
+    {
+      "expected_neighbor_counts": {
+        "group_count": 0,
+        "person_count": 1,
+        "place_count": 1
+      },
+      "expected_scripture_ranges": [
+        "john:9:1-7"
+      ],
+      "expected_source": {
+        "primary_source_id": "dssu_bible_church_history_stories_1922",
+        "primary_structural_anchor": "dssu1922:gospel:lesson:14:outline:section:2",
+        "source_kind": "DSSU",
+        "source_native_title": "The Blind Man"
+      },
+      "id": "candbevt_8f4bdcf62cac48577e45",
+      "label": "Blind Man",
+      "type": "EVENT"
+    },
+    {
+      "expected_neighbor_counts": {
+        "group_count": 1,
+        "person_count": 6,
+        "place_count": 2
+      },
+      "expected_scripture_ranges": [
+        "john:11:1-16"
+      ],
+      "expected_source": {
+        "primary_source_id": "dssu_bible_church_history_stories_1922",
+        "primary_structural_anchor": "dssu1922:gospel:lesson:18:outline:section:2",
+        "source_kind": "DSSU",
+        "source_native_title": "The Message to Jesus"
+      },
+      "id": "candbevt_0944e0492bbef3b0c4c0",
+      "label": "Death of Lazarus",
+      "type": "EVENT"
+    },
+    {
+      "expected_neighbor_counts": {
+        "group_count": 1,
+        "person_count": 5,
+        "place_count": 0
+      },
+      "expected_scripture_ranges": [
+        "john:11:38-45"
+      ],
+      "expected_source": {
+        "primary_source_id": "dssu_bible_church_history_stories_1922",
+        "primary_structural_anchor": "dssu1922:gospel:lesson:18:outline:section:5",
+        "source_kind": "DSSU",
+        "source_native_title": "At the grave"
+      },
+      "id": "candbevt_1fb95e9c7a9ea1ad7c5e",
+      "label": "Raising Lazarus",
+      "type": "EVENT"
+    },
+    {
+      "expected_neighbor_counts": {
+        "group_count": 0,
+        "person_count": 5,
+        "place_count": 1
+      },
+      "expected_scripture_ranges": [
+        "john:12:1-3",
+        "matthew:26:6-10",
+        "mark:14:3-6"
+      ],
+      "expected_source": {
+        "primary_source_id": "dssu_bible_church_history_stories_1922",
+        "primary_structural_anchor": "dssu1922:gospel:lesson:29:outline:section:5",
+        "source_kind": "DSSU",
+        "source_native_title": "The anointing"
+      },
+      "id": "candbevt_34458bb8473619f1ef03",
+      "label": "Bethany Anointing",
+      "type": "EVENT"
+    },
+    {
+      "expected_neighbor_counts": {
+        "group_count": 0,
+        "person_count": 7,
+        "place_count": 1
+      },
+      "expected_scripture_ranges": [
+        "matthew:17:1-13",
+        "mark:9:2-13",
+        "luke:9:28-36"
+      ],
+      "expected_source": {
+        "primary_source_id": "berean_standard_bible",
+        "primary_structural_anchor": "verified-gap:bsb:v5.9:parallel:transfiguration",
+        "source_kind": "BSB",
+        "source_native_title": "The Transfiguration"
+      },
+      "id": "candbevt_4fa2585bf1a1affa788a",
+      "label": "Transfiguration",
+      "type": "EVENT"
+    },
+    {
+      "expected_neighbor_counts": {
+        "group_count": 3,
+        "person_count": 11,
+        "place_count": 5
+      },
+      "expected_scripture_ranges": [
+        "matthew:27:33-56",
+        "mark:15:24-41",
+        "luke:23:33-49",
+        "john:19:18-30"
+      ],
+      "expected_source": {
+        "primary_source_id": "dssu_bible_church_history_stories_1922",
+        "primary_structural_anchor": "dssu1922:gospel:lesson:33:outline:section:2",
+        "source_kind": "DSSU",
+        "source_native_title": "The Crucifixion"
+      },
+      "id": "candbevt_25c91d7636f4a892940e",
+      "label": "Crucifixion",
+      "type": "EVENT"
+    },
+    {
+      "expected_neighbor_counts": {
+        "group_count": 0,
+        "person_count": 7,
+        "place_count": 3
+      },
+      "expected_scripture_ranges": [
+        "john:20:1-18",
+        "matthew:28:1-10",
+        "mark:16:1-8",
+        "luke:24:1-12"
+      ],
+      "expected_source": {
+        "primary_source_id": "dssu_bible_church_history_stories_1922",
+        "primary_structural_anchor": "dssu1922:gospel:lesson:34:outline:section:3",
+        "source_kind": "DSSU",
+        "source_native_title": "The Risen Lord Appears"
+      },
+      "id": "candbevt_e31aef530926ce9d218f",
+      "label": "Resurrection",
+      "type": "EVENT"
+    },
+    {
+      "expected_neighbor_counts": {
+        "group_count": 1,
+        "person_count": 2,
+        "place_count": 5
+      },
+      "expected_scripture_ranges": [
+        "luke:24:50-53",
+        "acts:1:6-11"
+      ],
+      "expected_source": {
+        "primary_source_id": "dssu_bible_church_history_stories_1922",
+        "primary_structural_anchor": "dssu1922:gospel:lesson:35:outline:section:2",
+        "source_kind": "DSSU",
+        "source_native_title": "He Ascends to Heaven"
+      },
+      "id": "candbevt_5be960b2467bde257b31",
+      "label": "Ascension",
+      "type": "EVENT"
+    },
+    {
+      "expected_neighbor_counts": {
+        "group_count": 9,
+        "person_count": 6,
+        "place_count": 18
+      },
+      "expected_scripture_ranges": [
+        "acts:2:1-41"
+      ],
+      "expected_source": {
+        "primary_source_id": "dssu_bible_church_history_stories_1922",
+        "primary_structural_anchor": "dssu1922:gospel:lesson:36:outline:section:3",
+        "source_kind": "DSSU",
+        "source_native_title": "Peter's Great Testimony"
+      },
+      "id": "candbevt_540e827db9d481e58585",
+      "label": "Pentecost",
+      "type": "EVENT"
+    },
+    {
+      "expected_neighbor_counts": {
+        "event_count": 21
+      },
+      "expected_source": {
+        "corpus_membership": "NT",
+        "tipnr_source_record_id": "Paul@Act.7.58=G3972G"
+      },
+      "id": "candb_611090afebb9d9c27696",
+      "label": "Paul",
+      "type": "PERSON"
+    },
+    {
+      "expected_neighbor_counts": {
+        "group_count": 0,
+        "person_count": 2,
+        "place_count": 2
+      },
+      "expected_scripture_ranges": [
+        "acts:9:1-7"
+      ],
+      "expected_source": {
+        "primary_source_id": "berean_standard_bible",
+        "primary_structural_anchor": "s1:acts:9:1-9:7",
+        "source_kind": "BSB",
+        "source_native_title": "The Road to Damascus"
+      },
+      "id": "candbevt_24feaaa70ab3b146b2ee",
+      "label": "Road to Damascus",
+      "type": "EVENT"
+    }
+  ],
+  "ot_examples": [
+    {
+      "expected_neighbor_counts": {
+        "group_count": 0,
+        "person_count": 0,
+        "place_count": 0
+      },
+      "expected_scripture_ranges": [
+        "genesis:1:1-31"
+      ],
+      "expected_source": {
+        "primary_source_id": "berean_standard_bible",
+        "primary_structural_anchor": "s1:genesis:1:1-1:31",
+        "source_kind": "BSB",
+        "source_native_title": "The Creation"
+      },
+      "id": "candbevt_f752fea2b4c0784f6249",
+      "label": "The Creation",
+      "type": "EVENT"
+    },
+    {
+      "expected_neighbor_counts": {
+        "group_count": 0,
+        "person_count": 4,
+        "place_count": 0
+      },
+      "expected_scripture_ranges": [
+        "genesis:6:8-11"
+      ],
+      "expected_source": {
+        "primary_source_id": "berean_standard_bible",
+        "primary_structural_anchor": "s1:genesis:6:8-6:11",
+        "source_kind": "BSB",
+        "source_native_title": "Noah’s Favor with God"
+      },
+      "id": "candbevt_d07696a1656533c8411e",
+      "label": "Noah's Favor with God",
+      "type": "EVENT"
+    },
+    {
+      "expected_neighbor_counts": {
+        "group_count": 0,
+        "person_count": 3,
+        "place_count": 3
+      },
+      "expected_scripture_ranges": [
+        "exodus:12:31-40"
+      ],
+      "expected_source": {
+        "primary_source_id": "berean_standard_bible",
+        "primary_structural_anchor": "s1:exodus:12:31-12:40",
+        "source_kind": "BSB",
+        "source_native_title": "The Exodus Begins"
+      },
+      "id": "candbevt_cf05bcbec64d9c9f9c14",
+      "label": "The Exodus Begins",
+      "type": "EVENT"
+    },
+    {
+      "expected_neighbor_counts": {
+        "group_count": 5,
+        "person_count": 10,
+        "place_count": 4
+      },
+      "expected_scripture_ranges": [
+        "exodus:3:1-21"
+      ],
+      "expected_source": {
+        "primary_source_id": "berean_standard_bible",
+        "primary_structural_anchor": "s1:exodus:3:1-3:21",
+        "source_kind": "BSB",
+        "source_native_title": "Moses at the Burning Bush"
+      },
+      "id": "candbevt_dc18c71e425b03f47f02",
+      "label": "Moses at the Burning Bush",
+      "type": "EVENT"
+    },
+    {
+      "expected_neighbor_counts": {
+        "group_count": 0,
+        "person_count": 6,
+        "place_count": 6
+      },
+      "expected_scripture_ranges": [
+        "1-samuel:17:38-58"
+      ],
+      "expected_source": {
+        "primary_source_id": "berean_standard_bible",
+        "primary_structural_anchor": "s1:1-samuel:17:38-17:58",
+        "source_kind": "BSB",
+        "source_native_title": "David Slays Goliath"
+      },
+      "id": "candbevt_c504560da7044e18770d",
+      "label": "David Slays Goliath",
+      "type": "EVENT"
+    }
+  ],
+  "schema_version": "bgv2-009z9r1-viewer-canaries-1"
+}

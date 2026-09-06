@@ -1,5 +1,5 @@
-/* BGV2-009X Bible Graph Visual QA Explorer.
-   Certified deterministic node-link visual QA viewer.
+/* BGV2-009Z9R1 Bible Graph Visual QA Explorer.
+   Certified deterministic canonical node-link visual QA viewer.
    Mobile-friendly with full touch, pinch-to-zoom, and responsive layout. */
 (() => {
   const EXPAND_CAP = 30;
@@ -8,6 +8,7 @@
 
   const state = {
     bundle: null,
+    canaries: null,
     nodes: new Map(),
     edges: new Map(),
     search: [],
@@ -21,8 +22,9 @@
     positions: new Map(),
     hudNotice: "",
     filters: {
-      node: { PERSON: true, PLACE: true, GROUP: true, EVENT: true },
+      node: { PERSON: true, PLACE: true, GROUP: true, EVENT: true, SOURCE: false },
       corpus: { OT: true, NT: true, BOTH: true },
+      source: { BSB: true, DSSU: true },
       status: { ACCEPTED: true, REVIEW_REQUIRED: true },
       edge: { canonical: true, family: true, participation: true },
     },
@@ -37,7 +39,7 @@
     lastTap: 0,
   };
 
-  const QA_STARTERS = [
+  const KEY_ENTITIES = [
     { id: "candb_c782837629d7000f31ac", name: "Jesus", type: "PERSON", cls: "chip-person" },
     { id: "candb_93670769b51aa505d3d6", name: "John the Baptist", type: "PERSON", cls: "chip-person" },
     { id: "candb_611090afebb9d9c27696", name: "Paul", type: "PERSON", cls: "chip-person" },
@@ -59,9 +61,6 @@
     { id: "candbpl_67f14b367080a7692354", name: "Rome", type: "PLACE", cls: "chip-place" },
     { id: "candbgrp_75d3419f7585b78364ac", name: "Israelites", type: "GROUP", cls: "chip-group" },
     { id: "candbgrp_7c9da7b2a64c585c544e", name: "Pharisees", type: "GROUP", cls: "chip-group" },
-    { id: "candbevt_071602f1f2d738fd7379", name: "Baptism of Jesus (Event)", type: "EVENT", cls: "chip-event" },
-    { id: "candbevt_15706fc2750048f4e7e5", name: "Transfiguration (Event)", type: "EVENT", cls: "chip-event" },
-    { id: "BGV2-009-D-006", name: "Ruth journey thin (Finding)", type: "FINDING", cls: "chip-finding" },
   ];
 
   const BIBLE_BOOK_ORDER = {
@@ -96,8 +95,8 @@
   function compareEventsByScripture(aId, bId) {
     const aNode = state.nodes.get(aId) || {};
     const bNode = state.nodes.get(bId) || {};
-    const aLoc = aNode.first_locator || (aNode.scripture_ranges && aNode.scripture_ranges[0]) || "";
-    const bLoc = bNode.first_locator || (bNode.scripture_ranges && bNode.scripture_ranges[0]) || "";
+    const aLoc = (aNode.type_details && (aNode.type_details.scripture_start || (aNode.type_details.scripture_ranges && aNode.type_details.scripture_ranges[0]))) || aNode.first_locator || "";
+    const bLoc = (bNode.type_details && (bNode.type_details.scripture_start || (bNode.type_details.scripture_ranges && bNode.type_details.scripture_ranges[0]))) || bNode.first_locator || "";
     const [aB, aC, aV] = parseBibleRef(aLoc);
     const [bB, bC, bV] = parseBibleRef(bLoc);
     if (aB !== bB) return aB - bB;
@@ -143,6 +142,22 @@
     return `<text class="node-label" x="${x}" y="${y + 34}" text-anchor="middle">${escapeHtml(truncate(name, 26))}</text>`;
   }
 
+  function formatEdgeLabel(relType) {
+    if (!relType) return "";
+    const map = {
+      "PERSON_PARTICIPATED_IN_EVENT": "participated in",
+      "EVENT_OCCURRED_AT_PLACE": "occurred at",
+      "GROUP_PARTICIPATED_IN_EVENT": "participated in",
+      "PARENT_OF": "parent of",
+      "CHILD_OF": "child of",
+      "SIBLING_OF": "sibling of",
+      "SPOUSE_OF": "spouse of",
+      "MEMBER_OF_GROUP": "member of",
+      "AFFILIATED_WITH": "affiliated with"
+    };
+    return map[relType] || relType.replace(/_/g, " ").toLowerCase();
+  }
+
   const el = {
     svg: document.getElementById("graph"),
     viewport: document.getElementById("viewport"),
@@ -159,7 +174,7 @@
     inspNode: document.getElementById("insp-node"),
     inspEdge: document.getElementById("insp-edge"),
     inspEvidence: document.getElementById("insp-evidence"),
-    inspFindings: document.getElementById("insp-findings"),
+    inspCanaries: document.getElementById("insp-canaries"),
     filtersBar: document.getElementById("filters-bar"),
     btnShowInspector: document.getElementById("btn-show-inspector"),
     legend: document.getElementById("legend"),
@@ -170,8 +185,8 @@
     pathResult: document.getElementById("path-result"),
     findingsModal: document.getElementById("findings-modal"),
     findingsList: document.getElementById("findings-list-container"),
-    findingSevFilter: document.getElementById("finding-sev-filter"),
-    findingAreaFilter: document.getElementById("finding-area-filter"),
+    canaryCorpusFilter: document.getElementById("canary-corpus-filter"),
+    canarySourceFilter: document.getElementById("canary-source-filter"),
   };
 
   function escapeHtml(value) {
@@ -200,12 +215,28 @@
 
       state.search = bundle.search_index || [];
       state.neighborhood = bundle.neighborhood_index || {};
-      state.auditFindings = bundle.audit_findings || [];
 
-      const totalNodes = state.nodes.size;
+      // Load canaries if available
+      try {
+        const canRes = await fetch("data/viewer-canaries.json", { cache: "no-store" });
+        if (canRes.ok) {
+          state.canaries = await canRes.json();
+        }
+      } catch (cErr) {
+        console.warn("Canaries file load note:", cErr);
+      }
+
+      const meta = bundle.meta || {};
+      const eventCount = meta.event_count || [...state.nodes.values()].filter(n => n.type === "EVENT").length;
+      const ntCount = meta.nt_event_count || 153;
+      const dssuCount = meta.dssu_event_count || 70;
+      const bsbCount = meta.bsb_event_count || 446;
+      const peopleCount = (meta.node_counts_by_type && meta.node_counts_by_type.PERSON) || 3131;
+      const placeCount = (meta.node_counts_by_type && meta.node_counts_by_type.PLACE) || 1001;
+      const groupCount = (meta.node_counts_by_type && meta.node_counts_by_type.GROUP) || 101;
       const totalEdges = state.edges.size;
-      const totalFindings = state.auditFindings.length;
-      el.counts.textContent = `${totalNodes.toLocaleString()} entities · ${totalEdges.toLocaleString()} connections · ${totalFindings} findings`;
+
+      el.counts.textContent = `${eventCount} Events (${ntCount} NT, ${dssuCount} DSSU, ${bsbCount} BSB) · ${peopleCount.toLocaleString()} People · ${placeCount.toLocaleString()} Places · ${groupCount} Groups · ${totalEdges.toLocaleString()} Connections`;
 
       renderQAChips();
       checkUrlParams();
@@ -220,18 +251,42 @@
 
   function renderQAChips() {
     el.chips.innerHTML = "";
-    QA_STARTERS.forEach(s => {
+    const chipsList = [];
+
+    // 1. Key Canonical People & Places (if resolve)
+    KEY_ENTITIES.forEach(s => {
+      if (state.nodes.has(s.id)) {
+        chipsList.push({ id: s.id, name: s.name, type: s.type, cls: s.cls });
+      }
+    });
+
+    // 2. Canonical Events from bundle.meta.qa_examples or viewer-canaries.json
+    const qaExamples = (state.bundle && state.bundle.meta && state.bundle.meta.qa_examples) || {};
+    Object.keys(qaExamples).forEach(label => {
+      const id = qaExamples[label];
+      if (state.nodes.has(id)) {
+        const node = state.nodes.get(id);
+        const isPerson = node.type === "PERSON";
+        chipsList.push({
+          id,
+          name: label,
+          type: node.type,
+          cls: isPerson ? "chip-person" : "chip-event"
+        });
+      }
+    });
+
+    // Render unique chips
+    const seen = new Set();
+    chipsList.forEach(s => {
+      if (seen.has(s.id)) return;
+      seen.add(s.id);
+
       const btn = document.createElement("button");
       btn.className = `qa-chip ${s.cls}`;
       btn.type = "button";
       btn.textContent = s.name;
-      btn.onclick = () => {
-        if (s.type === "FINDING") {
-          showFindingDetails(s.id);
-        } else {
-          seedGraph(s.id);
-        }
-      };
+      btn.onclick = () => seedGraph(s.id);
       el.chips.appendChild(btn);
     });
   }
@@ -239,9 +294,9 @@
   function checkUrlParams() {
     const params = new URLSearchParams(window.location.search);
     const nodeParam = params.get("node");
-    const findingParam = params.get("finding");
-    if (findingParam) {
-      showFindingDetails(findingParam);
+    const canaryParam = params.get("canary");
+    if (canaryParam) {
+      showCanaryModal();
     } else if (nodeParam && state.nodes.has(nodeParam)) {
       seedGraph(nodeParam);
     }
@@ -268,10 +323,21 @@
   function nodePassesFilter(node) {
     if (!node) return false;
     if (!state.filters.node[node.type]) return false;
-    const corpus = node.corpus_membership || "BOTH";
-    if (!state.filters.corpus[corpus]) return false;
-    const status = node.review_status || "ACCEPTED";
+
+    // Corpus filter
+    const corpus = node.corpus_membership || (node.type_details && (node.type_details.corpus_membership || node.type_details.corpus)) || "BOTH";
+    if (corpus !== "BOTH" && !state.filters.corpus[corpus]) return false;
+
+    // Source filter on Events
+    if (node.type === "EVENT") {
+      const sourceKind = node.source_kind || (node.type_details && node.type_details.source_kind) || "BSB";
+      if (!state.filters.source[sourceKind]) return false;
+    }
+
+    // Review status
+    const status = node.review_status || (node.type_details && node.type_details.review_status) || "ACCEPTED";
     if (!state.filters.status[status]) return false;
+
     return true;
   }
 
@@ -498,7 +564,7 @@
 
   function shapeFor(node, x, y, selected) {
     const seed = node.id === state.seed;
-    const isRev = node.review_status === "REVIEW_REQUIRED";
+    const isRev = (node.review_status || (node.type_details && node.type_details.review_status)) === "REVIEW_REQUIRED";
     const cls = [
       "node-shape",
       `node-${node.type.toLowerCase()}`,
@@ -549,7 +615,7 @@
         : (isPrimary ? "url(#arrow-canonical)" : "url(#arrow-canonical-dim)");
 
       const showLabel = (isPrimary || selected || state.secondaryMode === "show");
-      const label = showLabel ? edge.ui_label : "";
+      const label = showLabel ? (edge.ui_label || formatEdgeLabel(edge.relationship_type)) : "";
       const mx = (a.x + b.x) / 2;
       const my = (a.y + b.y) / 2;
 
@@ -573,7 +639,7 @@
       const pos = state.positions.get(id) || { x: 0, y: 0 };
       if (!nodePassesFilter(node)) return "";
       const rem = (state.hiddenRemainder.get(id) || []).length;
-      const badge = rem ? `+${rem}` : (node.audit_findings && node.audit_findings.length > 0 ? "⚠️" : node.type);
+      const badge = rem ? `+${rem}` : (node.type === "EVENT" ? (node.type_details?.source_kind || "EVENT") : node.type);
       const isFocus = id === focusNodeId;
       const isSel = id === selectedNode;
       return `<g class="node-g ${isFocus ? "node-focused" : ""}" data-id="${id}" transform="translate(0,0)">
@@ -591,7 +657,7 @@
       return isPrimary || state.secondaryMode !== "hide";
     });
     const focusName = state.nodes.get(focusNodeId)?.display_name || focusNodeId;
-    el.hud.textContent = state.hudNotice || `${nCount} nodes (${hopLabel}) · ${drawnEdges.length} connections (focus: ${truncate(focusName, 20)}) · BGV2-009X dataset`;
+    el.hud.textContent = state.hudNotice || `${nCount} nodes (${hopLabel}) · ${drawnEdges.length} connections (focus: ${truncate(focusName, 20)}) · BGV2-009Z9R1 certified`;
 
     bindCanvasEvents();
     renderInspectors();
@@ -795,8 +861,9 @@
     document.querySelectorAll(".inspector-tabs .tab").forEach(t => {
       t.classList.toggle("active", t.getAttribute("data-tab") === "node");
     });
-    ["insp-node", "insp-edge", "insp-evidence", "insp-findings"].forEach(d => {
-      document.getElementById(d).hidden = d !== "insp-node";
+    ["insp-node", "insp-edge", "insp-evidence", "insp-canaries"].forEach(d => {
+      const domEl = document.getElementById(d);
+      if (domEl) domEl.hidden = d !== "insp-node";
     });
     renderInspectors();
     render();
@@ -808,8 +875,9 @@
     document.querySelectorAll(".inspector-tabs .tab").forEach(t => {
       t.classList.toggle("active", t.getAttribute("data-tab") === "edge");
     });
-    ["insp-node", "insp-edge", "insp-evidence", "insp-findings"].forEach(d => {
-      document.getElementById(d).hidden = d !== "insp-edge";
+    ["insp-node", "insp-edge", "insp-evidence", "insp-canaries"].forEach(d => {
+      const domEl = document.getElementById(d);
+      if (domEl) domEl.hidden = d !== "insp-edge";
     });
     renderInspectors();
     render();
@@ -828,12 +896,16 @@
     const node = state.nodes.get(id);
     if (!node) return;
 
-    const isRev = node.review_status === "REVIEW_REQUIRED";
-    const findings = node.audit_findings || [];
+    const td = node.type_details || {};
+    const isRev = (node.review_status || td.review_status) === "REVIEW_REQUIRED";
+    const corpus = node.corpus_membership || td.corpus_membership || td.corpus || "BOTH";
+    const sourceKind = td.source_kind || "";
 
     const eventParts = [];
     const famRels = [];
     const groupRels = [];
+    const placeLocations = [];
+    const peopleParticipants = [];
 
     state.edges.forEach(e => {
       if (e.source === id || e.target === id) {
@@ -841,108 +913,156 @@
         const otherNode = state.nodes.get(otherId);
         if (!otherNode) return;
 
-        if (otherNode.type === "EVENT" || (e.relationship_type && e.relationship_type.includes("PARTICIPATED_IN_EVENT"))) {
-          eventParts.push({ edge: e, event: otherNode, role: e.ui_label });
-        } else if (otherNode.type === "GROUP") {
-          groupRels.push({ edge: e, group: otherNode, role: e.ui_label });
-        } else if (otherNode.type === "PERSON" && e.relationship_type && e.relationship_type.includes("OF")) {
-          famRels.push({ edge: e, person: otherNode, role: e.ui_label });
+        const roleLabel = e.ui_label || formatEdgeLabel(e.relationship_type);
+
+        if (node.type === "EVENT") {
+          if (otherNode.type === "PERSON") {
+            peopleParticipants.push({ edge: e, person: otherNode, role: roleLabel });
+          } else if (otherNode.type === "PLACE") {
+            placeLocations.push({ edge: e, place: otherNode, role: roleLabel });
+          } else if (otherNode.type === "GROUP") {
+            groupRels.push({ edge: e, group: otherNode, role: roleLabel });
+          }
+        } else {
+          if (otherNode.type === "EVENT" || (e.relationship_type && e.relationship_type.includes("PARTICIPATED_IN_EVENT"))) {
+            eventParts.push({ edge: e, event: otherNode, role: roleLabel });
+          } else if (otherNode.type === "GROUP") {
+            groupRels.push({ edge: e, group: otherNode, role: roleLabel });
+          } else if (otherNode.type === "PERSON" && e.relationship_type && e.relationship_type.includes("OF")) {
+            famRels.push({ edge: e, person: otherNode, role: roleLabel });
+          }
         }
       }
     });
 
     let eventSectionHtml = "";
-    if (eventParts.length > 0) {
+    if (node.type === "EVENT") {
+      // Event: show People, Places, Groups connected
       eventSectionHtml = `
         <div class="insp-section">
-          <h4>Event Participation (${eventParts.length})</h4>
+          <h4>Participants (${peopleParticipants.length})</h4>
           <div class="rel-list">
-            ${eventParts.map(item => {
-              const ev = item.event;
-              const isEventRev = ev.review_status === "REVIEW_REQUIRED" || item.edge.review_status === "REVIEW_REQUIRED";
-              const scripture = (ev.scripture_ranges && ev.scripture_ranges.length) ? ev.scripture_ranges.join(', ') : (item.edge.scripture_locators ? item.edge.scripture_locators.join(', ') : '');
-              return `
-                <div class="rel-item rel-item-event" onclick="window.inspectById('${ev.id}')">
-                  <div style="flex: 1; min-width: 0;">
-                    <div class="rel-name" style="color: #fde68a;">${escapeHtml(ev.display_name)}</div>
-                    <div style="display: flex; gap: 6px; align-items: center; margin-top: 3px; flex-wrap: wrap;">
-                      <span class="tag ${isEventRev ? 'tag-review' : 'tag-accepted'}">${isEventRev ? 'REVIEW_REQUIRED' : 'ACCEPTED'}</span>
-                      <span class="tag tag-event">EVENT</span>
-                      <span class="rel-role">${escapeHtml(item.role)}</span>
-                    </div>
-                    ${scripture ? `<div style="font-family: var(--mono); font-size: 10px; color: #7dd3fc; margin-top: 3px;">📖 ${escapeHtml(scripture)}</div>` : ''}
-                  </div>
-                </div>
-              `;
-            }).join('')}
-          </div>
-        </div>
-      `;
-    } else {
-      eventSectionHtml = `
-        <div class="insp-section">
-          <h4>Event Participation (0)</h4>
-          <div class="empty-notice">No certified event participation relationships</div>
-        </div>
-      `;
-    }
-
-    let familySectionHtml = "";
-    if (famRels.length > 0) {
-      familySectionHtml = `
-        <div class="insp-section">
-          <h4>Family Connections (${famRels.length})</h4>
-          <div class="rel-list">
-            ${famRels.map(item => `
+            ${peopleParticipants.length ? peopleParticipants.map(item => `
               <div class="rel-item" onclick="window.inspectById('${item.person.id}')">
                 <div>
                   <div class="rel-name">${escapeHtml(item.person.display_name)}</div>
                   <div class="rel-role">${escapeHtml(item.role)}</div>
                 </div>
-                <div style="display: flex; gap: 4px; align-items: center;">
-                  <span class="tag ${item.edge.review_status === 'REVIEW_REQUIRED' ? 'tag-review' : 'tag-accepted'}">${item.edge.review_status}</span>
-                  <span class="tag tag-person">PERSON</span>
-                </div>
+                <span class="tag tag-person">PERSON</span>
               </div>
-            `).join('')}
+            `).join('') : '<div class="empty-notice">No individual participants recorded</div>'}
           </div>
         </div>
-      `;
-    } else if (node.type === "PERSON") {
-      familySectionHtml = `
-        <div class="insp-section">
-          <h4>Family Connections (0)</h4>
-          <div class="empty-notice">No certified family connections</div>
-        </div>
-      `;
-    }
 
-    let groupSectionHtml = "";
-    if (groupRels.length > 0) {
-      groupSectionHtml = `
         <div class="insp-section">
-          <h4>Group Relationships (${groupRels.length})</h4>
+          <h4>Locations (${placeLocations.length})</h4>
           <div class="rel-list">
-            ${groupRels.map(item => `
-              <div class="rel-item" onclick="window.inspectById('${item.group.id}')">
+            ${placeLocations.length ? placeLocations.map(item => `
+              <div class="rel-item rel-item-place" onclick="window.inspectById('${item.place.id}')">
                 <div>
-                  <div class="rel-name">${escapeHtml(item.group.display_name)}</div>
+                  <div class="rel-name" style="color: #86efac;">${escapeHtml(item.place.display_name)}</div>
+                  <div class="rel-role">${escapeHtml(item.role)}</div>
+                </div>
+                <span class="tag tag-place">PLACE</span>
+              </div>
+            `).join('') : '<div class="empty-notice">No place locations recorded</div>'}
+          </div>
+        </div>
+
+        <div class="insp-section">
+          <h4>Groups (${groupRels.length})</h4>
+          <div class="rel-list">
+            ${groupRels.length ? groupRels.map(item => `
+              <div class="rel-item rel-item-group" onclick="window.inspectById('${item.group.id}')">
+                <div>
+                  <div class="rel-name" style="color: #d8b4fe;">${escapeHtml(item.group.display_name)}</div>
                   <div class="rel-role">${escapeHtml(item.role)}</div>
                 </div>
                 <span class="tag tag-group">GROUP</span>
               </div>
-            `).join('')}
+            `).join('') : '<div class="empty-notice">No group participants recorded</div>'}
           </div>
         </div>
       `;
-    } else if (node.type === "PERSON") {
-      groupSectionHtml = `
-        <div class="insp-section">
-          <h4>Group Relationships (0)</h4>
-          <div class="empty-notice">No certified group relationships</div>
-        </div>
-      `;
+    } else {
+      // Person / Place / Group: show Event Participation
+      if (eventParts.length > 0) {
+        eventSectionHtml = `
+          <div class="insp-section">
+            <h4>Event Participation (${eventParts.length})</h4>
+            <div class="rel-list">
+              ${eventParts.map(item => {
+                const ev = item.event;
+                const evTd = ev.type_details || {};
+                const scripture = (evTd.scripture_ranges && evTd.scripture_ranges.length) ? evTd.scripture_ranges.join(', ') : (item.edge.evidence_refs ? item.edge.evidence_refs.join(', ') : '');
+                return `
+                  <div class="rel-item rel-item-event" onclick="window.inspectById('${ev.id}')">
+                    <div style="flex: 1; min-width: 0;">
+                      <div class="rel-name" style="color: #fde68a;">${escapeHtml(ev.display_name)}</div>
+                      <div style="display: flex; gap: 6px; align-items: center; margin-top: 3px; flex-wrap: wrap;">
+                        <span class="tag ${evTd.source_kind === 'DSSU' ? 'tag-dssu' : 'tag-bsb'}">${evTd.source_kind || 'BSB'}</span>
+                        <span class="tag tag-event">EVENT</span>
+                        <span class="rel-role">${escapeHtml(item.role)}</span>
+                      </div>
+                      ${scripture ? `<div style="font-family: var(--mono); font-size: 10px; color: #7dd3fc; margin-top: 3px;">📖 ${escapeHtml(scripture)}</div>` : ''}
+                    </div>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </div>
+        `;
+      } else {
+        eventSectionHtml = `
+          <div class="insp-section">
+            <h4>Event Participation (0)</h4>
+            <div class="empty-notice">No certified event participation relationships</div>
+          </div>
+        `;
+      }
+
+      if (famRels.length > 0) {
+        eventSectionHtml += `
+          <div class="insp-section">
+            <h4>Family Connections (${famRels.length})</h4>
+            <div class="rel-list">
+              ${famRels.map(item => `
+                <div class="rel-item" onclick="window.inspectById('${item.person.id}')">
+                  <div>
+                    <div class="rel-name">${escapeHtml(item.person.display_name)}</div>
+                    <div class="rel-role">${escapeHtml(item.role)}</div>
+                  </div>
+                  <span class="tag tag-person">PERSON</span>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }
+
+      if (groupRels.length > 0) {
+        eventSectionHtml += `
+          <div class="insp-section">
+            <h4>Group Relationships (${groupRels.length})</h4>
+            <div class="rel-list">
+              ${groupRels.map(item => `
+                <div class="rel-item rel-item-group" onclick="window.inspectById('${item.group.id}')">
+                  <div>
+                    <div class="rel-name" style="color: #d8b4fe;">${escapeHtml(item.group.display_name)}</div>
+                    <div class="rel-role">${escapeHtml(item.role)}</div>
+                  </div>
+                  <span class="tag tag-group">GROUP</span>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }
     }
+
+    const scriptureRanges = td.scripture_ranges || node.scripture_ranges || [];
+    const primarySourceId = td.primary_source_id || node.primary_source_id || "";
+    const nativeTitle = td.source_native_title || "";
 
     el.inspNode.innerHTML = `
       <div class="insp-title-row">
@@ -951,45 +1071,28 @@
       </div>
       <div class="tag-row">
         <span class="tag tag-${node.type.toLowerCase()}">${node.type}</span>
-        <span class="tag ${isRev ? 'tag-review' : 'tag-accepted'}">${node.review_status}</span>
-        <span class="tag">${node.corpus_membership || 'BOTH'}</span>
-        ${node.map_suitability ? `<span class="tag ${node.map_suitability === 'SAFE_TO_MAP' ? 'tag-map-safe' : (node.map_suitability === 'MAP_WITH_UNCERTAINTY' ? 'tag-map-uncert' : 'tag-map-no')}">${node.map_suitability}</span>` : ''}
+        ${sourceKind ? `<span class="tag ${sourceKind === 'DSSU' ? 'tag-dssu' : 'tag-bsb'}">${sourceKind} SOURCE</span>` : ''}
+        <span class="tag ${isRev ? 'tag-review' : 'tag-accepted'}">${isRev ? 'REVIEW_REQUIRED' : 'ACCEPTED'}</span>
+        <span class="tag">${corpus}</span>
       </div>
 
-      ${findings.length > 0 ? `
+      ${scriptureRanges.length > 0 ? `
       <div class="insp-section">
-        <h4>Applicable Audit Findings (${findings.length})</h4>
-        ${findings.map(f => `
-          <div class="finding-card severity-${f.severity}">
-            <div class="finding-head">
-              <span>[${f.severity}] ${escapeHtml(f.finding_id)}</span>
-              <small>Area ${f.area}</small>
-            </div>
-            <div class="finding-desc"><b>${escapeHtml(f.title)}</b>: ${escapeHtml(f.description)}</div>
-            <div class="finding-action">Recommended Action: ${escapeHtml(f.recommended_action)}</div>
-          </div>
-        `).join('')}
+        <h4>Scripture Range</h4>
+        <div style="font-family: var(--mono); font-size: 11px; color: #7dd3fc; font-weight: 600;">📖 ${scriptureRanges.join(', ')}</div>
       </div>
       ` : ''}
 
-      ${node.scripture_ranges && node.scripture_ranges.length > 0 ? `
-      <div class="insp-section">
-        <h4>Scripture Anchor</h4>
-        <div style="font-family: var(--mono); font-size: 11px; color: #7dd3fc;">${node.scripture_ranges.join(', ')}</div>
-      </div>
-      ` : ''}
-
-      ${node.primary_source_id ? `
+      ${primarySourceId ? `
       <div class="insp-section">
         <h4>Source Grounding</h4>
-        <div>Source: <b>${escapeHtml(node.primary_source_id)}</b></div>
-        <div>Anchor: <code>${escapeHtml(node.primary_structural_anchor || 'N/A')}</code></div>
+        <div>Source: <b>${escapeHtml(primarySourceId)}</b></div>
+        ${sourceKind ? `<div>Kind: <b>${escapeHtml(sourceKind)}</b></div>` : ''}
+        ${nativeTitle ? `<div>Native Title: <i>${escapeHtml(nativeTitle)}</i></div>` : ''}
       </div>
       ` : ''}
 
       ${eventSectionHtml}
-      ${familySectionHtml}
-      ${groupSectionHtml}
 
       <div class="insp-section">
         <button class="action" onclick="window.reseed('${node.id}')" style="width: 100%; padding: 10px; font-weight: 600;">Seed graph from this entity</button>
@@ -1005,15 +1108,18 @@
 
     const sNode = state.nodes.get(edge.source);
     const tNode = state.nodes.get(edge.target);
+    const label = edge.ui_label || formatEdgeLabel(edge.relationship_type);
+
+    const refs = edge.evidence_refs || edge.scripture_locators || [];
 
     el.inspEdge.innerHTML = `
       <div class="insp-title-row">
-        <div class="insp-title">${escapeHtml(edge.relationship_type)}</div>
+        <div class="insp-title">${escapeHtml(label)}</div>
         <div class="insp-id">${escapeHtml(edge.id)}</div>
       </div>
       <div class="tag-row">
-        <span class="tag ${edge.review_status === 'REVIEW_REQUIRED' ? 'tag-review' : 'tag-accepted'}">${edge.review_status}</span>
-        <span class="tag">${edge.relationship_class}</span>
+        <span class="tag tag-accepted">CANONICAL</span>
+        <span class="tag">${escapeHtml(edge.relationship_type)}</span>
       </div>
 
       <div class="insp-section">
@@ -1028,90 +1134,90 @@
         </div>
       </div>
 
-      ${edge.scripture_locators && edge.scripture_locators.length > 0 ? `
+      ${refs.length > 0 ? `
       <div class="insp-section">
-        <h4>Scripture Citations</h4>
-        <div style="font-family: var(--mono); font-size: 11px; color: #7dd3fc;">${edge.scripture_locators.join(', ')}</div>
+        <h4>Scripture Citations (${refs.length})</h4>
+        <div style="font-family: var(--mono); font-size: 11px; color: #7dd3fc;">${refs.join(', ')}</div>
       </div>
       ` : ''}
     `;
   }
 
   function renderEvidenceTab(node) {
+    const td = node.type_details || {};
     el.inspEvidence.innerHTML = `
       <div class="insp-title-row">
         <div class="insp-title">Evidence & Provenance</div>
         <div class="insp-id">${escapeHtml(node.id)}</div>
       </div>
       <div class="insp-section">
-        <h4>Observation Count</h4>
-        <p style="font-size: 13px; font-weight: 700; color: #38bdf8;">${node.evidence_observation_count || 0} source observations</p>
-      </div>
-      <div class="insp-section">
         <h4>Provenance Basis</h4>
-        <p>Canonical Bible Graph V2 Certified Export (BGV2-009X).</p>
-        <p style="color: var(--muted); font-size: 11px; margin-top: 4px;">Candidate A prior art is strictly excluded. All relationships are source-backed canonical claims.</p>
+        <p>Canonical Bible Graph V2 Certified Export (BGV2-009Z9R1).</p>
+        <p style="color: var(--muted); font-size: 11px; margin-top: 6px;">No source → no canonical relationship. Presentation-independent certified canonical graph state.</p>
       </div>
+      ${td.source_kind ? `
+      <div class="insp-section">
+        <h4>Source Details</h4>
+        <p>Source Kind: <b>${escapeHtml(td.source_kind)}</b></p>
+        <p>Primary Source: <b>${escapeHtml(td.primary_source_id || '')}</b></p>
+        ${td.primary_source_unit_locator ? `<p>Unit Anchor: <code>${escapeHtml(td.primary_source_unit_locator)}</code></p>` : ''}
+      </div>
+      ` : ''}
     `;
   }
 
-  function showFindingDetails(findingId) {
-    const finding = state.auditFindings.find(f => f.finding_id === findingId);
-    if (!finding) return;
-
+  function showCanaryModal() {
     el.findingsModal.hidden = false;
-    renderFindingsList(finding.severity, finding.area, findingId);
+    renderCanaryList(el.canaryCorpusFilter.value, el.canarySourceFilter.value);
   }
 
-  function renderFindingsList(filterSev = "ALL", filterArea = "ALL", highlightId = null) {
+  function renderCanaryList(corpusFilter = "ALL", sourceFilter = "ALL") {
     el.findingsList.innerHTML = "";
-    const list = state.auditFindings.filter(f => {
-      if (filterSev !== "ALL" && f.severity !== filterSev) return false;
-      if (filterArea !== "ALL" && f.area !== filterArea) return false;
+    const list = (state.canaries && state.canaries.all) || [];
+
+    const filtered = list.filter(c => {
+      const evNode = state.nodes.get(c.id);
+      const td = (evNode && evNode.type_details) || {};
+      const cCorp = td.corpus || "NT";
+      const cSrc = td.source_kind || (c.expected_source && c.expected_source.source_kind) || "BSB";
+
+      if (corpusFilter !== "ALL" && cCorp !== corpusFilter && cCorp !== "BOTH") return false;
+      if (sourceFilter !== "ALL" && cSrc !== sourceFilter) return false;
       return true;
     });
 
-    list.forEach(f => {
-      const card = document.createElement("div");
-      card.className = `finding-card severity-${f.severity}`;
-      if (highlightId === f.finding_id) card.style.boxShadow = "0 0 0 2px #fbbf24";
+    if (!filtered.length) {
+      el.findingsList.innerHTML = '<div style="padding: 16px; color: var(--muted);">No matching canaries found.</div>';
+      return;
+    }
 
+    filtered.forEach(c => {
+      const evNode = state.nodes.get(c.id);
+      const td = (evNode && evNode.type_details) || {};
+      const srcKind = td.source_kind || (c.expected_source && c.expected_source.source_kind) || "BSB";
+      const ranges = td.scripture_ranges || c.expected_scripture_ranges || [];
+
+      const card = document.createElement("div");
+      card.className = "finding-card";
       card.innerHTML = `
         <div class="findings-modal-header" style="margin-bottom: 6px;">
           <div>
-            <span class="tag" style="background: ${f.severity === 'MEDIUM' ? '#b45309' : (f.severity === 'LOW' ? '#854d0e' : '#0369a1')}">${f.severity}</span>
-            <b style="color: #fff; margin-left: 6px;">${escapeHtml(f.finding_id)}</b>: ${escapeHtml(f.title)}
+            <span class="tag ${srcKind === 'DSSU' ? 'tag-dssu' : 'tag-bsb'}">${srcKind}</span>
+            <b style="color: #fff; margin-left: 6px;">${escapeHtml(c.label)}</b>
           </div>
-          <span class="tag">Area ${f.area}</span>
+          <span class="tag tag-event">EVENT</span>
         </div>
-        <div class="finding-desc">${escapeHtml(f.description)}</div>
-        <div class="finding-action">Recommended Action: ${escapeHtml(f.recommended_action)}</div>
-        <pre style="background: #0b1220; padding: 6px; border-radius: 4px; font-size: 10px; color: #94a3b8; margin-top: 6px; overflow-x: auto;">${escapeHtml(JSON.stringify(f.evidence, null, 2))}</pre>
-        ${f.evidence && (f.evidence.person_id || f.evidence.place_key || f.evidence.group_key) ? `
-          <button class="action" style="margin-top: 6px;" onclick="window.focusFindingTarget('${f.finding_id}')">Focus Target in Graph →</button>
-        ` : ''}
+        <div style="font-family: var(--mono); font-size: 10px; color: #7dd3fc; margin-bottom: 6px;">📖 ${escapeHtml(ranges.join(', '))}</div>
+        <div style="font-size: 11px; color: #94a3b8; margin-bottom: 8px;">Canonical ID: <code>${escapeHtml(c.id)}</code></div>
+        <button class="action" onclick="window.focusCanary('${c.id}')">Explore in Graph →</button>
       `;
       el.findingsList.appendChild(card);
     });
   }
 
-  window.focusFindingTarget = (fid) => {
+  window.focusCanary = (id) => {
     el.findingsModal.hidden = true;
-    const f = state.auditFindings.find(item => item.finding_id === fid);
-    if (!f) return;
-    const ev = f.evidence || {};
-    let targetId = ev.person_id;
-    if (!targetId && ev.place_key) {
-      const pl = Array.from(state.nodes.values()).find(n => n.type === "PLACE" && n.display_name.toLowerCase() === ev.place_key.toLowerCase());
-      if (pl) targetId = pl.id;
-    }
-    if (!targetId && ev.group_key) {
-      const g = Array.from(state.nodes.values()).find(n => n.type === "GROUP" && n.display_name.toLowerCase() === ev.group_key.toLowerCase());
-      if (g) targetId = g.id;
-    }
-    if (targetId) {
-      seedGraph(targetId);
-    }
+    seedGraph(id);
   };
 
   window.inspectById = (id) => {
@@ -1134,7 +1240,8 @@
       }
       const hits = state.search.filter(s => {
         if (!state.filters.node[s.type]) return false;
-        return s.tokens.some(tok => tok.includes(q)) || s.display_name.toLowerCase().includes(q);
+        const terms = s.search_terms || [];
+        return terms.some(tok => tok.toLowerCase().includes(q)) || s.display_name.toLowerCase().includes(q);
       }).slice(0, 15);
 
       if (hits.length === 0) {
@@ -1144,7 +1251,7 @@
           <div class="search-hit" onclick="window.selectSearch('${hit.id}')">
             <span class="tag tag-${hit.type.toLowerCase()}">${hit.type}</span>
             <b>${escapeHtml(hit.display_name)}</b>
-            <span class="tag ${hit.review_status === 'REVIEW_REQUIRED' ? 'tag-review' : 'tag-accepted'}">${hit.review_status}</span>
+            <span class="tag tag-accepted">CANONICAL</span>
           </div>
         `).join('');
       }
@@ -1246,22 +1353,20 @@
       });
     });
 
-    document.getElementById("btn-findings").addEventListener("click", () => {
-      el.findingsModal.hidden = false;
-      renderFindingsList(el.findingSevFilter.value, el.findingAreaFilter.value);
-    });
+    document.getElementById("btn-findings").addEventListener("click", showCanaryModal);
     document.getElementById("findings-close-btn").addEventListener("click", () => {
       el.findingsModal.hidden = true;
     });
-    document.getElementById("tab-findings-btn").addEventListener("click", () => {
-      el.findingsModal.hidden = false;
-      renderFindingsList();
+    const tabCanariesBtn = document.getElementById("tab-canaries-btn");
+    if (tabCanariesBtn) {
+      tabCanariesBtn.addEventListener("click", showCanaryModal);
+    }
+
+    el.canaryCorpusFilter.addEventListener("change", () => {
+      renderCanaryList(el.canaryCorpusFilter.value, el.canarySourceFilter.value);
     });
-    el.findingSevFilter.addEventListener("change", () => {
-      renderFindingsList(el.findingSevFilter.value, el.findingAreaFilter.value);
-    });
-    el.findingAreaFilter.addEventListener("change", () => {
-      renderFindingsList(el.findingSevFilter.value, el.findingAreaFilter.value);
+    el.canarySourceFilter.addEventListener("change", () => {
+      renderCanaryList(el.canaryCorpusFilter.value, el.canarySourceFilter.value);
     });
 
     document.querySelectorAll(".inspector-tabs .tab").forEach(tab => {
@@ -1269,8 +1374,9 @@
         document.querySelectorAll(".inspector-tabs .tab").forEach(t => t.classList.remove("active"));
         tab.classList.add("active");
         const tabName = tab.getAttribute("data-tab");
-        ["insp-node", "insp-edge", "insp-evidence", "insp-findings"].forEach(id => {
-          document.getElementById(id).hidden = id !== `insp-${tabName}`;
+        ["insp-node", "insp-edge", "insp-evidence", "insp-canaries"].forEach(id => {
+          const domEl = document.getElementById(id);
+          if (domEl) domEl.hidden = id !== `insp-${tabName}`;
         });
       });
     });
@@ -1279,6 +1385,7 @@
       chk.addEventListener("change", () => {
         if (chk.dataset.nodeType) state.filters.node[chk.dataset.nodeType] = chk.checked;
         if (chk.dataset.corpusFilter) state.filters.corpus[chk.dataset.corpusFilter] = chk.checked;
+        if (chk.dataset.sourceFilter) state.filters.source[chk.dataset.sourceFilter] = chk.checked;
         if (chk.dataset.statusFilter) state.filters.status[chk.dataset.statusFilter] = chk.checked;
         if (chk.dataset.edgeClass) state.filters.edge[chk.dataset.edgeClass] = chk.checked;
         if (state.seed) {
