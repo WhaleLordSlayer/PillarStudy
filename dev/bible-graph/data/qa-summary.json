@@ -1,41 +1,26 @@
 {
-  "canonical": {
-    "bsb": 446,
-    "dssu": 70,
-    "events": 516,
-    "non_nt": 363,
-    "nt": 153
-  },
-  "hashes": {
-    "canonical_export_sha256": "003dc77f898c292f365cd2b618b77727608e6c3a3714eb37f7277c53974013d6",
-    "event": "0bb22eeb09150f628faa49e35e2d3da11da6467bb66cee4c7864c8e227093490",
-    "participation": "6baa0cdc36df022d9569f6862bd36f45c404ad8477eb7f6192e1542776edf40c",
-    "viewer_bundle_sha256": "6673580de02791d78c5f6acebe56774f42ee83f611680a2b3112fb076411fd25"
-  },
-  "historical_test_debt": "Stale pre-Z9 historical pytest modules remain deferred maintenance debt; they are not a current canonical migration blocker.",
-  "identity": {
-    "retired": 40,
-    "retired_live": 0,
-    "retired_reuse": 0
-  },
-  "participation": {
-    "event_group_count": 23,
-    "event_place_count": 622,
-    "new_target_failures": 0,
-    "person_event_count": 600,
-    "unexplained_retained_changes": 0,
-    "unexplained_retired_losses": 0
-  },
-  "provenance": {
-    "resolved": 516,
-    "reviewed": 516,
-    "unresolved": 0
-  },
-  "source_commit": "78e29b14f618040c3aaa836c354bff169625e1c7",
   "status": "READY_FOR_WEB_QA",
-  "tests": {
-    "current_smoke": "PASS",
-    "ruff": "PASS",
-    "z9_z9r1": "21/21 PASS"
+  "milestone": "BGV2-R5C",
+  "canonical_sha": "a1218004d6a293d13658f0ef0e18f8dd9d3604c150ffae0478e36170cd59910b",
+  "source_commit": "57713173121424e75fd416b0ab6b417ae1736e06",
+  "counts": {
+    "people": 3131,
+    "places": 1001,
+    "groups": 101,
+    "events": 1667,
+    "total_entities": 5900,
+    "person_person": 6556,
+    "person_event": 1353,
+    "event_place": 642,
+    "event_group": 47,
+    "person_group": 0,
+    "total_relationships": 8598
+  },
+  "events_breakdown": {
+    "whole_bible": 1667,
+    "nt": 561,
+    "non_nt": 1106,
+    "dssu": 70,
+    "bsb": 1597
   }
 }

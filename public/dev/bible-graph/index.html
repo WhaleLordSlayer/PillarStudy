@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-  <title>Bible Graph QA — Read-only internal viewer (BGV2-009Z9R1)</title>
+  <title>Bible Graph QA — Read-only internal viewer (BGV2-R5C)</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,11 +14,11 @@
         <span class="pill">Read-only QA viewer</span>
       </div>
       <span class="pill muted" id="meta-counts">Loading graph…</span>
-      <div class="build-badge" id="build-badge" title="BGV2-009Z9R1 Build Identity">
+      <div class="build-badge" id="build-badge" title="BGV2-R5C Build Identity">
         <span class="badge-label">Packet</span>
-        <span class="badge-item" id="build-time">BGV2-009Z9R1</span>
-        <span class="badge-item" id="build-commit">78e29b1</span>
-        <span class="badge-item" id="build-hash">Certified</span>
+        <span class="badge-item" id="build-time">BGV2-R5C</span>
+        <span class="badge-item" id="build-commit">5771317</span>
+        <span class="badge-item" id="build-hash">a121800</span>
       </div>
     </div>
     <div class="search-wrap">
@@ -52,7 +52,7 @@
       <label class="chk"><input type="checkbox" data-node-type="PERSON" checked> People (3,131)</label>
       <label class="chk"><input type="checkbox" data-node-type="PLACE" checked> Places (1,001)</label>
       <label class="chk"><input type="checkbox" data-node-type="GROUP" checked> Groups (101)</label>
-      <label class="chk"><input type="checkbox" data-node-type="EVENT" checked> Events (516)</label>
+      <label class="chk"><input type="checkbox" data-node-type="EVENT" checked> Events (1,667)</label>
     </div>
     <div class="filter-group">
       <span class="filter-label">Corpus Scope</span>
@@ -62,7 +62,7 @@
     </div>
     <div class="filter-group">
       <span class="filter-label">Event Source</span>
-      <label class="chk"><input type="checkbox" data-source-filter="BSB" checked> BSB (446)</label>
+      <label class="chk"><input type="checkbox" data-source-filter="BSB" checked> BSB (1,597)</label>
       <label class="chk"><input type="checkbox" data-source-filter="DSSU" checked> DSSU (70)</label>
     </div>
     <div class="filter-group">
@@ -72,9 +72,9 @@
     </div>
     <div class="filter-group">
       <span class="filter-label">Edges</span>
-      <label class="chk"><input type="checkbox" data-edge-class="canonical" checked> Canonical</label>
-      <label class="chk"><input type="checkbox" data-edge-class="family" checked> Family</label>
-      <label class="chk"><input type="checkbox" data-edge-class="participation" checked> Participation</label>
+      <label class="chk"><input type="checkbox" data-edge-class="canonical" checked> Canonical (8,598)</label>
+      <label class="chk"><input type="checkbox" data-edge-class="family" checked> Family (6,556)</label>
+      <label class="chk"><input type="checkbox" data-edge-class="participation" checked> Participation (2,042)</label>
     </div>
     <div class="filter-group">
       <span class="filter-label">Secondary Edges</span>
@@ -119,15 +119,15 @@
           <button id="btn-toggle-legend" class="btn-icon" type="button" aria-label="Toggle Legend">✕</button>
         </div>
         <div id="legend-body">
-          <div class="legend-row"><svg width="28" height="18"><circle cx="9" cy="9" r="7" class="lg-person"></circle></svg> Person</div>
-          <div class="legend-row"><svg width="28" height="18"><rect x="2" y="3" width="14" height="12" rx="3" class="lg-place"></rect></svg> Place</div>
-          <div class="legend-row"><svg width="28" height="18"><polygon points="9,2 16,6.5 16,13.5 9,18 2,13.5 2,6.5" class="lg-group"></polygon></svg> Group</div>
-          <div class="legend-row"><svg width="28" height="18"><polygon points="9,2 16,9 9,16 2,9" class="lg-event"></polygon></svg> Event</div>
-          <div class="legend-row"><span class="edge-swatch solid"></span> Canonical claim</div>
-          <div class="legend-row"><span class="edge-swatch participation"></span> Event Participation</div>
-          <div class="legend-row"><span class="edge-swatch review-dashed"></span> Review Required claim</div>
-          <p class="legend-note">Family claims: PARENT_OF, CHILD_OF, SIBLING_OF, SPOUSE_OF.</p>
-          <p class="legend-note">Participation: Person → Event, Event → Place, Event → Group.</p>
+          <div class="legend-row"><svg width="28" height="18"><circle cx="9" cy="9" r="7" class="lg-person"></circle></svg> Person (3,131)</div>
+          <div class="legend-row"><svg width="28" height="18"><rect x="2" y="3" width="14" height="12" rx="3" class="lg-place"></rect></svg> Place (1,001)</div>
+          <div class="legend-row"><svg width="28" height="18"><polygon points="9,2 16,6.5 16,13.5 9,18 2,13.5 2,6.5" class="lg-group"></polygon></svg> Group (101)</div>
+          <div class="legend-row"><svg width="28" height="18"><polygon points="9,2 16,9 9,16 2,9" class="lg-event"></polygon></svg> Event (1,667)</div>
+          <div class="legend-row"><span class="edge-swatch solid"></span> Canonical family (6,556)</div>
+          <div class="legend-row"><span class="edge-swatch participation"></span> Participation (2,042)</div>
+          <div class="legend-row"><span class="edge-swatch review-dashed"></span> Review Required</div>
+          <p class="legend-note">Family: PARENT_OF, CHILD_OF, SIBLING_OF, SPOUSE_OF.</p>
+          <p class="legend-note">Participation: Person → Event (1,353), Event → Place (642), Event → Group (47).</p>
           <p class="legend-note">Pinch to zoom · Drag to pan or reposition node · Tap node to inspect.</p>
         </div>
       </aside>
@@ -158,7 +158,7 @@
   </div>
 
   <footer class="footer">
-    Bible Graph QA · BGV2-009Z9R1 certified dataset · 516 events (153 NT, 70 DSSU, 446 BSB) · 3,131 people · 1,001 places · 101 groups · 7,779 connections · Read-only viewer
+    Bible Graph QA · BGV2-R5C canonical dataset · 1,667 events (460 NT, 70 DSSU, 1,597 BSB) · 3,131 people · 1,001 places · 101 groups · 8,598 relationships · Read-only viewer
   </footer>
 
   <div id="path-modal" class="modal" hidden>
@@ -178,7 +178,7 @@
   <div id="findings-modal" class="modal" hidden>
     <div class="modal-card findings-modal-card">
       <div class="findings-modal-header">
-        <h3>Certified QA Canaries & Examples</h3>
+        <h3>Certified QA Canaries & Spot Checks</h3>
         <button id="findings-close-btn" class="btn-icon" type="button">✕</button>
       </div>
       <div class="findings-filter-bar">
@@ -193,7 +193,7 @@
           <select id="canary-source-filter">
             <option value="ALL">All Sources</option>
             <option value="DSSU">DSSU Stories (70)</option>
-            <option value="BSB">Berean Standard Bible (446)</option>
+            <option value="BSB">Berean Standard Bible (1,597)</option>
           </select>
         </label>
       </div>

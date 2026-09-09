@@ -1,4 +1,4 @@
-/* BGV2-009Z9R1 Bible Graph Visual QA Explorer.
+/* BGV2-R5C Bible Graph Visual QA Explorer.
    Certified deterministic canonical node-link visual QA viewer.
    Mobile-friendly with full touch, pinch-to-zoom, and responsive layout. */
 (() => {
@@ -47,6 +47,7 @@
     { id: "candb_ce00b6b7755b1ce2efd8", name: "Moses", type: "PERSON", cls: "chip-person" },
     { id: "candb_6a6f0ea0bfbd133657e9", name: "Joseph of Egypt", type: "PERSON", cls: "chip-person" },
     { id: "candb_264ecdb186e5596797b5", name: "David", type: "PERSON", cls: "chip-person" },
+    { id: "candb_393b2940dc499422a90d", name: "Saul", type: "PERSON", cls: "chip-person" },
     { id: "candb_2673b6dee819a2125c7a", name: "Abraham", type: "PERSON", cls: "chip-person" },
     { id: "candb_1a679fddcb8aedc7976b", name: "Jacob", type: "PERSON", cls: "chip-person" },
     { id: "candb_0e77b0ad8939293d2295", name: "Ruth", type: "PERSON", cls: "chip-person" },
@@ -54,6 +55,7 @@
     { id: "candb_b0a6a5756ecb79418f0a", name: "Elijah", type: "PERSON", cls: "chip-person" },
     { id: "candb_0ae72ee82945943832ce", name: "Daniel", type: "PERSON", cls: "chip-person" },
     { id: "candb_d6976ad1227da79b7ee5", name: "Esther", type: "PERSON", cls: "chip-person" },
+    { id: "candb_23f88bae933cc8a725e9", name: "Mordecai", type: "PERSON", cls: "chip-person" },
     { id: "candbpl_3a3c12c0219fcb2c6a85", name: "Jerusalem", type: "PLACE", cls: "chip-place" },
     { id: "candbpl_007ad55822ce179d59c2", name: "Nazareth", type: "PLACE", cls: "chip-place" },
     { id: "candbpl_07bcf25d27c7f2fe12d9", name: "Bethlehem", type: "PLACE", cls: "chip-place" },
@@ -230,7 +232,7 @@
       const eventCount = meta.event_count || [...state.nodes.values()].filter(n => n.type === "EVENT").length;
       const ntCount = meta.nt_event_count || 153;
       const dssuCount = meta.dssu_event_count || 70;
-      const bsbCount = meta.bsb_event_count || 446;
+      const bsbCount = meta.bsb_event_count || 1597;
       const peopleCount = (meta.node_counts_by_type && meta.node_counts_by_type.PERSON) || 3131;
       const placeCount = (meta.node_counts_by_type && meta.node_counts_by_type.PLACE) || 1001;
       const groupCount = (meta.node_counts_by_type && meta.node_counts_by_type.GROUP) || 101;
@@ -657,7 +659,7 @@
       return isPrimary || state.secondaryMode !== "hide";
     });
     const focusName = state.nodes.get(focusNodeId)?.display_name || focusNodeId;
-    el.hud.textContent = state.hudNotice || `${nCount} nodes (${hopLabel}) · ${drawnEdges.length} connections (focus: ${truncate(focusName, 20)}) · BGV2-009Z9R1 certified`;
+    el.hud.textContent = state.hudNotice || `${nCount} nodes (${hopLabel}) · ${drawnEdges.length} connections (focus: ${truncate(focusName, 20)}) · BGV2-R5C certified`;
 
     bindCanvasEvents();
     renderInspectors();
@@ -1152,7 +1154,7 @@
       </div>
       <div class="insp-section">
         <h4>Provenance Basis</h4>
-        <p>Canonical Bible Graph V2 Certified Export (BGV2-009Z9R1).</p>
+        <p>Canonical Bible Graph V2 Certified Export (BGV2-R5C).</p>
         <p style="color: var(--muted); font-size: 11px; margin-top: 6px;">No source → no canonical relationship. Presentation-independent certified canonical graph state.</p>
       </div>
       ${td.source_kind ? `
