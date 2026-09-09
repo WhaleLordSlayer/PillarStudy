@@ -2,7 +2,7 @@
    Certified deterministic canonical node-link visual QA viewer.
    Mobile-friendly with full touch, pinch-to-zoom, and responsive layout. */
 (() => {
-  const EXPAND_CAP = 30;
+  const EXPAND_CAP = 150;
   const WARN_NODES = 140;
   const REFUSE_NODES = 240;
 
@@ -304,21 +304,68 @@
     }
   }
 
+  function getIncidentEdges(nodeId) {
+    const out = [];
+    state.edges.forEach((e) => {
+      if (e.source === nodeId || e.target === nodeId) {
+        out.push(e);
+      }
+    });
+    return out;
+  }
+
+  function getAdjacentNodeId(edge, nodeId) {
+    if (edge.source === nodeId) return edge.target;
+    if (edge.target === nodeId) return edge.source;
+    return null;
+  }
+
+  function formatRelativeRole(edge, inspectedNodeId) {
+    if (edge.ui_label) return edge.ui_label;
+    const relType = edge.relationship_type || "";
+    const isSource = edge.source === inspectedNodeId;
+
+    switch (relType) {
+      case "PARENT_OF":
+        return isSource ? "child" : "parent";
+      case "CHILD_OF":
+        return isSource ? "parent" : "child";
+      case "SIBLING_OF":
+        return "sibling";
+      case "SPOUSE_OF":
+        return "spouse";
+      case "COUSIN_OF":
+        return "cousin";
+      case "KILLED":
+        return isSource ? "victim" : "killed by";
+      case "PERSON_PARTICIPATED_IN_EVENT":
+        return isSource ? "participated in" : "participant";
+      case "GROUP_PARTICIPATED_IN_EVENT":
+        return isSource ? "participated in" : "participating group";
+      case "EVENT_OCCURRED_AT_PLACE":
+        return isSource ? "occurred at" : "event location";
+      case "MEMBER_OF_GROUP":
+        return isSource ? "member of" : "member";
+      case "AFFILIATED_WITH":
+        return "affiliated with";
+      default:
+        return formatEdgeLabel(relType);
+    }
+  }
+
   function neighborsOf(id) {
     const out = [];
     const seen = new Set();
-    state.edges.forEach((e) => {
-      if (e.source === id || e.target === id) {
-        const otherId = e.source === id ? e.target : e.source;
-        if (!seen.has(otherId) && state.nodes.has(otherId)) {
-          const otherNode = state.nodes.get(otherId);
-          if (nodePassesFilter(otherNode)) {
-            seen.add(otherId);
-            out.push({ node: otherNode, edge: e });
-          }
-        }
+    const incident = getIncidentEdges(id);
+    for (const e of incident) {
+      const otherId = getAdjacentNodeId(e, id);
+      if (!otherId || seen.has(otherId) || !state.nodes.has(otherId)) continue;
+      const otherNode = state.nodes.get(otherId);
+      if (nodePassesFilter(otherNode)) {
+        seen.add(otherId);
+        out.push({ node: otherNode, edge: e });
       }
-    });
+    }
     return out;
   }
 
@@ -909,30 +956,29 @@
     const placeLocations = [];
     const peopleParticipants = [];
 
-    state.edges.forEach(e => {
-      if (e.source === id || e.target === id) {
-        const otherId = e.source === id ? e.target : e.source;
-        const otherNode = state.nodes.get(otherId);
-        if (!otherNode) return;
+    const incidentEdges = getIncidentEdges(id);
+    incidentEdges.forEach(e => {
+      const otherId = getAdjacentNodeId(e, id);
+      const otherNode = state.nodes.get(otherId);
+      if (!otherNode) return;
 
-        const roleLabel = e.ui_label || formatEdgeLabel(e.relationship_type);
+      const roleLabel = formatRelativeRole(e, id);
 
-        if (node.type === "EVENT") {
-          if (otherNode.type === "PERSON") {
-            peopleParticipants.push({ edge: e, person: otherNode, role: roleLabel });
-          } else if (otherNode.type === "PLACE") {
-            placeLocations.push({ edge: e, place: otherNode, role: roleLabel });
-          } else if (otherNode.type === "GROUP") {
-            groupRels.push({ edge: e, group: otherNode, role: roleLabel });
-          }
-        } else {
-          if (otherNode.type === "EVENT" || (e.relationship_type && e.relationship_type.includes("PARTICIPATED_IN_EVENT"))) {
-            eventParts.push({ edge: e, event: otherNode, role: roleLabel });
-          } else if (otherNode.type === "GROUP") {
-            groupRels.push({ edge: e, group: otherNode, role: roleLabel });
-          } else if (otherNode.type === "PERSON" && e.relationship_type && e.relationship_type.includes("OF")) {
-            famRels.push({ edge: e, person: otherNode, role: roleLabel });
-          }
+      if (node.type === "EVENT") {
+        if (otherNode.type === "PERSON") {
+          peopleParticipants.push({ edge: e, person: otherNode, role: roleLabel });
+        } else if (otherNode.type === "PLACE") {
+          placeLocations.push({ edge: e, place: otherNode, role: roleLabel });
+        } else if (otherNode.type === "GROUP") {
+          groupRels.push({ edge: e, group: otherNode, role: roleLabel });
+        }
+      } else {
+        if (otherNode.type === "EVENT" || (e.relationship_type && e.relationship_type.includes("PARTICIPATED_IN_EVENT"))) {
+          eventParts.push({ edge: e, event: otherNode, role: roleLabel });
+        } else if (otherNode.type === "GROUP") {
+          groupRels.push({ edge: e, group: otherNode, role: roleLabel });
+        } else if (otherNode.type === "PERSON" && e.relationship_type && (e.relationship_type.includes("OF") || e.relationship_type === "KILLED")) {
+          famRels.push({ edge: e, person: otherNode, role: roleLabel });
         }
       }
     });
