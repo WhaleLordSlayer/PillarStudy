@@ -8,7 +8,7 @@
 </head>
 <body>
   <header class="topbar">
-    <div class="brand">
+    <div class="brand" onclick="window.resetToHome()" style="cursor: pointer;" title="Return to Bible Graph Home screen">
       <div class="brand-title-wrap">
         <h1>Bible Graph QA</h1>
         <span class="pill">Read-only QA viewer</span>
@@ -26,6 +26,7 @@
       <div id="search-results" class="search-results" hidden></div>
     </div>
     <div class="toolbar">
+      <button id="btn-home" type="button" title="Return to Home welcome screen">Home 🏠</button>
       <label class="hop-label" title="Neighborhood expansion distance from center entity">Hops
         <select id="hop-depth" title="Select neighborhood hop distance">
           <option value="1" selected>1 hop</option>
@@ -89,8 +90,65 @@
   <div class="workspace">
     <main class="canvas-wrap">
       <div id="empty-state" class="empty-state">
-        <h2>Search to seed the Bible graph</h2>
-        <p>Default view is one entity plus its immediate neighborhood. Explore certified people, places, events, groups, and canonical QA canaries.</p>
+        <div class="intro-header">
+          <div class="intro-badge">BGV2-R5C CERTIFIED GRAPH</div>
+          <h2>🏛️ Bible Graph QA Explorer</h2>
+          <p>Certified canonical knowledge graph of <b>3,131 People</b>, <b>1,667 Events</b>, <b>1,001 Places</b>, <b>101 Groups</b>, and <b>8,598 Relationships</b> across the Old & New Testaments.</p>
+        </div>
+
+        <div class="intro-actions">
+          <button class="action-btn action-primary" type="button" onclick="document.getElementById('search-input').focus()">🔍 Search Entities</button>
+          <button class="action-btn action-secondary" type="button" onclick="window.openGuideModal()">📖 Editor Guide</button>
+          <button class="action-btn action-secondary" type="button" onclick="window.showCanaryModal()">🎯 QA Spot Checks</button>
+        </div>
+
+        <div class="intro-section-title">✨ Curated Thematic Journeys</div>
+        <div class="thematic-grid">
+          <div class="thematic-card" onclick="window.reseed('candb_c782837629d7000f31ac')">
+            <div class="thematic-card-header">
+              <span class="thematic-icon">👑</span>
+              <b>Jesus & The Gospels</b>
+            </div>
+            <p>64 narrative events, miracles, apostles, and family tree.</p>
+          </div>
+          <div class="thematic-card" onclick="window.reseed('candb_ce00b6b7755b1ce2efd8')">
+            <div class="thematic-card-header">
+              <span class="thematic-icon">🌊</span>
+              <b>Moses & The Exodus</b>
+            </div>
+            <p>117 exodus events, signs, law, and Tabernacle records.</p>
+          </div>
+          <div class="thematic-card" onclick="window.reseed('candb_264ecdb186e5596797b5')">
+            <div class="thematic-card-header">
+              <span class="thematic-icon">⚔️</span>
+              <b>David & The Monarchy</b>
+            </div>
+            <p>96 royal family ties, battles, and kingdom narratives.</p>
+          </div>
+          <div class="thematic-card" onclick="window.reseed('candb_611090afebb9d9c27696')">
+            <div class="thematic-card-header">
+              <span class="thematic-icon">🕊️</span>
+              <b>Paul & The Apostles</b>
+            </div>
+            <p>19 apostolic journeys, epistles, and Damascus road.</p>
+          </div>
+          <div class="thematic-card" onclick="window.reseed('candb_2673b6dee819a2125c7a')">
+            <div class="thematic-card-header">
+              <span class="thematic-icon">📜</span>
+              <b>Abraham & Patriarchs</b>
+            </div>
+            <p>48 covenant connections and ancestral genealogy.</p>
+          </div>
+          <div class="thematic-card" onclick="window.reseed('candb_d6976ad1227da79b7ee5')">
+            <div class="thematic-card-header">
+              <span class="thematic-icon">🏰</span>
+              <b>Esther & The Exile</b>
+            </div>
+            <p>13 Persian court ties, Mordecai, and Purim history.</p>
+          </div>
+        </div>
+
+        <div class="intro-section-title" style="margin-top: 14px;">🔍 Quick-Select Entities</div>
         <div id="qa-chips" class="qa-chips"></div>
       </div>
       <div id="load-error" class="load-error" hidden></div>

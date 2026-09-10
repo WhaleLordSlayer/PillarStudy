@@ -1327,15 +1327,82 @@
     renderCanaryList(el.canaryCorpusFilter.value, el.canarySourceFilter.value);
   }
 
+  window.openGuideModal = () => openGuideModal();
+  window.showCanaryModal = () => showCanaryModal();
+
+  function resetToHome() {
+    state.seed = null;
+    state.visible.clear();
+    state.expanded.clear();
+    state.pinned.clear();
+    state.hiddenRemainder.clear();
+    state.positions.clear();
+    state.selection = { kind: null, id: null };
+    if (el.nodes) el.nodes.innerHTML = "";
+    if (el.edges) el.edges.innerHTML = "";
+    if (el.empty) el.empty.hidden = false;
+    if (el.hud) el.hud.textContent = "";
+    if (el.inspector) el.inspector.classList.remove("open");
+    if (el.btnShowInspector) el.btnShowInspector.hidden = true;
+    try {
+      history.replaceState(null, "", window.location.pathname);
+    } catch(e) {}
+    showToast("Returned to Home screen.");
+  }
+  window.resetToHome = resetToHome;
+
   function renderCanaryList(corpusFilter = "ALL", sourceFilter = "ALL") {
     el.findingsList.innerHTML = "";
-    const list = (state.canaries && state.canaries.all) || [];
+    
+    // Extract all available canaries from state.canaries, metadata, and spot checks
+    const list = [];
+    const seen = new Set();
+
+    if (state.canaries) {
+      // 1. qa_examples (dict of label -> id)
+      if (state.canaries.qa_examples && typeof state.canaries.qa_examples === "object") {
+        Object.entries(state.canaries.qa_examples).forEach(([label, id]) => {
+          if (!seen.has(id)) {
+            seen.add(id);
+            list.push({ id, label });
+          }
+        });
+      }
+      // 2. spot_checks (array of {name, id, type})
+      if (Array.isArray(state.canaries.spot_checks)) {
+        state.canaries.spot_checks.forEach(sc => {
+          if (sc.id && !seen.has(sc.id)) {
+            seen.add(sc.id);
+            list.push({ id: sc.id, label: sc.name || sc.id });
+          }
+        });
+      }
+      // 3. all array if present
+      if (Array.isArray(state.canaries.all)) {
+        state.canaries.all.forEach(c => {
+          if (c.id && !seen.has(c.id)) {
+            seen.add(c.id);
+            list.push(c);
+          }
+        });
+      }
+    }
+
+    // Fallback to bundle qa_examples if canaries file had none
+    if (list.length === 0 && state.bundle && state.bundle.meta && state.bundle.meta.qa_examples) {
+      Object.entries(state.bundle.meta.qa_examples).forEach(([label, id]) => {
+        if (!seen.has(id)) {
+          seen.add(id);
+          list.push({ id, label });
+        }
+      });
+    }
 
     const filtered = list.filter(c => {
       const evNode = state.nodes.get(c.id);
       const td = (evNode && evNode.type_details) || {};
-      const cCorp = td.corpus || "NT";
-      const cSrc = td.source_kind || (c.expected_source && c.expected_source.source_kind) || "BSB";
+      const cCorp = evNode?.corpus_membership || td.corpus_membership || td.corpus || "BOTH";
+      const cSrc = evNode?.source_kind || td.source_kind || (c.expected_source && c.expected_source.source_kind) || "BSB";
 
       if (corpusFilter !== "ALL" && cCorp !== corpusFilter && cCorp !== "BOTH") return false;
       if (sourceFilter !== "ALL" && cSrc !== sourceFilter) return false;
@@ -1343,14 +1410,15 @@
     });
 
     if (!filtered.length) {
-      el.findingsList.innerHTML = '<div style="padding: 16px; color: var(--muted);">No matching canaries found.</div>';
+      el.findingsList.innerHTML = '<div style="padding: 24px; text-align: center; color: var(--muted);">No matching canaries found for selected filters.</div>';
       return;
     }
 
     filtered.forEach(c => {
       const evNode = state.nodes.get(c.id);
       const td = (evNode && evNode.type_details) || {};
-      const srcKind = td.source_kind || (c.expected_source && c.expected_source.source_kind) || "BSB";
+      const nodeType = evNode?.type || (c.id.startsWith("candbevt_") ? "EVENT" : "PERSON");
+      const srcKind = td.source_kind || (c.expected_source && c.expected_source.source_kind) || (nodeType === "EVENT" ? "BSB" : "");
       const ranges = td.scripture_ranges || c.expected_scripture_ranges || [];
 
       const card = document.createElement("div");
@@ -1358,14 +1426,14 @@
       card.innerHTML = `
         <div class="findings-modal-header" style="margin-bottom: 6px;">
           <div>
-            <span class="tag ${srcKind === 'DSSU' ? 'tag-dssu' : 'tag-bsb'}">${srcKind}</span>
-            <b style="color: #fff; margin-left: 6px;">${escapeHtml(c.label)}</b>
+            ${srcKind ? `<span class="tag ${srcKind === 'DSSU' ? 'tag-dssu' : 'tag-bsb'}">${srcKind}</span>` : ''}
+            <b style="color: #fff; margin-left: 6px;">${escapeHtml(c.label || evNode?.display_name || c.id)}</b>
           </div>
-          <span class="tag tag-event">EVENT</span>
+          <span class="tag tag-${nodeType.toLowerCase()}">${nodeType}</span>
         </div>
-        <div style="font-family: var(--mono); font-size: 10px; color: #7dd3fc; margin-bottom: 6px;">📖 ${escapeHtml(ranges.join(', '))}</div>
+        ${ranges.length > 0 ? `<div style="font-family: var(--mono); font-size: 10px; color: #7dd3fc; margin-bottom: 6px;">📖 ${escapeHtml(ranges.join(', '))}</div>` : ''}
         <div style="font-size: 11px; color: #94a3b8; margin-bottom: 8px;">Canonical ID: <code>${escapeHtml(c.id)}</code></div>
-        <button class="action" onclick="window.focusCanary('${c.id}')">Explore in Graph →</button>
+        <button class="action" onclick="window.focusCanary('${c.id}')" style="font-weight: 600;">Explore in Graph →</button>
       `;
       el.findingsList.appendChild(card);
     });
@@ -1466,9 +1534,10 @@
       applyView();
     });
     document.getElementById("btn-zoom-sel").addEventListener("click", zoomToSelection);
-    document.getElementById("btn-reset").addEventListener("click", () => {
-      if (state.seed) seedGraph(state.seed);
-    });
+    const btnHome = document.getElementById("btn-home");
+    if (btnHome) btnHome.addEventListener("click", resetToHome);
+
+    document.getElementById("btn-reset").addEventListener("click", resetToHome);
 
     // Mobile UI Toggles
     const btnToggleFilters = document.getElementById("btn-toggle-filters");
