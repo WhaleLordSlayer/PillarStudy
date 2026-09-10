@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-  <title>Bible Graph QA — Read-only internal viewer (BGV2-R5C)</title>
+  <title>Bible Graph QA — Read-only internal viewer (BGV2-R8B)</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,11 +14,11 @@
         <span class="pill">Read-only QA viewer</span>
       </div>
       <span class="pill muted" id="meta-counts">Loading graph…</span>
-      <div class="build-badge" id="build-badge" title="BGV2-R5C Build Identity">
+      <div class="build-badge" id="build-badge" title="BGV2-R8B Build Identity">
         <span class="badge-label">Packet</span>
-        <span class="badge-item" id="build-time">BGV2-R5C</span>
-        <span class="badge-item" id="build-commit">5771317</span>
-        <span class="badge-item" id="build-hash">a121800</span>
+        <span class="badge-item" id="build-time">BGV2-R8B</span>
+        <span class="badge-item" id="build-commit">90a76aa</span>
+        <span class="badge-item" id="build-hash">3c74959</span>
       </div>
     </div>
     <div class="search-wrap">
@@ -75,9 +75,9 @@
     </div>
     <div class="filter-group">
       <span class="filter-label">Edges</span>
-      <label class="chk"><input type="checkbox" data-edge-class="canonical" checked> Canonical (8,598)</label>
+      <label class="chk"><input type="checkbox" data-edge-class="canonical" checked> Canonical (11,465)</label>
       <label class="chk"><input type="checkbox" data-edge-class="family" checked> Family (6,556)</label>
-      <label class="chk"><input type="checkbox" data-edge-class="participation" checked> Participation (2,042)</label>
+      <label class="chk"><input type="checkbox" data-edge-class="participation" checked> Participation (1,505)</label>
     </div>
     <div class="filter-group">
       <span class="filter-label">Secondary Edges</span>
@@ -91,9 +91,9 @@
     <main class="canvas-wrap">
       <div id="empty-state" class="empty-state">
         <div class="intro-header">
-          <div class="intro-badge">BGV2-R5C CERTIFIED GRAPH</div>
+          <div class="intro-badge">BGV2-R8B CERTIFIED GRAPH</div>
           <h2>🏛️ Bible Graph QA Explorer</h2>
-          <p>Certified canonical knowledge graph of <b>3,131 People</b>, <b>1,667 Events</b>, <b>1,001 Places</b>, <b>101 Groups</b>, and <b>8,598 Relationships</b> across the Old & New Testaments.</p>
+          <p>Certified canonical knowledge graph of <b>3,131 People</b>, <b>1,667 Events</b>, <b>1,001 Places</b>, <b>101 Groups</b>, and <b>11,465 Relationships (1,505 Person→Event)</b> across the Old & New Testaments.</p>
         </div>
 
         <div class="intro-actions">
@@ -184,7 +184,7 @@
           <div class="legend-row"><svg width="28" height="18"><polygon points="9,2 16,6.5 16,13.5 9,18 2,13.5 2,6.5" class="lg-group"></polygon></svg> Group (101)</div>
           <div class="legend-row"><svg width="28" height="18"><polygon points="9,2 16,9 9,16 2,9" class="lg-event"></polygon></svg> Event (1,667)</div>
           <div class="legend-row"><span class="edge-swatch solid"></span> Canonical family (6,556)</div>
-          <div class="legend-row"><span class="edge-swatch participation"></span> Participation (2,042)</div>
+          <div class="legend-row"><span class="edge-swatch participation"></span> Participation (1,505)</div>
           <div class="legend-row"><span class="edge-swatch review-dashed"></span> Review Required</div>
           <p class="legend-note">Family: PARENT_OF, CHILD_OF, SIBLING_OF, SPOUSE_OF.</p>
           <p class="legend-note">Participation: Person → Event (1,353), Event → Place (642), Event → Group (47).</p>
@@ -218,7 +218,7 @@
   </div>
 
   <footer class="footer">
-    Bible Graph QA · BGV2-R5C canonical dataset · 1,667 events (460 NT, 70 DSSU, 1,597 BSB) · 3,131 people · 1,001 places · 101 groups · 8,598 relationships · Read-only viewer
+    Bible Graph QA · BGV2-R8B canonical dataset · 1,667 events (460 NT, 70 DSSU, 1,597 BSB) · 3,131 people · 1,001 places · 101 groups · 8,598 relationships · Read-only viewer
   </footer>
 
   <div id="path-modal" class="modal" hidden>

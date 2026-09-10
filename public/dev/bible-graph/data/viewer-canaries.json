@@ -1,9 +1,15 @@
 {
-  "schema_version": "bgv2-r5c-viewer-canaries-1",
+  "schema_version": "bgv2-r8b-viewer-canaries-1",
   "qa_examples": {
     "The Creation": "candbevt_f752fea2b4c0784f6249",
     "Moses at the Burning Bush": "candbevt_dc18c71e425b03f47f02",
     "The Exodus Begins": "candbevt_cf05bcbec64d9c9f9c14",
+    "Jacob Returns to Bethel": "candbevt_59e7c35e9c773e480c32",
+    "Jacob Blesses His Sons": "candbevt_3f9811099a22f97e29d8",
+    "Jacob Blesses Ephraim and Manasseh": "candbevt_7db2a5527283306567ab",
+    "Elijah Taken Up to Heaven": "candbevt_78e2f4675f34f8afb668",
+    "Water from the Rock (Exodus)": "candbevt_fb85b26a1d3cb814f3c3",
+    "Water from the Rock (Numbers)": "candbevt_8dbe0efb02fb4790f490",
     "David Slays Goliath": "candbevt_c504560da7044e18770d",
     "Saul and David": "candbevt_018ef15ba3df58419135",
     "Noah's Favor with God": "candbevt_d07696a1656533c8411e",
@@ -16,7 +22,10 @@
     "Jesus": "candb_c782837629d7000f31ac",
     "Baptism of Jesus": "candbevt_69b800a2c1be74b84d5e",
     "Sermon on the Mount": "candbevt_6a00e4d4d06eb3b7eaab",
-    "Transfiguration": "candbevt_4fa2585bf1a1affa788a",
+    "The Transfiguration": "candbevt_4fa2585bf1a1affa788a",
+    "The Arrest of Stephen": "candbevt_243f5489e1fa0b67b9dc",
+    "The Stoning of Stephen": "candbevt_35c75c2ed82080611da5",
+    "Paul's Testimony to Agrippa": "candbevt_a2e70b14f4c87a5c2ae9",
     "Crucifixion": "candbevt_25c91d7636f4a892940e",
     "Resurrection": "candbevt_e31aef530926ce9d218f",
     "Ascension": "candbevt_5be960b2467bde257b31",
@@ -31,11 +40,25 @@
     "events": 1667,
     "total_entities": 5900,
     "person_person": 6556,
-    "person_event": 1353,
-    "event_place": 642,
+    "person_event": 1505,
+    "event_place": 3357,
     "event_group": 47,
     "person_group": 0,
-    "total_relationships": 8598
+    "total_relationships": 11465
+  },
+  "watchlist_canaries": {
+    "jacob_bethel": "candbevt_59e7c35e9c773e480c32",
+    "jacob_blesses_sons": "candbevt_3f9811099a22f97e29d8",
+    "jacob_blesses_ephraim_manasseh": "candbevt_7db2a5527283306567ab",
+    "elisha_elijah_taken_up": "candbevt_78e2f4675f34f8afb668",
+    "water_from_rock_exodus": "candbevt_fb85b26a1d3cb814f3c3",
+    "water_from_rock_numbers": "candbevt_8dbe0efb02fb4790f490",
+    "transfiguration": "candbevt_4fa2585bf1a1affa788a",
+    "stephen_arrest": "candbevt_243f5489e1fa0b67b9dc",
+    "stephen_stoning": "candbevt_35c75c2ed82080611da5",
+    "paul_testimony_agrippa": "candbevt_a2e70b14f4c87a5c2ae9",
+    "galatians_faith": "candbevt_5ed38d79cd2109a1d9bd",
+    "revelation_144000": "candbevt_dbcfb42bb745a9b451f3"
   },
   "spot_checks": [
     {
@@ -71,6 +94,21 @@
     {
       "name": "Abraham",
       "id": "candb_2673b6dee819a2125c7a",
+      "type": "PERSON"
+    },
+    {
+      "name": "Israel (Jacob)",
+      "id": "candb_4e09cb005e0c521199a4",
+      "type": "PERSON"
+    },
+    {
+      "name": "Elisha",
+      "id": "candb_4b312739343ee0f913d9",
+      "type": "PERSON"
+    },
+    {
+      "name": "Elijah",
+      "id": "candb_b0a6a5756ecb79418f0a",
       "type": "PERSON"
     },
     {

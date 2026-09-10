@@ -1,8 +1,10 @@
 {
   "status": "READY_FOR_WEB_QA",
-  "milestone": "BGV2-R5C",
-  "canonical_sha": "a1218004d6a293d13658f0ef0e18f8dd9d3604c150ffae0478e36170cd59910b",
-  "source_commit": "57713173121424e75fd416b0ab6b417ae1736e06",
+  "milestone": "BGV2-R8B",
+  "canonical_sha": "f0d8991e979031cfbd4c1e940d2098f3d3ebc0d2dc479bb4dc69f8917c4dcbb8",
+  "participation_hash": "be1410549da9e0ec2563ce15a11f33ecf4afe121caca8d7ad9a1747f305a7667",
+  "source_commit": "90a76aa330c669640603d12bb7bfc23207e96824",
+  "built_at": "2026-09-10T20:49:17+00:00",
   "counts": {
     "people": 3131,
     "places": 1001,
@@ -10,11 +12,11 @@
     "events": 1667,
     "total_entities": 5900,
     "person_person": 6556,
-    "person_event": 1353,
-    "event_place": 642,
+    "person_event": 1505,
+    "event_place": 3357,
     "event_group": 47,
     "person_group": 0,
-    "total_relationships": 8598
+    "total_relationships": 11465
   },
   "events_breakdown": {
     "whole_bible": 1667,
@@ -22,5 +24,19 @@
     "non_nt": 1106,
     "dssu": 70,
     "bsb": 1597
+  },
+  "watchlist_canaries": {
+    "jacob_bethel": "candbevt_59e7c35e9c773e480c32",
+    "jacob_blesses_sons": "candbevt_3f9811099a22f97e29d8",
+    "jacob_blesses_ephraim_manasseh": "candbevt_7db2a5527283306567ab",
+    "elisha_elijah_taken_up": "candbevt_78e2f4675f34f8afb668",
+    "water_from_rock_exodus": "candbevt_fb85b26a1d3cb814f3c3",
+    "water_from_rock_numbers": "candbevt_8dbe0efb02fb4790f490",
+    "transfiguration": "candbevt_4fa2585bf1a1affa788a",
+    "stephen_arrest": "candbevt_243f5489e1fa0b67b9dc",
+    "stephen_stoning": "candbevt_35c75c2ed82080611da5",
+    "paul_testimony_agrippa": "candbevt_a2e70b14f4c87a5c2ae9",
+    "galatians_faith": "candbevt_5ed38d79cd2109a1d9bd",
+    "revelation_144000": "candbevt_dbcfb42bb745a9b451f3"
   }
 }

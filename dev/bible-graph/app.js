@@ -1,4 +1,4 @@
-/* BGV2-R5C Bible Graph Visual QA Explorer.
+/* BGV2-R8B Bible Graph Visual QA Explorer.
    Certified deterministic canonical node-link visual QA viewer.
    Mobile-friendly with full touch, pinch-to-zoom, and responsive layout. */
 (() => {
@@ -813,7 +813,7 @@
       return isPrimary || state.secondaryMode !== "hide";
     });
     const focusName = state.nodes.get(focusNodeId)?.display_name || focusNodeId;
-    el.hud.textContent = state.hudNotice || `${nCount} nodes (${hopLabel}) · ${drawnEdges.length} connections (focus: ${truncate(focusName, 20)}) · BGV2-R5C certified`;
+    el.hud.textContent = state.hudNotice || `${nCount} nodes (${hopLabel}) · ${drawnEdges.length} connections (focus: ${truncate(focusName, 20)}) · BGV2-R8B certified`;
 
     bindCanvasEvents();
     renderInspectors();
@@ -1308,7 +1308,7 @@
       </div>
       <div class="insp-section">
         <h4>Provenance Basis</h4>
-        <p>Canonical Bible Graph V2 Certified Export (BGV2-R5C).</p>
+        <p>Canonical Bible Graph V2 Certified Export (BGV2-R8B).</p>
         <p style="color: var(--muted); font-size: 11px; margin-top: 6px;">No source → no canonical relationship. Presentation-independent certified canonical graph state.</p>
       </div>
       ${td.source_kind ? `
