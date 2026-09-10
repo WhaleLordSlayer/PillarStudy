@@ -641,3 +641,215 @@ body {
     display: none;
   }
 }
+
+/* Share & Guide Buttons */
+.btn-share {
+  background: #0284c7 !important;
+  color: #ffffff !important;
+  border-color: #38bdf8 !important;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.btn-share:hover {
+  background: #0369a1 !important;
+  border-color: #7dd3fc !important;
+}
+.btn-guide {
+  background: #1e293b !important;
+  color: #f1f5f9 !important;
+  border-color: #475569 !important;
+  font-weight: 650;
+  white-space: nowrap;
+}
+.btn-guide:hover {
+  background: #334155 !important;
+  border-color: #94a3b8 !important;
+}
+
+/* Floating Toast Notification */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #0f172a;
+  color: #f8fafc;
+  border: 1px solid #38bdf8;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.7), 0 0 15px rgba(56, 189, 248, 0.25);
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.toast:not([hidden]) {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+.toast-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #0284c7;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Guide Modal Styles */
+.guide-modal-card {
+  max-width: 820px !important;
+  width: min(820px, 94vw);
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0 !important;
+  overflow: hidden;
+}
+.guide-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: #0b1220;
+  border-bottom: 1px solid var(--line);
+}
+.guide-modal-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.guide-modal-title h2 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #f8fafc;
+}
+.guide-modal-body {
+  padding: 20px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.guide-section h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #38bdf8;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.guide-section p {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #cbd5e1;
+  margin-bottom: 10px;
+}
+.guide-tips {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 10px;
+  margin-top: 6px;
+}
+.tip-item {
+  background: #0b1220;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #94a3b8;
+}
+.tip-item b {
+  color: #e2e8f0;
+}
+kbd {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: #38bdf8;
+}
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+.guide-card {
+  background: #0b1220;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.guide-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.guide-card-header h4 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+.guide-card p {
+  font-size: 12px;
+  color: #94a3b8;
+  line-height: 1.45;
+  margin: 0;
+}
+.guide-list {
+  padding-left: 20px;
+  font-size: 12px;
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+.badge-sample {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 2px 6px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  color: #94a3b8;
+}
+
+/* Inspector inline share button */
+.btn-share-inline {
+  background: #0b1220 !important;
+  color: #7dd3fc !important;
+  border: 1px solid #1e4970 !important;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  justify-content: center;
+  margin-top: 8px;
+}
+.btn-share-inline:hover {
+  background: #16324a !important;
+  border-color: #38bdf8 !important;
+}

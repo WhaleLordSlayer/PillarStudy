@@ -26,19 +26,21 @@
       <div id="search-results" class="search-results" hidden></div>
     </div>
     <div class="toolbar">
-      <label class="hop-label">Hops
-        <select id="hop-depth">
+      <label class="hop-label" title="Neighborhood expansion distance from center entity">Hops
+        <select id="hop-depth" title="Select neighborhood hop distance">
           <option value="1" selected>1 hop</option>
           <option value="2">2 hops</option>
           <option value="3">3 hops</option>
         </select>
       </label>
-      <button id="btn-fit" type="button" title="Fit to Screen">Fit</button>
-      <button id="btn-recenter" type="button" title="Recenter">Recenter</button>
-      <button id="btn-path" type="button">Path</button>
-      <button id="btn-findings" type="button" class="btn-findings-alert">Canaries 🔍</button>
-      <button id="btn-toggle-filters" class="btn-filters-toggle" type="button">Filters ⚙️</button>
-      <button id="btn-reset" type="button">Reset</button>
+      <button id="btn-fit" type="button" title="Fit entire visible graph to screen (Zoom to fit)">Fit</button>
+      <button id="btn-recenter" type="button" title="Recenter canvas on current seed entity">Recenter</button>
+      <button id="btn-path" type="button" title="Find shortest relationship path between two biblical entities">Path</button>
+      <button id="btn-findings" type="button" class="btn-findings-alert" title="Browse certified QA Canaries & Spot Checks">Canaries 🔍</button>
+      <button id="btn-toggle-filters" class="btn-filters-toggle" type="button" title="Filter graph entities and relationships">Filters ⚙️</button>
+      <button id="btn-share" class="btn-share" type="button" title="Copy shareable link to current graph view">Share 🔗</button>
+      <button id="btn-guide" class="btn-guide" type="button" title="Editor Guide: learn what everything in the graph does">Guide 📖</button>
+      <button id="btn-reset" type="button" title="Reset all filters and view">Reset</button>
     </div>
   </header>
 
@@ -198,6 +200,146 @@
         </label>
       </div>
       <div id="findings-list-container" class="findings-list-container"></div>
+    </div>
+  </div>
+
+    <!-- Floating Toast Notification -->
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden>
+    <span class="toast-icon">✓</span>
+    <span id="toast-message" class="toast-message">Link copied to clipboard!</span>
+  </div>
+
+  <!-- Editor Guide Modal -->
+  <div id="guide-modal" class="modal" hidden>
+    <div class="modal-card guide-modal-card">
+      <div class="guide-modal-header">
+        <div class="guide-modal-title">
+          <h2>📖 Bible Graph QA — Editor Guide</h2>
+          <span class="pill">Read-only Reference</span>
+        </div>
+        <button id="guide-close-btn" class="btn-icon" type="button" aria-label="Close Guide">✕</button>
+      </div>
+
+      <div class="guide-modal-body">
+        <!-- Quick Start -->
+        <div class="guide-section">
+          <h3>⚡ Quick Start for Editors</h3>
+          <p>This internal QA viewer allows editors to explore, verify, and deep-link canonical relationships across the Bible. All graph data is read-only and reflects certified BGV2 checkpoints.</p>
+          <div class="guide-tips">
+            <div class="tip-item"><b>Search / Seed:</b> Press <kbd>/</kbd> or click search to seed any Person, Place, Group, or Event.</div>
+            <div class="tip-item"><b>Share:</b> Click <b>Share 🔗</b> to copy a direct link to the exact centered entity and hop depth.</div>
+            <div class="tip-item"><b>Inspect:</b> Click/tap any node or relationship line to view scripture citations, evidence, and participants.</div>
+            <div class="tip-item"><b>Navigate:</b> Scroll/pinch to zoom, drag canvas to pan, or drag any node to reposition it freely.</div>
+          </div>
+        </div>
+
+        <!-- Node Shapes & Types -->
+        <div class="guide-section">
+          <h3>🔷 Node Shapes & Entity Types</h3>
+          <div class="guide-grid">
+            <div class="guide-card">
+              <div class="guide-card-header">
+                <svg width="24" height="24"><circle cx="12" cy="12" r="9" fill="#0284c7" stroke="#38bdf8" stroke-width="2"></circle></svg>
+                <h4>Person (3,131)</h4>
+              </div>
+              <p>Individual biblical persons with genealogical kinship (parents, children, spouses, siblings) and historical event participation.</p>
+            </div>
+            <div class="guide-card">
+              <div class="guide-card-header">
+                <svg width="24" height="24"><polygon points="12,2 22,12 12,22 2,12" fill="#d97706" stroke="#fbbf24" stroke-width="2"></polygon></svg>
+                <h4>Event (1,667)</h4>
+              </div>
+              <p>Chronological biblical narrative episodes from BSB (1,597) and DSSU (70) sources, mapped with scripture ranges and participant links.</p>
+            </div>
+            <div class="guide-card">
+              <div class="guide-card-header">
+                <svg width="24" height="24"><rect x="3" y="4" width="18" height="16" rx="4" fill="#059669" stroke="#4ade80" stroke-width="2"></rect></svg>
+                <h4>Place (1,001)</h4>
+              </div>
+              <p>Geographic locations, cities, mountains, rivers, and regions where biblical events occurred.</p>
+            </div>
+            <div class="guide-card">
+              <div class="guide-card-header">
+                <svg width="24" height="24"><polygon points="12,2 21,7.5 21,16.5 12,22 3,16.5 3,7.5" fill="#7e22ce" stroke="#c084fc" stroke-width="2"></polygon></svg>
+                <h4>Group (101)</h4>
+              </div>
+              <p>Biblical tribes, factions, nationalities, and institutions (e.g., Israelites, Philistines, Pharisees, Disciples).</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Relationship Lines & Edge Arrows -->
+        <div class="guide-section">
+          <h3>🔗 Relationship Lines & Edge Arrows</h3>
+          <div class="guide-grid">
+            <div class="guide-card">
+              <div class="guide-card-header">
+                <span class="edge-swatch solid"></span>
+                <h4>Canonical Kinship</h4>
+              </div>
+              <p><b>Green solid line:</b> Direct family connections (<code>PARENT_OF</code>, <code>CHILD_OF</code>, <code>SIBLING_OF</code>, <code>SPOUSE_OF</code>). Arrow indicates canonical relationship direction.</p>
+            </div>
+            <div class="guide-card">
+              <div class="guide-card-header">
+                <span class="edge-swatch participation"></span>
+                <h4>Event Participation</h4>
+              </div>
+              <p><b>Blue solid line:</b> Connects individuals to historical events (<code>Person → Event</code>), events to places (<code>Event → Place</code>), or events to groups.</p>
+            </div>
+            <div class="guide-card">
+              <div class="guide-card-header">
+                <span class="edge-swatch review-dashed"></span>
+                <h4>Review Required</h4>
+              </div>
+              <p><b>Amber dashed line:</b> Flagged provisional canonical relationship awaiting editorial verification.</p>
+            </div>
+            <div class="guide-card">
+              <div class="guide-card-header">
+                <span class="badge-sample">Dim / Hide / Show</span>
+                <h4>Secondary Edges</h4>
+              </div>
+              <p>Controls visibility of inter-neighbor connections not directly incident to the focus node.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hop Distance & Adjacency -->
+        <div class="guide-section">
+          <h3>🎯 Hop Distance & Graph Adjacency</h3>
+          <p><b>Hop traversal represents undirected graph distance:</b></p>
+          <ul class="guide-list">
+            <li><b>1 Hop (Default):</b> Shows the center entity and all directly incident neighbors (kinship family, participated events, places).</li>
+            <li><b>2 Hops:</b> Expands to the neighbors of your neighbors (e.g. grandchildren, event co-participants, adjacent locations).</li>
+            <li><b>3 Hops:</b> Broad contextual graph expansion across biblical narrative clusters.</li>
+          </ul>
+        </div>
+
+        <!-- Filters & QA Benchmarks -->
+        <div class="guide-section">
+          <h3>⚙️ Filters & QA Canaries</h3>
+          <div class="guide-grid">
+            <div class="guide-card">
+              <h4>Corpus Scopes</h4>
+              <p><b>OT:</b> Old Testament only &nbsp;|&nbsp; <b>NT:</b> New Testament only &nbsp;|&nbsp; <b>BOTH:</b> Cross-testament figures (e.g. Abraham, Moses, Elijah, Jesus).</p>
+            </div>
+            <div class="guide-card">
+              <h4>Event Sources</h4>
+              <p><b>BSB:</b> Berean Standard Bible narrative sections (1,597) &nbsp;|&nbsp; <b>DSSU:</b> Discovery Scripture Stories Units (70).</p>
+            </div>
+            <div class="guide-card">
+              <h4>Path Finder</h4>
+              <p>Finds the shortest canonical connection between any two biblical figures, places, or events.</p>
+            </div>
+            <div class="guide-card">
+              <h4>QA Canaries 🔍</h4>
+              <p>Curated benchmark entities and pivotal biblical events used for visual QA validation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-actions" style="padding: 12px 20px; background: #0b1220; border-top: 1px solid var(--line);">
+        <button id="guide-close-btn-bottom" class="action" type="button">Close Guide</button>
+      </div>
     </div>
   </div>
 

@@ -189,6 +189,13 @@
     findingsList: document.getElementById("findings-list-container"),
     canaryCorpusFilter: document.getElementById("canary-corpus-filter"),
     canarySourceFilter: document.getElementById("canary-source-filter"),
+    btnShare: document.getElementById("btn-share"),
+    btnGuide: document.getElementById("btn-guide"),
+    guideModal: document.getElementById("guide-modal"),
+    guideCloseBtn: document.getElementById("guide-close-btn"),
+    guideCloseBtnBottom: document.getElementById("guide-close-btn-bottom"),
+    toast: document.getElementById("toast"),
+    toastMessage: document.getElementById("toast-message"),
   };
 
   function escapeHtml(value) {
@@ -293,14 +300,113 @@
     });
   }
 
+  let toastTimer = null;
+  function showToast(msg, duration = 3200) {
+    if (!el.toast) return;
+    if (el.toastMessage) el.toastMessage.textContent = msg;
+    el.toast.hidden = false;
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      if (el.toast) el.toast.hidden = true;
+    }, duration);
+  }
+
+  function copyShareLink(targetId) {
+    const entityId = targetId || state.selection.id || state.seed || (state.nodes.has("candb_c782837629d7000f31ac") ? "candb_c782837629d7000f31ac" : null);
+    if (!entityId) {
+      showToast("Please select or search an entity to share.");
+      return;
+    }
+
+    const node = state.nodes.get(entityId);
+    const label = node?.display_name || entityId;
+
+    const url = new URL(window.location.href);
+    url.searchParams.set("node", entityId);
+    url.searchParams.set("hop", state.hop || 1);
+    url.searchParams.delete("canary");
+    url.searchParams.delete("guide");
+
+    const fullUrl = url.toString();
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(fullUrl).then(() => {
+        showToast(`✓ Copied link for ${label} (${state.hop} hop${state.hop > 1 ? 's' : ''}) to clipboard!`);
+      }).catch(() => {
+        fallbackCopy(fullUrl, label);
+      });
+    } else {
+      fallbackCopy(fullUrl, label);
+    }
+  }
+
+  function fallbackCopy(text, label) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    try {
+      document.execCommand("copy");
+      showToast(`✓ Copied link for ${label} (${state.hop} hop${state.hop > 1 ? 's' : ''}) to clipboard!`);
+    } catch (e) {
+      showToast(`Link: ${text}`, 6000);
+    }
+    document.body.removeChild(ta);
+  }
+
+  window.shareEntity = (id) => {
+    copyShareLink(id);
+  };
+
+  function openGuideModal() {
+    if (el.pathModal) el.pathModal.hidden = true;
+    if (el.findingsModal) el.findingsModal.hidden = true;
+    if (el.guideModal) el.guideModal.hidden = false;
+  }
+
+  function closeGuideModal() {
+    if (el.guideModal) el.guideModal.hidden = true;
+  }
+
+  function updateUrlParams() {
+    if (!state.seed) return;
+    try {
+      const url = new URL(window.location.href);
+      url.searchParams.set("node", state.seed);
+      url.searchParams.set("hop", state.hop || 1);
+      window.history.replaceState(null, "", url.toString());
+    } catch (e) {}
+  }
   function checkUrlParams() {
     const params = new URLSearchParams(window.location.search);
     const nodeParam = params.get("node");
+    const hopParam = params.get("hop");
     const canaryParam = params.get("canary");
-    if (canaryParam) {
+    const guideParam = params.get("guide");
+
+    if (hopParam) {
+      const h = parseInt(hopParam, 10);
+      if (h >= 1 && h <= 3) {
+        state.hop = h;
+        const hopEl = document.getElementById("hop-depth");
+        if (hopEl) hopEl.value = String(h);
+      }
+    }
+
+    if (guideParam) {
+      openGuideModal();
+    } else if (canaryParam) {
       showCanaryModal();
     } else if (nodeParam && state.nodes.has(nodeParam)) {
       seedGraph(nodeParam);
+    } else if (nodeParam) {
+      const hit = state.search.find(s => s.id === nodeParam || s.display_name.toLowerCase() === nodeParam.toLowerCase());
+      if (hit && state.nodes.has(hit.id)) {
+        seedGraph(hit.id);
+      }
     }
   }
 
@@ -407,6 +513,7 @@
     expandNode(nodeId, state.hop);
 
     state.selection = { kind: "node", id: nodeId };
+    updateUrlParams();
     layoutAll(true);
     render();
     fitGraph();
@@ -1142,8 +1249,9 @@
 
       ${eventSectionHtml}
 
-      <div class="insp-section">
+      <div class="insp-section" style="display: flex; gap: 8px; flex-direction: column;">
         <button class="action" onclick="window.reseed('${node.id}')" style="width: 100%; padding: 10px; font-weight: 600;">Seed graph from this entity</button>
+        <button class="btn-share-inline" onclick="window.shareEntity('${node.id}')" title="Copy shareable link for this entity">Share direct link 🔗</button>
       </div>
     `;
 
@@ -1323,10 +1431,21 @@
         e.preventDefault();
         el.search.focus();
       }
+      if (e.key === "Escape") {
+        if (el.guideModal) el.guideModal.hidden = true;
+        if (el.pathModal) el.pathModal.hidden = true;
+        if (el.findingsModal) el.findingsModal.hidden = true;
+        if (el.results) el.results.hidden = true;
+      }
+      if (e.key === "?" && document.activeElement !== el.search && !["input", "textarea", "select"].includes(document.activeElement?.tagName?.toLowerCase())) {
+        e.preventDefault();
+        openGuideModal();
+      }
     });
 
     document.getElementById("hop-depth").addEventListener("change", (e) => {
       state.hop = parseInt(e.target.value, 10);
+      updateUrlParams();
       if (state.seed) {
         state.visible = new Set([state.seed]);
         expandNode(state.seed, state.hop);
@@ -1400,6 +1519,11 @@
         render();
       });
     });
+
+    if (el.btnShare) el.btnShare.addEventListener("click", () => copyShareLink());
+    if (el.btnGuide) el.btnGuide.addEventListener("click", openGuideModal);
+    if (el.guideCloseBtn) el.guideCloseBtn.addEventListener("click", closeGuideModal);
+    if (el.guideCloseBtnBottom) el.guideCloseBtnBottom.addEventListener("click", closeGuideModal);
 
     document.getElementById("btn-findings").addEventListener("click", showCanaryModal);
     document.getElementById("findings-close-btn").addEventListener("click", () => {
