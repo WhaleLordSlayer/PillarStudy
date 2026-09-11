@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-  <title>Bible Graph QA — Read-only internal viewer (BGV2-R8B)</title>
+  <title>Bible Graph QA — Read-only internal viewer (PGP-005)</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,11 +14,11 @@
         <span class="pill">Read-only QA viewer</span>
       </div>
       <span class="pill muted" id="meta-counts">Loading graph…</span>
-      <div class="build-badge" id="build-badge" title="BGV2-R8B Build Identity">
+      <div class="build-badge" id="build-badge" title="PGP-005 Build Identity">
         <span class="badge-label">Packet</span>
-        <span class="badge-item" id="build-time">BGV2-R8B</span>
-        <span class="badge-item" id="build-commit">90a76aa</span>
-        <span class="badge-item" id="build-hash">3c74959</span>
+        <span class="badge-item" id="build-time">PGP-005</span>
+        <span class="badge-item" id="build-commit">137fdc2</span>
+        <span class="badge-item" id="build-hash">e71e51e</span>
       </div>
     </div>
     <div class="search-wrap">
@@ -52,21 +52,29 @@
     </div>
     <div class="filter-group">
       <span class="filter-label">Nodes</span>
-      <label class="chk"><input type="checkbox" data-node-type="PERSON" checked> People (3,131)</label>
-      <label class="chk"><input type="checkbox" data-node-type="PLACE" checked> Places (1,001)</label>
-      <label class="chk"><input type="checkbox" data-node-type="GROUP" checked> Groups (101)</label>
-      <label class="chk"><input type="checkbox" data-node-type="EVENT" checked> Events (1,667)</label>
+      <label class="chk"><input type="checkbox" data-node-type="PERSON" checked> People (3,132)</label>
+      <label class="chk"><input type="checkbox" data-node-type="PLACE" checked> Places (1,014)</label>
+      <label class="chk"><input type="checkbox" data-node-type="GROUP" checked> Groups (111)</label>
+      <label class="chk"><input type="checkbox" data-node-type="EVENT" checked> Events (1,749)</label>
     </div>
     <div class="filter-group">
       <span class="filter-label">Corpus Scope</span>
       <label class="chk"><input type="checkbox" data-corpus-filter="OT" checked> Old Testament</label>
       <label class="chk"><input type="checkbox" data-corpus-filter="NT" checked> New Testament</label>
       <label class="chk"><input type="checkbox" data-corpus-filter="BOTH" checked> Cross-Testament</label>
+      <label class="chk"><input type="checkbox" data-corpus-filter="PGP" checked> Pearl of Great Price (82)</label>
+    </div>
+    <div class="filter-group" id="filter-group-pgp-works">
+      <span class="filter-label">PGP Works</span>
+      <label class="chk"><input type="checkbox" data-pgp-filter="moses" checked> Moses (58)</label>
+      <label class="chk"><input type="checkbox" data-pgp-filter="abraham" checked> Abraham (14)</label>
+      <label class="chk"><input type="checkbox" data-pgp-filter="js-matthew" checked> JS—Matthew (10)</label>
     </div>
     <div class="filter-group">
       <span class="filter-label">Event Source</span>
       <label class="chk"><input type="checkbox" data-source-filter="BSB" checked> BSB (1,597)</label>
       <label class="chk"><input type="checkbox" data-source-filter="DSSU" checked> DSSU (70)</label>
+      <label class="chk"><input type="checkbox" data-source-filter="lds_scriptures" checked> LDS (82)</label>
     </div>
     <div class="filter-group">
       <span class="filter-label">Status</span>
@@ -75,9 +83,9 @@
     </div>
     <div class="filter-group">
       <span class="filter-label">Edges</span>
-      <label class="chk"><input type="checkbox" data-edge-class="canonical" checked> Canonical (11,465)</label>
-      <label class="chk"><input type="checkbox" data-edge-class="family" checked> Family (6,556)</label>
-      <label class="chk"><input type="checkbox" data-edge-class="participation" checked> Participation (1,505)</label>
+      <label class="chk"><input type="checkbox" data-edge-class="canonical" checked> Canonical (11,613)</label>
+      <label class="chk"><input type="checkbox" data-edge-class="family" checked> Family (6,562)</label>
+      <label class="chk"><input type="checkbox" data-edge-class="participation" checked> Participation (1,561)</label>
     </div>
     <div class="filter-group">
       <span class="filter-label">Secondary Edges</span>
@@ -91,15 +99,22 @@
     <main class="canvas-wrap">
       <div id="empty-state" class="empty-state">
         <div class="intro-header">
-          <div class="intro-badge">BGV2-R8B CERTIFIED GRAPH</div>
-          <h2>🏛️ Bible Graph QA Explorer</h2>
-          <p>Certified canonical knowledge graph of <b>3,131 People</b>, <b>1,667 Events</b>, <b>1,001 Places</b>, <b>101 Groups</b>, and <b>11,465 Relationships (1,505 Person→Event)</b> across the Old & New Testaments.</p>
+          <div class="intro-badge">PGP-005 CERTIFIED UNIFIED GRAPH</div>
+          <h2>🏛️ Bible &amp; Pearl of Great Price QA Explorer</h2>
+          <p>Certified canonical knowledge graph of <b>3,132 People</b>, <b>1,749 Events</b> (1,667 Bible, 82 Pearl of Great Price), <b>1,014 Places</b>, <b>111 Groups</b>, and <b>11,613 Relationships</b> across the Old Testament, New Testament, and Pearl of Great Price.</p>
         </div>
 
         <div class="intro-actions">
           <button class="action-btn action-primary" type="button" onclick="document.getElementById('search-input').focus()">🔍 Search Entities</button>
           <button class="action-btn action-secondary" type="button" onclick="window.openGuideModal()">📖 Editor Guide</button>
           <button class="action-btn action-secondary" type="button" onclick="window.showCanaryModal()">🎯 QA Spot Checks</button>
+          <div class="thematic-card" onclick="window.reseed('pgpevt_0a44dfe5395f6bd78d4c')">
+            <div class="thematic-card-header">
+              <span class="thematic-icon">✨</span>
+              <b>Pearl of Great Price</b>
+            </div>
+            <p>82 restoration scripture events across Moses, Abraham, and JS—Matthew.</p>
+          </div>
         </div>
 
         <div class="intro-section-title">✨ Curated Thematic Journeys</div>
@@ -146,6 +161,13 @@
             </div>
             <p>13 Persian court ties, Mordecai, and Purim history.</p>
           </div>
+          <div class="thematic-card" onclick="window.reseed('pgpevt_0a44dfe5395f6bd78d4c')">
+            <div class="thematic-card-header">
+              <span class="thematic-icon">✨</span>
+              <b>Pearl of Great Price</b>
+            </div>
+            <p>82 restoration scripture events across Moses, Abraham, and JS—Matthew.</p>
+          </div>
         </div>
 
         <div class="intro-section-title" style="margin-top: 14px;">🔍 Quick-Select Entities</div>
@@ -179,12 +201,12 @@
           <button id="btn-toggle-legend" class="btn-icon" type="button" aria-label="Toggle Legend">✕</button>
         </div>
         <div id="legend-body">
-          <div class="legend-row"><svg width="28" height="18"><circle cx="9" cy="9" r="7" class="lg-person"></circle></svg> Person (3,131)</div>
-          <div class="legend-row"><svg width="28" height="18"><rect x="2" y="3" width="14" height="12" rx="3" class="lg-place"></rect></svg> Place (1,001)</div>
-          <div class="legend-row"><svg width="28" height="18"><polygon points="9,2 16,6.5 16,13.5 9,18 2,13.5 2,6.5" class="lg-group"></polygon></svg> Group (101)</div>
-          <div class="legend-row"><svg width="28" height="18"><polygon points="9,2 16,9 9,16 2,9" class="lg-event"></polygon></svg> Event (1,667)</div>
-          <div class="legend-row"><span class="edge-swatch solid"></span> Canonical family (6,556)</div>
-          <div class="legend-row"><span class="edge-swatch participation"></span> Participation (1,505)</div>
+          <div class="legend-row"><svg width="28" height="18"><circle cx="9" cy="9" r="7" class="lg-person"></circle></svg> Person (3,132)</div>
+          <div class="legend-row"><svg width="28" height="18"><rect x="2" y="3" width="14" height="12" rx="3" class="lg-place"></rect></svg> Place (1,014)</div>
+          <div class="legend-row"><svg width="28" height="18"><polygon points="9,2 16,6.5 16,13.5 9,18 2,13.5 2,6.5" class="lg-group"></polygon></svg> Group (111)</div>
+          <div class="legend-row"><svg width="28" height="18"><polygon points="9,2 16,9 9,16 2,9" class="lg-event"></polygon></svg> Event (1,749)</div>
+          <div class="legend-row"><span class="edge-swatch solid"></span> Canonical family (6,562)</div>
+          <div class="legend-row"><span class="edge-swatch participation"></span> Participation (1,561)</div>
           <div class="legend-row"><span class="edge-swatch review-dashed"></span> Review Required</div>
           <p class="legend-note">Family: PARENT_OF, CHILD_OF, SIBLING_OF, SPOUSE_OF.</p>
           <p class="legend-note">Participation: Person → Event (1,353), Event → Place (642), Event → Group (47).</p>
@@ -218,7 +240,7 @@
   </div>
 
   <footer class="footer">
-    Bible Graph QA · BGV2-R8B canonical dataset · 1,667 events (460 NT, 70 DSSU, 1,597 BSB) · 3,131 people · 1,001 places · 101 groups · 8,598 relationships · Read-only viewer
+    Bible Graph QA · PGP-005 canonical dataset · 1,667 events (460 NT, 70 DSSU, 1,597 BSB) · 3,131 people · 1,001 places · 101 groups · 8,598 relationships · Read-only viewer
   </footer>
 
   <div id="path-modal" class="modal" hidden>
@@ -298,28 +320,28 @@
             <div class="guide-card">
               <div class="guide-card-header">
                 <svg width="24" height="24"><circle cx="12" cy="12" r="9" fill="#0284c7" stroke="#38bdf8" stroke-width="2"></circle></svg>
-                <h4>Person (3,131)</h4>
+                <h4>Person (3,132)</h4>
               </div>
               <p>Individual biblical persons with genealogical kinship (parents, children, spouses, siblings) and historical event participation.</p>
             </div>
             <div class="guide-card">
               <div class="guide-card-header">
                 <svg width="24" height="24"><polygon points="12,2 22,12 12,22 2,12" fill="#d97706" stroke="#fbbf24" stroke-width="2"></polygon></svg>
-                <h4>Event (1,667)</h4>
+                <h4>Event (1,749)</h4>
               </div>
-              <p>Chronological biblical narrative episodes from BSB (1,597) and DSSU (70) sources, mapped with scripture ranges and participant links.</p>
+              <p>Chronological biblical narrative episodes from BSB (1,597), DSSU (70), and Pearl of Great Price (82) sources, mapped with scripture ranges and participant links.</p>
             </div>
             <div class="guide-card">
               <div class="guide-card-header">
                 <svg width="24" height="24"><rect x="3" y="4" width="18" height="16" rx="4" fill="#059669" stroke="#4ade80" stroke-width="2"></rect></svg>
-                <h4>Place (1,001)</h4>
+                <h4>Place (1,014)</h4>
               </div>
               <p>Geographic locations, cities, mountains, rivers, and regions where biblical events occurred.</p>
             </div>
             <div class="guide-card">
               <div class="guide-card-header">
                 <svg width="24" height="24"><polygon points="12,2 21,7.5 21,16.5 12,22 3,16.5 3,7.5" fill="#7e22ce" stroke="#c084fc" stroke-width="2"></polygon></svg>
-                <h4>Group (101)</h4>
+                <h4>Group (111)</h4>
               </div>
               <p>Biblical tribes, factions, nationalities, and institutions (e.g., Israelites, Philistines, Pharisees, Disciples).</p>
             </div>

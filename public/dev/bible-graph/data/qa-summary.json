@@ -1,42 +1,25 @@
 {
-  "status": "READY_FOR_WEB_QA",
-  "milestone": "BGV2-R8B",
-  "canonical_sha": "f0d8991e979031cfbd4c1e940d2098f3d3ebc0d2dc479bb4dc69f8917c4dcbb8",
-  "participation_hash": "be1410549da9e0ec2563ce15a11f33ecf4afe121caca8d7ad9a1747f305a7667",
-  "source_commit": "90a76aa330c669640603d12bb7bfc23207e96824",
-  "built_at": "2026-09-10T20:49:17+00:00",
-  "counts": {
-    "people": 3131,
-    "places": 1001,
-    "groups": 101,
-    "events": 1667,
-    "total_entities": 5900,
-    "person_person": 6556,
-    "person_event": 1505,
-    "event_place": 3357,
-    "event_group": 47,
-    "person_group": 0,
-    "total_relationships": 11465
+  "canonical": {
+    "events": 1749,
+    "groups": 111,
+    "people": 3132,
+    "pgp_events": 82,
+    "places": 1014
   },
-  "events_breakdown": {
-    "whole_bible": 1667,
-    "nt": 561,
-    "non_nt": 1106,
-    "dssu": 70,
-    "bsb": 1597
+  "hashes": {
+    "canonical_export_sha256": "e71e51effb21c37407ac69cbb57cc5fe7082b449b83b6570ef25e2c08a1d615a",
+    "event": "66cf91a62f986784db5aa3d07a79b43e869720259db9f5061bdd370e13f337fb",
+    "participation": "31fe632b775815f72fcd1a67d4ba1ef1c907e0d0e99b72e284fcf2025b3c07b6",
+    "viewer_bundle_sha256": "c5716992fed50c7e453b8cff7f81638371ba66e025ffca617d658915bf978cb9"
   },
-  "watchlist_canaries": {
-    "jacob_bethel": "candbevt_59e7c35e9c773e480c32",
-    "jacob_blesses_sons": "candbevt_3f9811099a22f97e29d8",
-    "jacob_blesses_ephraim_manasseh": "candbevt_7db2a5527283306567ab",
-    "elisha_elijah_taken_up": "candbevt_78e2f4675f34f8afb668",
-    "water_from_rock_exodus": "candbevt_fb85b26a1d3cb814f3c3",
-    "water_from_rock_numbers": "candbevt_8dbe0efb02fb4790f490",
-    "transfiguration": "candbevt_4fa2585bf1a1affa788a",
-    "stephen_arrest": "candbevt_243f5489e1fa0b67b9dc",
-    "stephen_stoning": "candbevt_35c75c2ed82080611da5",
-    "paul_testimony_agrippa": "candbevt_a2e70b14f4c87a5c2ae9",
-    "galatians_faith": "candbevt_5ed38d79cd2109a1d9bd",
-    "revelation_144000": "candbevt_dbcfb42bb745a9b451f3"
-  }
+  "participation": {
+    "event_group_count": 64,
+    "event_place_count": 3426,
+    "person_event_count": 1561,
+    "person_group_count": 0,
+    "person_person_count": 6562
+  },
+  "pgp003c_adoption": true,
+  "source_commit": "39ae575d7091af2cc6034566d5059e366d327bfb",
+  "status": "PGP003C_PROPOSED_ADOPTION"
 }

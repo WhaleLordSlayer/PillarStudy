@@ -984,3 +984,12 @@ kbd {
   line-height: 1.4;
   margin: 0;
 }
+
+
+/* PGP specific badges and styling */
+.tag-pgp { background: #312e81; color: #a5b4fc; border: 1px solid #4f46e5; }
+.tag-moses { background: #1e1b4b; color: #c7d2fe; border: 1px solid #4338ca; }
+.tag-abraham { background: #312e81; color: #ddd6fe; border: 1px solid #6366f1; }
+.tag-jsm { background: #3730a3; color: #e0e7ff; border: 1px solid #4f46e5; }
+.tag-crosscanon { background: #1e1b4b; color: #a5b4fc; border: 1px dashed #818cf8; }
+.tag-lds { background: #1e1b4b; color: #c7d2fe; border: 1px solid #4338ca; }
