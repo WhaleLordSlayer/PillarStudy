@@ -960,7 +960,7 @@
   }
 
   function openMobileInspector() {
-    if (window.innerWidth <= 768 && el.inspector) {
+    if (window.innerWidth <= 900 || (window.innerWidth <= 1024 && window.innerHeight > window.innerWidth) && el.inspector) {
       el.inspector.classList.add("open");
       if (el.btnShowInspector) el.btnShowInspector.hidden = true;
     }
