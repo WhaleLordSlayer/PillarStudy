@@ -42,15 +42,16 @@ body {
 }
 
 /* =========================================================
-   TOPBAR
+   TOPBAR - ALWAYS VISIBLE WITH FLEX-SHRINK: 0
    ========================================================= */
 .topbar {
+  flex-shrink: 0 !important;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
   padding: 8px 16px;
-  background: color-mix(in srgb, var(--bg-panel) 92%, black);
+  background: color-mix(in srgb, var(--bg-panel) 94%, black);
   border-bottom: 1px solid var(--line);
   position: relative;
   z-index: 50;
@@ -339,6 +340,14 @@ body {
   justify-content: center;
   font-weight: 700;
   border-radius: 8px;
+}
+
+/* Hide controls on welcome screen */
+.canvas-wrap:has(#empty-state:not([hidden])) .zoom-controls,
+.canvas-wrap:has(#empty-state:not([hidden])) .btn-legend-toggle,
+.canvas-wrap:has(#empty-state:not([hidden])) .hud,
+.workspace:has(#empty-state:not([hidden])) .btn-inspector-toggle {
+  display: none !important;
 }
 
 /* =========================================================
@@ -812,6 +821,7 @@ kbd {
    ========================================================= */
 @media (max-width: 1024px) {
   .topbar {
+    flex-shrink: 0 !important;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -982,7 +992,7 @@ kbd {
     overflow: hidden;
   }
 
-  /* Inspector Slide-up Drawer / Bottom Sheet - max-height 52vh to keep graph visible! */
+  /* Inspector Slide-up Drawer / Bottom Sheet */
   .inspector {
     position: absolute;
     bottom: 0;
@@ -1043,34 +1053,38 @@ kbd {
    ========================================================= */
 @media (max-width: 640px) {
   .topbar {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 6px;
-    padding: 6px 10px;
-    background: #080d18;
+    flex-shrink: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 6px !important;
+    padding: 6px 10px 8px 10px !important;
+    background: #080d18 !important;
+    border-bottom: 1px solid var(--line) !important;
   }
   
   .brand {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 6px;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 6px !important;
   }
   
   .brand-title-wrap {
-    gap: 6px;
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
   }
   
   .brand h1 {
-    font-size: 14px;
-    font-weight: 700;
+    font-size: 14px !important;
+    font-weight: 700 !important;
   }
   
   .brand .pill {
-    font-size: 9.5px;
-    padding: 2px 6px;
+    font-size: 9.5px !important;
+    padding: 2px 6px !important;
   }
   
   #meta-counts {
@@ -1082,90 +1096,100 @@ kbd {
   }
   
   .search-wrap {
-    width: 100%;
-    order: 2;
+    width: 100% !important;
+    order: 2 !important;
+    display: block !important;
+    flex: 0 0 auto !important;
   }
   
   .search {
-    height: 34px;
-    font-size: 12.5px;
-    padding: 6px 10px;
+    width: 100% !important;
+    height: 34px !important;
+    font-size: 12.5px !important;
+    padding: 6px 10px !important;
+    display: block !important;
   }
   
   .toolbar {
-    width: 100%;
-    order: 3;
-    display: flex;
-    gap: 5px;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding-bottom: 2px;
+    width: 100% !important;
+    order: 3 !important;
+    display: flex !important;
+    gap: 5px !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    padding-bottom: 2px !important;
+    flex: 0 0 auto !important;
   }
-  .toolbar::-webkit-scrollbar { display: none; }
+  .toolbar::-webkit-scrollbar { display: none !important; }
   
   .toolbar button, .toolbar select {
-    min-height: 30px;
-    padding: 4px 8px;
-    font-size: 11px;
-    flex-shrink: 0;
+    min-height: 30px !important;
+    padding: 4px 8px !important;
+    font-size: 11px !important;
+    flex-shrink: 0 !important;
   }
   
   .hop-label {
-    font-size: 11px;
-    gap: 3px;
-    flex-shrink: 0;
+    font-size: 11px !important;
+    gap: 3px !important;
+    flex-shrink: 0 !important;
+    display: inline-flex !important;
   }
 
   /* Empty state / Welcome Screen on Phone */
   .empty-state {
-    top: 8px;
-    left: 8px;
-    right: 8px;
-    bottom: 8px;
-    transform: none;
-    width: auto;
-    max-height: none;
-    padding: 14px 12px;
-    border-radius: 12px;
+    position: absolute !important;
+    top: 8px !important;
+    left: 8px !important;
+    right: 8px !important;
+    bottom: 8px !important;
+    transform: none !important;
+    width: auto !important;
+    max-height: none !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 14px 12px !important;
+    border-radius: 12px !important;
+    z-index: 15 !important;
   }
-  .thematic-grid { grid-template-columns: 1fr; }
-  .intro-header h2 { font-size: 16px; }
-  .intro-header p { font-size: 11.5px; }
-  .qa-chips { max-height: 180px; gap: 6px; }
-  .qa-chip { font-size: 10.5px; padding: 5px 9px; }
+  .thematic-grid { grid-template-columns: 1fr !important; }
+  .intro-header h2 { font-size: 16px !important; }
+  .intro-header p { font-size: 11.5px !important; }
+  .qa-chips { max-height: 180px !important; gap: 6px !important; }
+  .qa-chip { font-size: 10.5px !important; padding: 5px 9px !important; }
 
   /* Guide modal on phone */
-  .guide-tips, .guide-grid { grid-template-columns: 1fr; }
+  .guide-tips, .guide-grid { grid-template-columns: 1fr !important; }
   .guide-modal-card, .findings-modal-card {
-    width: 96vw;
-    max-height: 92vh;
-    border-radius: 12px;
+    width: 96vw !important;
+    max-height: 92vh !important;
+    border-radius: 12px !important;
   }
   
-  /* Inspector on phone - keep graph canvas prominent in top half */
+  /* Inspector on phone */
   .inspector {
-    max-height: 48vh;
+    max-height: 48vh !important;
   }
   .btn-inspector-toggle {
-    bottom: 54px;
-    right: 10px;
-    padding: 6px 12px;
-    font-size: 11.5px;
+    bottom: 54px !important;
+    right: 10px !important;
+    padding: 6px 12px !important;
+    font-size: 11.5px !important;
   }
   .btn-legend-toggle {
-    bottom: 10px;
-    left: 10px;
-    padding: 6px 12px;
-    font-size: 11px;
+    bottom: 10px !important;
+    left: 10px !important;
+    padding: 6px 12px !important;
+    font-size: 11px !important;
   }
   .zoom-controls {
-    bottom: 10px;
-    right: 10px;
+    bottom: 10px !important;
+    right: 10px !important;
   }
   .zoom-controls button {
-    min-width: 32px;
-    min-height: 32px;
-    font-size: 13px;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    font-size: 13px !important;
   }
 }

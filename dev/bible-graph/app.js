@@ -961,6 +961,10 @@
 
   function updateInspectorButtonLabel() {
     if (!el.btnShowInspector) return;
+    if (!state.seed || !el.empty.hidden) {
+      el.btnShowInspector.hidden = true;
+      return;
+    }
     const isMobileOrTabletPortrait = window.innerWidth <= 900 || (window.innerWidth <= 1024 && window.innerHeight > window.innerWidth);
     if (!isMobileOrTabletPortrait) {
       el.btnShowInspector.hidden = true;
