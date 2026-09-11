@@ -959,14 +959,39 @@
     };
   }
 
+  function updateInspectorButtonLabel() {
+    if (!el.btnShowInspector) return;
+    const isMobileOrTabletPortrait = window.innerWidth <= 900 || (window.innerWidth <= 1024 && window.innerHeight > window.innerWidth);
+    if (!isMobileOrTabletPortrait) {
+      el.btnShowInspector.hidden = true;
+      return;
+    }
+    if (state.selection.kind === "node" && state.selection.id) {
+      const node = state.nodes.get(state.selection.id);
+      const name = node?.display_name || state.selection.id;
+      el.btnShowInspector.innerHTML = `📋 ${escapeHtml(truncate(name, 18))} Details`;
+      if (!el.inspector.classList.contains("open")) {
+        el.btnShowInspector.hidden = false;
+      }
+    } else if (state.selection.kind === "edge" && state.selection.id) {
+      el.btnShowInspector.innerHTML = `📋 Connection Details`;
+      if (!el.inspector.classList.contains("open")) {
+        el.btnShowInspector.hidden = false;
+      }
+    } else {
+      el.btnShowInspector.hidden = true;
+    }
+  }
+
   function openMobileInspector() {
-    if (window.innerWidth <= 900 || (window.innerWidth <= 1024 && window.innerHeight > window.innerWidth) && el.inspector) {
+    const isMobileOrTabletPortrait = window.innerWidth <= 900 || (window.innerWidth <= 1024 && window.innerHeight > window.innerWidth);
+    if (isMobileOrTabletPortrait && el.inspector) {
       el.inspector.classList.add("open");
       if (el.btnShowInspector) el.btnShowInspector.hidden = true;
     }
   }
 
-  function selectNode(id) {
+  function selectNode(id, autoOpenDrawer = false) {
     state.selection = { kind: "node", id };
     document.querySelectorAll(".inspector-tabs .tab").forEach(t => {
       t.classList.toggle("active", t.getAttribute("data-tab") === "node");
@@ -977,10 +1002,13 @@
     });
     renderInspectors();
     render();
-    openMobileInspector();
+    updateInspectorButtonLabel();
+    if (autoOpenDrawer || el.inspector.classList.contains("open")) {
+      openMobileInspector();
+    }
   }
 
-  function selectEdge(id) {
+  function selectEdge(id, autoOpenDrawer = false) {
     state.selection = { kind: "edge", id };
     document.querySelectorAll(".inspector-tabs .tab").forEach(t => {
       t.classList.toggle("active", t.getAttribute("data-tab") === "edge");
@@ -991,7 +1019,10 @@
     });
     renderInspectors();
     render();
-    openMobileInspector();
+    updateInspectorButtonLabel();
+    if (autoOpenDrawer || el.inspector.classList.contains("open")) {
+      openMobileInspector();
+    }
   }
 
   function renderInspectors() {
