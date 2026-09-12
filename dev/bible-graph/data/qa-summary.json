@@ -1,25 +1,40 @@
 {
   "canonical": {
-    "events": 1749,
+    "bible_events": 1671,
+    "events": 1753,
     "groups": 111,
     "people": 3132,
     "pgp_events": 82,
     "places": 1014
   },
+  "checkpoints": {
+    "nf003_r1_source_checkpoint_sha": "1d8bd27369606b1583c45945a1ce4d8a28276383",
+    "tested_checkpoint_sha": "343bdd4b7a41ece726822c24a6c33a331a3a0a9a"
+  },
+  "gate": "NF004_NARRATIVE_FAMILY_LIVE_ADOPTION_READY_FOR_PM_REVIEW",
   "hashes": {
-    "canonical_export_sha256": "e71e51effb21c37407ac69cbb57cc5fe7082b449b83b6570ef25e2c08a1d615a",
+    "canonical_export_sha256": "9de6f245efb13e714e728461110900b5b39ec759011777c0f193cbeae98a97d8",
     "event": "66cf91a62f986784db5aa3d07a79b43e869720259db9f5061bdd370e13f337fb",
-    "participation": "31fe632b775815f72fcd1a67d4ba1ef1c907e0d0e99b72e284fcf2025b3c07b6",
-    "viewer_bundle_sha256": "c5716992fed50c7e453b8cff7f81638371ba66e025ffca617d658915bf978cb9"
+    "narrative_families_sidecar_sha256": "7482daff47937b18caf647ad4c918369322b51d694719bfd6ae6e0e41a3f47ba",
+    "participation": "a7e300085b7e87c625e508efdf7593b30039aeeef519af0f8aeb2e8e9983442d",
+    "viewer_bundle_sha256": "84ef9e0fa670eea3d7ab06f9cbcffcc0b48a26aa0b51fe099e477313e353a2bc"
   },
-  "participation": {
+  "narrative_families": {
+    "count": 16,
+    "sidecar_sha256": "7482daff47937b18caf647ad4c918369322b51d694719bfd6ae6e0e41a3f47ba",
+    "validation_status": "PASS"
+  },
+  "nf003_held_relationship_count": 8,
+  "nf004_live_adoption": true,
+  "relationships": {
+    "event_event_count": 0,
     "event_group_count": 64,
-    "event_place_count": 3426,
-    "person_event_count": 1561,
+    "event_place_count": 3427,
+    "person_event_count": 1562,
     "person_group_count": 0,
-    "person_person_count": 6562
+    "person_person_count": 6562,
+    "total": 11615
   },
-  "pgp003c_adoption": true,
-  "source_commit": "39ae575d7091af2cc6034566d5059e366d327bfb",
-  "status": "PGP003C_PROPOSED_ADOPTION"
+  "source_commit": "343bdd4b7a41ece726822c24a6c33a331a3a0a9a",
+  "status": "NF004_NARRATIVE_FAMILY_LIVE_ADOPTION"
 }

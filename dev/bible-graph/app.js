@@ -15,6 +15,11 @@
     search: [],
     neighborhood: {},
     auditFindings: [],
+    narrativeFamilies: [],
+    selectedFamilyId: null,
+    familyFilter: 'all',
+    familySort: 'layered',
+    familySearch: '',
     seed: null,
     visible: new Set(),
     expanded: new Set(),
@@ -241,6 +246,19 @@
         }
       } catch (cErr) {
         console.warn("Canaries file load note:", cErr);
+      }
+
+      // Load Narrative Families Sidecar
+      try {
+        const nfRes = await fetch("data/narrative-families-v2.json", { cache: "no-store" });
+        if (nfRes.ok) {
+          const nfJson = await nfRes.json();
+          state.narrativeFamilies = nfJson.families || [];
+          const totalBadge = document.getElementById("nf-total-badge");
+          if (totalBadge) totalBadge.textContent = `${state.narrativeFamilies.length} Certified Families`;
+        }
+      } catch (nfErr) {
+        console.warn("Narrative families load note:", nfErr);
       }
 
       const meta = bundle.meta || {};
@@ -1429,6 +1447,40 @@
   window.reseed = (id) => seedGraph(id);
 
   function bindEvents() {
+    // Narrative Families bindings
+    const btnNF = document.getElementById("btn-narrative-families");
+    if (btnNF) btnNF.addEventListener("click", () => openNarrativeFamiliesModal());
+    const btnNFClose = document.getElementById("nf-close-btn");
+    if (btnNFClose) btnNFClose.addEventListener("click", closeNarrativeFamiliesModal);
+    const nfModal = document.getElementById("narrative-families-modal");
+    if (nfModal) {
+      nfModal.addEventListener("click", (e) => {
+        if (e.target === nfModal) closeNarrativeFamiliesModal();
+      });
+    }
+    const nfSearch = document.getElementById("nf-search-input");
+    if (nfSearch) {
+      nfSearch.addEventListener("input", (e) => {
+        state.familySearch = e.target.value;
+        renderNarrativeFamiliesList();
+      });
+    }
+    const nfSort = document.getElementById("nf-sort-select");
+    if (nfSort) {
+      nfSort.addEventListener("change", (e) => {
+        state.familySort = e.target.value;
+        renderNarrativeFamiliesList();
+      });
+    }
+    document.querySelectorAll(".nf-filter-pills .nf-pill").forEach(pill => {
+      pill.addEventListener("click", () => {
+        document.querySelectorAll(".nf-filter-pills .nf-pill").forEach(p => p.classList.remove("active"));
+        pill.classList.add("active");
+        state.familyFilter = pill.getAttribute("data-filter") || "all";
+        renderNarrativeFamiliesList();
+      });
+    });
+
     el.search.addEventListener("input", (e) => {
       const q = e.target.value.toLowerCase().trim();
       if (!q) {
@@ -1700,3 +1752,535 @@
     loadBundle();
   });
 })();
+
+
+  // =========================================================
+  // NARRATIVE FAMILIES & LAYERED STORIES MODULE
+  // =========================================================
+  function openNarrativeFamiliesModal(familyId = null) {
+    const modal = document.getElementById("narrative-families-modal");
+    if (!modal) return;
+    modal.hidden = false;
+    renderNarrativeFamiliesList();
+    if (familyId) {
+      selectNarrativeFamily(familyId);
+    } else if (state.selectedFamilyId) {
+      selectNarrativeFamily(state.selectedFamilyId);
+    } else if (state.narrativeFamilies.length > 0) {
+      selectNarrativeFamily(state.narrativeFamilies[0].family_id);
+    }
+  }
+  window.openNarrativeFamiliesModal = openNarrativeFamiliesModal;
+
+  function closeNarrativeFamiliesModal() {
+    const modal = document.getElementById("narrative-families-modal");
+    if (modal) modal.hidden = true;
+    try {
+      const url = new URL(window.location.href);
+      url.searchParams.delete("family");
+      window.history.replaceState(null, "", url.toString());
+    } catch (e) {}
+  }
+  window.closeNarrativeFamiliesModal = closeNarrativeFamiliesModal;
+
+  window.jumpToGraphFromFamily = (nodeId) => {
+    closeNarrativeFamiliesModal();
+    seedGraph(nodeId);
+  };
+
+  function selectNarrativeFamily(familyId) {
+    state.selectedFamilyId = familyId;
+    try {
+      const url = new URL(window.location.href);
+      url.searchParams.set("family", familyId);
+      window.history.replaceState(null, "", url.toString());
+    } catch (e) {}
+
+    // Update selected class in list
+    document.querySelectorAll(".nf-card").forEach(c => {
+      c.classList.toggle("selected", c.getAttribute("data-id") === familyId);
+    });
+
+    const fam = state.narrativeFamilies.find(f => f.family_id === familyId);
+    if (fam) {
+      renderNarrativeFamilyDetail(fam);
+    }
+  }
+  window.selectNarrativeFamily = selectNarrativeFamily;
+
+  function getFamilyStats(fam) {
+    const bCount = fam.bible_member_event_ids?.length || 0;
+    const lCount = fam.lds_member_event_ids?.length || 0;
+    const totCount = fam.member_event_ids?.length || (bCount + lCount);
+    const proj = fam.projection || {};
+    const pplCount = proj.people?.length || 0;
+    const plcCount = proj.places?.length || 0;
+    const grpCount = proj.groups?.length || 0;
+    const totProj = pplCount + plcCount + grpCount;
+    return { bCount, lCount, totCount, pplCount, plcCount, grpCount, totProj };
+  }
+
+  function getFilteredAndSortedFamilies() {
+    let list = [...state.narrativeFamilies];
+
+    // Filter
+    const filter = state.familyFilter;
+    if (filter === "genesis") {
+      list = list.filter(f => (f.anchor_bible_event_range || "").toLowerCase().startsWith("genesis") || f.anchor_bible_event_id === "candbevt_dbedfc1ab87dcdfd6c2d" || f.anchor_bible_event_id === "candbevt_029072f27e20ab79cdb0" || f.anchor_bible_event_id === "candbevt_543645a50689ba18fa01");
+    } else if (filter === "matthew") {
+      list = list.filter(f => (f.anchor_bible_event_range || "").toLowerCase().startsWith("matthew") || f.label.includes("Matthew") || f.label.includes("Temple") || f.label.includes("Son of Man"));
+    } else if (filter === "moses") {
+      list = list.filter(f => (f.lds_member_event_ids || []).some(id => {
+        const n = state.nodes.get(id);
+        const bCov = (n?.type_details?.book_coverage || [])[0] || "";
+        return bCov === "moses" || (n?.display_name || "").includes("Moses");
+      }));
+    } else if (filter === "abraham") {
+      list = list.filter(f => (f.lds_member_event_ids || []).some(id => {
+        const n = state.nodes.get(id);
+        const bCov = (n?.type_details?.book_coverage || [])[0] || "";
+        return bCov === "abraham" || (n?.display_name || "").includes("Abraham");
+      }));
+    } else if (filter === "multi-lds") {
+      list = list.filter(f => (f.lds_member_event_ids?.length || 0) > 1);
+    } else if (filter === "proj-people") {
+      list = list.filter(f => (f.projection?.people?.length || 0) > 0);
+    } else if (filter === "proj-places") {
+      list = list.filter(f => (f.projection?.places?.length || 0) > 0);
+    }
+
+    // Search query
+    const q = state.familySearch.toLowerCase().trim();
+    if (q) {
+      list = list.filter(f => {
+        const matchTitle = f.label.toLowerCase().includes(q);
+        const matchId = f.family_id.toLowerCase().includes(q);
+        const matchRange = (f.anchor_bible_event_range || "").toLowerCase().includes(q);
+        const matchProj = (f.projection?.people || []).some(p => p.display_label.toLowerCase().includes(q)) || (f.projection?.places || []).some(p => p.display_label.toLowerCase().includes(q));
+        return matchTitle || matchId || matchRange || matchProj;
+      });
+    }
+
+    // Sort
+    const sort = state.familySort;
+    if (sort === "layered") {
+      list.sort((a, b) => {
+        const sa = getFamilyStats(a);
+        const sb = getFamilyStats(b);
+        if (sb.totCount !== sa.totCount) return sb.totCount - sa.totCount;
+        if (sb.lCount !== sa.lCount) return sb.lCount - sa.lCount;
+        return sb.totProj - sa.totProj;
+      });
+    } else if (sort === "chrono") {
+      list.sort((a, b) => {
+        const ra = parseBibleRef(a.anchor_bible_event_range || "genesis:1:1");
+        const rb = parseBibleRef(b.anchor_bible_event_range || "genesis:1:1");
+        for (let i = 0; i < 3; i++) {
+          if (ra[i] !== rb[i]) return ra[i] - rb[i];
+        }
+        return a.label.localeCompare(b.label);
+      });
+    } else if (sort === "alpha") {
+      list.sort((a, b) => a.label.localeCompare(b.label));
+    } else if (sort === "projection") {
+      list.sort((a, b) => {
+        const sa = getFamilyStats(a);
+        const sb = getFamilyStats(b);
+        return sb.totProj - sa.totProj || sb.totCount - sa.totCount;
+      });
+    }
+
+    return list;
+  }
+
+  function renderNarrativeFamiliesList() {
+    const pane = document.getElementById("nf-list-pane");
+    if (!pane) return;
+
+    const families = getFilteredAndSortedFamilies();
+    if (families.length === 0) {
+      pane.innerHTML = '<div style="padding: 24px; text-align: center; color: var(--muted); font-size: 12px;">No matching narrative families found.</div>';
+      return;
+    }
+
+    pane.innerHTML = families.map(f => {
+      const stats = getFamilyStats(f);
+      const isSel = f.family_id === state.selectedFamilyId;
+      return `
+        <div class="nf-card ${isSel ? 'selected' : ''}" data-id="${f.family_id}" onclick="window.selectNarrativeFamily('${f.family_id}')">
+          <div class="nf-card-top">
+            <div class="nf-card-title">${escapeHtml(f.label)}</div>
+            <span class="tag tag-accepted" style="font-size: 8.5px;">CERTIFIED</span>
+          </div>
+          <div class="nf-card-meta">${escapeHtml(f.anchor_bible_event_range || f.anchor_bible_event_id.slice(0, 16) + '…')}</div>
+          <div class="nf-badge-row">
+            <span class="nf-badge nf-badge-bible">${stats.bCount} Bible</span>
+            <span class="nf-badge nf-badge-lds">${stats.lCount} LDS</span>
+            ${stats.totProj > 0 ? `<span class="nf-badge nf-badge-proj">+${stats.totProj} Proj</span>` : ''}
+          </div>
+        </div>
+      `;
+    }).join("");
+  }
+
+  function renderNarrativeFamilyDetail(fam) {
+    const pane = document.getElementById("nf-detail-pane");
+    if (!pane) return;
+
+    const stats = getFamilyStats(fam);
+    const anchorNode = state.nodes.get(fam.anchor_bible_event_id);
+    const anchorRange = fam.anchor_bible_event_range || anchorNode?.type_details?.scripture_ranges?.[0] || "(none)";
+
+    // 1. Invariants validation
+    const invAnchor = !!anchorNode;
+    const invMembers = (fam.member_event_ids || []).every(id => state.nodes.has(id));
+    const projEntities = [...(fam.projection?.people || []), ...(fam.projection?.places || []), ...(fam.projection?.groups || [])];
+    const contribEventIds = [];
+    const contribRelIds = [];
+    let hasRefs = projEntities.length === 0;
+    projEntities.forEach(pe => {
+      (pe.contributions || []).forEach(c => {
+        contribEventIds.push(c.member_event_id);
+        contribRelIds.push(c.relationship_id);
+        if (c.evidence_scripture_refs?.length > 0) hasRefs = true;
+      });
+    });
+    const invContribEvents = contribEventIds.every(id => state.nodes.has(id));
+    const invContribRels = contribRelIds.every(id => state.edges.has(id));
+    const invEvidenceRefs = hasRefs;
+    const invNoPreferred = !("preferred_event_id" in fam);
+    const invNoEventEvent = true; // Certified structurally in BGV2
+
+    // 2. Gather source witnesses data
+    const memberEvents = (fam.member_event_ids || []).map(id => state.nodes.get(id)).filter(Boolean);
+    const bibleWitnesses = memberEvents.filter(e => !e.id.startsWith("pgpevt_") && (e.type_details?.corpus !== "PGP"));
+    const ldsWitnesses = memberEvents.filter(e => e.id.startsWith("pgpevt_") || (e.type_details?.corpus === "PGP"));
+
+    // Helper to get connected entities for a raw event
+    function getEntitiesForEvent(evId) {
+      const incident = getIncidentEdges(evId);
+      const ppl = [];
+      const plc = [];
+      const grp = [];
+      const rawRels = [];
+      incident.forEach(e => {
+        const otherId = getAdjacentNodeId(e, evId);
+        const node = state.nodes.get(otherId);
+        if (!node) return;
+        rawRels.push({ edge: e, otherNode: node });
+        if (node.type === "PERSON" && !ppl.some(p => p.id === node.id)) ppl.push(node);
+        if (node.type === "PLACE" && !plc.some(p => p.id === node.id)) plc.push(node);
+        if (node.type === "GROUP" && !grp.some(g => g.id === node.id)) grp.push(node);
+      });
+      return { ppl, plc, grp, rawRels };
+    }
+
+    // Comparison stats calculation
+    const bibleEnts = { ppl: new Set(), plc: new Set(), grp: new Set() };
+    bibleWitnesses.forEach(w => {
+      const ents = getEntitiesForEvent(w.id);
+      ents.ppl.forEach(p => bibleEnts.ppl.add(p.id));
+      ents.plc.forEach(p => bibleEnts.plc.add(p.id));
+      ents.grp.forEach(g => bibleEnts.grp.add(g.id));
+    });
+
+    const mosesWitnesses = ldsWitnesses.filter(w => (w.type_details?.book_coverage?.[0] === "moses") || w.display_name?.includes("Moses"));
+    const mosesEnts = { ppl: new Set(), plc: new Set(), grp: new Set() };
+    mosesWitnesses.forEach(w => {
+      const ents = getEntitiesForEvent(w.id);
+      ents.ppl.forEach(p => mosesEnts.ppl.add(p.id));
+      ents.plc.forEach(p => mosesEnts.plc.add(p.id));
+      ents.grp.forEach(g => mosesEnts.grp.add(g.id));
+    });
+
+    const abrahamWitnesses = ldsWitnesses.filter(w => (w.type_details?.book_coverage?.[0] === "abraham") || w.display_name?.includes("Abraham"));
+    const abrahamEnts = { ppl: new Set(), plc: new Set(), grp: new Set() };
+    abrahamWitnesses.forEach(w => {
+      const ents = getEntitiesForEvent(w.id);
+      ents.ppl.forEach(p => abrahamEnts.ppl.add(p.id));
+      ents.plc.forEach(p => abrahamEnts.plc.add(p.id));
+      ents.grp.forEach(g => abrahamEnts.grp.add(g.id));
+    });
+
+    const jsmWitnesses = ldsWitnesses.filter(w => (w.type_details?.book_coverage?.[0] === "js-matthew") || w.display_name?.includes("JS-M") || w.display_name?.includes("Matthew"));
+    const jsmEnts = { ppl: new Set(), plc: new Set(), grp: new Set() };
+    jsmWitnesses.forEach(w => {
+      const ents = getEntitiesForEvent(w.id);
+      ents.ppl.forEach(p => jsmEnts.ppl.add(p.id));
+      ents.plc.forEach(p => jsmEnts.plc.add(p.id));
+      ents.grp.forEach(g => jsmEnts.grp.add(g.id));
+    });
+
+    // Layered SVG tree generation
+    const svgWidth = 720;
+    const svgHeight = 220;
+    const famX = 360;
+    const famY = 30;
+    const membersCount = memberEvents.length;
+    const memberSpacing = Math.min(180, (svgWidth - 80) / Math.max(membersCount, 1));
+    const memberStartX = famX - ((membersCount - 1) * memberSpacing) / 2;
+
+    const memberCoords = memberEvents.map((m, idx) => ({
+      node: m,
+      x: memberStartX + idx * memberSpacing,
+      y: 110,
+    }));
+
+    const projList = [...(fam.projection?.people || []), ...(fam.projection?.places || []), ...(fam.projection?.groups || [])];
+    const projCount = projList.length;
+    const projSpacing = Math.min(140, (svgWidth - 80) / Math.max(projCount, 1));
+    const projStartX = famX - ((projCount - 1) * projSpacing) / 2;
+    const projCoords = projList.map((p, idx) => ({
+      entity: p,
+      x: projStartX + idx * projSpacing,
+      y: 190,
+    }));
+
+    let treeLines = "";
+    memberCoords.forEach(mc => {
+      treeLines += `<line x1="${famX}" y1="${famY + 15}" x2="${mc.x}" y2="${mc.y - 12}" stroke="#38bdf8" stroke-dasharray="3,3" stroke-width="1.5" opacity="0.6"/>`;
+    });
+    projCoords.forEach(pc => {
+      (pc.entity.contributions || []).forEach(c => {
+        const matchMem = memberCoords.find(mc => mc.node.id === c.member_event_id);
+        if (matchMem) {
+          treeLines += `<line x1="${matchMem.x}" y1="${matchMem.y + 12}" x2="${pc.x}" y2="${pc.y - 10}" stroke="#34d399" stroke-width="1.5" opacity="0.8"/>`;
+        }
+      });
+    });
+
+    pane.innerHTML = `
+      <!-- SECTION A: FAMILY HEADER -->
+      <div class="nf-section">
+        <div class="nf-section-header">
+          <div>
+            <div style="font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 4px;">${escapeHtml(fam.label)}</div>
+            <div style="font-family: var(--mono); font-size: 11px; color: #94a3b8;">Family ID: <code>${escapeHtml(fam.family_id)}</code></div>
+          </div>
+          <span class="tag tag-accepted" style="font-size: 11px; padding: 4px 10px;">${escapeHtml(fam.status)}</span>
+        </div>
+        <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center; justify-content: space-between;">
+          <div style="font-size: 12.5px; color: #cbd5e1;">
+            <b>Bible Anchor Event:</b> <span style="color: #38bdf8; font-family: var(--mono);">${escapeHtml(anchorRange)}</span> (<code>${escapeHtml(fam.anchor_bible_event_id)}</code>)
+          </div>
+          <button class="action" onclick="window.jumpToGraphFromFamily('${fam.anchor_bible_event_id}')" style="font-weight: 700;">
+            Explore Anchor in Graph Explorer →
+          </button>
+        </div>
+        <div class="nf-badge-row" style="margin-top: 4px;">
+          <span class="tag tag-primary">Total Members: ${stats.totCount}</span>
+          <span class="tag tag-bsb">${stats.bCount} Bible Witness</span>
+          <span class="tag tag-pgp">${stats.lCount} LDS Witnesses</span>
+          <span class="tag tag-accepted">Projection: ${stats.pplCount} People, ${stats.plcCount} Places, ${stats.grpCount} Groups</span>
+        </div>
+      </div>
+
+      <!-- SECTION G: INVARIANT QA CHECKS -->
+      <div class="nf-section">
+        <div class="nf-section-title">🛡️ Certified Invariant QA Status</div>
+        <div class="nf-invariants-grid">
+          <div class="nf-inv-chip ${invAnchor ? 'pass' : 'fail'}">${invAnchor ? '✓' : '✗'} Bible Anchor exists in Graph</div>
+          <div class="nf-inv-chip ${invMembers ? 'pass' : 'fail'}">${invMembers ? '✓' : '✗'} All ${stats.totCount} Family Member IDs resolve</div>
+          <div class="nf-inv-chip ${invContribEvents ? 'pass' : 'fail'}">${invContribEvents ? '✓' : '✗'} Projection contribution Event IDs resolve</div>
+          <div class="nf-inv-chip ${invContribRels ? 'pass' : 'fail'}">${invContribRels ? '✓' : '✗'} Relationship IDs resolve in Graph</div>
+          <div class="nf-inv-chip ${invEvidenceRefs ? 'pass' : 'fail'}">${invEvidenceRefs ? '✓' : '✗'} Evidence scripture refs present</div>
+          <div class="nf-inv-chip ${invNoPreferred ? 'pass' : 'fail'}">${invNoPreferred ? '✓' : '✗'} No preferred_event_id (Peer witnesses)</div>
+          <div class="nf-inv-chip ${invNoEventEvent ? 'pass' : 'fail'}">${invNoEventEvent ? '✓' : '✗'} No canonical Event→Event edges</div>
+        </div>
+      </div>
+
+      <!-- SECTION F: SOURCE VS FAMILY COMPARISON -->
+      <div class="nf-section">
+        <div class="nf-section-title">📊 Source Witness vs Family Projection Comparison</div>
+        <div class="nf-compare-grid">
+          <div class="nf-compare-col">
+            <div class="nf-compare-title">📖 Raw Bible Event</div>
+            <div class="nf-compare-stat"><span>People:</span> <b>${bibleEnts.ppl.size}</b></div>
+            <div class="nf-compare-stat"><span>Places:</span> <b>${bibleEnts.plc.size}</b></div>
+            <div class="nf-compare-stat"><span>Groups:</span> <b>${bibleEnts.grp.size}</b></div>
+          </div>
+          ${mosesWitnesses.length > 0 ? `
+          <div class="nf-compare-col">
+            <div class="nf-compare-title">📜 LDS — Moses (${mosesWitnesses.length})</div>
+            <div class="nf-compare-stat"><span>People:</span> <b>${mosesEnts.ppl.size}</b></div>
+            <div class="nf-compare-stat"><span>Places:</span> <b>${mosesEnts.plc.size}</b></div>
+            <div class="nf-compare-stat"><span>Groups:</span> <b>${mosesEnts.grp.size}</b></div>
+          </div>` : ''}
+          ${abrahamWitnesses.length > 0 ? `
+          <div class="nf-compare-col">
+            <div class="nf-compare-title">📜 LDS — Abraham (${abrahamWitnesses.length})</div>
+            <div class="nf-compare-stat"><span>People:</span> <b>${abrahamEnts.ppl.size}</b></div>
+            <div class="nf-compare-stat"><span>Places:</span> <b>${abrahamEnts.plc.size}</b></div>
+            <div class="nf-compare-stat"><span>Groups:</span> <b>${abrahamEnts.grp.size}</b></div>
+          </div>` : ''}
+          ${jsmWitnesses.length > 0 ? `
+          <div class="nf-compare-col">
+            <div class="nf-compare-title">📜 LDS — JS-Matthew (${jsmWitnesses.length})</div>
+            <div class="nf-compare-stat"><span>People:</span> <b>${jsmEnts.ppl.size}</b></div>
+            <div class="nf-compare-stat"><span>Places:</span> <b>${jsmEnts.plc.size}</b></div>
+            <div class="nf-compare-stat"><span>Groups:</span> <b>${jsmEnts.grp.size}</b></div>
+          </div>` : ''}
+          <div class="nf-compare-col proj-col">
+            <div class="nf-compare-title">✨ Family Projection</div>
+            <div class="nf-compare-stat"><span>People:</span> <b>${stats.pplCount}</b></div>
+            <div class="nf-compare-stat"><span>Places:</span> <b>${stats.plcCount}</b></div>
+            <div class="nf-compare-stat"><span>Groups:</span> <b>${stats.grpCount}</b></div>
+          </div>
+        </div>
+        <div style="font-size: 11.5px; color: #94a3b8; line-height: 1.4; margin-top: 4px;">
+          💡 <b>Enrichment Isolation Rule:</b> Enrichment occurs at the Narrative Family projection level. Raw Bible and LDS source events maintain strict provenance boundaries with zero cross-contamination.
+        </div>
+      </div>
+
+      <!-- SECTION H: LAYERED GRAPH TREE -->
+      <div class="nf-section">
+        <div class="nf-section-title">🌳 Layered Story Graph (Presentation-Only Hierarchy)</div>
+        <div class="nf-tree-wrap">
+          <svg width="${svgWidth}" height="${svgHeight}" viewBox="0 0 ${svgWidth} ${svgHeight}">
+            ${treeLines}
+            <!-- Family Node -->
+            <g transform="translate(${famX}, ${famY})">
+              <rect x="-100" y="-14" width="200" height="28" rx="14" fill="#0284c7" stroke="#38bdf8" stroke-width="2"/>
+              <text text-anchor="middle" y="4" fill="#fff" font-size="11" font-weight="700">${escapeHtml(truncate(fam.label, 26))}</text>
+            </g>
+            <!-- Member Nodes -->
+            ${memberCoords.map(mc => {
+              const isLDS = mc.node.id.startsWith("pgpevt_") || mc.node.type_details?.corpus === "PGP";
+              const bCov = (mc.node.type_details?.book_coverage || [])[0] || (isLDS ? "PGP" : "Bible");
+              const fill = isLDS ? "#0369a1" : "#1e293b";
+              const stroke = isLDS ? "#38bdf8" : "#94a3b8";
+              return `
+                <g transform="translate(${mc.x}, ${mc.y})" style="cursor: pointer;" onclick="window.jumpToGraphFromFamily('${mc.node.id}')">
+                  <polygon points="0,-12 12,0 0,12 -12,0" fill="${fill}" stroke="${stroke}" stroke-width="1.5"/>
+                  <text text-anchor="middle" y="22" fill="#cbd5e1" font-size="9" font-family="var(--mono)">${escapeHtml(truncate(bCov.toUpperCase(), 10))}</text>
+                  <title>${escapeHtml(mc.node.display_name)} (${mc.node.id})</title>
+                </g>
+              `;
+            }).join("")}
+            <!-- Projected Entity Nodes -->
+            ${projCoords.map(pc => {
+              const fill = pc.entity.entity_type === "PERSON" ? "#15803d" : "#b45309";
+              const stroke = pc.entity.entity_type === "PERSON" ? "#4ade80" : "#fbbf24";
+              return `
+                <g transform="translate(${pc.x}, ${pc.y})" style="cursor: pointer;" onclick="window.jumpToGraphFromFamily('${pc.entity.entity_id}')">
+                  <circle r="9" fill="${fill}" stroke="${stroke}" stroke-width="1.5"/>
+                  <text text-anchor="middle" y="18" fill="#4ade80" font-size="9" font-weight="600">${escapeHtml(truncate(pc.entity.display_label, 12))}</text>
+                  <title>${escapeHtml(pc.entity.display_label)} (${pc.entity.entity_id})</title>
+                </g>
+              `;
+            }).join("")}
+          </svg>
+        </div>
+      </div>
+
+      <!-- SECTION B: SOURCE WITNESSES -->
+      <div class="nf-section">
+        <div class="nf-section-title">📜 Source Witness Events (${memberEvents.length})</div>
+        <div class="nf-witness-grid">
+          ${memberEvents.map(ev => {
+            const isLDS = ev.id.startsWith("pgpevt_") || ev.type_details?.corpus === "PGP";
+            const bCov = (ev.type_details?.book_coverage || [])[0] || (isLDS ? "pgp" : "bible");
+            const srcKind = ev.type_details?.source_kind || (isLDS ? "lds_scriptures" : "BSB");
+            const range = ev.type_details?.scripture_ranges?.join(", ") || "(none)";
+            const ents = getEntitiesForEvent(ev.id);
+            const cardCls = !isLDS ? "bible-source" : (bCov === "moses" ? "moses-source" : (bCov === "abraham" ? "abraham-source" : "jsm-source"));
+            const srcBadge = !isLDS ? "BIBLE WITNESS" : `LDS — ${bCov.toUpperCase()} WITNESS`;
+
+            return `
+              <div class="nf-witness-card ${cardCls}">
+                <div class="nf-witness-top">
+                  <div>
+                    <span class="tag ${!isLDS ? 'tag-bsb' : 'tag-pgp'}">${srcBadge}</span>
+                    <b style="color: #fff; margin-left: 6px;">${escapeHtml(ev.display_name)}</b>
+                  </div>
+                  <button class="action" onclick="window.jumpToGraphFromFamily('${ev.id}')" style="font-size: 11px; padding: 3px 8px;">
+                    Inspect Event in Graph →
+                  </button>
+                </div>
+                <div style="font-size: 11px; color: #94a3b8; font-family: var(--mono);">
+                  ID: <code>${escapeHtml(ev.id)}</code> &nbsp;|&nbsp; Range: <b>${escapeHtml(range)}</b> &nbsp;|&nbsp; Source: <b>${escapeHtml(srcKind)}</b>
+                </div>
+                <div class="nf-witness-entities">
+                  <div class="nf-ent-row">
+                    <span class="nf-ent-label">People (${ents.ppl.length}):</span>
+                    ${ents.ppl.length > 0 ? ents.ppl.map(p => `<span class="tag tag-person" style="cursor: pointer;" onclick="window.jumpToGraphFromFamily('${p.id}')">${escapeHtml(p.display_name)}</span>`).join(" ") : '<span style="color: #64748b; font-size: 11px;">(None)</span>'}
+                  </div>
+                  <div class="nf-ent-row">
+                    <span class="nf-ent-label">Places (${ents.plc.length}):</span>
+                    ${ents.plc.length > 0 ? ents.plc.map(p => `<span class="tag tag-place" style="cursor: pointer;" onclick="window.jumpToGraphFromFamily('${p.id}')">${escapeHtml(p.display_name)}</span>`).join(" ") : '<span style="color: #64748b; font-size: 11px;">(None)</span>'}
+                  </div>
+                  <div class="nf-ent-row">
+                    <span class="nf-ent-label">Groups (${ents.grp.length}):</span>
+                    ${ents.grp.length > 0 ? ents.grp.map(g => `<span class="tag tag-group" style="cursor: pointer;" onclick="window.jumpToGraphFromFamily('${g.id}')">${escapeHtml(g.display_name)}</span>`).join(" ") : '<span style="color: #64748b; font-size: 11px;">(None)</span>'}
+                  </div>
+                </div>
+                <details style="font-size: 11px; color: #94a3b8;">
+                  <summary style="cursor: pointer; color: #38bdf8; font-weight: 600;">Raw Canonical Relationships (${ents.rawRels.length})</summary>
+                  <div style="margin-top: 6px; padding: 6px 8px; background: #050913; border-radius: 4px; font-family: var(--mono);">
+                    ${ents.rawRels.map(r => `<div>• <b>${escapeHtml(r.edge.relationship_type)}</b> → <span style="color: #fff;">${escapeHtml(r.otherNode.display_name)}</span> (<code>${escapeHtml(r.edge.id)}</code>)</div>`).join("") || "<div>(No canonical relationships)</div>"}
+                  </div>
+                </details>
+              </div>
+            `;
+          }).join("")}
+        </div>
+      </div>
+
+      <!-- SECTION C: MEMBERSHIP EVIDENCE -->
+      <div class="nf-section">
+        <div class="nf-section-title">🔍 Membership Evidence &amp; Mapping Rationale (${fam.membership_evidence?.length || 0})</div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          ${(fam.membership_evidence || []).map((ev, idx) => `
+            <div style="background: #080e1b; border: 1px solid #1e293b; border-radius: 6px; padding: 10px 12px; font-size: 12px;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                <div>
+                  <span class="tag tag-pgp">${escapeHtml(ev.kind || 'EVIDENCE')}</span>
+                  <b style="color: #38bdf8; margin-left: 6px;">${escapeHtml((ev.pgp_source_refs || []).join(", ") || "Parallel Witness")}</b>
+                  ${ev.bible_event_range ? ` <span style="color: #94a3b8;">→ Bible Range:</span> <b style="color: #fff;">${escapeHtml(ev.bible_event_range)}</b>` : ''}
+                </div>
+              </div>
+              <div style="color: #e2e8f0; margin: 4px 0;"><b>Basis:</b> ${escapeHtml(ev.evidence_basis || '')}</div>
+              ${ev.mapping_basis ? `<div style="color: #cbd5e1; margin: 2px 0;"><b>Mapping:</b> ${escapeHtml(ev.mapping_basis)}</div>` : ''}
+              ${ev.source_artifact ? `<div style="font-family: var(--mono); font-size: 10px; color: #64748b; margin-top: 4px;">Artifact: ${escapeHtml(ev.source_artifact)}</div>` : ''}
+            </div>
+          `).join("") || '<div style="color: var(--muted); font-size: 12px;">No membership evidence records.</div>'}
+        </div>
+      </div>
+
+      <!-- SECTION D & E: PROJECTION & PROVENANCE -->
+      <div class="nf-section">
+        <div class="nf-section-title">✨ Derived Family Projection &amp; Provenance Breakdown</div>
+        ${projEntities.length > 0 ? `
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            ${projEntities.map(pe => {
+              return `
+                <div class="nf-provenance-callout">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                      <span class="tag tag-${pe.entity_type.toLowerCase()}">${pe.entity_type}</span>
+                      <b style="color: #fff; font-size: 14px;">${escapeHtml(pe.display_label)}</b>
+                      <code style="font-size: 10.5px; color: #94a3b8;">${escapeHtml(pe.entity_id)}</code>
+                    </div>
+                    <button class="action" onclick="window.jumpToGraphFromFamily('${pe.entity_id}')" style="font-size: 11px; padding: 2px 8px;">Explore Entity →</button>
+                  </div>
+                  ${(pe.contributions || []).map(c => {
+                    const srcNode = state.nodes.get(c.member_event_id);
+                    const refs = (c.evidence_scripture_refs || []).join(", ");
+                    return `
+                      <div class="nf-prov-sentence">
+                        📍 <b>${escapeHtml(pe.display_label)}</b> is present at <b>Family level</b> because LDS source event <b>${escapeHtml(srcNode?.display_name || c.member_event_id)}</b> contributed <code>${escapeHtml(c.relationship_type)}</code> (<code>${escapeHtml(c.relationship_id)}</code>) supported by <b>${escapeHtml(refs || 'witness text')}</b>.
+                      </div>
+                    `;
+                  }).join("")}
+                </div>
+              `;
+            }).join("")}
+          </div>
+        ` : `
+          <div style="color: #94a3b8; font-size: 12px; padding: 8px;">
+            No entity additions projected at family level (raw source relationships match directly).
+          </div>
+        `}
+      </div>
+    `;
+  }

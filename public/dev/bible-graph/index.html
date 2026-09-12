@@ -37,6 +37,7 @@
       <button id="btn-fit" type="button" title="Fit entire visible graph to screen (Zoom to fit)">Fit</button>
       <button id="btn-recenter" type="button" title="Recenter canvas on current seed entity">Recenter</button>
       <button id="btn-path" type="button" title="Find shortest relationship path between two biblical entities">Path</button>
+      <button id="btn-narrative-families" class="btn-narrative-families" type="button" title="Explore 16 Certified Narrative Families & Layered Stories">Narrative Families 📚</button>
       <button id="btn-findings" type="button" class="btn-findings-alert" title="Browse certified QA Canaries & Spot Checks">Canaries 🔍</button>
       <button id="btn-toggle-filters" class="btn-filters-toggle" type="button" title="Filter graph entities and relationships">Filters ⚙️</button>
       <button id="btn-share" class="btn-share" type="button" title="Copy shareable link to current graph view">Share 🔗</button>
@@ -128,6 +129,13 @@
 
         <div class="intro-section-title">✨ Curated Thematic Journeys</div>
         <div class="thematic-grid">
+                    <div class="thematic-card thematic-card-nf" onclick="window.openNarrativeFamiliesModal()" style="border-color: #38bdf8; background: linear-gradient(135deg, rgba(14, 165, 233, 0.12), rgba(15, 23, 42, 0.8));">
+            <div class="thematic-card-header">
+              <span class="thematic-icon">📚</span>
+              <b style="color: #38bdf8;">Narrative Families (16)</b>
+            </div>
+            <p>Certified layered parallel stories across Bible & PGP (Creation, Cain & Abel, Adam in Eden, Temple Signs).</p>
+          </div>
           <div class="thematic-card" onclick="window.reseed('candb_c782837629d7000f31ac')">
             <div class="thematic-card-header">
               <span class="thematic-icon">👑</span>
@@ -299,6 +307,64 @@
   </div>
 
   <!-- Editor Guide Modal -->
+    <!-- Narrative Families Modal -->
+  <div id="narrative-families-modal" class="modal-backdrop" hidden>
+    <div class="modal-card nf-modal-card">
+      <div class="modal-header nf-modal-header">
+        <div class="nf-header-title-wrap">
+          <span class="nf-header-icon">📚</span>
+          <div>
+            <h3>Certified Narrative Families &amp; Layered Stories</h3>
+            <span class="pill pill-primary" id="nf-total-badge">16 Certified Families</span>
+          </div>
+        </div>
+        <button id="nf-close-btn" class="btn-icon" type="button" aria-label="Close Narrative Families">✕</button>
+      </div>
+
+      <!-- Controls: Search, Sort, Filters -->
+      <div class="nf-controls-bar">
+        <div class="nf-search-box">
+          <input type="search" id="nf-search-input" placeholder="Search narrative families by name, ID, or scripture…" autocomplete="off">
+        </div>
+        <div class="nf-sort-box">
+          <label for="nf-sort-select">Sort:</label>
+          <select id="nf-sort-select">
+            <option value="layered" selected>Most Layered / Members</option>
+            <option value="chrono">Scripture Order (Genesis → Matthew)</option>
+            <option value="alpha">Alphabetical (A–Z)</option>
+            <option value="projection">Most Projected Entities</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="nf-filter-pills" id="nf-filter-pills">
+        <button class="nf-pill active" data-filter="all">All (16)</button>
+        <button class="nf-pill" data-filter="genesis">Genesis (14)</button>
+        <button class="nf-pill" data-filter="matthew">Matthew / JS-M (2)</button>
+        <button class="nf-pill" data-filter="moses">Has Moses</button>
+        <button class="nf-pill" data-filter="abraham">Has Abraham</button>
+        <button class="nf-pill" data-filter="multi-lds">>1 LDS Member</button>
+        <button class="nf-pill" data-filter="proj-people">Has Proj People</button>
+        <button class="nf-pill" data-filter="proj-places">Has Proj Places</button>
+      </div>
+
+      <!-- Master-Detail Body -->
+      <div class="nf-modal-body">
+        <!-- Left Column: Families List -->
+        <div class="nf-list-pane" id="nf-list-pane"></div>
+
+        <!-- Right Column: Layered Family Detail View -->
+        <div class="nf-detail-pane" id="nf-detail-pane">
+          <div class="nf-placeholder">
+            <div class="thematic-icon" style="font-size: 36px; margin-bottom: 8px;">👈</div>
+            <h4>Select a Narrative Family</h4>
+            <p>Select any family from the list to inspect its layered structure, source witnesses, projection, explicit provenance, and invariant checks.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div id="guide-modal" class="modal" hidden>
     <div class="modal-card guide-modal-card">
       <div class="guide-modal-header">

@@ -1,0 +1,1129 @@
+{
+  "families": [
+    {
+      "anchor_bible_event_id": "candbevt_32f73d6dd474d87ffe2f",
+      "anchor_bible_event_range": null,
+      "bible_member_event_ids": [
+        "candbevt_32f73d6dd474d87ffe2f"
+      ],
+      "family_id": "candbfam_0c067d807ba3f8e65948",
+      "is_nf001_extension": false,
+      "label": "Abram and Sarai in Egypt",
+      "lds_member_event_ids": [
+        "pgpevt_71d39b33ec405794e1bc"
+      ],
+      "member_event_ids": [
+        "candbevt_32f73d6dd474d87ffe2f",
+        "pgpevt_71d39b33ec405794e1bc"
+      ],
+      "membership_evidence": [
+        {
+          "evidence_basis": "Abraham 2:16-25 Egypt sojourn aligns with Genesis 12:10-20 Abram and Sarai in Egypt Event range.",
+          "mapping_rationale": "Abraham Egypt scene certified same narrative as Genesis 12:10-20 per rule 9.",
+          "pgp_event_id": "pgpevt_71d39b33ec405794e1bc"
+        }
+      ],
+      "projection": {
+        "groups": [],
+        "lds_member_event_ids": [
+          "pgpevt_71d39b33ec405794e1bc"
+        ],
+        "people": [
+          {
+            "contributions": [
+              {
+                "evidence_scripture_refs": [
+                  "pgp:abraham:2:17",
+                  "pgp:abraham:2:20",
+                  "pgp:abraham:2:21",
+                  "pgp:abraham:2:25"
+                ],
+                "member_event_id": "pgpevt_71d39b33ec405794e1bc",
+                "relationship_id": "candbpart_7040fef5101d782ebc06",
+                "relationship_type": "PERSON_PARTICIPATED_IN_EVENT"
+              }
+            ],
+            "display_label": "Abraham",
+            "entity_id": "candb_2673b6dee819a2125c7a",
+            "entity_type": "PERSON"
+          }
+        ],
+        "places": [
+          {
+            "contributions": [
+              {
+                "evidence_scripture_refs": [
+                  "pgp:abraham:2:21",
+                  "pgp:abraham:2:22"
+                ],
+                "member_event_id": "pgpevt_71d39b33ec405794e1bc",
+                "relationship_id": "candbpart_f80ca20e64946362e881",
+                "relationship_type": "EVENT_OCCURRED_AT_PLACE"
+              }
+            ],
+            "display_label": "Egypt",
+            "entity_id": "candbpl_21cd1522b002ec3bdb3f",
+            "entity_type": "PLACE"
+          },
+          {
+            "contributions": [
+              {
+                "evidence_scripture_refs": [
+                  "pgp:abraham:2:17"
+                ],
+                "member_event_id": "pgpevt_71d39b33ec405794e1bc",
+                "relationship_id": "candbpart_e3210016407da53387e0",
+                "relationship_type": "EVENT_OCCURRED_AT_PLACE"
+              }
+            ],
+            "display_label": "Jershon",
+            "entity_id": "candbpl_8550886f33c23dcb4682",
+            "entity_type": "PLACE"
+          },
+          {
+            "contributions": [
+              {
+                "evidence_scripture_refs": [
+                  "pgp:abraham:2:16"
+                ],
+                "member_event_id": "pgpevt_71d39b33ec405794e1bc",
+                "relationship_id": "candbpart_1c2c39c64b758d5765b3",
+                "relationship_type": "EVENT_OCCURRED_AT_PLACE"
+              }
+            ],
+            "display_label": "Canaan",
+            "entity_id": "candbpl_b610e10253e943c28108",
+            "entity_type": "PLACE"
+          }
+        ],
+        "projection_basis": "UNION_OF_LDS_MEMBER_CANONICAL_RELATIONSHIPS"
+      },
+      "status": "CERTIFIED_SAME_NARRATIVE"
+    },
+    {
+      "anchor_bible_event_id": "candbevt_e25a7301814cb146778a",
+      "anchor_bible_event_range": "genesis:3:21-23",
+      "bible_member_event_ids": [
+        "candbevt_e25a7301814cb146778a"
+      ],
+      "family_id": "candbfam_22f0c05382f35ced29c6",
+      "label": "The Expulsion from Paradise",
+      "lds_member_event_ids": [
+        "pgpevt_3d114208c12daa2f0b14",
+        "pgpevt_dc012c35da6b0d9e919d"
+      ],
+      "member_event_ids": [
+        "candbevt_e25a7301814cb146778a",
+        "pgpevt_3d114208c12daa2f0b14",
+        "pgpevt_dc012c35da6b0d9e919d"
+      ],
+      "membership_evidence": [
+        {
+          "bible_event_range": "genesis:3:21-23",
+          "evidence_basis": "PGP Event Moses 4:28-31 aligns with Genesis 3 expulsion scene.",
+          "kind": "CROSSCANON_CANDIDATE",
+          "mapping_basis": "Garden expulsion parallels Genesis 3:21-23.",
+          "pgp_source_refs": [
+            "pgp:moses:4:28-31"
+          ],
+          "source_artifact": "review/pgp-002b-event-spine/pgp_event_crosscanon_candidates.json"
+        },
+        {
+          "evidence_basis": "Moses 4:26-27 coats of skins and garden departure align with Genesis 3:21-23 Expulsion from Paradise.",
+          "mapping_rationale": "Coats of skins scene is same narrative episode as canonical Expulsion Event (Genesis 3:21-23).",
+          "pgp_event_id": "pgpevt_dc012c35da6b0d9e919d",
+          "source": "NF002_R1"
+        }
+      ],
+      "projection": {
+        "groups": [],
+        "lds_member_event_ids": [
+          "pgpevt_3d114208c12daa2f0b14",
+          "pgpevt_dc012c35da6b0d9e919d"
+        ],
+        "people": [],
+        "places": [
+          {
+            "contributions": [
+              {
+                "evidence_scripture_refs": [
+                  "pgp:moses:4:29",
+                  "pgp:moses:4:31"
+                ],
+                "member_event_id": "pgpevt_3d114208c12daa2f0b14",
+                "relationship_id": "candbpart_becd3724cbc2ae707fb0",
+                "relationship_type": "EVENT_MENTIONS_PLACE"
+              }
+            ],
+            "display_label": "Garden of Eden",
+            "entity_id": "candbpl_76d62549f6e44bf14c4f",
+            "entity_type": "PLACE"
+          }
+        ],
+        "projection_basis": "UNION_OF_LDS_MEMBER_CANONICAL_RELATIONSHIPS"
+      },
+      "status": "CERTIFIED_SAME_NARRATIVE"
+    },
+    {
+      "anchor_bible_event_id": "candbevt_670c858a5842b71629dd",
+      "anchor_bible_event_range": "matthew:24:1-4",
+      "bible_member_event_ids": [
+        "candbevt_670c858a5842b71629dd"
+      ],
+      "family_id": "candbfam_48b9b7ff6f295783d59a",
+      "label": "Temple Destruction and Other Signs",
+      "lds_member_event_ids": [
+        "pgpevt_1a85aa5759ee5e0b505f"
+      ],
+      "member_event_ids": [
+        "candbevt_670c858a5842b71629dd",
+        "pgpevt_1a85aa5759ee5e0b505f"
+      ],
+      "membership_evidence": [
+        {
+          "bible_event_range": "matthew:24:1-4",
+          "evidence_basis": "JS-Matthew 1:1-4 teaching scene aligns with canonical Matthew 24:1-4 Event range.",
+          "kind": "CROSSCANON_CANDIDATE",
+          "mapping_basis": "JST Olivet discourse opening parallels Matthew 24:1-4.",
+          "pgp_source_refs": [
+            "pgp:js-matthew:1:1-4"
+          ],
+          "source_artifact": "review/pgp-002b-event-spine/pgp_event_crosscanon_candidates.json"
+        }
+      ],
+      "projection": {
+        "groups": [],
+        "lds_member_event_ids": [
+          "pgpevt_1a85aa5759ee5e0b505f"
+        ],
+        "people": [
+          {
+            "contributions": [
+              {
+                "evidence_scripture_refs": [
+                  "pgp:js-matthew:1:2",
+                  "pgp:js-matthew:1:3",
+                  "pgp:js-matthew:1:4"
+                ],
+                "member_event_id": "pgpevt_1a85aa5759ee5e0b505f",
+                "relationship_id": "candbpart_08d12149e07b88cc474d",
+                "relationship_type": "PERSON_PARTICIPATED_IN_EVENT"
+              }
+            ],
+            "display_label": "Jesus",
+            "entity_id": "candb_c782837629d7000f31ac",
+            "entity_type": "PERSON"
+          }
+        ],
+        "places": [
+          {
+            "contributions": [
+              {
+                "evidence_scripture_refs": [
+                  "pgp:js-matthew:1:4"
+                ],
+                "member_event_id": "pgpevt_1a85aa5759ee5e0b505f",
+                "relationship_id": "candbpart_2663d1ba1dfb71bf093f",
+                "relationship_type": "EVENT_MENTIONS_PLACE"
+              }
+            ],
+            "display_label": "Mount of Olives",
+            "entity_id": "candbpl_a28eaa25db51aa9c5d0d",
+            "entity_type": "PLACE"
+          }
+        ],
+        "projection_basis": "UNION_OF_LDS_MEMBER_CANONICAL_RELATIONSHIPS"
+      },
+      "status": "CERTIFIED_SAME_NARRATIVE"
+    },
+    {
+      "anchor_bible_event_id": "candbevt_46adc1e156d36df6ab06",
+      "anchor_bible_event_range": "genesis:4:1-16",
+      "bible_member_event_ids": [
+        "candbevt_46adc1e156d36df6ab06"
+      ],
+      "family_id": "candbfam_4d64db04b1f1ced80c6f",
+      "label": "Cain and Abel",
+      "lds_member_event_ids": [
+        "pgpevt_2e900f17299b8cff4fd8",
+        "pgpevt_615a9db090735055aa13",
+        "pgpevt_684c3d75d3e45476603b",
+        "pgpevt_705fe308188b84bd14a8",
+        "pgpevt_b8b6d10111ad528d73dd",
+        "pgpevt_cb7f29e0e07e145d1f6e"
+      ],
+      "member_event_ids": [
+        "candbevt_46adc1e156d36df6ab06",
+        "pgpevt_2e900f17299b8cff4fd8",
+        "pgpevt_615a9db090735055aa13",
+        "pgpevt_684c3d75d3e45476603b",
+        "pgpevt_705fe308188b84bd14a8",
+        "pgpevt_b8b6d10111ad528d73dd",
+        "pgpevt_cb7f29e0e07e145d1f6e"
+      ],
+      "membership_evidence": [
+        {
+          "bible_event_range": "genesis:4:1-16",
+          "evidence_basis": "PGP Event Moses 5:27-28 aligns with canonical Cain and Abel Event range.",
+          "kind": "CROSSCANON_CANDIDATE",
+          "mapping_basis": "Cain kills Abel parallels Genesis 4:1-16.",
+          "pgp_source_refs": [
+            "pgp:moses:5:27-28"
+          ],
+          "source_artifact": "review/pgp-002b-event-spine/pgp_event_crosscanon_candidates.json"
+        },
+        {
+          "evidence_basis": "PGP Moses 5 Cain-Abel arc scene aligns with canonical Cain and Abel Event range genesis:4:1-16.",
+          "mapping_rationale": "Cain arc sub-scene certified as same narrative episode as Genesis 4:1-16 per NF-002 rule 7.",
+          "pgp_event_id": "pgpevt_2e900f17299b8cff4fd8",
+          "source": "NF002_R1"
+        },
+        {
+          "evidence_basis": "PGP Moses 5 Cain-Abel arc scene aligns with canonical Cain and Abel Event range genesis:4:1-16.",
+          "mapping_rationale": "Cain arc sub-scene certified as same narrative episode as Genesis 4:1-16 per NF-002 rule 7.",
+          "pgp_event_id": "pgpevt_615a9db090735055aa13",
+          "source": "NF002_R1"
+        },
+        {
+          "evidence_basis": "PGP Moses 5 Cain-Abel arc scene aligns with canonical Cain and Abel Event range genesis:4:1-16.",
+          "mapping_rationale": "Cain arc sub-scene certified as same narrative episode as Genesis 4:1-16 per NF-002 rule 7.",
+          "pgp_event_id": "pgpevt_705fe308188b84bd14a8",
+          "source": "NF002_R1"
+        },
+        {
+          "evidence_basis": "PGP Moses 5 Cain-Abel arc scene aligns with canonical Cain and Abel Event range genesis:4:1-16.",
+          "mapping_rationale": "Cain arc sub-scene certified as same narrative episode as Genesis 4:1-16 per NF-002 rule 7.",
+          "pgp_event_id": "pgpevt_b8b6d10111ad528d73dd",
+          "source": "NF002_R1"
+        },
+        {
+          "evidence_basis": "PGP Moses 5 Cain-Abel arc scene aligns with canonical Cain and Abel Event range genesis:4:1-16.",
+          "mapping_rationale": "Cain arc sub-scene certified as same narrative episode as Genesis 4:1-16 per NF-002 rule 7.",
+          "pgp_event_id": "pgpevt_cb7f29e0e07e145d1f6e",
+          "source": "NF002_R1"
+        }
+      ],
+      "projection": {
+        "groups": [],
+        "lds_member_event_ids": [
+          "pgpevt_2e900f17299b8cff4fd8",
+          "pgpevt_615a9db090735055aa13",
+          "pgpevt_684c3d75d3e45476603b",
+          "pgpevt_705fe308188b84bd14a8",
+          "pgpevt_b8b6d10111ad528d73dd",
+          "pgpevt_cb7f29e0e07e145d1f6e"
+        ],
+        "people": [
+          {
+            "contributions": [
+              {
+                "evidence_scripture_refs": [
+                  "pgp:moses:5:20"
+                ],
+                "member_event_id": "pgpevt_2e900f17299b8cff4fd8",
+                "relationship_id": "candbpart_00156f9f8cb5fcf499b9",
+                "relationship_type": "PERSON_PARTICIPATED_IN_EVENT"
+              },
+              {
+                "evidence_scripture_refs": [
+                  "pgp:moses:5:17"
+                ],
+                "member_event_id": "pgpevt_b8b6d10111ad528d73dd",
+                "relationship_id": "candbpart_cf61700c070e3a9bed84",
+                "relationship_type": "PERSON_PARTICIPATED_IN_EVENT"
+              }
+            ],
+            "display_label": "Abel",
+            "entity_id": "candb_16e9f4cedca6af89a85a",
+            "entity_type": "PERSON"
+          },
+          {
+            "contributions": [
+              {
+                "evidence_scripture_refs": [
+                  "pgp:moses:5:27",
+                  "pgp:moses:5:28"
+                ],
+                "member_event_id": "pgpevt_684c3d75d3e45476603b",
+                "relationship_id": "candbpart_2563cb4e5be9251a0dcf",
+                "relationship_type": "PERSON_PARTICIPATED_IN_EVENT"
+              },
+              {
+                "evidence_scripture_refs": [
+                  "pgp:moses:5:18",
+                  "pgp:moses:5:19",
+                  "pgp:moses:5:21"
+                ],
+                "member_event_id": "pgpevt_2e900f17299b8cff4fd8",
+                "relationship_id": "candbpart_2a53a6c6e0c16053fd3b",
+                "relationship_type": "PERSON_PARTICIPATED_IN_EVENT"
+              },
+              {
+                "evidence_scripture_refs": [
+                  "pgp:moses:5:16",
+                  "pgp:moses:5:17"
+                ],
+                "member_event_id": "pgpevt_b8b6d10111ad528d73dd",
+                "relationship_id": "candbpart_3f8637b84853375a6b6e",
+                "relationship_type": "PERSON_PARTICIPATED_IN_EVENT"
+              },
+              {
+                "evidence_scripture_refs": [
+                  "pgp:moses:5:34",
+                  "pgp:moses:5:38",
+                  "pgp:moses:5:40",
+                  "pgp:moses:5:41"
+                ],
+                "member_event_id": "pgpevt_705fe308188b84bd14a8",
+                "relationship_id": "candbpart_6df94775e675423f75b5",
+                "relationship_type": "PERSON_PARTICIPATED_IN_EVENT"
+              },
+              {
+                "evidence_scripture_refs": [
+                  "pgp:moses:5:29",
+                  "pgp:moses:5:30",
+                  "pgp:moses:5:31",
+                  "pgp:moses:5:32",
+                  "pgp:moses:5:33"
+                ],
+                "member_event_id": "pgpevt_cb7f29e0e07e145d1f6e",
+                "relationship_id": "candbpart_e11254f3c7bedaf7850a",
+                "relationship_type": "PERSON_PARTICIPATED_IN_EVENT"
+              }
+            ],
+            "display_label": "Cain",
+            "entity_id": "candb_a1f22c1635b3b4323d03",
+            "entity_type": "PERSON"
+          }
+        ],
+        "places": [
+          {
+            "contributions": [
+              {
+                "evidence_scripture_refs": [
+                  "pgp:moses:5:41"
+                ],
+                "member_event_id": "pgpevt_705fe308188b84bd14a8",
+                "relationship_id": "candbpart_e86286fcf40e750fef3e",
+                "relationship_type": "EVENT_OCCURRED_AT_PLACE"
+              }
+            ],
+            "display_label": "Nod",
+            "entity_id": "candbpl_ea970bc87727aacc281b",
+            "entity_type": "PLACE"
+          }
+        ],
+        "projection_basis": "UNION_OF_LDS_MEMBER_CANONICAL_RELATIONSHIPS"
+      },
+      "status": "CERTIFIED_SAME_NARRATIVE"
+    },
+    {
+      "anchor_bible_event_id": "candbevt_29ffa74caaef801c350a",
+      "anchor_bible_event_range": "genesis:2:21-25",
+      "bible_member_event_ids": [
+        "candbevt_29ffa74caaef801c350a"
+      ],
+      "family_id": "candbfam_52e5e8ec54d9b3a11b8e",
+      "is_nf003_family": true,
+      "label": "Eve Is Formed",
+      "lds_member_event_ids": [
+        "pgpevt_55a84c0024fcde56ddbd"
+      ],
+      "member_event_ids": [
+        "candbevt_29ffa74caaef801c350a",
+        "pgpevt_55a84c0024fcde56ddbd"
+      ],
+      "membership_evidence": [
+        {
+          "evidence_basis": "Genesis 2:18-25 narrates the formation of Eve from Adam's rib; Moses 3:21-25 is the same episode. No canonical Bible Event represents genesis:2:18-25.",
+          "mapping_rationale": "Genesis 2 Bible Event spine repair certifies Eve Is Formed (genesis:2:21-25) as direct Bible parallel.",
+          "pgp_event_id": "pgpevt_55a84c0024fcde56ddbd",
+          "source": "NF003"
+        }
+      ],
+      "projection": {
+        "groups": [],
+        "lds_member_event_ids": [
+          "pgpevt_55a84c0024fcde56ddbd"
+        ],
+        "people": [],
+        "places": [],
+        "projection_basis": "UNION_OF_LDS_MEMBER_CANONICAL_RELATIONSHIPS"
+      },
+      "status": "CERTIFIED_SAME_NARRATIVE"
+    },
+    {
+      "anchor_bible_event_id": "candbevt_d655379135e7e6ff7ff6",
+      "anchor_bible_event_range": null,
+      "bible_member_event_ids": [
+        "candbevt_d655379135e7e6ff7ff6"
+      ],
+      "family_id": "candbfam_54126b560bf6a9805609",
+      "is_nf001_extension": false,
+      "label": "The Call of Abram",
+      "lds_member_event_ids": [
+        "pgpevt_102408ea46d760f9993b",
+        "pgpevt_b2628ae7759c47eaed75"
+      ],
+      "member_event_ids": [
+        "candbevt_d655379135e7e6ff7ff6",
+        "pgpevt_102408ea46d760f9993b",
+        "pgpevt_b2628ae7759c47eaed75"
+      ],
+      "membership_evidence": [
+        {
+          "evidence_basis": "Abraham 2:9-15 journey toward Canaan aligns with Genesis 12:1-9 Call of Abram Event range.",
+          "mapping_rationale": "Abraham journey sub-scene certified same narrative as Genesis 12:1-9 per rule 8.",
+          "pgp_event_id": "pgpevt_102408ea46d760f9993b"
+        },
+        {
+          "evidence_basis": "Abraham 2:1-8 departure command aligns with Genesis 12:1-9 Call of Abram Event range.",
+          "mapping_rationale": "Abraham departure sub-scene certified same narrative as Genesis 12:1-9 per rule 8.",
+          "pgp_event_id": "pgpevt_b2628ae7759c47eaed75"
+        }
+      ],
+      "projection": {
+        "groups": [],
+        "lds_member_event_ids": [
+          "pgpevt_102408ea46d760f9993b",
+          "pgpevt_b2628ae7759c47eaed75"
+        ],
+        "people": [
+          {
+            "contributions": [
+              {
+                "evidence_scripture_refs": [
+                  "pgp:abraham:2:14"
+                ],
+                "member_event_id": "pgpevt_102408ea46d760f9993b",
+                "relationship_id": "candbpart_00b720a809b61566c2b1",
+                "relationship_type": "PERSON_PARTICIPATED_IN_EVENT"
+              }
+            ],
+            "display_label": "Abraham",
+            "entity_id": "candb_2673b6dee819a2125c7a",
+            "entity_type": "PERSON"
+          }
+        ],
+        "places": [
+          {
+            "contributions": [
+              {
+                "evidence_scripture_refs": [
+                  "pgp:abraham:2:15"
+                ],
+                "member_event_id": "pgpevt_102408ea46d760f9993b",
+                "relationship_id": "candbpart_2a5bad0b312e2dced939",
+                "relationship_type": "EVENT_OCCURRED_AT_PLACE"
+              },
+              {
+                "evidence_scripture_refs": [
+                  "pgp:abraham:2:1",
+                  "pgp:abraham:2:4"
+                ],
+                "member_event_id": "pgpevt_b2628ae7759c47eaed75",
+                "relationship_id": "candbpart_91399883c1b33034829a",
+                "relationship_type": "EVENT_OCCURRED_AT_PLACE"
+              }
+            ],
+            "display_label": "Ur",
+            "entity_id": "candbpl_0228e9322d7f93f642f5",
+            "entity_type": "PLACE"
+          },
+          {
+            "contributions": [
+              {
+                "evidence_scripture_refs": [
+                  "pgp:abraham:2:4"
+                ],
+                "member_event_id": "pgpevt_b2628ae7759c47eaed75",
+                "relationship_id": "candbpart_768b3368bd87c379b49a",
+                "relationship_type": "EVENT_OCCURRED_AT_PLACE"
+              },
+              {
+                "evidence_scripture_refs": [
+                  "pgp:abraham:2:15"
+                ],
+                "member_event_id": "pgpevt_102408ea46d760f9993b",
+                "relationship_id": "candbpart_bd2af7e23855655ffbf0",
+                "relationship_type": "EVENT_OCCURRED_AT_PLACE"
+              }
+            ],
+            "display_label": "Canaan",
+            "entity_id": "candbpl_b610e10253e943c28108",
+            "entity_type": "PLACE"
+          },
+          {
+            "contributions": [
+              {
+                "evidence_scripture_refs": [
+                  "pgp:abraham:2:15"
+                ],
+                "member_event_id": "pgpevt_102408ea46d760f9993b",
+                "relationship_id": "candbpart_4bdadde4c7f5a54283bc",
+                "relationship_type": "EVENT_OCCURRED_AT_PLACE"
+              }
+            ],
+            "display_label": "Chaldea",
+            "entity_id": "candbpl_ce74561671e152fe5ebb",
+            "entity_type": "PLACE"
+          }
+        ],
+        "projection_basis": "UNION_OF_LDS_MEMBER_CANONICAL_RELATIONSHIPS"
+      },
+      "status": "CERTIFIED_SAME_NARRATIVE"
+    },
+    {
+      "anchor_bible_event_id": "candbevt_f752fea2b4c0784f6249",
+      "anchor_bible_event_range": "genesis:1:1-31",
+      "bible_member_event_ids": [
+        "candbevt_f752fea2b4c0784f6249"
+      ],
+      "family_id": "candbfam_67f71828c9f34c9191ed",
+      "label": "Creation",
+      "lds_member_event_ids": [
+        "pgpevt_217d306cf4e1970dadbf",
+        "pgpevt_2e9ddb40af929c5a1bc2"
+      ],
+      "member_event_ids": [
+        "candbevt_f752fea2b4c0784f6249",
+        "pgpevt_217d306cf4e1970dadbf",
+        "pgpevt_2e9ddb40af929c5a1bc2"
+      ],
+      "membership_evidence": [
+        {
+          "bible_event_range": "genesis:1:1-31",
+          "evidence_basis": "Whole-chapter Abraham 4 Event aligns with canonical Genesis 1:1-31 Creation Event range.",
+          "kind": "CROSSCANON_CANDIDATE",
+          "mapping_basis": "Abraham 4 council Creation account parallels Genesis 1.",
+          "pgp_source_refs": [
+            "pgp:abraham:4:1-31"
+          ],
+          "source_artifact": "review/pgp-002b-event-spine/pgp_event_crosscanon_candidates.json"
+        },
+        {
+          "bible_event_range": "genesis:1:1-31",
+          "evidence_basis": "Whole-chapter Moses 2 Event aligns with canonical Genesis 1:1-31 Creation Event range.",
+          "kind": "CROSSCANON_CANDIDATE",
+          "mapping_basis": "Moses 2 Creation account corresponds to Genesis 1 creation narrative.",
+          "pgp_source_refs": [
+            "pgp:moses:2:1-31"
+          ],
+          "source_artifact": "review/pgp-002b-event-spine/pgp_event_crosscanon_candidates.json"
+        }
+      ],
+      "projection": {
+        "groups": [],
+        "lds_member_event_ids": [
+          "pgpevt_217d306cf4e1970dadbf",
+          "pgpevt_2e9ddb40af929c5a1bc2"
+        ],
+        "people": [
+          {
+            "contributions": [
+              {
+                "evidence_scripture_refs": [
+                  "pgp:moses:2:1",
+                  "pgp:moses:2:26",
+                  "pgp:moses:2:27"
+                ],
+                "member_event_id": "pgpevt_2e9ddb40af929c5a1bc2",
+                "relationship_id": "candbpart_f0f6ec7f0a5727e9b725",
+                "relationship_type": "PERSON_PARTICIPATED_IN_EVENT"
+              }
+            ],
+            "display_label": "Jesus",
+            "entity_id": "candb_c782837629d7000f31ac",
+            "entity_type": "PERSON"
+          }
+        ],
+        "places": [],
+        "projection_basis": "UNION_OF_LDS_MEMBER_CANONICAL_RELATIONSHIPS"
+      },
+      "status": "CERTIFIED_SAME_NARRATIVE"
+    },
+    {
+      "anchor_bible_event_id": "candbevt_b9e5272bd83beb5cd4b6",
+      "anchor_bible_event_range": "genesis:2:4-7",
+      "bible_member_event_ids": [
+        "candbevt_b9e5272bd83beb5cd4b6"
+      ],
+      "family_id": "candbfam_6c1e1b0c6070ca085b3a",
+      "is_nf003_family": true,
+      "label": "Man Is Formed",
+      "lds_member_event_ids": [
+        "pgpevt_7c0711f0ed75c433ca7d",
+        "pgpevt_e76a0cc0b2675bfceb2a"
+      ],
+      "member_event_ids": [
+        "candbevt_b9e5272bd83beb5cd4b6",
+        "pgpevt_7c0711f0ed75c433ca7d",
+        "pgpevt_e76a0cc0b2675bfceb2a"
+      ],
+      "membership_evidence": [
+        {
+          "evidence_basis": "Genesis 2:4-7 narrates the formation of man from the dust; Moses 3:4-7 is the same episode. The canonical Bible Event spine contains only genesis:2:1-3 (Seventh Day) and no Event representing genesis:2:4-7.",
+          "mapping_rationale": "Genesis 2 Bible Event spine repair certifies Man Is Formed (genesis:2:4-7) as direct Bible parallel.",
+          "pgp_event_id": "pgpevt_7c0711f0ed75c433ca7d",
+          "source": "NF003"
+        },
+        {
+          "evidence_basis": "Genesis 2:7 narrates God forming man and breathing life into his nostrils; Abraham 5:6-9 describes the same garden-formation episode. No canonical Bible Event represents genesis:2:7.",
+          "mapping_rationale": "Genesis 2 Bible Event spine repair certifies Man Is Formed (genesis:2:4-7) as direct Bible parallel.",
+          "pgp_event_id": "pgpevt_e76a0cc0b2675bfceb2a",
+          "source": "NF003"
+        }
+      ],
+      "projection": {
+        "groups": [],
+        "lds_member_event_ids": [
+          "pgpevt_7c0711f0ed75c433ca7d",
+          "pgpevt_e76a0cc0b2675bfceb2a"
+        ],
+        "people": [],
+        "places": [],
+        "projection_basis": "UNION_OF_LDS_MEMBER_CANONICAL_RELATIONSHIPS"
+      },
+      "status": "CERTIFIED_SAME_NARRATIVE"
+    },
+    {
+      "anchor_bible_event_id": "candbevt_60122dda78909f545793",
+      "anchor_bible_event_range": "genesis:3:8-13",
+      "bible_member_event_ids": [
+        "candbevt_60122dda78909f545793"
+      ],
+      "family_id": "candbfam_746276a17bf8bd712fc5",
+      "label": "God Arraigns Adam and Eve",
+      "lds_member_event_ids": [
+        "pgpevt_48a78ff32069a0437d90"
+      ],
+      "member_event_ids": [
+        "candbevt_60122dda78909f545793",
+        "pgpevt_48a78ff32069a0437d90"
+      ],
+      "membership_evidence": [
+        {
+          "bible_event_range": "genesis:3:8-13",
+          "evidence_basis": "PGP Event Moses 4:14-19 aligns with Genesis 3 arraignment scene.",
+          "kind": "CROSSCANON_CANDIDATE",
+          "mapping_basis": "Divine questioning of Adam and Eve parallels Genesis 3:8-13.",
+          "pgp_source_refs": [
+            "pgp:moses:4:14-19"
+          ],
+          "source_artifact": "review/pgp-002b-event-spine/pgp_event_crosscanon_candidates.json"
+        }
+      ],
+      "projection": {
+        "groups": [],
+        "lds_member_event_ids": [
+          "pgpevt_48a78ff32069a0437d90"
+        ],
+        "people": [
+          {
+            "contributions": [
+              {
+                "evidence_scripture_refs": [
+                  "pgp:moses:4:14",
+                  "pgp:moses:4:15",
+                  "pgp:moses:4:17"
+                ],
+                "member_event_id": "pgpevt_48a78ff32069a0437d90",
+                "relationship_id": "candbpart_6e5e0fb36781fa83bf81",
+                "relationship_type": "PERSON_PARTICIPATED_IN_EVENT"
+              }
+            ],
+            "display_label": "Adam",
+            "entity_id": "candb_4f7f4336ad8618ff2ef0",
+            "entity_type": "PERSON"
+          }
+        ],
+        "places": [],
+        "projection_basis": "UNION_OF_LDS_MEMBER_CANONICAL_RELATIONSHIPS"
+      },
+      "status": "CERTIFIED_SAME_NARRATIVE"
+    },
+    {
+      "anchor_bible_event_id": "candbevt_40687dba01f91a7d5482",
+      "anchor_bible_event_range": "matthew:24:26-30",
+      "bible_member_event_ids": [
+        "candbevt_40687dba01f91a7d5482"
+      ],
+      "family_id": "candbfam_942f0dd5e6d2c5d01e63",
+      "label": "The Return of the Son of Man",
+      "lds_member_event_ids": [
+        "pgpevt_f36c5e09d4e73d4e29b3"
+      ],
+      "member_event_ids": [
+        "candbevt_40687dba01f91a7d5482",
+        "pgpevt_f36c5e09d4e73d4e29b3"
+      ],
+      "membership_evidence": [
+        {
+          "bible_event_range": "matthew:24:26-30",
+          "evidence_basis": "JS-Matthew 1:21-26 prophecy range aligns with canonical Matthew 24:26-30 Event range.",
+          "kind": "CROSSCANON_CANDIDATE",
+          "mapping_basis": "JS-Matthew signs-of-coming scene parallels Matthew 24:26-30.",
+          "pgp_source_refs": [
+            "pgp:js-matthew:1:21-26"
+          ],
+          "source_artifact": "review/pgp-002b-event-spine/pgp_event_crosscanon_candidates.json"
+        }
+      ],
+      "projection": {
+        "groups": [],
+        "lds_member_event_ids": [
+          "pgpevt_f36c5e09d4e73d4e29b3"
+        ],
+        "people": [],
+        "places": [],
+        "projection_basis": "UNION_OF_LDS_MEMBER_CANONICAL_RELATIONSHIPS"
+      },
+      "status": "CERTIFIED_SAME_NARRATIVE"
+    },
+    {
+      "anchor_bible_event_id": "candbevt_d96f7bd433f359adba64",
+      "anchor_bible_event_range": "genesis:2:18-20",
+      "bible_member_event_ids": [
+        "candbevt_d96f7bd433f359adba64"
+      ],
+      "family_id": "candbfam_978c228be44c38ed63c9",
+      "is_nf003_family": true,
+      "label": "Adam Names the Animals",
+      "lds_member_event_ids": [
+        "pgpevt_4ae854e52bdce181fb37",
+        "pgpevt_5b878bf4bf1b2c0437fd"
+      ],
+      "member_event_ids": [
+        "candbevt_d96f7bd433f359adba64",
+        "pgpevt_4ae854e52bdce181fb37",
+        "pgpevt_5b878bf4bf1b2c0437fd"
+      ],
+      "membership_evidence": [
+        {
+          "evidence_basis": "Genesis 2:19-20 narrates Adam naming the animals; Abraham 5:10-15 is the same episode. No canonical Bible Event represents genesis:2:19-20.",
+          "mapping_rationale": "Genesis 2 Bible Event spine repair certifies Adam Names the Animals (genesis:2:18-20) as direct Bible parallel.",
+          "pgp_event_id": "pgpevt_4ae854e52bdce181fb37",
+          "source": "NF003"
+        },
+        {
+          "evidence_basis": "Genesis 2:19-20 narrates Adam naming the animals; Moses 3:16-20 is the same episode. No canonical Bible Event represents genesis:2:19-20.",
+          "mapping_rationale": "Genesis 2 Bible Event spine repair certifies Adam Names the Animals (genesis:2:18-20) as direct Bible parallel.",
+          "pgp_event_id": "pgpevt_5b878bf4bf1b2c0437fd",
+          "source": "NF003"
+        }
+      ],
+      "projection": {
+        "groups": [],
+        "lds_member_event_ids": [
+          "pgpevt_4ae854e52bdce181fb37",
+          "pgpevt_5b878bf4bf1b2c0437fd"
+        ],
+        "people": [
+          {
+            "contributions": [
+              {
+                "evidence_scripture_refs": [
+                  "pgp:moses:3:19",
+                  "pgp:moses:3:20"
+                ],
+                "member_event_id": "pgpevt_5b878bf4bf1b2c0437fd",
+                "relationship_id": "candbpart_2bd11e271548ae2674df",
+                "relationship_type": "PERSON_PARTICIPATED_IN_EVENT"
+              },
+              {
+                "evidence_scripture_refs": [
+                  "pgp:abraham:5:13",
+                  "pgp:abraham:5:15"
+                ],
+                "member_event_id": "pgpevt_4ae854e52bdce181fb37",
+                "relationship_id": "candbpart_8e8f5dd0996e068d25f4",
+                "relationship_type": "PERSON_PARTICIPATED_IN_EVENT"
+              }
+            ],
+            "display_label": "Adam",
+            "entity_id": "candb_4f7f4336ad8618ff2ef0",
+            "entity_type": "PERSON"
+          }
+        ],
+        "places": [
+          {
+            "contributions": [
+              {
+                "evidence_scripture_refs": [
+                  "pgp:abraham:5:11"
+                ],
+                "member_event_id": "pgpevt_4ae854e52bdce181fb37",
+                "relationship_id": "candbpart_87f03edb3d66a8c20347",
+                "relationship_type": "EVENT_MENTIONS_PLACE"
+              }
+            ],
+            "display_label": "Garden of Eden",
+            "entity_id": "candbpl_76d62549f6e44bf14c4f",
+            "entity_type": "PLACE"
+          }
+        ],
+        "projection_basis": "UNION_OF_LDS_MEMBER_CANONICAL_RELATIONSHIPS"
+      },
+      "status": "CERTIFIED_SAME_NARRATIVE"
+    },
+    {
+      "anchor_bible_event_id": "candbevt_dbedfc1ab87dcdfd6c2d",
+      "anchor_bible_event_range": null,
+      "bible_member_event_ids": [
+        "candbevt_dbedfc1ab87dcdfd6c2d"
+      ],
+      "family_id": "candbfam_ba35874734549105526c",
+      "is_nf001_extension": false,
+      "label": "Seth and Enosh",
+      "lds_member_event_ids": [
+        "pgpevt_f10534510d0140849f56"
+      ],
+      "member_event_ids": [
+        "candbevt_dbedfc1ab87dcdfd6c2d",
+        "pgpevt_f10534510d0140849f56"
+      ],
+      "membership_evidence": [
+        {
+          "evidence_basis": "Genesis 4:25-26 narrates Seth's birth and Enosh; Moses 5:42-45 describes the same Seth-birth episode. Canonical Bible Event candbevt_dbedfc1ab87dcdfd6c2d (Seth and Enosh) covers genesis:4:25-26.",
+          "mapping_rationale": "Source review confirms direct Genesis 4 parallel; certified to existing Seth and Enosh Event.",
+          "pgp_event_id": "pgpevt_f10534510d0140849f56"
+        }
+      ],
+      "projection": {
+        "groups": [],
+        "lds_member_event_ids": [
+          "pgpevt_f10534510d0140849f56"
+        ],
+        "people": [],
+        "places": [
+          {
+            "contributions": [
+              {
+                "evidence_scripture_refs": [
+                  "pgp:moses:5:42",
+                  "pgp:moses:5:43"
+                ],
+                "member_event_id": "pgpevt_f10534510d0140849f56",
+                "relationship_id": "candbpart_9cdf0fd34ab3ab055058",
+                "relationship_type": "EVENT_MENTIONS_PLACE"
+              }
+            ],
+            "display_label": "Enoch",
+            "entity_id": "candbpl_d60ba4f0e53122035666",
+            "entity_type": "PLACE"
+          }
+        ],
+        "projection_basis": "UNION_OF_LDS_MEMBER_CANONICAL_RELATIONSHIPS"
+      },
+      "status": "CERTIFIED_SAME_NARRATIVE"
+    },
+    {
+      "anchor_bible_event_id": "candbevt_95f3817c68f135f21206",
+      "anchor_bible_event_range": "genesis:2:8-17",
+      "bible_member_event_ids": [
+        "candbevt_95f3817c68f135f21206"
+      ],
+      "family_id": "candbfam_d26853ae99e9600e81da",
+      "is_nf003_family": true,
+      "label": "Adam Placed in the Garden of Eden",
+      "lds_member_event_ids": [
+        "pgpevt_9f2985f06c25f525b35e"
+      ],
+      "member_event_ids": [
+        "candbevt_95f3817c68f135f21206",
+        "pgpevt_9f2985f06c25f525b35e"
+      ],
+      "membership_evidence": [
+        {
+          "evidence_basis": "Genesis 2:8-17 narrates God placing man in Eden and the garden command; Moses 3:8-15 is the same episode. No canonical Bible Event represents genesis:2:8-17.",
+          "mapping_rationale": "Genesis 2 Bible Event spine repair certifies Adam Placed in the Garden of Eden (genesis:2:8-17) as direct Bible parallel.",
+          "pgp_event_id": "pgpevt_9f2985f06c25f525b35e",
+          "source": "NF003"
+        }
+      ],
+      "projection": {
+        "groups": [],
+        "lds_member_event_ids": [
+          "pgpevt_9f2985f06c25f525b35e"
+        ],
+        "people": [],
+        "places": [
+          {
+            "contributions": [
+              {
+                "evidence_scripture_refs": [
+                  "pgp:moses:3:13"
+                ],
+                "member_event_id": "pgpevt_9f2985f06c25f525b35e",
+                "relationship_id": "candbpart_88d28bd87118461c8bae",
+                "relationship_type": "EVENT_MENTIONS_PLACE"
+              }
+            ],
+            "display_label": "Cush",
+            "entity_id": "candbpl_06b6e2f00f2ac84ef31f",
+            "entity_type": "PLACE"
+          },
+          {
+            "contributions": [
+              {
+                "evidence_scripture_refs": [
+                  "pgp:moses:3:15"
+                ],
+                "member_event_id": "pgpevt_9f2985f06c25f525b35e",
+                "relationship_id": "candbpart_2e2a02ed5ff509fb1938",
+                "relationship_type": "EVENT_MENTIONS_PLACE"
+              }
+            ],
+            "display_label": "Garden of Eden",
+            "entity_id": "candbpl_76d62549f6e44bf14c4f",
+            "entity_type": "PLACE"
+          }
+        ],
+        "projection_basis": "UNION_OF_LDS_MEMBER_CANONICAL_RELATIONSHIPS"
+      },
+      "status": "CERTIFIED_SAME_NARRATIVE"
+    },
+    {
+      "anchor_bible_event_id": "candbevt_029072f27e20ab79cdb0",
+      "anchor_bible_event_range": null,
+      "bible_member_event_ids": [
+        "candbevt_029072f27e20ab79cdb0"
+      ],
+      "family_id": "candbfam_d2e537d6242324b783b7",
+      "is_nf001_extension": false,
+      "label": "The Fate of the Serpent",
+      "lds_member_event_ids": [
+        "pgpevt_9c6382e2e11df7117892"
+      ],
+      "member_event_ids": [
+        "candbevt_029072f27e20ab79cdb0",
+        "pgpevt_9c6382e2e11df7117892"
+      ],
+      "membership_evidence": [
+        {
+          "evidence_basis": "Moses 4:20-22 divine judgments on serpent and woman align with Genesis 3:14-16 Fate of the Serpent and punishment scene.",
+          "mapping_rationale": "Moses 4 fall judgment sub-scene maps to Genesis 3 serpent and woman judgments (same Fall episode).",
+          "pgp_event_id": "pgpevt_9c6382e2e11df7117892"
+        }
+      ],
+      "projection": {
+        "groups": [],
+        "lds_member_event_ids": [
+          "pgpevt_9c6382e2e11df7117892"
+        ],
+        "people": [],
+        "places": [],
+        "projection_basis": "UNION_OF_LDS_MEMBER_CANONICAL_RELATIONSHIPS"
+      },
+      "status": "CERTIFIED_SAME_NARRATIVE"
+    },
+    {
+      "anchor_bible_event_id": "candbevt_f6d94989bb46fdda2fb1",
+      "anchor_bible_event_range": "genesis:3:1-7",
+      "bible_member_event_ids": [
+        "candbevt_f6d94989bb46fdda2fb1"
+      ],
+      "family_id": "candbfam_fca7810c098a5140fc8a",
+      "label": "The Serpent's Deception",
+      "lds_member_event_ids": [
+        "pgpevt_1a3a6fb35bce877c6704",
+        "pgpevt_f33e9e56e783c9a8112c"
+      ],
+      "member_event_ids": [
+        "candbevt_f6d94989bb46fdda2fb1",
+        "pgpevt_1a3a6fb35bce877c6704",
+        "pgpevt_f33e9e56e783c9a8112c"
+      ],
+      "membership_evidence": [
+        {
+          "bible_event_range": "genesis:3:1-7",
+          "evidence_basis": "PGP Event Moses 4:12-13 aligns with Genesis 3 partaking scene.",
+          "kind": "CROSSCANON_CANDIDATE",
+          "mapping_basis": "Adam and Eve partaking parallels Genesis 3:1-7 Fall account.",
+          "pgp_source_refs": [
+            "pgp:moses:4:12-13"
+          ],
+          "source_artifact": "review/pgp-002b-event-spine/pgp_event_crosscanon_candidates.json"
+        },
+        {
+          "bible_event_range": "genesis:3:1-7",
+          "evidence_basis": "PGP Event range Moses 4:5-11 overlaps Genesis 3 serpent-deception scene.",
+          "kind": "CROSSCANON_CANDIDATE",
+          "mapping_basis": "Moses 4 serpent deception parallels Genesis 3:1-7.",
+          "pgp_source_refs": [
+            "pgp:moses:4:5-11"
+          ],
+          "source_artifact": "review/pgp-002b-event-spine/pgp_event_crosscanon_candidates.json"
+        }
+      ],
+      "projection": {
+        "groups": [],
+        "lds_member_event_ids": [
+          "pgpevt_1a3a6fb35bce877c6704",
+          "pgpevt_f33e9e56e783c9a8112c"
+        ],
+        "people": [],
+        "places": [],
+        "projection_basis": "UNION_OF_LDS_MEMBER_CANONICAL_RELATIONSHIPS"
+      },
+      "status": "CERTIFIED_SAME_NARRATIVE"
+    },
+    {
+      "anchor_bible_event_id": "candbevt_543645a50689ba18fa01",
+      "anchor_bible_event_range": null,
+      "bible_member_event_ids": [
+        "candbevt_543645a50689ba18fa01"
+      ],
+      "family_id": "candbfam_fe54a0527653780bc70b",
+      "is_nf001_extension": false,
+      "label": "The Punishment of Mankind",
+      "lds_member_event_ids": [
+        "pgpevt_e5f48319fe4517472408"
+      ],
+      "member_event_ids": [
+        "candbevt_543645a50689ba18fa01",
+        "pgpevt_e5f48319fe4517472408"
+      ],
+      "membership_evidence": [
+        {
+          "evidence_basis": "Moses 4:23-25 Adam receives Fall consequences matching Genesis 3:17-19 punishment of mankind.",
+          "mapping_rationale": "Moses 4 Adam consequence sub-scene is same Fall episode as Genesis 3 Punishment of Mankind.",
+          "pgp_event_id": "pgpevt_e5f48319fe4517472408"
+        }
+      ],
+      "projection": {
+        "groups": [],
+        "lds_member_event_ids": [
+          "pgpevt_e5f48319fe4517472408"
+        ],
+        "people": [
+          {
+            "contributions": [
+              {
+                "evidence_scripture_refs": [
+                  "pgp:moses:4:23"
+                ],
+                "member_event_id": "pgpevt_e5f48319fe4517472408",
+                "relationship_id": "candbpart_fe0240a7d4622ee1184c",
+                "relationship_type": "PERSON_PARTICIPATED_IN_EVENT"
+              }
+            ],
+            "display_label": "Adam",
+            "entity_id": "candb_4f7f4336ad8618ff2ef0",
+            "entity_type": "PERSON"
+          }
+        ],
+        "places": [],
+        "projection_basis": "UNION_OF_LDS_MEMBER_CANONICAL_RELATIONSHIPS"
+      },
+      "status": "CERTIFIED_SAME_NARRATIVE"
+    }
+  ],
+  "family_count": 16,
+  "schema_version": "narrative_families_v2_live",
+  "source_checkpoint": {
+    "certified_families_path": "review/nf003-genesis2-spine-repair/narrative_families_nf003_candidate.json",
+    "nf003_r1_head_sha": "1d8bd27369606b1583c45945a1ce4d8a28276383",
+    "nf003_review_dir": "review/nf003-genesis2-spine-repair"
+  }
+}
