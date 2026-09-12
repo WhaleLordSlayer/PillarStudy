@@ -199,6 +199,9 @@ body {
 /* =========================================================
    FILTERS BAR
    ========================================================= */
+.btn-filters-toggle { display: none; }
+.filters-header-mobile { display: none; }
+
 .filters {
   display: flex;
   gap: 16px;
@@ -211,10 +214,16 @@ body {
   position: relative;
   z-index: 40;
 }
-.filter-group { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.filters-card {
+  display: contents;
+}
+.filters-header, .filters-footer {
+  display: none;
+}
+.filter-group { display: flex; gap: 8px 12px; align-items: center; flex-wrap: wrap; }
 .filter-label { color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; font-size: 10px; font-weight: 700; }
 .chk { display: flex; gap: 6px; align-items: center; cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent; }
-.chk input { accent-color: var(--person); cursor: pointer; }
+.chk input { accent-color: var(--person); cursor: pointer; width: 15px; height: 15px; }
 
 /* =========================================================
    WORKSPACE & CANVAS
@@ -875,50 +884,89 @@ kbd {
     flex-shrink: 0;
   }
   
-  /* Collapsible Filters on Tablet */
+  /* Collapsible Filters Modal on Tablet & Phone */
   .btn-filters-toggle { display: inline-flex !important; }
   .filters {
     display: none;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
-    padding: 14px 18px;
-    max-height: 60vh;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    background: #090f1a;
-    border-bottom: 2px solid var(--person);
-    box-shadow: 0 12px 36px rgba(0,0,0,0.75);
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    z-index: 60;
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 200 !important;
+    background: rgba(0, 0, 0, 0.82) !important;
+    backdrop-filter: blur(10px) !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 16px !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    border-bottom: none !important;
   }
-  .filters.open { display: flex !important; }
-  .filters-header-mobile {
+  .filters.open {
+    display: flex !important;
+  }
+  .filters-card {
+    display: flex !important;
+    flex-direction: column !important;
+    background: #0f172a !important;
+    border: 1px solid #1e40af !important;
+    border-radius: 14px !important;
+    width: min(580px, 94vw) !important;
+    max-height: 86vh !important;
+    overflow: hidden !important;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9), 0 0 20px rgba(2, 132, 199, 0.25) !important;
+    animation: modalPop 0.2s ease-out;
+  }
+  .filters-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 14px 18px !important;
+    background: #0b1220 !important;
+    border-bottom: 1px solid var(--line) !important;
+  }
+  .filters-title {
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    color: #38bdf8 !important;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    font-weight: 700;
-    font-size: 13px;
-    color: #38bdf8;
-    border-bottom: 1px solid var(--line);
-    padding-bottom: 8px;
-    margin-bottom: 4px;
+    gap: 6px;
+  }
+  .filters-body {
+    padding: 16px 18px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
   }
   .filter-group {
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 8px 14px;
-    padding: 6px 0;
-    border-bottom: 1px solid #131d2e;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 8px 14px !important;
+    align-items: center !important;
+    padding-bottom: 10px !important;
+    border-bottom: 1px solid #1e293b !important;
+  }
+  .filter-group:last-child {
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
   }
   .filter-label {
-    width: 100%;
-    font-size: 10px;
-    margin-bottom: 2px;
+    width: 100% !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    color: #38bdf8 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    margin-bottom: 2px !important;
+  }
+  .filters-footer {
+    display: flex !important;
+    justify-content: flex-end !important;
+    padding: 12px 18px !important;
+    background: #0b1220 !important;
+    border-top: 1px solid var(--line) !important;
   }
 
   /* Empty state / Welcome card on tablet */

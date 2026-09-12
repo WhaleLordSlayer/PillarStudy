@@ -45,53 +45,62 @@
     </div>
   </header>
 
-  <section class="filters" id="filters-bar">
-    <div class="filters-header-mobile">
-      <span>Filter Graph Entities</span>
-      <button id="btn-close-filters-mobile" class="btn-icon" type="button">✕</button>
-    </div>
-    <div class="filter-group">
-      <span class="filter-label">Nodes</span>
-      <label class="chk"><input type="checkbox" data-node-type="PERSON" checked> People (3,132)</label>
-      <label class="chk"><input type="checkbox" data-node-type="PLACE" checked> Places (1,014)</label>
-      <label class="chk"><input type="checkbox" data-node-type="GROUP" checked> Groups (111)</label>
-      <label class="chk"><input type="checkbox" data-node-type="EVENT" checked> Events (1,749)</label>
-    </div>
-    <div class="filter-group">
-      <span class="filter-label">Corpus Scope</span>
-      <label class="chk"><input type="checkbox" data-corpus-filter="OT" checked> Old Testament</label>
-      <label class="chk"><input type="checkbox" data-corpus-filter="NT" checked> New Testament</label>
-      <label class="chk"><input type="checkbox" data-corpus-filter="BOTH" checked> Cross-Testament</label>
-      <label class="chk"><input type="checkbox" data-corpus-filter="PGP" checked> Pearl of Great Price (82)</label>
-    </div>
-    <div class="filter-group" id="filter-group-pgp-works">
-      <span class="filter-label">PGP Works</span>
-      <label class="chk"><input type="checkbox" data-pgp-filter="moses" checked> Moses (58)</label>
-      <label class="chk"><input type="checkbox" data-pgp-filter="abraham" checked> Abraham (14)</label>
-      <label class="chk"><input type="checkbox" data-pgp-filter="js-matthew" checked> JS—Matthew (10)</label>
-    </div>
-    <div class="filter-group">
-      <span class="filter-label">Event Source</span>
-      <label class="chk"><input type="checkbox" data-source-filter="BSB" checked> BSB (1,597)</label>
-      <label class="chk"><input type="checkbox" data-source-filter="DSSU" checked> DSSU (70)</label>
-      <label class="chk"><input type="checkbox" data-source-filter="lds_scriptures" checked> LDS (82)</label>
-    </div>
-    <div class="filter-group">
-      <span class="filter-label">Status</span>
-      <label class="chk"><input type="checkbox" data-status-filter="ACCEPTED" checked> Accepted</label>
-      <label class="chk"><input type="checkbox" data-status-filter="REVIEW_REQUIRED" checked> <span class="status-indicator review">Review Required</span></label>
-    </div>
-    <div class="filter-group">
-      <span class="filter-label">Edges</span>
-      <label class="chk"><input type="checkbox" data-edge-class="canonical" checked> Canonical (11,613)</label>
-      <label class="chk"><input type="checkbox" data-edge-class="family" checked> Family (6,562)</label>
-      <label class="chk"><input type="checkbox" data-edge-class="participation" checked> Participation (1,561)</label>
-    </div>
-    <div class="filter-group">
-      <span class="filter-label">Secondary Edges</span>
-      <label class="chk"><input type="radio" name="secondary-mode" value="dim" checked> Dim</label>
-      <label class="chk"><input type="radio" name="secondary-mode" value="hide"> Hide</label>
-      <label class="chk"><input type="radio" name="secondary-mode" value="show"> Show</label>
+    <section class="filters" id="filters-bar">
+    <div class="filters-card">
+      <div class="filters-header">
+        <div class="filters-title">
+          <span>⚙️ Filter Graph Entities & Connections</span>
+        </div>
+        <button id="btn-close-filters-mobile" class="btn-icon" type="button" aria-label="Close Filters">✕</button>
+      </div>
+      <div class="filters-body">
+        <div class="filter-group">
+          <span class="filter-label">Entity Types</span>
+          <label class="chk"><input type="checkbox" data-node-type="PERSON" checked> People (3,132)</label>
+          <label class="chk"><input type="checkbox" data-node-type="PLACE" checked> Places (1,014)</label>
+          <label class="chk"><input type="checkbox" data-node-type="GROUP" checked> Groups (111)</label>
+          <label class="chk"><input type="checkbox" data-node-type="EVENT" checked> Events (1,749)</label>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Corpus Scope</span>
+          <label class="chk"><input type="checkbox" data-corpus-filter="OT" checked> Old Testament</label>
+          <label class="chk"><input type="checkbox" data-corpus-filter="NT" checked> New Testament</label>
+          <label class="chk"><input type="checkbox" data-corpus-filter="BOTH" checked> Cross-Testament</label>
+          <label class="chk"><input type="checkbox" data-corpus-filter="PGP" checked> Pearl of Great Price (82)</label>
+        </div>
+        <div class="filter-group" id="filter-group-pgp-works">
+          <span class="filter-label">PGP Works</span>
+          <label class="chk"><input type="checkbox" data-pgp-filter="moses" checked> Moses (58)</label>
+          <label class="chk"><input type="checkbox" data-pgp-filter="abraham" checked> Abraham (14)</label>
+          <label class="chk"><input type="checkbox" data-pgp-filter="js-matthew" checked> JS—Matthew (10)</label>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Event Sources</span>
+          <label class="chk"><input type="checkbox" data-source-filter="BSB" checked> BSB (1,597)</label>
+          <label class="chk"><input type="checkbox" data-source-filter="DSSU" checked> DSSU (70)</label>
+          <label class="chk"><input type="checkbox" data-source-filter="lds_scriptures" checked> LDS Scriptures (82)</label>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Review Status</span>
+          <label class="chk"><input type="checkbox" data-status-filter="ACCEPTED" checked> Accepted</label>
+          <label class="chk"><input type="checkbox" data-status-filter="REVIEW_REQUIRED" checked> <span class="status-indicator review">Review Required</span></label>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Edge Classes</span>
+          <label class="chk"><input type="checkbox" data-edge-class="canonical" checked> Canonical (11,613)</label>
+          <label class="chk"><input type="checkbox" data-edge-class="family" checked> Family Kinship (6,562)</label>
+          <label class="chk"><input type="checkbox" data-edge-class="participation" checked> Participation (1,561)</label>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Secondary Edges</span>
+          <label class="chk"><input type="radio" name="secondary-mode" value="dim" checked> Dim</label>
+          <label class="chk"><input type="radio" name="secondary-mode" value="hide"> Hide</label>
+          <label class="chk"><input type="radio" name="secondary-mode" value="show"> Show</label>
+        </div>
+      </div>
+      <div class="filters-footer">
+        <button id="btn-filters-apply" class="action-btn action-primary" type="button">Done / Apply Filters</button>
+      </div>
     </div>
   </section>
 

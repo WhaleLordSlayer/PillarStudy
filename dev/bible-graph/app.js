@@ -328,6 +328,22 @@
     state.scale = 1;
     state.pan = { x: 0, y: 0 };
 
+    // Reset filters to default
+    state.filters = {
+      node: { PERSON: true, PLACE: true, GROUP: true, EVENT: true, SOURCE: false },
+      corpus: { OT: true, NT: true, BOTH: true, PGP: true },
+      pgp: { moses: true, abraham: true, "js-matthew": true },
+      source: { BSB: true, DSSU: true, lds_scriptures: true },
+      status: { ACCEPTED: true, REVIEW_REQUIRED: true },
+      edge: { canonical: true, family: true, participation: true },
+    };
+    state.secondaryMode = "dim";
+    document.querySelectorAll("#filters-bar input[type='checkbox']").forEach(chk => {
+      chk.checked = true;
+    });
+    const dimRadio = document.querySelector("input[name='secondary-mode'][value='dim']");
+    if (dimRadio) dimRadio.checked = true;
+
     try {
       const url = new URL(window.location.href);
       url.searchParams.delete("node");
@@ -343,6 +359,7 @@
     el.hud.textContent = "";
     if (el.inspector) el.inspector.classList.remove("open");
     if (el.btnShowInspector) el.btnShowInspector.hidden = true;
+    if (el.filtersBar) el.filtersBar.classList.remove("open");
   }
 
   window.resetToHome = resetToHome;
@@ -508,6 +525,7 @@
     const incident = getIncidentEdges(nodeId);
 
     for (const e of incident) {
+      if (!edgePassesFilter(e)) continue;
       const otherId = getAdjacentNodeId(e, nodeId);
       if (!otherId || seen.has(otherId)) continue;
       const otherNode = state.nodes.get(otherId);
@@ -519,29 +537,43 @@
     return out;
   }
 
+    function edgePassesFilter(edge) {
+    if (!edge) return false;
+    const relType = edge.relationship_type || "";
+    const isFamily = relType.includes("OF") || relType === "KILLED";
+    const isPart = relType.includes("PARTICIPATED_IN_EVENT") || relType.includes("OCCURRED_AT") || relType.includes("MENTIONS") || relType.includes("MEMBER_OF");
+
+    if (state.filters.edge.canonical === false) return false;
+    if (state.filters.edge.family === false && isFamily) return false;
+    if (state.filters.edge.participation === false && isPart) return false;
+    if (state.filters.status && edge.review_status && state.filters.status[edge.review_status] === false) return false;
+    return true;
+  }
+
   function nodePassesFilter(node) {
     if (!node) return false;
     if (!state.filters.node[node.type]) return false;
 
     // Corpus filter
-    const corpus = node.corpus_membership || (node.type_details && (node.type_details.corpus_membership || node.type_details.corpus)) || (node.id.startsWith("pgpevt_") ? "PGP" : "BOTH");
-    if (corpus !== "BOTH" && state.filters.corpus[corpus] === false) return false;
+    const td = node.type_details || {};
+    const corpus = node.corpus_membership || td.corpus_membership || td.corpus || (node.id.startsWith("pgpevt_") ? "PGP" : "BOTH");
+    if (state.filters.corpus[corpus] === false) return false;
 
     // PGP subdivision filter (Moses, Abraham, JS-Matthew)
-    if (node.type === "EVENT" && corpus === "PGP") {
-      const bookCoverage = (node.type_details && node.type_details.book_coverage) || [];
+    if (node.type === "EVENT" && (corpus === "PGP" || node.id.startsWith("pgpevt_"))) {
+      const bookCoverage = td.book_coverage || [];
       const hasMatchingSubdivision = bookCoverage.some(b => state.filters.pgp[b]);
       if (bookCoverage.length > 0 && !hasMatchingSubdivision) return false;
     }
 
     // Source filter on Events
     if (node.type === "EVENT") {
-      const sourceKind = node.source_kind || (node.type_details && (node.type_details.source_kind || node.type_details.primary_source_id)) || "BSB";
+      const sourceKind = td.source_kind || node.source_kind || (node.id.startsWith("pgpevt_") ? "lds_scriptures" : "BSB");
       if (state.filters.source[sourceKind] === false) return false;
     }
 
     // Review status
-    const status = node.review_status || (node.type_details && node.type_details.review_status) || "ACCEPTED";
+    const status = node.review_status || td.review_status || "ACCEPTED";
     if (!state.filters.status[status]) return false;
 
     return true;
@@ -663,6 +695,7 @@
       const a = state.nodes.get(edge.source);
       const b = state.nodes.get(edge.target);
       if (!a || !b || !nodePassesFilter(a) || !nodePassesFilter(b)) return;
+      if (!edgePassesFilter(edge)) return;
       out.push(edge);
     });
     return out;
@@ -1498,6 +1531,19 @@
     if (btnCloseFiltersMobile) {
       btnCloseFiltersMobile.addEventListener("click", () => {
         el.filtersBar.classList.remove("open");
+      });
+    }
+    const btnFiltersApply = document.getElementById("btn-filters-apply");
+    if (btnFiltersApply) {
+      btnFiltersApply.addEventListener("click", () => {
+        el.filtersBar.classList.remove("open");
+      });
+    }
+    if (el.filtersBar) {
+      el.filtersBar.addEventListener("click", (e) => {
+        if (e.target === el.filtersBar) {
+          el.filtersBar.classList.remove("open");
+        }
       });
     }
 
