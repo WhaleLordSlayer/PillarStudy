@@ -1761,15 +1761,31 @@
     const modal = document.getElementById("narrative-families-modal");
     if (!modal) return;
     modal.hidden = false;
+    const bodyEl = modal.querySelector(".nf-modal-body");
+    if (bodyEl && !familyId) {
+      bodyEl.classList.remove("show-detail");
+    }
     renderNarrativeFamiliesList();
     if (familyId) {
       selectNarrativeFamily(familyId);
     } else if (state.selectedFamilyId) {
       selectNarrativeFamily(state.selectedFamilyId);
     } else if (state.narrativeFamilies.length > 0) {
-      selectNarrativeFamily(state.narrativeFamilies[0].family_id);
+      // On desktop select first, on mobile let user pick
+      if (window.innerWidth > 768) {
+        selectNarrativeFamily(state.narrativeFamilies[0].family_id);
+      }
     }
   }
+  window.openNarrativeFamiliesModal = openNarrativeFamiliesModal;
+
+  window.nfBackToList = () => {
+    const modal = document.getElementById("narrative-families-modal");
+    if (modal) {
+      const bodyEl = modal.querySelector(".nf-modal-body");
+      if (bodyEl) bodyEl.classList.remove("show-detail");
+    }
+  };
   window.openNarrativeFamiliesModal = openNarrativeFamiliesModal;
 
   function closeNarrativeFamiliesModal() {
@@ -1795,6 +1811,13 @@
       url.searchParams.set("family", familyId);
       window.history.replaceState(null, "", url.toString());
     } catch (e) {}
+
+    // Switch mobile view to detail
+    const modal = document.getElementById("narrative-families-modal");
+    if (modal) {
+      const bodyEl = modal.querySelector(".nf-modal-body");
+      if (bodyEl) bodyEl.classList.add("show-detail");
+    }
 
     // Update selected class in list
     document.querySelectorAll(".nf-card").forEach(c => {
@@ -2050,6 +2073,7 @@
     });
 
     pane.innerHTML = `
+      <button class="btn-nf-back" onclick="window.nfBackToList()" type="button">← Back to Families List</button>
       <!-- SECTION A: FAMILY HEADER -->
       <div class="nf-section">
         <div class="nf-section-header">

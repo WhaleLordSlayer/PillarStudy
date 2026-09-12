@@ -1243,9 +1243,27 @@ kbd {
 }
 
 
+
 /* =========================================================
    NARRATIVE FAMILIES & LAYERED STORY VIEWER
    ========================================================= */
+#narrative-families-modal.modal {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 250 !important;
+  background: rgba(0, 0, 0, 0.88) !important;
+  backdrop-filter: blur(10px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 16px !important;
+  overflow: hidden !important;
+  touch-action: pan-y !important;
+}
+#narrative-families-modal[hidden] {
+  display: none !important;
+}
+
 .btn-narrative-families {
   background: linear-gradient(135deg, rgba(14, 165, 233, 0.25), rgba(56, 189, 248, 0.15)) !important;
   border-color: #38bdf8 !important;
@@ -1253,8 +1271,8 @@ kbd {
   font-weight: 700 !important;
 }
 .btn-narrative-families:hover {
-  background: rgba(56, 189, 248, 0.3) !important;
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.4) !important;
+  background: rgba(56, 189, 248, 0.35) !important;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.4) !important;
 }
 
 .nf-modal-card {
@@ -1264,10 +1282,12 @@ kbd {
   max-height: 90vh !important;
   display: flex !important;
   flex-direction: column !important;
+  padding: 0 !important;
   overflow: hidden !important;
   background: #090f1d !important;
   border: 1px solid #1e40af !important;
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.9), 0 0 30px rgba(14, 165, 233, 0.2) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.95), 0 0 30px rgba(14, 165, 233, 0.25) !important;
 }
 
 .nf-modal-header {
@@ -1381,10 +1401,11 @@ kbd {
 
 .nf-modal-body {
   display: grid;
-  grid-template-columns: 360px 1fr;
+  grid-template-columns: 350px 1fr;
   flex: 1;
   min-height: 0;
   overflow: hidden;
+  position: relative;
 }
 
 .nf-list-pane {
@@ -1392,10 +1413,12 @@ kbd {
   background: #080d1a;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  padding: 10px;
+  overscroll-behavior: contain;
+  padding: 12px;
   display: flex;
   flex-direction: column;
   gap: 8px;
+  touch-action: pan-y;
 }
 
 .nf-card {
@@ -1408,6 +1431,8 @@ kbd {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 .nf-card:hover {
   border-color: #38bdf8;
@@ -1465,10 +1490,16 @@ kbd {
   background: #070c18;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
   padding: 20px 24px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  touch-action: pan-y;
+}
+
+.btn-nf-back {
+  display: none;
 }
 
 .nf-placeholder {
@@ -1499,6 +1530,8 @@ kbd {
   align-items: center;
   border-bottom: 1px solid #1a2842;
   padding-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 .nf-section-title {
   font-size: 13.5px;
@@ -1514,7 +1547,7 @@ kbd {
 /* Invariants Check Bar */
 .nf-invariants-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 8px;
 }
 .nf-inv-chip {
@@ -1540,7 +1573,7 @@ kbd {
 /* Comparison Matrix */
 .nf-compare-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
   gap: 10px;
 }
 .nf-compare-col {
@@ -1664,22 +1697,67 @@ kbd {
   height: auto;
 }
 
-@media (max-width: 1024px) {
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #narrative-families-modal.modal {
+    padding: 6px !important;
+  }
   .nf-modal-card {
-    width: 98vw !important;
-    height: 94vh !important;
-    max-height: 94vh !important;
+    width: 100vw !important;
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    border-radius: 0 !important;
+    border: none !important;
+  }
+  .nf-modal-header {
+    padding: 10px 14px !important;
+  }
+  .nf-controls-bar {
+    padding: 8px 14px !important;
+    gap: 8px !important;
+  }
+  .nf-filter-pills {
+    padding: 6px 14px !important;
   }
   .nf-modal-body {
-    grid-template-columns: 1fr;
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 !important;
+    min-height: 0 !important;
+    position: relative !important;
   }
   .nf-list-pane {
-    max-height: 40vh;
-    border-right: none;
-    border-bottom: 1px solid var(--line);
+    display: flex !important;
+    flex: 1 !important;
+    width: 100% !important;
+    border-right: none !important;
+    padding: 10px !important;
   }
   .nf-detail-pane {
-    max-height: 60vh;
-    padding: 14px;
+    display: none !important;
+    flex: 1 !important;
+    width: 100% !important;
+    padding: 14px !important;
+  }
+  .nf-modal-body.show-detail .nf-list-pane {
+    display: none !important;
+  }
+  .nf-modal-body.show-detail .nf-detail-pane {
+    display: flex !important;
+  }
+  .btn-nf-back {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: #1e293b;
+    border: 1px solid #38bdf8;
+    color: #38bdf8;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    width: fit-content;
+    margin-bottom: 4px;
   }
 }
