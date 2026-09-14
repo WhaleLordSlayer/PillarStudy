@@ -15,6 +15,8 @@ export default defineConfig({
         join: resolve(projectRoot, 'join/index.html'),
         privacy: resolve(projectRoot, 'privacy/index.html'),
         new: resolve(projectRoot, 'new/index.html'),
+        newExplorer: resolve(projectRoot, 'new/explorer/index.html'),
+        newTopicalGuide: resolve(projectRoot, 'new/topical-guide/index.html'),
       },
     },
   },
