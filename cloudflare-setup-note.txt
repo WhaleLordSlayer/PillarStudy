@@ -1,0 +1,1 @@
+Cloudflare Workers configuration is now version-controlled on the production branch.
