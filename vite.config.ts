@@ -16,6 +16,8 @@ export default defineConfig({
         privacy: resolve(projectRoot, 'privacy/index.html'),
         new: resolve(projectRoot, 'new/index.html'),
         explorer: resolve(projectRoot, 'explorer/index.html'),
+        newExplorer: resolve(projectRoot, 'new/explorer/index.html'),
+        newTopicalGuide: resolve(projectRoot, 'new/topical-guide/index.html'),
       },
     },
   },
