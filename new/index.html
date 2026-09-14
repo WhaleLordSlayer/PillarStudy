@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
   <meta name="theme-color" content="#07111f" />
-  <meta name="description" content="Cultivate Study is a scripture study app for iOS and Android phones and tablets, with Apple Watch support, cross-device sync, Scripture Explorer, and private Study Spaces." />
-  <title>Cultivate Study | Scripture study, connected</title>
+  <meta name="description" content="Cultivate Study helps Latter-day Saints pick up exactly where they left off, read in focused or traditional modes, build flexible reading plans, save study, and study together." />
+  <title>Cultivate Study | Your next verse, ready</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Literata:opsz,wght@7..72,500;7..72,600&display=swap" rel="stylesheet">
@@ -18,121 +18,198 @@
     <div class="container">
       <nav class="nav" aria-label="Primary navigation">
         <a class="brand-lockup" href="#top" aria-label="Cultivate Study home">
-          <svg class="brand-mark" viewBox="0 0 320 320" role="img" aria-label="Cultivate Study logo">
-            <defs><linearGradient id="cultivate-gradient" x1="42" y1="46" x2="265" y2="270"><stop stop-color="#08B3A9"/><stop offset="1" stop-color="#18D2BC"/></linearGradient></defs>
-            <path fill="url(#cultivate-gradient)" d="M158.7 39L134.5 42.1 112.5 49.5 90.3 62.3 74.3 76 57.7 97.2 48.5 115.6 41.9 139.6 40.3 161.5 43.1 185.8 50.3 207.5 62.5 228.9 76.8 245.2 98.8 261.6 119.2 271 140.4 276.6 167.4 278.1 195.5 273.6 220 263.6 243.4 247.8 262.3 227.9 263.1 224.8 261.3 221.8 247 211 243.2 210.8 225.1 229.4 208.2 241.1 187.3 250.1 168.9 253.1 168.9 222 170.2 209.8 174.5 194.4 183.7 177.1 192.7 165.9 207 152.9 220.7 144.4 230.9 140.4 212.1 155.2 197.3 171.2 185.8 190.4 182.2 201.6 195 201.6 208.7 198.8 219.7 194.4 233 186 245.2 173.5 255.4 156.9 261.8 137.3 263.3 111.5 261.8 111.3 248.5 111.5 229.9 114.8 206.4 124.5 190.4 136 177.6 150.3 168.9 165.6 162.6 185.3 159.2 205.4 150.3 180.4 145.7 173 137.5 164.3 129.1 158.5 118.4 153.9 107.4 151.6 97.7 151.3 98 163.3 101.3 176.6 106.4 186.8 113.6 195.2 119.4 199.6 127.8 203.4 135.5 204.9 144.9 204.4 142.6 197.5 135.8 187 117.4 170.2 133 177.6 141.6 185.5 146.5 192.2 150.8 201.1 153.6 213.6 154.1 253.1 143.4 252.1 130.1 248.5 115.6 242.2 105.4 235.8 88.5 220.7 79.4 208.2 70.2 188.6 66.3 171.7 65.8 151.6 69.2 133.5 76.8 114.8 87.3 99.3 98.8 87.5 113.3 77.1 127.6 70.2 145.5 65.3 164.6 64.1 187.3 67.9 202.6 74 222.8 87.5 227.6 85.7 240.4 73.2 239.6 69.7 230.4 61.8 218.7 54.1 205.4 47.7 184 41.3Z"/>
-          </svg>
+          <img class="brand-mark" src="/favicon.svg" alt="" />
           <span>Cultivate Study</span>
         </a>
         <div class="nav-links">
-          <a href="#scroller">Scroller</a><a href="./explorer/">Explorer</a><a href="#spaces">Study Spaces</a><a href="#platforms">Platforms</a><a class="nav-cta" href="#beta">Beta status</a>
+          <a href="#reader">Reader</a>
+          <a href="#plans">Plans</a>
+          <a href="./explorer/">Explorer</a>
+          <a href="./topical-guide/">Topical Guide</a>
+          <a href="#spaces">Study Spaces</a>
+          <a class="nav-cta" href="#beta">Beta status</a>
         </div>
       </nav>
 
       <div class="hero-grid">
         <div class="hero-copy">
           <span class="eyebrow">Cultivate Study · Family &amp; friends beta</span>
-          <h1>Read scripture. Explore the connections. Study with people you care about.</h1>
-          <p>Cultivate is a scripture study app for Latter-day Saints. Read verse by verse, explore people and events across scripture, keep notes and highlights synced, and study with family or friends in private Study Spaces.</p>
-          <div class="hero-actions"><a class="btn btn-primary" href="#beta">Beta status</a><a class="btn btn-secondary" href="./explorer/">See Explorer</a></div>
-          <div class="signature-row"><span>iOS + Android</span><span>Scripture Explorer</span><span>Apple Watch</span></div>
+          <h1>Your next verse, ready.</h1>
+          <p>Cultivate remembers where you stopped, keeps your reading plans current, and puts notes, progress, discovery, and group study around the scripture instead of in the way.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#reader">See how Cultivate works</a>
+            <a class="btn btn-secondary" href="#beta">Beta status</a>
+          </div>
+          <div class="signature-row"><span>Scroller + Chapter</span><span>Plans that adapt</span><span>Study Spaces</span></div>
         </div>
 
         <div class="hero-stage">
           <div class="hero-ipad">
             <div class="ipad-toolbar"><span>Book of Mormon</span><span>1 Nephi 14</span></div>
             <div class="ipad-body">
-              <aside class="ipad-side"><small>READING TOOLS</small><div class="tool active">Reading Mode</div><div class="tool">Bookmarks</div><div class="tool">Screens</div></aside>
+              <aside class="ipad-side"><small>READING TOOLS</small><div class="tool active">Reading Mode</div><div class="tool">Bookmarks</div><div class="tool">Saved</div></aside>
               <main class="ipad-verse"><div class="speaker-chip"><i></i> NEPHI₁</div><p>And it came to pass that I beheld that the great mother of abominations did gather together multitudes upon the face of all the earth...</p><div class="story-card"><small>STORY · 4 OF 6</small><strong>The conflict between the two churches</strong><div class="segments"><i></i><i></i><i></i><i class="on"></i><i></i><i></i></div></div></main>
-              <aside class="ipad-study"><small>STUDY</small><h4>1 Nephi 14:13</h4><div class="study-tabs"><b>Connections</b><span>Notes</span><span>Explore</span></div><div class="connection-row">1 Nephi 13:17</div><div class="connection-row">1 Nephi 11:34</div><div class="connection-row">1 Nephi 22:14</div></aside>
+              <aside class="ipad-study"><small>STUDY</small><h4>1 Nephi 14:13</h4><div class="study-tabs"><b>Notes</b><span>Connections</span><span>Explore</span></div><div class="connection-row">Continue from your last verse</div><div class="connection-row">Today&apos;s plan</div><div class="connection-row">Saved study</div></aside>
             </div>
           </div>
-          <div class="hero-float explorer-float"><small>SCRIPTURE EXPLORER</small><strong>Book of Mormon · Old Testament · New Testament · Pearl of Great Price</strong></div>
-          <div class="hero-float space-float"><small>STUDY SPACE</small><strong>Read together. Share notes and progress.</strong></div>
+          <div class="hero-float explorer-float"><small>CONTINUE READING</small><strong>Return to the exact verse you left.</strong></div>
+          <div class="hero-float space-float"><small>ACTIVE PLAN</small><strong>See what is next today.</strong></div>
         </div>
       </div>
     </div>
   </header>
 
   <main>
-    <section class="section scroller-section" id="scroller">
+    <section class="section scroller-section" id="reader">
       <div class="container">
         <div class="section-number">01</div>
-        <div class="section-heading wide-heading"><span class="kicker">The Verse Scroller</span><h2>Read one verse at a time, or switch to a full chapter.</h2><p>On phones, the verse scroller keeps the current verse front and center with study tools a tap away. Tablet layouts use the extra room for reading and study side by side.</p></div>
+        <div class="section-heading wide-heading">
+          <span class="kicker">Read your way</span>
+          <h2>One verse at a time when you want focus. A full chapter when you want context.</h2>
+          <p>Scroller gives each verse its own screen. Chapter mode keeps the traditional continuous reading experience. Both use the same notes, bookmarks, progress, sharing, and navigation.</p>
+        </div>
         <div class="scroller-showcase">
           <div class="phone-shell">
             <div class="phone-status">6:41 <span>● ● ●</span></div>
             <div class="phone-top"><span>‹</span><div><b>1 NEPHI 1:2</b><small>Verse 2 of 20</small></div><span>☰</span></div>
             <div class="phone-verse"><div class="speaker-chip"><i></i> NEPHI₁</div><p>Yea, I make a record in the language of my father, which consists of the learning of the Jews and the language of the Egyptians.</p></div>
-            <div class="story-card phone-story"><small>STORY · 1 OF 6</small><strong>Nephi's Introduction and Purpose</strong><div class="segments"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div></div>
+            <div class="story-card phone-story"><small>STORY · 1 OF 6</small><strong>Nephi&apos;s Introduction and Purpose</strong><div class="segments"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div></div>
             <div class="phone-actions"><span>Bookmark</span><span>Study</span><span>Share</span><span>More</span></div>
             <div class="swipe-hint">Swipe to navigate</div>
           </div>
-          <div class="scroller-copy"><h3>A focused reader with the study tools still nearby.</h3><p>Swipe through verses, open a full chapter, add notes or highlights, and jump into Explorer without losing your place.</p><ul class="feature-list"><li>Full reading experience on iOS and Android phones and tablets</li><li>Verse scroller and traditional chapter reading</li><li>Bookmarks, notes, highlights, links, and sharing</li><li>Tablet layouts built for larger screens</li><li>Sync your study data between supported devices</li></ul></div>
+          <div class="scroller-copy">
+            <h3>Pick up exactly where you stopped.</h3>
+            <p>Cultivate remembers the last verse you were reading, not just the chapter. Home, plans, and supported device handoffs can bring you back to a real next action.</p>
+            <ul class="feature-list">
+              <li>Focused Scroller and traditional Chapter mode</li>
+              <li>Bookmarks, notes, word-range highlights, sharing, and collections</li>
+              <li>Reader text, font, speaker, theme, and appearance controls</li>
+              <li>Study data sync across supported devices</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section explorer-section" id="explorer">
+    <section class="section supporting-section" id="plans">
       <div class="container">
-        <div class="section-number light-number">02</div>
-        <div class="section-heading explorer-heading"><span class="kicker bright">Scripture Explorer</span><h2>See how scripture connects.</h2><p>Explorer links people, places, events, groups, speakers, story moments, and the verses behind them. It covers the Book of Mormon, Old Testament, New Testament, and Pearl of Great Price.</p><div class="hero-actions"><a class="btn btn-primary" href="./explorer/">Explore the full Explorer story</a></div></div>
-
-        <div class="explorer-intro-grid">
-          <div class="explorer-copy-block"><span class="mini-kicker">Start anywhere</span><h3>Start with a person, place, event, or group.</h3><p>Search directly or choose a suggested starting point. Each record shows the relevant connections and source passages so you can keep moving through the story.</p></div>
-          <div class="explorer-home app-frame">
-            <div class="mobile-chrome"><span>‹ Explore</span></div>
-            <small>BOOK OF MORMON</small><h4>Explore</h4><p>Follow people, places, events, and groups through the story.</p>
-            <div class="search-bar">⌕ <span>Search people, places, events, groups</span></div>
-            <div class="filter-pills"><b>All</b><span>People</span><span>Events</span><span>Places</span><span>Groups</span></div>
-            <h5>Start with a story</h5>
-            <div class="starter-grid"><div><em>EVENTS TO FOLLOW</em><strong>Abinadi condemned and put to death</strong><strong>Aaron preaches and is imprisoned</strong></div><div><em>PEOPLE TO KNOW</em><strong>Abinadi</strong><strong>Aaron (Son of Mosiah)</strong><strong>Abish</strong></div><div><em>PLACES IN THE STORY</em><strong>Ammonihah, City of</strong><strong>Agosh, Plains of</strong></div><div><em>GROUPS IN THE STORY</em><strong>Lamanites</strong><strong>Amalekites</strong></div></div>
-          </div>
+        <div class="section-number">02</div>
+        <div class="section-heading">
+          <span class="kicker">Plans that survive real life</span>
+          <h2>Tell Cultivate what you want to study. It keeps the next step current.</h2>
+          <p>Plans can be open-ended, paced to a finish date, weekly, or built from specific assignments. The point is to make today&apos;s reading obvious without turning an interrupted week into a pile of debt.</p>
         </div>
-
-        <div class="explorer-person-grid">
-          <div class="person-record app-frame">
-            <div class="person-card"><small>PERSON</small><h4>Nephi (Son of Lehi)</h4><div class="person-stats"><span><b>10</b>People</span><span><b>14</b>Events</span><span><b>7</b>Places</span><span><b>3</b>Groups</span><span><b>14</b>References</span></div></div>
-            <div class="person-tabs"><b>Overview</b><span>Connected People</span><span>Events</span><span>Places</span><span>Groups</span></div>
-            <div class="record-card"><div class="card-label">KEY PEOPLE <span>View all</span></div><div class="key-people"><b>Lehi (Patriarch)</b><b>Sariah</b><b>Laman</b></div></div>
-            <div class="record-card"><div class="card-label">MAJOR EVENTS <span>View all</span></div><div class="timeline-list"><div><i></i><b>Lehi's family departs Jerusalem into the wilderness</b><small>1 Nephi 2:1–5</small></div><div><i></i><b>Sons of Lehi obtain the brass plates from Laban</b><small>1 Nephi 3:1–4:38</small></div><div><i></i><b>Nephi's expanded vision of the tree of life</b><small>1 Nephi 11:1–14:30</small></div></div></div>
-          </div>
-          <div class="explorer-copy-block person-copy"><span class="mini-kicker">Person records</span><h3>See what connects to a person.</h3><p>A person record brings together related people, events, places, groups, and scripture references. Open any connection to keep exploring.</p><div class="connection-path"><span>Nephi</span><b>→</b><span>Events</span><b>→</b><span>People</span><b>→</b><span>Places</span><b>→</b><span>Scripture</span></div></div>
-        </div>
-
-        <div class="verse-bridge-grid">
-          <div class="explorer-copy-block"><span class="mini-kicker">From the reader</span><h3>Open Explorer from the verse you are reading.</h3><p>The Explore tab shows the people and places linked to the current verse. Tap one to open its record, then return to the reader when you are done.</p></div>
-          <div class="verse-sheet app-frame"><div class="sheet-handle"></div><small>STUDY</small><h4>1 Nephi 1:4</h4><div class="sheet-tabs"><span>Notes</span><span>Connections</span><b>Explore</b></div><div class="sheet-label">IN THIS VERSE</div><div class="entity-row"><i>○</i><div><b>Lehi</b><small>Person</small></div><span>›</span></div><div class="entity-row"><i>⌖</i><div><b>Jerusalem</b><small>Place</small></div><span>›</span></div><p class="sheet-hint">Tap an item to open its Explorer preview.</p></div>
-        </div>
-
-        <div class="chapter-grid">
-          <div class="chapter-sheet app-frame"><div class="sheet-handle"></div><small>EXPLORE CHAPTER</small><h4>1 Nephi 1</h4><div class="chapter-summary"><em>CHAPTER SUMMARY</em><strong>Nephi introduces his record, and Lehi receives a vision of God and the coming destruction of Jerusalem.</strong><p>Use the overview to get oriented, then follow the chapter through the narrative moments below.</p></div><div class="timeline-title">NARRATIVE TIMELINE · 6 MOMENTS</div><div class="chapter-timeline"><div><i>1</i><b>Nephi's Introduction and Purpose</b><span>1–3</span><p>Nephi introduces himself, his lineage, and the purpose of his record.</p></div><div><i>2</i><b>Lehi's Prophetic Call</b><span>4–6</span><p>Lehi is called by the Lord to warn the people of Jerusalem.</p></div><div><i>3</i><b>Lehi's Vision of God</b><span>7–10</span><p>Lehi experiences a vision of God and the heavenly host.</p></div></div></div>
-          <div class="explorer-copy-block chapter-copy"><span class="mini-kicker">Chapter context</span><h3>See how the chapter is structured.</h3><p>Each chapter can include a short summary and a timeline of story moments with their verse ranges. Use it to see where scenes and events change as you read.</p><ul class="feature-list"><li>Short chapter summary</li><li>Story moments with verse ranges</li><li>Direct connection back to the reader</li></ul></div>
+        <div class="support-grid">
+          <article><span>Free Read</span><h3>Structure without a deadline.</h3><p>Choose what you want to read and keep visible progress without a finish date or daily requirement.</p></article>
+          <article><span>Adjust your pace</span><h3>Change the schedule, keep the work.</h3><p>Reset or adjust a paced plan without throwing away the verses you already completed.</p></article>
+          <article><span>Linked progress</span><h3>Read once. Let it count where it belongs.</h3><p>When eligible plans overlap, observed reading can count across the exact shared verse ranges instead of making you maintain duplicate checklists.</p></article>
         </div>
       </div>
     </section>
 
-    <section class="section speaking-section" id="speaking">
-      <div class="container"><div class="section-number">03</div><div class="speaking-grid">
-        <div class="speaking-copy"><span class="kicker">Who’s Speaking</span><h2>See who is speaking as you read.</h2><p>Some passages move between narration, dialogue, prayer, prophecy, quotation, and teaching in only a few verses. Who’s Speaking labels the current speaker so those changes are easier to follow.</p><p>If that speaker has an Explorer record, you can open it to see the people, places, events, groups, and passages connected to them.</p><div class="path-line"><span>Verse</span><b>→</b><span>Speaker</span><b>→</b><span>Person</span><b>→</b><span>Events</span><b>→</b><span>Scripture</span></div></div>
-        <div class="speaker-demo"><div class="speaker-demo-top"><span>1 NEPHI 1:2</span><span>Verse 2 of 20</span></div><div class="speaker-highlight"><div class="speaker-dot"></div><div><small>WHO’S SPEAKING</small><strong>NEPHI₁</strong></div><span class="open-label">Open Nephi →</span></div><blockquote>Yea, I make a record in the language of my father...</blockquote><div class="story-mini"><small>STORY</small><strong>Nephi's Introduction and Purpose</strong></div></div>
-      </div></div>
+    <section class="section supporting-section" id="study-tools">
+      <div class="container">
+        <div class="section-number">03</div>
+        <div class="section-heading">
+          <span class="kicker">Keep what matters</span>
+          <h2>Your study stays connected to the scripture it came from.</h2>
+          <p>Save a verse in the moment, build on it later, and return to it without turning your study into one long notes document.</p>
+        </div>
+        <div class="support-grid">
+          <article><span>Saved</span><h3>Bookmarks, notes, highlights, collections.</h3><p>Keep verses, highlight specific word ranges, add notes and tags, organize collections, and share from the same saved material later.</p></article>
+          <article><span>Book of Mormon Story Map</span><h3>See the shape of the chapter while you read.</h3><p>All 239 Book of Mormon chapters include reviewed chapter orientation with a concise summary and narrative story beats. Speaker labels help make shifts in voice easier to follow.</p></article>
+          <article><span>Scripture Search</span><h3>Search the text and jump straight to the verse.</h3><p>Full-text scripture search runs against the local scripture database with source filters and direct navigation into the reader.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section supporting-section" id="practice">
+      <div class="container">
+        <div class="section-heading">
+          <span class="kicker">Build memory. Build rhythm.</span>
+          <h2>Progress that helps you return instead of punishing you for leaving.</h2>
+          <p>Cultivate separates memorization practice from reading progress and treats consistency as something that can grow again after a missed day.</p>
+        </div>
+        <div class="support-grid">
+          <article><span>Mastery</span><h3>Memorize the words and learn where they live.</h3><p>Create a Mastery set for passages you want to remember. Practice moves through increasingly demanding recall, including whole-passage work for multi-verse selections.</p></article>
+          <article><span>Momentum</span><h3>Build rhythm, not a fragile streak.</h3><p>Momentum looks at recent study consistency. Missing a day lowers the score instead of wiping your progress back to zero.</p></article>
+          <article><span>Progress</span><h3>See what you finished and what comes next.</h3><p>Verse-level plan progress, reading history, recent rhythm, milestones, and continuation help turn a broad goal into a concrete next step.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section explorer-section" id="discover">
+      <div class="container">
+        <div class="section-number light-number">04</div>
+        <div class="section-heading explorer-heading">
+          <span class="kicker bright">Go deeper</span>
+          <h2>Two discovery systems built around the scripture itself.</h2>
+          <p>Explorer follows the story through connected people, places, events, and groups. Topical Guide follows ideas across passages and vocabulary.</p>
+        </div>
+        <div class="support-grid">
+          <article>
+            <span>Scripture Explorer</span>
+            <h3>The Bible graph alone includes 3,131 people, 1,667 events, and 11,875 relationships.</h3>
+            <p>Follow a person into events, places, groups, and source passages across the Book of Mormon, Old Testament, New Testament, and Pearl of Great Price.</p>
+            <div class="hero-actions"><a class="btn btn-primary" href="./explorer/">See Explorer</a></div>
+          </article>
+          <article>
+            <span>Topical Guide</span>
+            <h3>304 topics. 14,707 accepted links. 8,554 unique verses reached.</h3>
+            <p>Start with a topic, follow related passages, and use meaning-aware discovery to bridge vocabulary differences across the standard works.</p>
+            <div class="hero-actions"><a class="btn btn-primary" href="./topical-guide/">See Topical Guide</a></div>
+          </article>
+          <article>
+            <span>Related Verses</span>
+            <h3>Follow a connection without losing your place.</h3>
+            <p>Where related-verse data is available, Cultivate can surface nearby scripture connections directly from the reading flow.</p>
+          </article>
+        </div>
+      </div>
     </section>
 
     <section class="section spaces-section" id="spaces">
-      <div class="container"><div class="section-number light-number">04</div><div class="section-heading spaces-heading"><span class="kicker bright">Study Spaces</span><h2>Study with family, friends, or a group.</h2><p>Create a private Study Space to follow a reading plan together, see group progress, and share selected thoughts. Your other notes and highlights stay private.</p></div>
-        <div class="spaces-showcase"><div class="space-phone"><div class="space-phone-head"><div><small>FAMILY STUDY</small><strong>Come, Follow Me</strong></div><div class="avatars"><i></i><i></i><i></i><i></i></div></div><div class="space-progress"><div><small>THIS WEEK</small><strong>Genesis 24–27</strong></div><b>72%</b></div><div class="progress-track"><i></i></div><div class="shared-thought"><small>SHARED THOUGHT · GENESIS 24:27</small><p>Share one thought from your study without exposing the rest of your private note.</p></div></div><div class="spaces-copy"><h3>Share the parts you choose.</h3><ul class="feature-list on-dark"><li>Shared reading plans and group progress</li><li>Share individual note entries as Shared Thoughts</li><li>Personal notes stay private by default</li><li>Built for families, friends, classes, and other study groups</li></ul></div></div>
+      <div class="container">
+        <div class="section-number light-number">05</div>
+        <div class="section-heading spaces-heading">
+          <span class="kicker bright">Study Spaces</span>
+          <h2>Study together without turning scripture into social media.</h2>
+          <p>Create a private space for family, friends, a class, or another group. Follow shared reading, see cooperative progress, and share selected thoughts while the rest of your personal study stays private.</p>
+        </div>
+        <div class="spaces-showcase">
+          <div class="space-phone"><div class="space-phone-head"><div><small>FAMILY STUDY</small><strong>Come, Follow Me</strong></div><div class="avatars"><i></i><i></i><i></i><i></i></div></div><div class="space-progress"><div><small>THIS WEEK</small><strong>Genesis 24–27</strong></div><b>72%</b></div><div class="progress-track"><i></i></div><div class="shared-thought"><small>SHARED THOUGHT · GENESIS 24:27</small><p>Share one thought from your study without exposing the rest of your private note.</p></div></div>
+          <div class="spaces-copy"><h3>Together, not ranked.</h3><ul class="feature-list on-dark"><li>Shared reading and cooperative progress</li><li>Shared Thoughts from individual note entries</li><li>Personal notes stay private unless you choose to share</li><li>Invites, nudges, quiet hours, mute, and notification controls</li></ul></div>
+        </div>
       </div>
     </section>
 
-    <section class="section supporting-section" id="platforms"><div class="container"><div class="section-number">05</div><div class="section-heading"><span class="kicker">Platforms</span><h2>Use Cultivate across your devices.</h2><p>Cultivate supports iOS and Android phones and tablets, keeps supported study data in sync, and includes a lightweight Apple Watch experience. Apple TV is planned.</p></div><div class="support-grid"><article><span>iOS · Android · Tablets</span><h3>Read and study on phones and tablets.</h3><p>The full reader, Explorer, Study Spaces, notes, highlights, plans, and progress are available on iOS and Android. Tablet layouts use the larger screen for reading and study tools.</p></article><article><span>Apple Watch</span><h3>Keep up with reading plans from your wrist.</h3><p>Use Apple Watch for quick reading, plan progress, and a lightweight version of the core reading experience.</p></article><article><span>Apple TV · Roadmap</span><h3>Apple TV is planned for shared study.</h3><p>The roadmap includes a living-room version for reading plans, scripture, and Explorer content designed for a TV screen.</p></article></div></div></section>
+    <section class="section supporting-section" id="platforms">
+      <div class="container">
+        <div class="section-number">06</div>
+        <div class="section-heading">
+          <span class="kicker">Use Cultivate where you study</span>
+          <h2>Phone, tablet, and wrist, with your study context carried between them.</h2>
+          <p>The core reading and study experience is built for iOS and Android phones and tablets, with account-backed continuity and a focused Apple Watch companion.</p>
+        </div>
+        <div class="support-grid">
+          <article><span>iOS + Android</span><h3>Full study on phones and tablets.</h3><p>Reader, plans, Saved, Mastery, Progress, Study Spaces, Explorer, and Topical Guide are designed around the main mobile experience, with responsive tablet layouts.</p></article>
+          <article><span>Apple Watch</span><h3>Keep the next reading close.</h3><p>Continue reading, check plans and progress, and record lightweight reading activity without rebuilding the whole phone app on your wrist.</p></article>
+          <article><span>Reader preferences</span><h3>Make the scripture comfortable to read.</h3><p>Adjust font scale, serif or sans text, speaker display, theme, accent color, and other reading preferences to fit how you read.</p></article>
+        </div>
+      </div>
+    </section>
 
-    <section class="section supporting-section" id="more"><div class="container"><div class="section-heading"><span class="kicker">Other study tools</span><h2>Topical Guide, Mastery, and Progress.</h2><p>These tools cover three different needs: finding related passages, memorizing verses, and keeping track of reading plans.</p></div><div class="support-grid"><article><span>Topical Guide</span><h3>Browse topics and open the related verses.</h3><p>Choose a topic to see scripture references connected to it. Open any reference in the reader, then move between the topic and the text as you study.</p></article><article><span>Mastery</span><h3>Practice verses you want to memorize.</h3><p>Add a verse to Mastery and revisit it in short recall sessions. Practice is separate from normal reading, so you can work on memorization without changing your reading plan.</p></article><article><span>Progress</span><h3>Track plans and resume where you left off.</h3><p>See what you have finished, what is next, and how your reading is progressing. Synced progress means you can start on one device and continue on another.</p></article></div></div></section>
-
-    <section class="beta-section" id="beta"><div class="container beta-inner"><div><span class="kicker">Family &amp; friends beta</span><h2>Family and friends testing starts this week.</h2><p>Cultivate is being shared with a small group on iOS and Android before a wider beta. Feedback from this round will be used to fix rough edges and make sure the reader, Explorer, and Study Spaces are ready for more people.</p></div></div></section>
+    <section class="beta-section" id="beta">
+      <div class="container beta-inner"><div><span class="kicker">Family &amp; friends beta</span><h2>Family and friends testing starts this week.</h2><p>Cultivate is being shared with a small group on iOS and Android before a wider beta. This round is focused on the everyday reading loop, plans, Study Spaces, sync, and the study tools people will actually live in.</p></div></div>
+    </section>
   </main>
 
-  <footer class="footer"><div class="container footer-row"><div class="brand-lockup footer-brand"><svg class="brand-mark" viewBox="0 0 320 320" aria-hidden="true"><path fill="#10c6b4" d="M158.7 39L134.5 42.1 112.5 49.5 90.3 62.3 74.3 76 57.7 97.2 48.5 115.6 41.9 139.6 40.3 161.5 43.1 185.8 50.3 207.5 62.5 228.9 76.8 245.2 98.8 261.6 119.2 271 140.4 276.6 167.4 278.1 195.5 273.6 220 263.6 243.4 247.8 262.3 227.9 263.1 224.8 261.3 221.8 247 211 243.2 210.8 225.1 229.4 208.2 241.1 187.3 250.1 168.9 253.1 168.9 222 170.2 209.8 174.5 194.4 183.7 177.1 192.7 165.9 207 152.9 220.7 144.4 230.9 140.4 212.1 155.2 197.3 171.2 185.8 190.4 182.2 201.6 195 201.6 208.7 198.8 219.7 194.4 233 186 245.2 173.5 255.4 156.9 261.8 137.3 263.3 111.5 261.8 111.3 248.5 111.5 229.9 114.8 206.4 124.5 190.4 136 177.6 150.3 168.9 165.6 162.6 185.3 159.2 205.4 150.3 180.4 145.7 173 137.5 164.3 129.1 158.5 118.4 153.9 107.4 151.6 97.7 151.3 98 163.3 101.3 176.6 106.4 186.8 113.6 195.2 119.4 199.6 127.8 203.4 135.5 204.9 144.9 204.4 142.6 197.5 135.8 187 117.4 170.2 133 177.6 141.6 185.5 146.5 192.2 150.8 201.1 153.6 213.6 154.1 253.1 143.4 252.1 130.1 248.5 115.6 242.2 105.4 235.8 88.5 220.7 79.4 208.2 70.2 188.6 66.3 171.7 65.8 151.6 69.2 133.5 76.8 114.8 87.3 99.3 98.8 87.5 113.3 77.1 127.6 70.2 145.5 65.3 164.6 64.1 187.3 67.9 202.6 74 222.8 87.5 227.6 85.7 240.4 73.2 239.6 69.7 230.4 61.8 218.7 54.1 205.4 47.7 184 41.3Z"/></svg><span>Cultivate Study</span></div><div class="footer-copy"><a href="/privacy/">Privacy</a><p>Cultivate Study is an independent application and is not affiliated with, nor officially supported or endorsed by, The Church of Jesus Christ of Latter-day Saints.</p><small>© 2026 Cultivate Study.</small></div></div></footer>
+  <footer class="footer">
+    <div class="container footer-row">
+      <a class="brand-lockup footer-brand" href="#top"><img class="brand-mark" src="/favicon.svg" alt="" /><span>Cultivate Study</span></a>
+      <div class="footer-copy"><a href="/privacy/">Privacy</a><p>Cultivate Study is an independent application and is not affiliated with, nor officially supported or endorsed by, The Church of Jesus Christ of Latter-day Saints.</p><small>© 2026 Cultivate Study.</small></div>
+    </div>
+  </footer>
 </div>
 </body>
 </html>
