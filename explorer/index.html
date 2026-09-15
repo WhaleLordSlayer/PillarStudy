@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
   <meta name="theme-color" content="#07111f" />
-  <meta name="description" content="See how Cultivate Scripture Explorer connects people, places, events, groups, and source passages across scripture." />
+  <meta name="description" content="See how Cultivate Labs Scripture Explorer connects people, places, events, groups, and source passages across scripture." />
   <title>Scripture Explorer | Cultivate Study</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,6 +28,7 @@
         <div class="detail-nav-links">
           <a href="#experience">Explore</a>
           <a href="#scope">Coverage</a>
+          <a href="#method">Method</a>
           <a href="#trust">Trust</a>
           <a class="nav-cta" href="../">Back to Cultivate</a>
         </div>
@@ -35,10 +36,10 @@
 
       <div class="detail-hero-grid">
         <div class="detail-hero-copy">
-          <span class="eyebrow">Scripture Explorer</span>
+          <span class="eyebrow">Cultivate Labs · Scripture Explorer</span>
           <h1>Scripture is full of connections. Explorer makes them visible.</h1>
           <p>Start with a person, place, event, or verse. Follow the people around it, the places tied to it, the events that shape it, and the source passages behind every connection.</p>
-          <div class="hero-actions"><a class="btn btn-primary" href="#experience">See how it works</a><a class="btn btn-secondary" href="#scope">See the scale</a></div>
+          <div class="hero-actions"><a class="btn btn-primary" href="#experience">See how it works</a><a class="btn btn-secondary" href="#method">See how it is built</a></div>
           <div class="detail-pills"><span>People</span><span>Places</span><span>Events</span><span>Groups</span><span>Source passages</span></div>
         </div>
 
@@ -82,12 +83,46 @@
         </div>
 
         <div class="snapshot">
-          <div class="snapshot-head"><h3>The Bible graph alone is already huge.</h3><p>Explorer is built on thousands of connected records, with more scripture collections layered into the experience.</p></div>
+          <div class="snapshot-head"><h3>The Bible graph alone is already large.</h3><p>The counts below are canonical records in the current Bible graph.</p></div>
           <div class="stat-grid">
             <div class="stat"><b>3,131</b><span>people</span></div>
             <div class="stat"><b>1,667</b><span>events</span></div>
             <div class="stat"><b>1,001</b><span>places</span></div>
+            <div class="stat"><b>101</b><span>groups</span></div>
             <div class="stat"><b>11,875</b><span>relationships</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-section" id="method">
+      <div class="container">
+        <div class="story-qa-grid">
+          <div class="story-qa-copy">
+            <span class="kicker">Show the math</span>
+            <h2>5,900 canonical Bible entities, connected on purpose.</h2>
+            <p><strong>3,131 people + 1,001 places + 101 groups + 1,667 events = 5,900 canonical entities.</strong> Those records are joined by 11,875 canonical relationships. The point is not to make the biggest graph possible. It is to make a graph where the connections are useful, source-grounded, and reviewable.</p>
+            <p>Different relationship types are handled differently. A person merely mentioned in a passage is not automatically treated as a participant in an event. Similar names are not automatically merged. If a place, event, or relationship is uncertain, the data can preserve that uncertainty instead of forcing a clean answer.</p>
+          </div>
+          <div class="qa-stats">
+            <article class="qa-stat"><b>8</b><strong>critical near-orphans connected</strong><p>Records that should have been part of the story network but had too little connectivity were identified and repaired during story-integrity QA.</p></article>
+            <article class="qa-stat"><b>19</b><strong>empty narrative events resolved</strong><p>Events that existed structurally but did not carry enough narrative value were reviewed rather than left as hollow nodes in the graph.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-section release-section">
+      <div class="container">
+        <div class="detail-heading"><span class="kicker">From source to release</span><h2>Explorer is treated like a data release, not a pile of links.</h2><p>Cultivate Labs builds the graph in repeatable stages, checks the result, and packages a specific reviewed version for the app.</p></div>
+        <div class="release-grid">
+          <article class="release-card"><span>01 · Source grounding</span><h3>Start with the text and source records.</h3><p>People, places, events, groups, and relationships are tied back to scripture passages so the graph has a trail back to the source.</p></article>
+          <article class="release-card"><span>02 · Conservative identity</span><h3>Same-looking names are not enough.</h3><p>Repeated names, quoted figures, and related accounts are handled carefully so one convenient merge does not create dozens of false downstream connections.</p></article>
+          <article class="release-card"><span>03 · Adversarial review</span><h3>Try to break the graph before users do.</h3><p>Review passes look for suspicious relationships, disconnected story records, empty events, and other cases where the data can be technically valid but still misleading.</p></article>
+          <article class="release-card"><span>04 · Reproducible release</span><h3>Every accepted build has an identity.</h3><p>The release is deterministic and carries a content hash, giving Cultivate Labs a concrete way to confirm exactly which graph was reviewed and shipped.</p></article>
+          <div class="test-strip">
+            <div class="test-number">522</div>
+            <div class="test-copy"><strong>automated tests passing at the release checkpoint</strong><p>Six checks were skipped and zero failed. Automated testing does not replace review, but it gives every release a repeatable baseline before it reaches the app.</p></div>
           </div>
         </div>
       </div>
@@ -95,13 +130,14 @@
 
     <section class="detail-section trust-section" id="trust">
       <div class="container">
-        <div class="detail-heading"><span class="kicker">Built for trust</span><h2>The connections should hold up when you follow them.</h2><p>Explorer is designed around source passages and careful review so the map helps you study scripture instead of asking you to trust a black box.</p></div>
+        <div class="detail-heading"><span class="kicker">Built for trust</span><h2>The connections should hold up when you follow them.</h2><p>Explorer is designed around provenance, conservative relationship rules, and review so you can move through the graph and still understand why a connection is there.</p></div>
         <div class="trust-grid">
           <article class="trust-card"><strong>Connections point back to scripture.</strong><p>The goal is to help you reach the source passage quickly and see the connection in context.</p></article>
+          <article class="trust-card"><strong>Mention and participation are different.</strong><p>A person can be named in a passage without being treated as an actor in the event. Explorer keeps those distinctions when the text supports them.</p></article>
           <article class="trust-card"><strong>Names and relationships are checked carefully.</strong><p>Repeated names, quoted people, and related accounts are reviewed so similar-looking records are not casually treated as the same thing.</p></article>
           <article class="trust-card"><strong>Uncertainty can stay uncertain.</strong><p>When the evidence is not strong enough, Explorer can leave a relationship unresolved rather than fill the gap with a guess.</p></article>
         </div>
-        <div class="ai-callout"><span>Where AI helps</span><p>AI is useful for finding candidates and stress-testing the data. Published Explorer connections are reviewed and packaged ahead of time. The app is not generating new relationships live while you read.</p></div>
+        <div class="ai-callout"><span>Where AI helps</span><p>AI can propose candidates, flag suspicious connections, and challenge the dataset during adversarial review. Source passages, scripted checks, and human review determine what is accepted into a Cultivate Labs release.</p></div>
       </div>
     </section>
 
