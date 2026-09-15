@@ -13,6 +13,7 @@ export default defineConfig({
         main: resolve(projectRoot, 'index.html'),
         join: resolve(projectRoot, 'join/index.html'),
         privacy: resolve(projectRoot, 'privacy/index.html'),
+        accountDeletion: resolve(projectRoot, 'account-deletion/index.html'),
         explorer: resolve(projectRoot, 'explorer/index.html'),
         topicalGuide: resolve(projectRoot, 'topical-guide/index.html'),
         new: resolve(projectRoot, 'new/index.html'),
