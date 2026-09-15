@@ -4,12 +4,37 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#07111f" />
-  <meta name="description" content="Cultivate Study combines a one-verse-at-a-time scripture reader, private Study Spaces, and a connected Scripture Explorer for Latter-day Saint scripture study." />
+  <meta name="description" content="Cultivate Study combines a one-verse-at-a-time scripture reader, private Study Spaces, and Cultivate Labs scripture discovery tools." />
   <title>Cultivate Study | Read. Explore. Study together.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Literata:opsz,wght@7..72,500;7..72,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css" />
+  <style>
+    .core-feature-grid{display:grid;gap:10px;margin-top:26px;max-width:620px}
+    .core-feature{display:grid;grid-template-columns:116px 1fr;gap:4px 16px;padding:14px 16px;border:1px solid rgba(255,255,255,.12);border-radius:18px;background:rgba(255,255,255,.045);text-decoration:none;transition:.18s transform ease,.18s background ease,.18s border-color ease}
+    .core-feature:hover{transform:translateY(-2px);background:rgba(255,255,255,.075);border-color:rgba(117,223,211,.34)}
+    .core-feature .feature-tag{grid-row:1 / span 2;align-self:center;color:#75dfd3;font-size:.67rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+    .core-feature strong{color:#fff;font-size:1rem;line-height:1.2}
+    .core-feature p{margin:2px 0 0;color:#9caab3;font-size:.78rem;line-height:1.45}
+    .download-section{background:radial-gradient(circle at 82% 4%,rgba(16,198,180,.13),transparent 34%),linear-gradient(180deg,#07111f,#091723);color:#fff}
+    .download-section .kicker{color:#75dfd3}
+    .download-section h2,.download-section h3,.download-section strong{color:#fff}
+    .download-section .download-intro>p,.download-section article>p,.download-section li,.download-section .testing-note p{color:#c9d2d9}
+    .download-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:36px}
+    .download-card{padding:28px;border:1px solid rgba(255,255,255,.12);border-radius:24px;background:rgba(255,255,255,.045)}
+    .download-card small{display:block;color:#75dfd3;font-weight:800;letter-spacing:.12em;margin-bottom:5px}
+    .download-card h3{font-size:1.25rem;margin:0 0 18px}
+    .download-card p{line-height:1.65;margin-top:0}
+    .download-card ol{line-height:1.65;padding-left:1.25rem;margin:18px 0 0}
+    .testing-note{max-width:860px;margin-top:34px;padding-top:28px;border-top:1px solid rgba(255,255,255,.12)}
+    .testing-note h3{font-size:1.45rem;margin:0 0 10px}
+    .testing-note p{line-height:1.7;margin:0}
+    @media (max-width:720px){
+      .core-feature{grid-template-columns:1fr;gap:5px}
+      .core-feature .feature-tag{grid-row:auto}
+    }
+  </style>
 </head>
 <body>
 <div class="site-shell">
@@ -26,8 +51,7 @@
         <div class="nav-links">
           <a href="#reader">Reader</a>
           <a href="#spaces">Study Spaces</a>
-          <a href="#explorer">Explorer</a>
-          <a href="./topical-guide/">Topical Guide</a>
+          <a href="#explorer">Cultivate Labs</a>
           <a class="nav-cta" href="#download">Download</a>
         </div>
       </nav>
@@ -35,13 +59,30 @@
       <div class="hero-grid">
         <div class="hero-copy">
           <span class="eyebrow">Cultivate Study</span>
-          <h1>One verse at a time. A whole study life around it.</h1>
-          <p>Read scripture in a focused one-verse flow, follow the people and events behind the text with Explorer, and study with family or friends in private Study Spaces.</p>
+          <h1>Read one verse. Study together. Explore deeper.</h1>
+          <p>Cultivate is built around three things: a focused one-verse reader, private Study Spaces for groups, and Cultivate Labs content that helps you follow the people, events, places, topics, and related verses behind the text.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#download">Download Cultivate</a>
-            <a class="btn btn-secondary" href="#reader">See the reader</a>
+            <a class="btn btn-secondary" href="#reader">See how it works</a>
           </div>
-          <div class="signature-row"><span>One-verse reader</span><span>Study Spaces</span><span>Scripture Explorer</span></div>
+
+          <div class="core-feature-grid" id="core-features" aria-label="Cultivate's three core experiences">
+            <a class="core-feature" href="#reader">
+              <span class="feature-tag">01 · Reader</span>
+              <strong>One verse at a time</strong>
+              <p>Swipe through scripture one verse at a time, then switch to a full chapter whenever you want more context.</p>
+            </a>
+            <a class="core-feature" href="#spaces">
+              <span class="feature-tag">02 · Groups</span>
+              <strong>Study Spaces</strong>
+              <p>Read with family, friends, or a class while keeping your personal study private unless you choose to share it.</p>
+            </a>
+            <a class="core-feature" href="#explorer">
+              <span class="feature-tag">03 · Cultivate Labs</span>
+              <strong>Explorer + Topical Guide</strong>
+              <p>Follow people, events, places, topics, and scripture connections built from Cultivate Labs content.</p>
+            </a>
+          </div>
         </div>
 
         <div class="hero-stage">
@@ -53,7 +94,7 @@
               <aside class="ipad-study"><small>STUDY</small><h4>1 Nephi 14:13</h4><div class="study-tabs"><b>Notes</b><span>Connections</span><span>Explore</span></div><div class="connection-row">Shared Thought</div><div class="connection-row">Related verses</div><div class="connection-row">Explore this verse</div></aside>
             </div>
           </div>
-          <div class="hero-float explorer-float"><small>SCRIPTURE EXPLORER</small><strong>Follow the people, events, and places behind the verse.</strong></div>
+          <div class="hero-float explorer-float"><small>CULTIVATE LABS · EXPLORER</small><strong>Follow the people, events, and places behind the verse.</strong></div>
           <div class="hero-float space-float"><small>STUDY SPACE</small><strong>Read together. Share only what you choose.</strong></div>
         </div>
       </div>
@@ -126,16 +167,16 @@
       <div class="container">
         <div class="section-number light-number">03</div>
         <div class="section-heading explorer-heading">
-          <span class="kicker bright">Scripture Explorer</span>
+          <span class="kicker bright">Cultivate Labs · Scripture Explorer</span>
           <h2>See the story behind the verse.</h2>
-          <p>Explorer turns scripture into a connected map of people, places, events, groups, speakers, story moments, and source passages. Start with one record and keep following the connections.</p>
+          <p>Explorer turns scripture into a connected map of people, places, events, groups, speakers, story moments, and source passages. Cultivate Labs also powers the Topical Guide, helping you move from a topic to related scripture across the standard works.</p>
         </div>
         <div class="support-grid">
           <article><span>People</span><h3>Who is connected to whom?</h3><p>Open a person and follow the people, events, places, groups, and source passages around them.</p></article>
           <article><span>Story</span><h3>What happened, where, and who was there?</h3><p>Events connect participants, places, groups, and the scripture passages that describe them.</p></article>
-          <article><span>Scale</span><h3>3,131 people. 1,667 events. 11,875 Bible relationships.</h3><p>And that is only the Bible layer. Explorer also covers the Book of Mormon and Pearl of Great Price.</p></article>
+          <article><span>Topics</span><h3>Move from a topic to the scriptures behind it.</h3><p>The Topical Guide brings Cultivate Labs content into a simpler topic-first path across the standard works.</p></article>
         </div>
-        <div class="hero-actions"><a class="btn btn-primary" href="./explorer/">Explore Scripture Explorer</a></div>
+        <div class="hero-actions"><a class="btn btn-primary" href="./explorer/">Explore Scripture Explorer</a><a class="btn" href="./topical-guide/" style="border:1px solid rgba(17,24,23,.14);background:#fff">Open Topical Guide</a></div>
       </div>
     </section>
 
@@ -145,7 +186,7 @@
         <div class="section-heading">
           <span class="kicker">More ways to study</span>
           <h2>Powerful tools, ready when you want them.</h2>
-          <p>The reader, groups, and Explorer are the center of Cultivate. Around them are deeper tools for topical discovery, planning, memorization, personal study, search, and progress.</p>
+          <p>The reader, Study Spaces, and Cultivate Labs content are the center of Cultivate. Around them are deeper tools for planning, memorization, personal study, search, and progress.</p>
         </div>
         <div class="support-grid">
           <article>
@@ -154,7 +195,7 @@
             <p>Build a Mastery set and work from guided recall toward whole-passage memory. It is a smaller part of Cultivate, but a deep one when memorization is your goal.</p>
           </article>
           <article>
-            <span>Topical Guide</span>
+            <span>Cultivate Labs · Topical Guide</span>
             <h3>Explore scripture by topic and meaning.</h3>
             <p>Browse 304 accepted topics and follow more than 14,000 accepted topic-to-verse relationships across the standard works.</p>
             <div class="hero-actions"><a class="btn btn-primary" href="./topical-guide/">See Topical Guide</a></div>
@@ -183,42 +224,34 @@
       </div>
     </section>
 
-    <section class="beta-section" id="download">
+    <section class="beta-section download-section" id="download">
       <div class="container beta-inner" style="display:block">
-        <div style="max-width:860px">
+        <div class="download-intro" style="max-width:860px">
           <span class="kicker">Testing access</span>
-          <h2>Install Cultivate on iOS or Android.</h2>
+          <h2 style="color:#fff">Install Cultivate on iOS or Android.</h2>
           <p>Cultivate is still in active testing, so you will not find this version by searching the public App Store or Google Play Store. Apple and Google provide official testing programs that let you install the app now and receive test updates as new builds are released.</p>
         </div>
 
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:36px">
-          <article style="padding:26px;border:1px solid rgba(255,255,255,.14);border-radius:24px;background:rgba(255,255,255,.06)">
-            <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px">
-              <span aria-hidden="true" style="width:48px;height:48px;border-radius:14px;background:rgba(255,255,255,.10);display:grid;place-items:center;flex:0 0 auto">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M10 5h4"/><path d="M11 18.5h2"/></svg>
-              </span>
-              <div><small style="display:block;color:#8ce4da;font-weight:800;letter-spacing:.12em">iOS &amp; iPadOS</small><strong style="display:block;font-size:1.2rem;margin-top:3px">Apple TestFlight</strong></div>
-            </div>
-            <p style="color:#c9d2d9;line-height:1.65;margin-top:0">TestFlight is Apple&apos;s official app-testing system. It installs Cultivate outside the public App Store while keeping installation and updates managed by Apple.</p>
-            <ol style="color:#c9d2d9;line-height:1.65;padding-left:1.25rem;margin:18px 0 0">
-              <li>Tap <strong style="color:#fff">Join iOS test</strong> below.</li>
+        <div class="download-grid">
+          <article class="download-card">
+            <small>iOS &amp; iPadOS</small>
+            <h3>Apple TestFlight</h3>
+            <p>TestFlight is Apple&apos;s official app-testing system. It installs Cultivate outside the public App Store while keeping installation and updates managed by Apple.</p>
+            <ol>
+              <li>Tap <strong>Join iOS test</strong> below.</li>
               <li>If you do not already have TestFlight, Apple will direct you to install it.</li>
-              <li>Open the Cultivate invitation in TestFlight, then tap <strong style="color:#fff">Accept</strong> and <strong style="color:#fff">Install</strong>.</li>
+              <li>Open the Cultivate invitation in TestFlight, then tap <strong>Accept</strong> and <strong>Install</strong>.</li>
               <li>When a new test build is available, update Cultivate through TestFlight.</li>
             </ol>
             <div class="hero-actions"><a class="btn btn-primary" href="https://testflight.apple.com/join/VZycpDUV" target="_blank" rel="noopener noreferrer">Join iOS test</a></div>
           </article>
 
-          <article style="padding:26px;border:1px solid rgba(255,255,255,.14);border-radius:24px;background:rgba(255,255,255,.06)">
-            <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px">
-              <span aria-hidden="true" style="width:48px;height:48px;border-radius:14px;background:rgba(255,255,255,.10);display:grid;place-items:center;flex:0 0 auto">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 8.5h10a2 2 0 0 1 2 2V17H5v-6.5a2 2 0 0 1 2-2Z"/><path d="M8 8.5 6.5 6"/><path d="M16 8.5 17.5 6"/><path d="M8.5 12h.01"/><path d="M15.5 12h.01"/><path d="M7 17v3"/><path d="M17 17v3"/><path d="M5 11v4"/><path d="M19 11v4"/></svg>
-              </span>
-              <div><small style="display:block;color:#8ce4da;font-weight:800;letter-spacing:.12em">ANDROID</small><strong style="display:block;font-size:1.2rem;margin-top:3px">Google Play testing</strong></div>
-            </div>
-            <p style="color:#c9d2d9;line-height:1.65;margin-top:0">Android testing is handled through Google Play. You join the test first, then install Cultivate from Google Play like any other app.</p>
-            <ol style="color:#c9d2d9;line-height:1.65;padding-left:1.25rem;margin:18px 0 0">
-              <li>Tap <strong style="color:#fff">Join Android test</strong> below.</li>
+          <article class="download-card">
+            <small>ANDROID</small>
+            <h3>Google Play testing</h3>
+            <p>Android testing is handled through Google Play. You join the test first, then install Cultivate from Google Play like any other app.</p>
+            <ol>
+              <li>Tap <strong>Join Android test</strong> below.</li>
               <li>If Google asks you to sign in, use the Google account connected to your Android device.</li>
               <li>Join the testing program when prompted, then continue to Google Play and install Cultivate.</li>
               <li>Future test builds update through Google Play. If the link says you do not have access, contact the person who invited you.</li>
@@ -227,9 +260,9 @@
           </article>
         </div>
 
-        <div style="max-width:860px;margin-top:34px;padding-top:28px;border-top:1px solid rgba(255,255,255,.12)">
-          <h3 style="font-size:1.45rem;margin:0 0 10px">What does testing mean?</h3>
-          <p style="color:#c9d2d9;line-height:1.7;margin:0">This is the real Cultivate app, but it is being tested before a wider public release. Features may change, new builds may arrive often, and you may occasionally run into a bug. Using the app normally and reporting anything confusing, broken, or unexpected is exactly what helps during this phase. You do not need to be technical to test it.</p>
+        <div class="testing-note">
+          <h3>What does testing mean?</h3>
+          <p>This is the real Cultivate app, but it is being tested before a wider public release. Features may change, new builds may arrive often, and you may occasionally run into a bug. Using the app normally and reporting anything confusing, broken, or unexpected is exactly what helps during this phase. You do not need to be technical to test it.</p>
         </div>
       </div>
     </section>
