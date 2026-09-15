@@ -38,6 +38,1604 @@
     "A person’s position on one policy cannot prove that the person rejects Christ.",
     "The comparison is strongest at the level of behavior and structure, not one-to-one historical identity."
   ],
+  "comparison_network": {
+    "edges": [
+      {
+        "branch_id": "divine-purpose",
+        "canonical_claim": false,
+        "corpus": "MODERN",
+        "id": "cmp:root:divine-purpose",
+        "label": "SOURCE BRANCH",
+        "layer": "MODERN_SOURCE",
+        "relationship_class": "MODERN_SOURCE",
+        "source": "modern:root:maga-america-first",
+        "source_name": "MAGA / AMERICA FIRST",
+        "target": "modern:branch:divine-purpose",
+        "target_name": "DIVINE PURPOSE + MAGA"
+      },
+      {
+        "canonical_claim": false,
+        "corpus": "MODERN",
+        "id": "cmp:source:source-inaugural-2025",
+        "label": "DOCUMENTED SOURCE",
+        "layer": "MODERN_SOURCE",
+        "relationship_class": "MODERN_SOURCE",
+        "source": "modern:branch:divine-purpose",
+        "source_id": "source-inaugural-2025",
+        "source_name": "DIVINE PURPOSE + MAGA",
+        "target": "modern:source:source-inaugural-2025",
+        "target_name": "The Inaugural Address"
+      },
+      {
+        "canonical_claim": false,
+        "comparison": "The comparison asks how scriptural narratives treat claims of divine favor, public religious confidence, and the possibility of pride. It does not turn a presidential statement into a claim that God chose a ruler.",
+        "concept_id": "concept-divine-favor",
+        "corpus": "COMPARISON",
+        "id": "cmp:compare:source-inaugural-2025:concept-divine-favor",
+        "label": "INTERPRETIVE COMPARISON",
+        "layer": "EDITORIAL_COMPARISON",
+        "relationship_class": "EDITORIAL_COMPARISON",
+        "source": "modern:source:source-inaugural-2025",
+        "source_id": "source-inaugural-2025",
+        "source_name": "The Inaugural Address",
+        "target": "concept-divine-favor",
+        "target_name": "DIVINE FAVOR / CHOSENNESS"
+      },
+      {
+        "canonical_claim": false,
+        "canonical_edge_ids": [],
+        "concept_id": "concept-divine-favor",
+        "corpus": "COMPARISON",
+        "id": "cmp:evidence:divine-purpose:NT:candbevt_6b65c8565687d54f24eb",
+        "label": "SCRIPTURAL EVIDENCE",
+        "layer": "SCRIPTURAL_EVIDENCE",
+        "relationship_class": "SCRIPTURAL_EVIDENCE",
+        "scripture_node_id": "candbevt_6b65c8565687d54f24eb",
+        "source": "concept-divine-favor",
+        "source_name": "DIVINE FAVOR / CHOSENNESS",
+        "target": "scripture:NT:candbevt_6b65c8565687d54f24eb",
+        "target_name": "Woes to Scribes and Pharisees"
+      },
+      {
+        "canonical_claim": false,
+        "canonical_edge_ids": [],
+        "concept_id": "concept-divine-favor",
+        "corpus": "COMPARISON",
+        "id": "cmp:evidence:divine-purpose:NT:candbevt_daa9b3ad59f295f176fc",
+        "label": "SCRIPTURAL EVIDENCE",
+        "layer": "SCRIPTURAL_EVIDENCE",
+        "relationship_class": "SCRIPTURAL_EVIDENCE",
+        "scripture_node_id": "candbevt_daa9b3ad59f295f176fc",
+        "source": "concept-divine-favor",
+        "source_name": "DIVINE FAVOR / CHOSENNESS",
+        "target": "scripture:NT:candbevt_daa9b3ad59f295f176fc",
+        "target_name": "The Pharisee and the Tax Collector"
+      },
+      {
+        "canonical_claim": false,
+        "canonical_edge_ids": [
+          "edge:canonical:p1eg:zoramite-mission-antionum:group:000135",
+          "edge:canonical:p1pe:zoramite-mission-antionum:alma-the-younger"
+        ],
+        "concept_id": "concept-divine-favor",
+        "corpus": "COMPARISON",
+        "id": "cmp:evidence:divine-purpose:BOM:p1evt:zoramite-mission-antionum",
+        "label": "SCRIPTURAL EVIDENCE",
+        "layer": "SCRIPTURAL_EVIDENCE",
+        "relationship_class": "SCRIPTURAL_EVIDENCE",
+        "scripture_node_id": "p1evt:zoramite-mission-antionum",
+        "source": "concept-divine-favor",
+        "source_name": "DIVINE FAVOR / CHOSENNESS",
+        "target": "scripture:BOM:p1evt:zoramite-mission-antionum",
+        "target_name": "Alma and companions minister to the Zoramites at Antionum"
+      },
+      {
+        "branch_id": "christian-national-identity",
+        "canonical_claim": false,
+        "corpus": "MODERN",
+        "id": "cmp:root:christian-national-identity",
+        "label": "SOURCE BRANCH",
+        "layer": "MODERN_SOURCE",
+        "relationship_class": "MODERN_SOURCE",
+        "source": "modern:root:maga-america-first",
+        "source_name": "MAGA / AMERICA FIRST",
+        "target": "modern:branch:christian-national-identity",
+        "target_name": "CHRISTIAN + NATIONAL IDENTITY"
+      },
+      {
+        "canonical_claim": false,
+        "corpus": "MODERN",
+        "id": "cmp:source:source-cape-henry-cross",
+        "label": "DOCUMENTED SOURCE",
+        "layer": "MODERN_SOURCE",
+        "relationship_class": "MODERN_SOURCE",
+        "source": "modern:branch:christian-national-identity",
+        "source_id": "source-cape-henry-cross",
+        "source_name": "CHRISTIAN + NATIONAL IDENTITY",
+        "target": "modern:source:source-cape-henry-cross",
+        "target_name": "418th Anniversary of the First Landing and the Raising of the Cape Henry Cross"
+      },
+      {
+        "canonical_claim": false,
+        "comparison": "The comparison places official national-faith language beside scriptural questions about identity and righteousness. It does not say that national prayer or public faith statements are themselves proof of wrongdoing.",
+        "concept_id": "concept-religious-identity",
+        "corpus": "COMPARISON",
+        "id": "cmp:compare:source-cape-henry-cross:concept-religious-identity",
+        "label": "INTERPRETIVE COMPARISON",
+        "layer": "EDITORIAL_COMPARISON",
+        "relationship_class": "EDITORIAL_COMPARISON",
+        "source": "modern:source:source-cape-henry-cross",
+        "source_id": "source-cape-henry-cross",
+        "source_name": "418th Anniversary of the First Landing and the Raising of the Cape Henry Cross",
+        "target": "concept-religious-identity",
+        "target_name": "RELIGIOUS + NATIONAL IDENTITY"
+      },
+      {
+        "canonical_claim": false,
+        "corpus": "MODERN",
+        "id": "cmp:source:source-national-day-prayer",
+        "label": "DOCUMENTED SOURCE",
+        "layer": "MODERN_SOURCE",
+        "relationship_class": "MODERN_SOURCE",
+        "source": "modern:branch:christian-national-identity",
+        "source_id": "source-national-day-prayer",
+        "source_name": "CHRISTIAN + NATIONAL IDENTITY",
+        "target": "modern:source:source-national-day-prayer",
+        "target_name": "National Day of Prayer, 2025"
+      },
+      {
+        "canonical_claim": false,
+        "comparison": "The comparison places official national-faith language beside scriptural questions about identity and righteousness. It does not say that national prayer or public faith statements are themselves proof of wrongdoing.",
+        "concept_id": "concept-religious-identity",
+        "corpus": "COMPARISON",
+        "id": "cmp:compare:source-national-day-prayer:concept-religious-identity",
+        "label": "INTERPRETIVE COMPARISON",
+        "layer": "EDITORIAL_COMPARISON",
+        "relationship_class": "EDITORIAL_COMPARISON",
+        "source": "modern:source:source-national-day-prayer",
+        "source_id": "source-national-day-prayer",
+        "source_name": "National Day of Prayer, 2025",
+        "target": "concept-religious-identity",
+        "target_name": "RELIGIOUS + NATIONAL IDENTITY"
+      },
+      {
+        "canonical_claim": false,
+        "canonical_edge_ids": [],
+        "concept_id": "concept-religious-identity",
+        "corpus": "COMPARISON",
+        "id": "cmp:evidence:christian-national-identity:NT:candbevt_6b65c8565687d54f24eb",
+        "label": "SCRIPTURAL EVIDENCE",
+        "layer": "SCRIPTURAL_EVIDENCE",
+        "relationship_class": "SCRIPTURAL_EVIDENCE",
+        "scripture_node_id": "candbevt_6b65c8565687d54f24eb",
+        "source": "concept-religious-identity",
+        "source_name": "RELIGIOUS + NATIONAL IDENTITY",
+        "target": "scripture:NT:candbevt_6b65c8565687d54f24eb",
+        "target_name": "Woes to Scribes and Pharisees"
+      },
+      {
+        "canonical_claim": false,
+        "canonical_edge_ids": [],
+        "concept_id": "concept-religious-identity",
+        "corpus": "COMPARISON",
+        "id": "cmp:evidence:christian-national-identity:NT:candbevt_daa9b3ad59f295f176fc",
+        "label": "SCRIPTURAL EVIDENCE",
+        "layer": "SCRIPTURAL_EVIDENCE",
+        "relationship_class": "SCRIPTURAL_EVIDENCE",
+        "scripture_node_id": "candbevt_daa9b3ad59f295f176fc",
+        "source": "concept-religious-identity",
+        "source_name": "RELIGIOUS + NATIONAL IDENTITY",
+        "target": "scripture:NT:candbevt_daa9b3ad59f295f176fc",
+        "target_name": "The Pharisee and the Tax Collector"
+      },
+      {
+        "canonical_claim": false,
+        "canonical_edge_ids": [
+          "edge:canonical:p1eg:zoramite-mission-antionum:group:000135",
+          "edge:canonical:p1pe:zoramite-mission-antionum:alma-the-younger"
+        ],
+        "concept_id": "concept-religious-identity",
+        "corpus": "COMPARISON",
+        "id": "cmp:evidence:christian-national-identity:BOM:p1evt:zoramite-mission-antionum",
+        "label": "SCRIPTURAL EVIDENCE",
+        "layer": "SCRIPTURAL_EVIDENCE",
+        "relationship_class": "SCRIPTURAL_EVIDENCE",
+        "scripture_node_id": "p1evt:zoramite-mission-antionum",
+        "source": "concept-religious-identity",
+        "source_name": "RELIGIOUS + NATIONAL IDENTITY",
+        "target": "scripture:BOM:p1evt:zoramite-mission-antionum",
+        "target_name": "Alma and companions minister to the Zoramites at Antionum"
+      },
+      {
+        "branch_id": "america-first",
+        "canonical_claim": false,
+        "corpus": "MODERN",
+        "id": "cmp:root:america-first",
+        "label": "SOURCE BRANCH",
+        "layer": "MODERN_SOURCE",
+        "relationship_class": "MODERN_SOURCE",
+        "source": "modern:root:maga-america-first",
+        "source_name": "MAGA / AMERICA FIRST",
+        "target": "modern:branch:america-first",
+        "target_name": "AMERICA FIRST / IN-GROUP PRIORITY"
+      },
+      {
+        "canonical_claim": false,
+        "corpus": "MODERN",
+        "id": "cmp:source:source-america-first-policy",
+        "label": "DOCUMENTED SOURCE",
+        "layer": "MODERN_SOURCE",
+        "relationship_class": "MODERN_SOURCE",
+        "source": "modern:branch:america-first",
+        "source_id": "source-america-first-policy",
+        "source_name": "AMERICA FIRST / IN-GROUP PRIORITY",
+        "target": "modern:source:source-america-first-policy",
+        "target_name": "America First Policy Directive to the Secretary of State"
+      },
+      {
+        "canonical_claim": false,
+        "comparison": "The comparison exposes a tension rather than supplying an immigration or trade platform: scripture can speak about community responsibility, law, and protection while also widening the moral field to the neighbor and stranger.",
+        "concept_id": "concept-neighbor-stewardship",
+        "corpus": "COMPARISON",
+        "id": "cmp:compare:source-america-first-policy:concept-neighbor-stewardship",
+        "label": "INTERPRETIVE COMPARISON",
+        "layer": "EDITORIAL_COMPARISON",
+        "relationship_class": "EDITORIAL_COMPARISON",
+        "source": "modern:source:source-america-first-policy",
+        "source_id": "source-america-first-policy",
+        "source_name": "America First Policy Directive to the Secretary of State",
+        "target": "concept-neighbor-stewardship",
+        "target_name": "NEIGHBOR / STEWARDSHIP"
+      },
+      {
+        "canonical_claim": false,
+        "corpus": "MODERN",
+        "id": "cmp:source:source-america-first-trade",
+        "label": "DOCUMENTED SOURCE",
+        "layer": "MODERN_SOURCE",
+        "relationship_class": "MODERN_SOURCE",
+        "source": "modern:branch:america-first",
+        "source_id": "source-america-first-trade",
+        "source_name": "AMERICA FIRST / IN-GROUP PRIORITY",
+        "target": "modern:source:source-america-first-trade",
+        "target_name": "America First Trade Policy"
+      },
+      {
+        "canonical_claim": false,
+        "comparison": "The comparison exposes a tension rather than supplying an immigration or trade platform: scripture can speak about community responsibility, law, and protection while also widening the moral field to the neighbor and stranger.",
+        "concept_id": "concept-neighbor-stewardship",
+        "corpus": "COMPARISON",
+        "id": "cmp:compare:source-america-first-trade:concept-neighbor-stewardship",
+        "label": "INTERPRETIVE COMPARISON",
+        "layer": "EDITORIAL_COMPARISON",
+        "relationship_class": "EDITORIAL_COMPARISON",
+        "source": "modern:source:source-america-first-trade",
+        "source_id": "source-america-first-trade",
+        "source_name": "America First Trade Policy",
+        "target": "concept-neighbor-stewardship",
+        "target_name": "NEIGHBOR / STEWARDSHIP"
+      },
+      {
+        "canonical_claim": false,
+        "canonical_edge_ids": [
+          "candbpart_737f7172d349e274752c"
+        ],
+        "concept_id": "concept-neighbor-stewardship",
+        "corpus": "COMPARISON",
+        "id": "cmp:evidence:america-first:NT:candbevt_c8d856f82bb3a34809d2",
+        "label": "SCRIPTURAL EVIDENCE",
+        "layer": "SCRIPTURAL_EVIDENCE",
+        "relationship_class": "SCRIPTURAL_EVIDENCE",
+        "scripture_node_id": "candbevt_c8d856f82bb3a34809d2",
+        "source": "concept-neighbor-stewardship",
+        "source_name": "NEIGHBOR / STEWARDSHIP",
+        "target": "scripture:NT:candbevt_c8d856f82bb3a34809d2",
+        "target_name": "The Parable"
+      },
+      {
+        "canonical_claim": false,
+        "canonical_edge_ids": [
+          "candbpart_763861b2d42039df1ee1"
+        ],
+        "concept_id": "concept-neighbor-stewardship",
+        "corpus": "COMPARISON",
+        "id": "cmp:evidence:america-first:NT:candbevt_993bca93ca8d8acf0ad9",
+        "label": "SCRIPTURAL EVIDENCE",
+        "layer": "SCRIPTURAL_EVIDENCE",
+        "relationship_class": "SCRIPTURAL_EVIDENCE",
+        "scripture_node_id": "candbevt_993bca93ca8d8acf0ad9",
+        "source": "concept-neighbor-stewardship",
+        "source_name": "NEIGHBOR / STEWARDSHIP",
+        "target": "scripture:NT:candbevt_993bca93ca8d8acf0ad9",
+        "target_name": "Preaching the Gospel to the Samaritans"
+      },
+      {
+        "canonical_claim": false,
+        "canonical_edge_ids": [
+          "edge:canonical:p1eg:people-ammon-jershon-settlement:group:000014",
+          "edge:canonical:p1pe:people-ammon-jershon-settlement:alma-the-younger"
+        ],
+        "concept_id": "concept-neighbor-stewardship",
+        "corpus": "COMPARISON",
+        "id": "cmp:evidence:america-first:BOM:p1evt:people-ammon-jershon-settlement",
+        "label": "SCRIPTURAL EVIDENCE",
+        "layer": "SCRIPTURAL_EVIDENCE",
+        "relationship_class": "SCRIPTURAL_EVIDENCE",
+        "scripture_node_id": "p1evt:people-ammon-jershon-settlement",
+        "source": "concept-neighbor-stewardship",
+        "source_name": "NEIGHBOR / STEWARDSHIP",
+        "target": "scripture:BOM:p1evt:people-ammon-jershon-settlement",
+        "target_name": "Converted community settles in Jershon and becomes known as the people of Ammon"
+      },
+      {
+        "branch_id": "invasion-outsider",
+        "canonical_claim": false,
+        "corpus": "MODERN",
+        "id": "cmp:root:invasion-outsider",
+        "label": "SOURCE BRANCH",
+        "layer": "MODERN_SOURCE",
+        "relationship_class": "MODERN_SOURCE",
+        "source": "modern:root:maga-america-first",
+        "source_name": "MAGA / AMERICA FIRST",
+        "target": "modern:branch:invasion-outsider",
+        "target_name": "“INVASION” / OUTSIDER FRAMING"
+      },
+      {
+        "canonical_claim": false,
+        "corpus": "MODERN",
+        "id": "cmp:source:source-invasion-proclamation",
+        "label": "DOCUMENTED SOURCE",
+        "layer": "MODERN_SOURCE",
+        "relationship_class": "MODERN_SOURCE",
+        "source": "modern:branch:invasion-outsider",
+        "source_id": "source-invasion-proclamation",
+        "source_name": "“INVASION” / OUTSIDER FRAMING",
+        "target": "modern:source:source-invasion-proclamation",
+        "target_name": "Guaranteeing the States Protection Against Invasion"
+      },
+      {
+        "canonical_claim": false,
+        "comparison": "The primary sources establish the administration’s invasion language. The scriptural layer then lets the reader inspect narratives about neighbors, strangers, enemies, protection, and mercy without treating them as a modern policy platform.",
+        "concept_id": "concept-outsider-protection",
+        "corpus": "COMPARISON",
+        "id": "cmp:compare:source-invasion-proclamation:concept-outsider-protection",
+        "label": "INTERPRETIVE COMPARISON",
+        "layer": "EDITORIAL_COMPARISON",
+        "relationship_class": "EDITORIAL_COMPARISON",
+        "source": "modern:source:source-invasion-proclamation",
+        "source_id": "source-invasion-proclamation",
+        "source_name": "Guaranteeing the States Protection Against Invasion",
+        "target": "concept-outsider-protection",
+        "target_name": "OUTSIDER / PROTECTION"
+      },
+      {
+        "canonical_claim": false,
+        "corpus": "MODERN",
+        "id": "cmp:source:source-protecting-americans-invasion",
+        "label": "DOCUMENTED SOURCE",
+        "layer": "MODERN_SOURCE",
+        "relationship_class": "MODERN_SOURCE",
+        "source": "modern:branch:invasion-outsider",
+        "source_id": "source-protecting-americans-invasion",
+        "source_name": "“INVASION” / OUTSIDER FRAMING",
+        "target": "modern:source:source-protecting-americans-invasion",
+        "target_name": "Protecting the American People Against Invasion"
+      },
+      {
+        "canonical_claim": false,
+        "comparison": "The primary sources establish the administration’s invasion language. The scriptural layer then lets the reader inspect narratives about neighbors, strangers, enemies, protection, and mercy without treating them as a modern policy platform.",
+        "concept_id": "concept-outsider-protection",
+        "corpus": "COMPARISON",
+        "id": "cmp:compare:source-protecting-americans-invasion:concept-outsider-protection",
+        "label": "INTERPRETIVE COMPARISON",
+        "layer": "EDITORIAL_COMPARISON",
+        "relationship_class": "EDITORIAL_COMPARISON",
+        "source": "modern:source:source-protecting-americans-invasion",
+        "source_id": "source-protecting-americans-invasion",
+        "source_name": "Protecting the American People Against Invasion",
+        "target": "concept-outsider-protection",
+        "target_name": "OUTSIDER / PROTECTION"
+      },
+      {
+        "canonical_claim": false,
+        "canonical_edge_ids": [
+          "candbpart_737f7172d349e274752c"
+        ],
+        "concept_id": "concept-outsider-protection",
+        "corpus": "COMPARISON",
+        "id": "cmp:evidence:invasion-outsider:NT:candbevt_c8d856f82bb3a34809d2",
+        "label": "SCRIPTURAL EVIDENCE",
+        "layer": "SCRIPTURAL_EVIDENCE",
+        "relationship_class": "SCRIPTURAL_EVIDENCE",
+        "scripture_node_id": "candbevt_c8d856f82bb3a34809d2",
+        "source": "concept-outsider-protection",
+        "source_name": "OUTSIDER / PROTECTION",
+        "target": "scripture:NT:candbevt_c8d856f82bb3a34809d2",
+        "target_name": "The Parable"
+      },
+      {
+        "canonical_claim": false,
+        "canonical_edge_ids": [
+          "candbpart_ce65516349cbedfafc53"
+        ],
+        "concept_id": "concept-outsider-protection",
+        "corpus": "COMPARISON",
+        "id": "cmp:evidence:invasion-outsider:NT:candbevt_8ca0771124333e8ab2ed",
+        "label": "SCRIPTURAL EVIDENCE",
+        "layer": "SCRIPTURAL_EVIDENCE",
+        "relationship_class": "SCRIPTURAL_EVIDENCE",
+        "scripture_node_id": "candbevt_8ca0771124333e8ab2ed",
+        "source": "concept-outsider-protection",
+        "source_name": "OUTSIDER / PROTECTION",
+        "target": "scripture:NT:candbevt_8ca0771124333e8ab2ed",
+        "target_name": "The Centurion"
+      },
+      {
+        "canonical_claim": false,
+        "canonical_edge_ids": [
+          "edge:canonical:p1eg:anti-nephi-lehi-nonresistant-slaying:group:000014",
+          "edge:canonical:p1eg:anti-nephi-lehi-nonresistant-slaying:group:000078"
+        ],
+        "concept_id": "concept-outsider-protection",
+        "corpus": "COMPARISON",
+        "id": "cmp:evidence:invasion-outsider:BOM:p1evt:anti-nephi-lehi-nonresistant-slaying",
+        "label": "SCRIPTURAL EVIDENCE",
+        "layer": "SCRIPTURAL_EVIDENCE",
+        "relationship_class": "SCRIPTURAL_EVIDENCE",
+        "scripture_node_id": "p1evt:anti-nephi-lehi-nonresistant-slaying",
+        "source": "concept-outsider-protection",
+        "source_name": "OUTSIDER / PROTECTION",
+        "target": "scripture:BOM:p1evt:anti-nephi-lehi-nonresistant-slaying",
+        "target_name": "Anti-Nephi-Lehies refuse resistance and attackers repent"
+      },
+      {
+        "branch_id": "religion-government",
+        "canonical_claim": false,
+        "corpus": "MODERN",
+        "id": "cmp:root:religion-government",
+        "label": "SOURCE BRANCH",
+        "layer": "MODERN_SOURCE",
+        "relationship_class": "MODERN_SOURCE",
+        "source": "modern:root:maga-america-first",
+        "source_name": "MAGA / AMERICA FIRST",
+        "target": "modern:branch:religion-government",
+        "target_name": "RELIGION + GOVERNMENT"
+      },
+      {
+        "canonical_claim": false,
+        "corpus": "MODERN",
+        "id": "cmp:source:source-faith-office",
+        "label": "DOCUMENTED SOURCE",
+        "layer": "MODERN_SOURCE",
+        "relationship_class": "MODERN_SOURCE",
+        "source": "modern:branch:religion-government",
+        "source_id": "source-faith-office",
+        "source_name": "RELIGION + GOVERNMENT",
+        "target": "modern:source:source-faith-office",
+        "target_name": "Establishment of the White House Faith Office"
+      },
+      {
+        "canonical_claim": false,
+        "comparison": "The comparison treats government faith initiatives as documented administration actions and asks how scripture depicts religious authority, political authority, and self-preserving power. It does not equate the Faith Office with King Noah, Abinadi, Caiaphas, or any other narrative.",
+        "concept_id": "concept-authority-power",
+        "corpus": "COMPARISON",
+        "id": "cmp:compare:source-faith-office:concept-authority-power",
+        "label": "INTERPRETIVE COMPARISON",
+        "layer": "EDITORIAL_COMPARISON",
+        "relationship_class": "EDITORIAL_COMPARISON",
+        "source": "modern:source:source-faith-office",
+        "source_id": "source-faith-office",
+        "source_name": "Establishment of the White House Faith Office",
+        "target": "concept-authority-power",
+        "target_name": "RELIGIOUS + POLITICAL AUTHORITY"
+      },
+      {
+        "canonical_claim": false,
+        "corpus": "MODERN",
+        "id": "cmp:source:source-anti-christian-bias",
+        "label": "DOCUMENTED SOURCE",
+        "layer": "MODERN_SOURCE",
+        "relationship_class": "MODERN_SOURCE",
+        "source": "modern:branch:religion-government",
+        "source_id": "source-anti-christian-bias",
+        "source_name": "RELIGION + GOVERNMENT",
+        "target": "modern:source:source-anti-christian-bias",
+        "target_name": "Eradicating Anti-Christian Bias"
+      },
+      {
+        "canonical_claim": false,
+        "comparison": "The comparison treats government faith initiatives as documented administration actions and asks how scripture depicts religious authority, political authority, and self-preserving power. It does not equate the Faith Office with King Noah, Abinadi, Caiaphas, or any other narrative.",
+        "concept_id": "concept-authority-power",
+        "corpus": "COMPARISON",
+        "id": "cmp:compare:source-anti-christian-bias:concept-authority-power",
+        "label": "INTERPRETIVE COMPARISON",
+        "layer": "EDITORIAL_COMPARISON",
+        "relationship_class": "EDITORIAL_COMPARISON",
+        "source": "modern:source:source-anti-christian-bias",
+        "source_id": "source-anti-christian-bias",
+        "source_name": "Eradicating Anti-Christian Bias",
+        "target": "concept-authority-power",
+        "target_name": "RELIGIOUS + POLITICAL AUTHORITY"
+      },
+      {
+        "canonical_claim": false,
+        "canonical_edge_ids": [
+          "candbpart_88758cd7f016988f5227"
+        ],
+        "concept_id": "concept-authority-power",
+        "corpus": "COMPARISON",
+        "id": "cmp:evidence:religion-government:NT:candbevt_bafecaaa567f0ad8d4da",
+        "label": "SCRIPTURAL EVIDENCE",
+        "layer": "SCRIPTURAL_EVIDENCE",
+        "relationship_class": "SCRIPTURAL_EVIDENCE",
+        "scripture_node_id": "candbevt_bafecaaa567f0ad8d4da",
+        "source": "concept-authority-power",
+        "source_name": "RELIGIOUS + POLITICAL AUTHORITY",
+        "target": "scripture:NT:candbevt_bafecaaa567f0ad8d4da",
+        "target_name": "Jesus before the High Priest"
+      },
+      {
+        "canonical_claim": false,
+        "canonical_edge_ids": [
+          "candbpart_27479595065dfa032b75",
+          "candbpart_580e5840f206cecae7f3"
+        ],
+        "concept_id": "concept-authority-power",
+        "corpus": "COMPARISON",
+        "id": "cmp:evidence:religion-government:NT:candbevt_90cb65509f0973db5dd0",
+        "label": "SCRIPTURAL EVIDENCE",
+        "layer": "SCRIPTURAL_EVIDENCE",
+        "relationship_class": "SCRIPTURAL_EVIDENCE",
+        "scripture_node_id": "candbevt_90cb65509f0973db5dd0",
+        "source": "concept-authority-power",
+        "source_name": "RELIGIOUS + POLITICAL AUTHORITY",
+        "target": "scripture:NT:candbevt_90cb65509f0973db5dd0",
+        "target_name": "Jesus before Pilate"
+      },
+      {
+        "canonical_claim": false,
+        "canonical_edge_ids": [
+          "edge:canonical:p1eg:abinadi-before-noah-court:group:000129",
+          "edge:canonical:p1pe:abinadi-before-noah-court:king-noah"
+        ],
+        "concept_id": "concept-authority-power",
+        "corpus": "COMPARISON",
+        "id": "cmp:evidence:religion-government:BOM:p1evt:abinadi-before-noah-court",
+        "label": "SCRIPTURAL EVIDENCE",
+        "layer": "SCRIPTURAL_EVIDENCE",
+        "relationship_class": "SCRIPTURAL_EVIDENCE",
+        "scripture_node_id": "p1evt:abinadi-before-noah-court",
+        "source": "concept-authority-power",
+        "source_name": "RELIGIOUS + POLITICAL AUTHORITY",
+        "target": "scripture:BOM:p1evt:abinadi-before-noah-court",
+        "target_name": "Abinadi testifies before Noah and his priests"
+      },
+      {
+        "canonical_claim": false,
+        "canonical_edge_ids": [
+          "edge:canonical:p1eg:noah-succeeds-zeniff:group:000129",
+          "edge:canonical:p1pe:noah-succeeds-zeniff:king-noah"
+        ],
+        "concept_id": "concept-authority-power",
+        "corpus": "COMPARISON",
+        "id": "cmp:evidence:religion-government:BOM:p1evt:noah-succeeds-zeniff",
+        "label": "SCRIPTURAL EVIDENCE",
+        "layer": "SCRIPTURAL_EVIDENCE",
+        "relationship_class": "SCRIPTURAL_EVIDENCE",
+        "scripture_node_id": "p1evt:noah-succeeds-zeniff",
+        "source": "concept-authority-power",
+        "source_name": "RELIGIOUS + POLITICAL AUTHORITY",
+        "target": "scripture:BOM:p1evt:noah-succeeds-zeniff",
+        "target_name": "Noah succeeds Zeniff and establishes oppressive rule"
+      },
+      {
+        "canonical_claim": true,
+        "canonical_edge_id": "candbpart_27479595065dfa032b75",
+        "corpus": "NT",
+        "formatted_references": [
+          "John 18:29",
+          "John 18:31",
+          "John 18:33",
+          "John 18:35",
+          "John 18:37",
+          "John 18:38",
+          "Luke 23:1",
+          "Luke 23:3",
+          "Luke 23:4",
+          "Mark 15:1",
+          "Mark 15:2",
+          "Mark 15:4",
+          "Matthew 27:13"
+        ],
+        "id": "canonical-network:candbpart_27479595065dfa032b75",
+        "label": "person participated in event",
+        "layer": "CANONICAL",
+        "references": [
+          "nt:john:18:29",
+          "nt:john:18:31",
+          "nt:john:18:33",
+          "nt:john:18:35",
+          "nt:john:18:37",
+          "nt:john:18:38",
+          "nt:luke:23:1",
+          "nt:luke:23:3",
+          "nt:luke:23:4",
+          "nt:mark:15:1",
+          "nt:mark:15:2",
+          "nt:mark:15:4",
+          "nt:matthew:27:13"
+        ],
+        "relationship_class": "canonical",
+        "source": "scripture:NT:candb_b873cd927854cb61bcd6",
+        "source_name": "Pilate",
+        "target": "scripture:NT:candbevt_90cb65509f0973db5dd0",
+        "target_name": "Jesus before Pilate"
+      },
+      {
+        "canonical_claim": true,
+        "canonical_edge_id": "candbpart_580e5840f206cecae7f3",
+        "corpus": "NT",
+        "formatted_references": [
+          "John 18:28",
+          "John 18:32",
+          "John 18:33",
+          "John 18:34",
+          "John 18:36",
+          "John 18:37",
+          "Luke 23:2",
+          "Mark 15:1",
+          "Mark 15:5",
+          "Matthew 27:11"
+        ],
+        "id": "canonical-network:candbpart_580e5840f206cecae7f3",
+        "label": "person participated in event",
+        "layer": "CANONICAL",
+        "references": [
+          "nt:john:18:28",
+          "nt:john:18:32",
+          "nt:john:18:33",
+          "nt:john:18:34",
+          "nt:john:18:36",
+          "nt:john:18:37",
+          "nt:luke:23:2",
+          "nt:mark:15:1",
+          "nt:mark:15:5",
+          "nt:matthew:27:11"
+        ],
+        "relationship_class": "canonical",
+        "source": "scripture:NT:candb_c782837629d7000f31ac",
+        "source_name": "Jesus",
+        "target": "scripture:NT:candbevt_90cb65509f0973db5dd0",
+        "target_name": "Jesus before Pilate"
+      },
+      {
+        "canonical_claim": true,
+        "canonical_edge_id": "candbpart_737f7172d349e274752c",
+        "corpus": "NT",
+        "formatted_references": [
+          "Luke 10:29",
+          "Luke 10:30",
+          "Luke 10:37"
+        ],
+        "id": "canonical-network:candbpart_737f7172d349e274752c",
+        "label": "person participated in event",
+        "layer": "CANONICAL",
+        "references": [
+          "nt:luke:10:29",
+          "nt:luke:10:30",
+          "nt:luke:10:37"
+        ],
+        "relationship_class": "canonical",
+        "source": "scripture:NT:candb_c782837629d7000f31ac",
+        "source_name": "Jesus",
+        "target": "scripture:NT:candbevt_c8d856f82bb3a34809d2",
+        "target_name": "The Parable"
+      },
+      {
+        "canonical_claim": true,
+        "canonical_edge_id": "candbpart_763861b2d42039df1ee1",
+        "corpus": "NT",
+        "formatted_references": [
+          "John 4:39",
+          "John 4:40"
+        ],
+        "id": "canonical-network:candbpart_763861b2d42039df1ee1",
+        "label": "group participated in event",
+        "layer": "CANONICAL",
+        "references": [
+          "nt:john:4:39",
+          "nt:john:4:40"
+        ],
+        "relationship_class": "canonical",
+        "source": "scripture:NT:candbgrp_079cfdc0505951d5d057",
+        "source_name": "Samaritans",
+        "target": "scripture:NT:candbevt_993bca93ca8d8acf0ad9",
+        "target_name": "Preaching the Gospel to the Samaritans"
+      },
+      {
+        "canonical_claim": true,
+        "canonical_edge_id": "candbpart_88758cd7f016988f5227",
+        "corpus": "NT",
+        "formatted_references": [
+          "John 18:24"
+        ],
+        "id": "canonical-network:candbpart_88758cd7f016988f5227",
+        "label": "person participated in event",
+        "layer": "CANONICAL",
+        "references": [
+          "nt:john:18:24"
+        ],
+        "relationship_class": "canonical",
+        "source": "scripture:NT:candb_a8967e55a38dff7502d9",
+        "source_name": "Caiaphas",
+        "target": "scripture:NT:candbevt_bafecaaa567f0ad8d4da",
+        "target_name": "Jesus before the High Priest"
+      },
+      {
+        "canonical_claim": true,
+        "canonical_edge_id": "candbpart_ce65516349cbedfafc53",
+        "corpus": "NT",
+        "formatted_references": [
+          "Luke 7:3",
+          "Luke 7:4",
+          "Luke 7:6",
+          "Luke 7:9",
+          "Matthew 8:10"
+        ],
+        "id": "canonical-network:candbpart_ce65516349cbedfafc53",
+        "label": "person participated in event",
+        "layer": "CANONICAL",
+        "references": [
+          "nt:luke:7:3",
+          "nt:luke:7:4",
+          "nt:luke:7:6",
+          "nt:luke:7:9",
+          "nt:matthew:8:10"
+        ],
+        "relationship_class": "canonical",
+        "source": "scripture:NT:candb_c782837629d7000f31ac",
+        "source_name": "Jesus",
+        "target": "scripture:NT:candbevt_8ca0771124333e8ab2ed",
+        "target_name": "The Centurion"
+      },
+      {
+        "canonical_claim": true,
+        "canonical_edge_id": "edge:canonical:p1eg:abinadi-before-noah-court:group:000129",
+        "corpus": "BOM",
+        "formatted_references": [
+          "Mosiah 12:25"
+        ],
+        "id": "canonical-network:edge:canonical:p1eg:abinadi-before-noah-court:group:000129",
+        "label": "involves",
+        "layer": "CANONICAL",
+        "references": [
+          "Mosiah 12:25"
+        ],
+        "relationship_class": "canonical",
+        "source": "scripture:BOM:p1evt:abinadi-before-noah-court",
+        "source_name": "Abinadi testifies before Noah and his priests",
+        "target": "scripture:BOM:group:000129",
+        "target_name": "priests of Noah"
+      },
+      {
+        "canonical_claim": true,
+        "canonical_edge_id": "edge:canonical:p1eg:anti-nephi-lehi-nonresistant-slaying:group:000014",
+        "corpus": "BOM",
+        "formatted_references": [
+          "Alma 24:20"
+        ],
+        "id": "canonical-network:edge:canonical:p1eg:anti-nephi-lehi-nonresistant-slaying:group:000014",
+        "label": "involves",
+        "layer": "CANONICAL",
+        "references": [
+          "Alma 24:20"
+        ],
+        "relationship_class": "canonical",
+        "source": "scripture:BOM:p1evt:anti-nephi-lehi-nonresistant-slaying",
+        "source_name": "Anti-Nephi-Lehies refuse resistance and attackers repent",
+        "target": "scripture:BOM:group:000014",
+        "target_name": "Anti-Nephi-Lehies"
+      },
+      {
+        "canonical_claim": true,
+        "canonical_edge_id": "edge:canonical:p1eg:anti-nephi-lehi-nonresistant-slaying:group:000078",
+        "corpus": "BOM",
+        "formatted_references": [
+          "Alma 24:21"
+        ],
+        "id": "canonical-network:edge:canonical:p1eg:anti-nephi-lehi-nonresistant-slaying:group:000078",
+        "label": "involves",
+        "layer": "CANONICAL",
+        "references": [
+          "Alma 24:21"
+        ],
+        "relationship_class": "canonical",
+        "source": "scripture:BOM:p1evt:anti-nephi-lehi-nonresistant-slaying",
+        "source_name": "Anti-Nephi-Lehies refuse resistance and attackers repent",
+        "target": "scripture:BOM:group:000078",
+        "target_name": "Lamanites"
+      },
+      {
+        "canonical_claim": true,
+        "canonical_edge_id": "edge:canonical:p1eg:noah-succeeds-zeniff:group:000129",
+        "corpus": "BOM",
+        "formatted_references": [
+          "Mosiah 11:5"
+        ],
+        "id": "canonical-network:edge:canonical:p1eg:noah-succeeds-zeniff:group:000129",
+        "label": "involves",
+        "layer": "CANONICAL",
+        "references": [
+          "Mosiah 11:5"
+        ],
+        "relationship_class": "canonical",
+        "source": "scripture:BOM:p1evt:noah-succeeds-zeniff",
+        "source_name": "Noah succeeds Zeniff and establishes oppressive rule",
+        "target": "scripture:BOM:group:000129",
+        "target_name": "priests of Noah"
+      },
+      {
+        "canonical_claim": true,
+        "canonical_edge_id": "edge:canonical:p1eg:people-ammon-jershon-settlement:group:000014",
+        "corpus": "BOM",
+        "formatted_references": [
+          "Alma 27:26"
+        ],
+        "id": "canonical-network:edge:canonical:p1eg:people-ammon-jershon-settlement:group:000014",
+        "label": "involves",
+        "layer": "CANONICAL",
+        "references": [
+          "Alma 27:26"
+        ],
+        "relationship_class": "canonical",
+        "source": "scripture:BOM:p1evt:people-ammon-jershon-settlement",
+        "source_name": "Converted community settles in Jershon and becomes known as the people of Ammon",
+        "target": "scripture:BOM:group:000014",
+        "target_name": "Anti-Nephi-Lehies"
+      },
+      {
+        "canonical_claim": true,
+        "canonical_edge_id": "edge:canonical:p1eg:zoramite-mission-antionum:group:000135",
+        "corpus": "BOM",
+        "formatted_references": [
+          "Alma 31:1"
+        ],
+        "id": "canonical-network:edge:canonical:p1eg:zoramite-mission-antionum:group:000135",
+        "label": "involves",
+        "layer": "CANONICAL",
+        "references": [
+          "Alma 31:1"
+        ],
+        "relationship_class": "canonical",
+        "source": "scripture:BOM:p1evt:zoramite-mission-antionum",
+        "source_name": "Alma and companions minister to the Zoramites at Antionum",
+        "target": "scripture:BOM:group:000135",
+        "target_name": "Zoramites"
+      },
+      {
+        "canonical_claim": true,
+        "canonical_edge_id": "edge:canonical:p1pe:abinadi-before-noah-court:king-noah",
+        "corpus": "BOM",
+        "formatted_references": [
+          "Mosiah 12:18"
+        ],
+        "id": "canonical-network:edge:canonical:p1pe:abinadi-before-noah-court:king-noah",
+        "label": "participant_in",
+        "layer": "CANONICAL",
+        "references": [
+          "Mosiah 12:18"
+        ],
+        "relationship_class": "canonical",
+        "source": "scripture:BOM:king-noah",
+        "source_name": "King Noah",
+        "target": "scripture:BOM:p1evt:abinadi-before-noah-court",
+        "target_name": "Abinadi testifies before Noah and his priests"
+      },
+      {
+        "canonical_claim": true,
+        "canonical_edge_id": "edge:canonical:p1pe:noah-succeeds-zeniff:king-noah",
+        "corpus": "BOM",
+        "formatted_references": [
+          "Mosiah 11:1"
+        ],
+        "id": "canonical-network:edge:canonical:p1pe:noah-succeeds-zeniff:king-noah",
+        "label": "participant_in",
+        "layer": "CANONICAL",
+        "references": [
+          "Mosiah 11:1"
+        ],
+        "relationship_class": "canonical",
+        "source": "scripture:BOM:king-noah",
+        "source_name": "King Noah",
+        "target": "scripture:BOM:p1evt:noah-succeeds-zeniff",
+        "target_name": "Noah succeeds Zeniff and establishes oppressive rule"
+      },
+      {
+        "canonical_claim": true,
+        "canonical_edge_id": "edge:canonical:p1pe:people-ammon-jershon-settlement:alma-the-younger",
+        "corpus": "BOM",
+        "formatted_references": [
+          "Alma 27:25"
+        ],
+        "id": "canonical-network:edge:canonical:p1pe:people-ammon-jershon-settlement:alma-the-younger",
+        "label": "participant_in",
+        "layer": "CANONICAL",
+        "references": [
+          "Alma 27:25"
+        ],
+        "relationship_class": "canonical",
+        "source": "scripture:BOM:alma-the-younger",
+        "source_name": "Alma the Younger",
+        "target": "scripture:BOM:p1evt:people-ammon-jershon-settlement",
+        "target_name": "Converted community settles in Jershon and becomes known as the people of Ammon"
+      },
+      {
+        "canonical_claim": true,
+        "canonical_edge_id": "edge:canonical:p1pe:zoramite-mission-antionum:alma-the-younger",
+        "corpus": "BOM",
+        "formatted_references": [
+          "Alma 31:6"
+        ],
+        "id": "canonical-network:edge:canonical:p1pe:zoramite-mission-antionum:alma-the-younger",
+        "label": "participant_in",
+        "layer": "CANONICAL",
+        "references": [
+          "Alma 31:6"
+        ],
+        "relationship_class": "canonical",
+        "source": "scripture:BOM:alma-the-younger",
+        "source_name": "Alma the Younger",
+        "target": "scripture:BOM:p1evt:zoramite-mission-antionum",
+        "target_name": "Alma and companions minister to the Zoramites at Antionum"
+      },
+      {
+        "canonical_claim": true,
+        "canonical_edge_id": "edge:canonical:p1pg:king-noah:group:000129",
+        "corpus": "BOM",
+        "formatted_references": [
+          "Mosiah 11:5"
+        ],
+        "id": "canonical-network:edge:canonical:p1pg:king-noah:group:000129",
+        "label": "ruler_over",
+        "layer": "CANONICAL",
+        "references": [
+          "Mosiah 11:5"
+        ],
+        "relationship_class": "canonical",
+        "source": "scripture:BOM:king-noah",
+        "source_name": "King Noah",
+        "target": "scripture:BOM:group:000129",
+        "target_name": "priests of Noah"
+      }
+    ],
+    "nodes": [
+      {
+        "branch_ids": [
+          "divine-purpose",
+          "christian-national-identity",
+          "america-first",
+          "invasion-outsider",
+          "religion-government"
+        ],
+        "corpus": "MODERN",
+        "description": "A source layer grounded in official Trump and White House uses of Make America Great Again and America First.",
+        "id": "modern:root:maga-america-first",
+        "kind": "modern-root",
+        "label": "MAGA / AMERICA FIRST",
+        "layer": "MODERN_SOURCE",
+        "type": "MODERN_ROOT"
+      },
+      {
+        "branch_id": "divine-purpose",
+        "concept_id": "concept-divine-favor",
+        "corpus": "MODERN",
+        "id": "modern:branch:divine-purpose",
+        "kind": "modern-branch",
+        "label": "DIVINE PURPOSE + MAGA",
+        "layer": "MODERN_SOURCE",
+        "type": "MODERN_BRANCH"
+      },
+      {
+        "branch_id": "christian-national-identity",
+        "concept_id": "concept-religious-identity",
+        "corpus": "MODERN",
+        "id": "modern:branch:christian-national-identity",
+        "kind": "modern-branch",
+        "label": "CHRISTIAN + NATIONAL IDENTITY",
+        "layer": "MODERN_SOURCE",
+        "type": "MODERN_BRANCH"
+      },
+      {
+        "branch_id": "america-first",
+        "concept_id": "concept-neighbor-stewardship",
+        "corpus": "MODERN",
+        "id": "modern:branch:america-first",
+        "kind": "modern-branch",
+        "label": "AMERICA FIRST / IN-GROUP PRIORITY",
+        "layer": "MODERN_SOURCE",
+        "type": "MODERN_BRANCH"
+      },
+      {
+        "branch_id": "invasion-outsider",
+        "concept_id": "concept-outsider-protection",
+        "corpus": "MODERN",
+        "id": "modern:branch:invasion-outsider",
+        "kind": "modern-branch",
+        "label": "“INVASION” / OUTSIDER FRAMING",
+        "layer": "MODERN_SOURCE",
+        "type": "MODERN_BRANCH"
+      },
+      {
+        "branch_id": "religion-government",
+        "concept_id": "concept-authority-power",
+        "corpus": "MODERN",
+        "id": "modern:branch:religion-government",
+        "kind": "modern-branch",
+        "label": "RELIGION + GOVERNMENT",
+        "layer": "MODERN_SOURCE",
+        "type": "MODERN_BRANCH"
+      },
+      {
+        "branch_id": "divine-purpose",
+        "corpus": "MODERN",
+        "id": "modern:source:source-inaugural-2025",
+        "kind": "modern-source",
+        "label": "The Inaugural Address",
+        "layer": "MODERN_SOURCE",
+        "published": "January 20, 2025",
+        "source_id": "source-inaugural-2025",
+        "type": "MODERN_SOURCE"
+      },
+      {
+        "branch_id": "america-first",
+        "corpus": "MODERN",
+        "id": "modern:source:source-america-first-policy",
+        "kind": "modern-source",
+        "label": "America First Policy Directive to the Secretary of State",
+        "layer": "MODERN_SOURCE",
+        "published": "January 20, 2025",
+        "source_id": "source-america-first-policy",
+        "type": "MODERN_SOURCE"
+      },
+      {
+        "branch_id": "america-first",
+        "corpus": "MODERN",
+        "id": "modern:source:source-america-first-trade",
+        "kind": "modern-source",
+        "label": "America First Trade Policy",
+        "layer": "MODERN_SOURCE",
+        "published": "January 20, 2025",
+        "source_id": "source-america-first-trade",
+        "type": "MODERN_SOURCE"
+      },
+      {
+        "branch_id": "christian-national-identity",
+        "corpus": "MODERN",
+        "id": "modern:source:source-cape-henry-cross",
+        "kind": "modern-source",
+        "label": "418th Anniversary of the First Landing and the Raising of the Cape Henry Cross",
+        "layer": "MODERN_SOURCE",
+        "published": "April 29, 2025",
+        "source_id": "source-cape-henry-cross",
+        "type": "MODERN_SOURCE"
+      },
+      {
+        "branch_id": "christian-national-identity",
+        "corpus": "MODERN",
+        "id": "modern:source:source-national-day-prayer",
+        "kind": "modern-source",
+        "label": "National Day of Prayer, 2025",
+        "layer": "MODERN_SOURCE",
+        "published": "May 1, 2025",
+        "source_id": "source-national-day-prayer",
+        "type": "MODERN_SOURCE"
+      },
+      {
+        "branch_id": "religion-government",
+        "corpus": "MODERN",
+        "id": "modern:source:source-faith-office",
+        "kind": "modern-source",
+        "label": "Establishment of the White House Faith Office",
+        "layer": "MODERN_SOURCE",
+        "published": "February 7, 2025",
+        "source_id": "source-faith-office",
+        "type": "MODERN_SOURCE"
+      },
+      {
+        "branch_id": "religion-government",
+        "corpus": "MODERN",
+        "id": "modern:source:source-anti-christian-bias",
+        "kind": "modern-source",
+        "label": "Eradicating Anti-Christian Bias",
+        "layer": "MODERN_SOURCE",
+        "published": "February 6, 2025",
+        "source_id": "source-anti-christian-bias",
+        "type": "MODERN_SOURCE"
+      },
+      {
+        "branch_id": "invasion-outsider",
+        "corpus": "MODERN",
+        "id": "modern:source:source-invasion-proclamation",
+        "kind": "modern-source",
+        "label": "Guaranteeing the States Protection Against Invasion",
+        "layer": "MODERN_SOURCE",
+        "published": "January 20, 2025",
+        "source_id": "source-invasion-proclamation",
+        "type": "MODERN_SOURCE"
+      },
+      {
+        "branch_id": "invasion-outsider",
+        "corpus": "MODERN",
+        "id": "modern:source:source-protecting-americans-invasion",
+        "kind": "modern-source",
+        "label": "Protecting the American People Against Invasion",
+        "layer": "MODERN_SOURCE",
+        "published": "January 20, 2025",
+        "source_id": "source-protecting-americans-invasion",
+        "type": "MODERN_SOURCE"
+      },
+      {
+        "branch_id": "divine-purpose",
+        "corpus": "SCRIPTURE_CONCEPT",
+        "id": "concept-divine-favor",
+        "kind": "scriptural-question",
+        "label": "DIVINE FAVOR / CHOSENNESS",
+        "layer": "SCRIPTURAL_QUESTION",
+        "question": "How does scripture test claims of divine favor, public righteousness, and humility?",
+        "type": "SCRIPTURAL_CONCEPT"
+      },
+      {
+        "branch_id": "christian-national-identity",
+        "corpus": "SCRIPTURE_CONCEPT",
+        "id": "concept-religious-identity",
+        "kind": "scriptural-question",
+        "label": "RELIGIOUS + NATIONAL IDENTITY",
+        "layer": "SCRIPTURAL_QUESTION",
+        "question": "When does group identity become a substitute for the weightier matters of discipleship?",
+        "type": "SCRIPTURAL_CONCEPT"
+      },
+      {
+        "branch_id": "america-first",
+        "corpus": "SCRIPTURE_CONCEPT",
+        "id": "concept-neighbor-stewardship",
+        "kind": "scriptural-question",
+        "label": "NEIGHBOR / STEWARDSHIP",
+        "layer": "SCRIPTURAL_QUESTION",
+        "question": "How can obligations to one’s own community coexist with the command to see a neighbor?",
+        "type": "SCRIPTURAL_CONCEPT"
+      },
+      {
+        "branch_id": "invasion-outsider",
+        "corpus": "SCRIPTURE_CONCEPT",
+        "id": "concept-outsider-protection",
+        "kind": "scriptural-question",
+        "label": "OUTSIDER / PROTECTION",
+        "layer": "SCRIPTURAL_QUESTION",
+        "question": "What changes when fear, defense, justice, mercy, and the stranger occupy the same frame?",
+        "type": "SCRIPTURAL_CONCEPT"
+      },
+      {
+        "branch_id": "religion-government",
+        "corpus": "SCRIPTURE_CONCEPT",
+        "id": "concept-authority-power",
+        "kind": "scriptural-question",
+        "label": "RELIGIOUS + POLITICAL AUTHORITY",
+        "layer": "SCRIPTURAL_QUESTION",
+        "question": "What does scripture reveal when religious authority and political power converge?",
+        "type": "SCRIPTURAL_CONCEPT"
+      },
+      {
+        "canonical_edge_ids": [],
+        "corpus": "BOM",
+        "formatted_references": [
+          "Mosiah 27:8"
+        ],
+        "id": "scripture:BOM:alma-the-younger",
+        "is_neighborhood": true,
+        "kind": "scriptural-anchor",
+        "label": "Alma the Younger",
+        "layer": "SCRIPTURE",
+        "references": [
+          "Mosiah 27:8"
+        ],
+        "scripture_node_id": "alma-the-younger",
+        "type": "PERSON"
+      },
+      {
+        "canonical_edge_ids": [],
+        "corpus": "BOM",
+        "formatted_references": [
+          "Alma 23:17"
+        ],
+        "id": "scripture:BOM:group:000014",
+        "is_neighborhood": true,
+        "kind": "scriptural-anchor",
+        "label": "Anti-Nephi-Lehies",
+        "layer": "SCRIPTURE",
+        "references": [
+          "Alma 23:17"
+        ],
+        "scripture_node_id": "group:000014",
+        "type": "GROUP"
+      },
+      {
+        "canonical_edge_ids": [],
+        "corpus": "BOM",
+        "formatted_references": [
+          "2 Nephi 5:14"
+        ],
+        "id": "scripture:BOM:group:000078",
+        "is_neighborhood": true,
+        "kind": "scriptural-anchor",
+        "label": "Lamanites",
+        "layer": "SCRIPTURE",
+        "references": [
+          "2 Nephi 5:14"
+        ],
+        "scripture_node_id": "group:000078",
+        "type": "GROUP"
+      },
+      {
+        "canonical_edge_ids": [],
+        "corpus": "BOM",
+        "formatted_references": [
+          "Mosiah 21:23"
+        ],
+        "id": "scripture:BOM:group:000129",
+        "is_neighborhood": true,
+        "kind": "scriptural-anchor",
+        "label": "priests of Noah",
+        "layer": "SCRIPTURE",
+        "references": [
+          "Mosiah 21:23"
+        ],
+        "scripture_node_id": "group:000129",
+        "type": "GROUP"
+      },
+      {
+        "canonical_edge_ids": [],
+        "corpus": "BOM",
+        "formatted_references": [
+          "Jacob 1:13"
+        ],
+        "id": "scripture:BOM:group:000135",
+        "is_neighborhood": true,
+        "kind": "scriptural-anchor",
+        "label": "Zoramites",
+        "layer": "SCRIPTURE",
+        "references": [
+          "Jacob 1:13"
+        ],
+        "scripture_node_id": "group:000135",
+        "type": "GROUP"
+      },
+      {
+        "canonical_edge_ids": [],
+        "corpus": "BOM",
+        "formatted_references": [
+          "Mosiah 11:1"
+        ],
+        "id": "scripture:BOM:king-noah",
+        "is_neighborhood": true,
+        "kind": "scriptural-anchor",
+        "label": "King Noah",
+        "layer": "SCRIPTURE",
+        "references": [
+          "Mosiah 11:1"
+        ],
+        "scripture_node_id": "king-noah",
+        "type": "PERSON"
+      },
+      {
+        "canonical_edge_ids": [
+          "edge:canonical:p1eg:abinadi-before-noah-court:group:000129",
+          "edge:canonical:p1pe:abinadi-before-noah-court:king-noah"
+        ],
+        "corpus": "BOM",
+        "formatted_references": [
+          "Mosiah 12:1",
+          "Mosiah 16:15"
+        ],
+        "id": "scripture:BOM:p1evt:abinadi-before-noah-court",
+        "is_neighborhood": false,
+        "kind": "scriptural-anchor",
+        "label": "Abinadi testifies before Noah and his priests",
+        "layer": "SCRIPTURE",
+        "references": [
+          "Mosiah 12:1",
+          "Mosiah 16:15"
+        ],
+        "scripture_node_id": "p1evt:abinadi-before-noah-court",
+        "type": "EVENT"
+      },
+      {
+        "canonical_edge_ids": [
+          "edge:canonical:p1eg:anti-nephi-lehi-nonresistant-slaying:group:000014",
+          "edge:canonical:p1eg:anti-nephi-lehi-nonresistant-slaying:group:000078"
+        ],
+        "corpus": "BOM",
+        "formatted_references": [
+          "Alma 24:20",
+          "Alma 24:30"
+        ],
+        "id": "scripture:BOM:p1evt:anti-nephi-lehi-nonresistant-slaying",
+        "is_neighborhood": false,
+        "kind": "scriptural-anchor",
+        "label": "Anti-Nephi-Lehies refuse resistance and attackers repent",
+        "layer": "SCRIPTURE",
+        "references": [
+          "Alma 24:20",
+          "Alma 24:30"
+        ],
+        "scripture_node_id": "p1evt:anti-nephi-lehi-nonresistant-slaying",
+        "type": "EVENT"
+      },
+      {
+        "canonical_edge_ids": [
+          "edge:canonical:p1eg:noah-succeeds-zeniff:group:000129",
+          "edge:canonical:p1pe:noah-succeeds-zeniff:king-noah"
+        ],
+        "corpus": "BOM",
+        "formatted_references": [
+          "Mosiah 11:1",
+          "Mosiah 11:5"
+        ],
+        "id": "scripture:BOM:p1evt:noah-succeeds-zeniff",
+        "is_neighborhood": false,
+        "kind": "scriptural-anchor",
+        "label": "Noah succeeds Zeniff and establishes oppressive rule",
+        "layer": "SCRIPTURE",
+        "references": [
+          "Mosiah 11:1",
+          "Mosiah 11:5"
+        ],
+        "scripture_node_id": "p1evt:noah-succeeds-zeniff",
+        "type": "EVENT"
+      },
+      {
+        "canonical_edge_ids": [
+          "edge:canonical:p1eg:people-ammon-jershon-settlement:group:000014",
+          "edge:canonical:p1pe:people-ammon-jershon-settlement:alma-the-younger"
+        ],
+        "corpus": "BOM",
+        "formatted_references": [
+          "Alma 27:20",
+          "Alma 27:26",
+          "Alma 27:30"
+        ],
+        "id": "scripture:BOM:p1evt:people-ammon-jershon-settlement",
+        "is_neighborhood": false,
+        "kind": "scriptural-anchor",
+        "label": "Converted community settles in Jershon and becomes known as the people of Ammon",
+        "layer": "SCRIPTURE",
+        "references": [
+          "Alma 27:20",
+          "Alma 27:26",
+          "Alma 27:30"
+        ],
+        "scripture_node_id": "p1evt:people-ammon-jershon-settlement",
+        "type": "EVENT"
+      },
+      {
+        "canonical_edge_ids": [
+          "edge:canonical:p1eg:zoramite-mission-antionum:group:000135",
+          "edge:canonical:p1pe:zoramite-mission-antionum:alma-the-younger"
+        ],
+        "corpus": "BOM",
+        "formatted_references": [
+          "Alma 31:3",
+          "Alma 31:6",
+          "Alma 32:1",
+          "Alma 33:2",
+          "Alma 34:41"
+        ],
+        "id": "scripture:BOM:p1evt:zoramite-mission-antionum",
+        "is_neighborhood": false,
+        "kind": "scriptural-anchor",
+        "label": "Alma and companions minister to the Zoramites at Antionum",
+        "layer": "SCRIPTURE",
+        "references": [
+          "Alma 31:3",
+          "Alma 31:6",
+          "Alma 32:1",
+          "Alma 33:2",
+          "Alma 34:41"
+        ],
+        "scripture_node_id": "p1evt:zoramite-mission-antionum",
+        "type": "EVENT"
+      },
+      {
+        "canonical_edge_ids": [],
+        "corpus": "NT",
+        "formatted_references": [],
+        "id": "scripture:NT:candb_a8967e55a38dff7502d9",
+        "is_neighborhood": true,
+        "kind": "scriptural-anchor",
+        "label": "Caiaphas",
+        "layer": "SCRIPTURE",
+        "references": [],
+        "scripture_node_id": "candb_a8967e55a38dff7502d9",
+        "type": "PERSON"
+      },
+      {
+        "canonical_edge_ids": [],
+        "corpus": "NT",
+        "formatted_references": [],
+        "id": "scripture:NT:candb_b873cd927854cb61bcd6",
+        "is_neighborhood": true,
+        "kind": "scriptural-anchor",
+        "label": "Pilate",
+        "layer": "SCRIPTURE",
+        "references": [],
+        "scripture_node_id": "candb_b873cd927854cb61bcd6",
+        "type": "PERSON"
+      },
+      {
+        "canonical_edge_ids": [],
+        "corpus": "NT",
+        "formatted_references": [],
+        "id": "scripture:NT:candb_c782837629d7000f31ac",
+        "is_neighborhood": true,
+        "kind": "scriptural-anchor",
+        "label": "Jesus",
+        "layer": "SCRIPTURE",
+        "references": [],
+        "scripture_node_id": "candb_c782837629d7000f31ac",
+        "type": "PERSON"
+      },
+      {
+        "canonical_edge_ids": [],
+        "corpus": "NT",
+        "formatted_references": [
+          "matthew:23:1-34"
+        ],
+        "id": "scripture:NT:candbevt_6b65c8565687d54f24eb",
+        "is_neighborhood": false,
+        "kind": "scriptural-anchor",
+        "label": "Woes to Scribes and Pharisees",
+        "layer": "SCRIPTURE",
+        "references": [
+          "matthew:23:1-34"
+        ],
+        "scripture_node_id": "candbevt_6b65c8565687d54f24eb",
+        "type": "EVENT"
+      },
+      {
+        "canonical_edge_ids": [
+          "candbpart_ce65516349cbedfafc53"
+        ],
+        "corpus": "NT",
+        "formatted_references": [
+          "matthew:8:5-10",
+          "luke:7:1-10"
+        ],
+        "id": "scripture:NT:candbevt_8ca0771124333e8ab2ed",
+        "is_neighborhood": false,
+        "kind": "scriptural-anchor",
+        "label": "The Centurion",
+        "layer": "SCRIPTURE",
+        "references": [
+          "matthew:8:5-10",
+          "luke:7:1-10"
+        ],
+        "scripture_node_id": "candbevt_8ca0771124333e8ab2ed",
+        "type": "EVENT"
+      },
+      {
+        "canonical_edge_ids": [
+          "candbpart_27479595065dfa032b75",
+          "candbpart_580e5840f206cecae7f3"
+        ],
+        "corpus": "NT",
+        "formatted_references": [
+          "matthew:27:11-14",
+          "mark:15:1-5",
+          "luke:23:1-5",
+          "john:18:28-40"
+        ],
+        "id": "scripture:NT:candbevt_90cb65509f0973db5dd0",
+        "is_neighborhood": false,
+        "kind": "scriptural-anchor",
+        "label": "Jesus before Pilate",
+        "layer": "SCRIPTURE",
+        "references": [
+          "matthew:27:11-14",
+          "mark:15:1-5",
+          "luke:23:1-5",
+          "john:18:28-40"
+        ],
+        "scripture_node_id": "candbevt_90cb65509f0973db5dd0",
+        "type": "EVENT"
+      },
+      {
+        "canonical_edge_ids": [
+          "candbpart_763861b2d42039df1ee1"
+        ],
+        "corpus": "NT",
+        "formatted_references": [
+          "john:4:27-42"
+        ],
+        "id": "scripture:NT:candbevt_993bca93ca8d8acf0ad9",
+        "is_neighborhood": false,
+        "kind": "scriptural-anchor",
+        "label": "Preaching the Gospel to the Samaritans",
+        "layer": "SCRIPTURE",
+        "references": [
+          "john:4:27-42"
+        ],
+        "scripture_node_id": "candbevt_993bca93ca8d8acf0ad9",
+        "type": "EVENT"
+      },
+      {
+        "canonical_edge_ids": [
+          "candbpart_88758cd7f016988f5227"
+        ],
+        "corpus": "NT",
+        "formatted_references": [
+          "john:18:19-24"
+        ],
+        "id": "scripture:NT:candbevt_bafecaaa567f0ad8d4da",
+        "is_neighborhood": false,
+        "kind": "scriptural-anchor",
+        "label": "Jesus before the High Priest",
+        "layer": "SCRIPTURE",
+        "references": [
+          "john:18:19-24"
+        ],
+        "scripture_node_id": "candbevt_bafecaaa567f0ad8d4da",
+        "type": "EVENT"
+      },
+      {
+        "canonical_edge_ids": [
+          "candbpart_737f7172d349e274752c"
+        ],
+        "corpus": "NT",
+        "formatted_references": [
+          "luke:10:25-37"
+        ],
+        "id": "scripture:NT:candbevt_c8d856f82bb3a34809d2",
+        "is_neighborhood": false,
+        "kind": "scriptural-anchor",
+        "label": "The Parable",
+        "layer": "SCRIPTURE",
+        "references": [
+          "luke:10:25-37"
+        ],
+        "scripture_node_id": "candbevt_c8d856f82bb3a34809d2",
+        "type": "EVENT"
+      },
+      {
+        "canonical_edge_ids": [],
+        "corpus": "NT",
+        "formatted_references": [
+          "luke:18:9-13"
+        ],
+        "id": "scripture:NT:candbevt_daa9b3ad59f295f176fc",
+        "is_neighborhood": false,
+        "kind": "scriptural-anchor",
+        "label": "The Pharisee and the Tax Collector",
+        "layer": "SCRIPTURE",
+        "references": [
+          "luke:18:9-13"
+        ],
+        "scripture_node_id": "candbevt_daa9b3ad59f295f176fc",
+        "type": "EVENT"
+      },
+      {
+        "canonical_edge_ids": [],
+        "corpus": "NT",
+        "formatted_references": [],
+        "id": "scripture:NT:candbgrp_079cfdc0505951d5d057",
+        "is_neighborhood": true,
+        "kind": "scriptural-anchor",
+        "label": "Samaritans",
+        "layer": "SCRIPTURE",
+        "references": [],
+        "scripture_node_id": "candbgrp_079cfdc0505951d5d057",
+        "type": "GROUP"
+      }
+    ]
+  },
   "cross_corpus": [
     {
       "bom_theme": "Zoramite status and pride",
@@ -800,11 +2398,757 @@
       "target_name": "priests of Noah"
     }
   ],
-  "generated_at": "2026-09-15T20:06:19Z",
+  "generated_at": "2026-09-15T20:41:40Z",
   "historical_caution": [
     "Pharisees were a diverse Jewish movement, not a synonym for hypocrisy.",
     "The Gospel disputes occurred within first-century Judaism; Jesus and His earliest disciples were Jewish.",
     "This page discusses behaviors criticized in particular narratives, not Judaism or Jewish people."
+  ],
+  "modern_branches": [
+    {
+      "comparison": "The comparison asks how scriptural narratives treat claims of divine favor, public religious confidence, and the possibility of pride. It does not turn a presidential statement into a claim that God chose a ruler.",
+      "concept": {
+        "corpus": "SCRIPTURE_CONCEPT",
+        "id": "concept-divine-favor",
+        "label": "DIVINE FAVOR / CHOSENNESS",
+        "layer": "SCRIPTURAL_QUESTION",
+        "question": "How does scripture test claims of divine favor, public righteousness, and humility?",
+        "type": "SCRIPTURAL_CONCEPT"
+      },
+      "concept_id": "concept-divine-favor",
+      "id": "divine-purpose",
+      "label": "DIVINE PURPOSE + MAGA",
+      "number": "01",
+      "questions": [
+        "divine favor",
+        "chosenness",
+        "collective righteousness",
+        "humility",
+        "pride",
+        "religious certainty"
+      ],
+      "scriptural_evidence": [
+        {
+          "corpus": "NT",
+          "edge_ids": [],
+          "formatted_references": [
+            "matthew:23:1-34"
+          ],
+          "kind": "event",
+          "label": "Woes to Scribes and Pharisees",
+          "node_id": "candbevt_6b65c8565687d54f24eb",
+          "references": [
+            "matthew:23:1-34"
+          ]
+        },
+        {
+          "corpus": "NT",
+          "edge_ids": [],
+          "formatted_references": [
+            "luke:18:9-13"
+          ],
+          "kind": "event",
+          "label": "The Pharisee and the Tax Collector",
+          "node_id": "candbevt_daa9b3ad59f295f176fc",
+          "references": [
+            "luke:18:9-13"
+          ]
+        },
+        {
+          "corpus": "BOM",
+          "edge_ids": [
+            "edge:canonical:p1eg:zoramite-mission-antionum:group:000135",
+            "edge:canonical:p1pe:zoramite-mission-antionum:alma-the-younger"
+          ],
+          "formatted_references": [
+            "Alma 31:3",
+            "Alma 31:6",
+            "Alma 32:1",
+            "Alma 33:2",
+            "Alma 34:41"
+          ],
+          "kind": "event",
+          "label": "Alma and companions minister to the Zoramites at Antionum",
+          "node_id": "p1evt:zoramite-mission-antionum",
+          "references": [
+            "Alma 31:3",
+            "Alma 31:6",
+            "Alma 32:1",
+            "Alma 33:2",
+            "Alma 34:41"
+          ]
+        }
+      ],
+      "source_ids": [
+        "source-inaugural-2025"
+      ],
+      "sources": [
+        {
+          "administration": "Trump",
+          "branch_id": "divine-purpose",
+          "document_type": "PRESIDENTIAL_REMARKS",
+          "excerpt": "I was saved by God to make America great again.",
+          "fact": "In his inaugural address, President Trump said that he was saved by God to make America great again.",
+          "id": "source-inaugural-2025",
+          "movement": "MAGA",
+          "published": "January 20, 2025",
+          "scope_note": "This records a public statement; it does not establish divine intent or a theological conclusion.",
+          "source_family": "WHITE_HOUSE",
+          "source_role": "DOCUMENTED_STATEMENT",
+          "source_type": "PRIMARY",
+          "title": "The Inaugural Address",
+          "url": "https://www.whitehouse.gov/remarks/2025/01/the-inaugural-address/",
+          "verification_status": "PRIMARY_SOURCE_CITATION"
+        }
+      ],
+      "title": "When national purpose is narrated as providence"
+    },
+    {
+      "comparison": "The comparison places official national-faith language beside scriptural questions about identity and righteousness. It does not say that national prayer or public faith statements are themselves proof of wrongdoing.",
+      "concept": {
+        "corpus": "SCRIPTURE_CONCEPT",
+        "id": "concept-religious-identity",
+        "label": "RELIGIOUS + NATIONAL IDENTITY",
+        "layer": "SCRIPTURAL_QUESTION",
+        "question": "When does group identity become a substitute for the weightier matters of discipleship?",
+        "type": "SCRIPTURAL_CONCEPT"
+      },
+      "concept_id": "concept-religious-identity",
+      "id": "christian-national-identity",
+      "label": "CHRISTIAN + NATIONAL IDENTITY",
+      "number": "02",
+      "questions": [
+        "religious identity",
+        "group identity",
+        "humility",
+        "pride",
+        "righteousness",
+        "separation",
+        "respect of persons"
+      ],
+      "scriptural_evidence": [
+        {
+          "corpus": "NT",
+          "edge_ids": [],
+          "formatted_references": [
+            "matthew:23:1-34"
+          ],
+          "kind": "event",
+          "label": "Woes to Scribes and Pharisees",
+          "node_id": "candbevt_6b65c8565687d54f24eb",
+          "references": [
+            "matthew:23:1-34"
+          ]
+        },
+        {
+          "corpus": "NT",
+          "edge_ids": [],
+          "formatted_references": [
+            "luke:18:9-13"
+          ],
+          "kind": "event",
+          "label": "The Pharisee and the Tax Collector",
+          "node_id": "candbevt_daa9b3ad59f295f176fc",
+          "references": [
+            "luke:18:9-13"
+          ]
+        },
+        {
+          "corpus": "BOM",
+          "edge_ids": [
+            "edge:canonical:p1eg:zoramite-mission-antionum:group:000135",
+            "edge:canonical:p1pe:zoramite-mission-antionum:alma-the-younger"
+          ],
+          "formatted_references": [
+            "Alma 31:3",
+            "Alma 31:6",
+            "Alma 32:1",
+            "Alma 33:2",
+            "Alma 34:41"
+          ],
+          "kind": "event",
+          "label": "Alma and companions minister to the Zoramites at Antionum",
+          "node_id": "p1evt:zoramite-mission-antionum",
+          "references": [
+            "Alma 31:3",
+            "Alma 31:6",
+            "Alma 32:1",
+            "Alma 33:2",
+            "Alma 34:41"
+          ]
+        }
+      ],
+      "source_ids": [
+        "source-cape-henry-cross",
+        "source-national-day-prayer"
+      ],
+      "sources": [
+        {
+          "administration": "Trump",
+          "branch_id": "christian-national-identity",
+          "document_type": "PROCLAMATION",
+          "excerpt": "one Nation under God",
+          "fact": "The proclamation describes a national religious heritage and says the country should always be one Nation under God.",
+          "id": "source-cape-henry-cross",
+          "movement": "MAGA",
+          "published": "April 29, 2025",
+          "scope_note": "This is presidential proclamation language about national identity; it does not represent every American Christian or every MAGA voter.",
+          "source_family": "WHITE_HOUSE",
+          "source_role": "DOCUMENTED_STATEMENT",
+          "source_type": "PRIMARY",
+          "title": "418th Anniversary of the First Landing and the Raising of the Cape Henry Cross",
+          "url": "https://www.whitehouse.gov/presidential-actions/2025/04/418th-anniversary-of-the-first-landing-and-the-raising-of-the-cape-henry-cross/",
+          "verification_status": "PRIMARY_SOURCE_CITATION"
+        },
+        {
+          "administration": "Trump",
+          "branch_id": "christian-national-identity",
+          "document_type": "PROCLAMATION",
+          "excerpt": "faith, prayer, and devotion to God",
+          "fact": "The proclamation frames faith, prayer, and trust in God as part of the nation’s story and records the establishment of the White House Faith Office.",
+          "id": "source-national-day-prayer",
+          "movement": "MAGA",
+          "published": "May 1, 2025",
+          "scope_note": "The page uses this as evidence of public religious rhetoric, not as proof of a single national theology.",
+          "source_family": "WHITE_HOUSE",
+          "source_role": "DOCUMENTED_STATEMENT",
+          "source_type": "PRIMARY",
+          "title": "National Day of Prayer, 2025",
+          "url": "https://www.whitehouse.gov/presidential-actions/2025/05/national-day-of-prayer-2025/",
+          "verification_status": "PRIMARY_SOURCE_CITATION"
+        }
+      ],
+      "title": "When faith language becomes national language"
+    },
+    {
+      "comparison": "The comparison exposes a tension rather than supplying an immigration or trade platform: scripture can speak about community responsibility, law, and protection while also widening the moral field to the neighbor and stranger.",
+      "concept": {
+        "corpus": "SCRIPTURE_CONCEPT",
+        "id": "concept-neighbor-stewardship",
+        "label": "NEIGHBOR / STEWARDSHIP",
+        "layer": "SCRIPTURAL_QUESTION",
+        "question": "How can obligations to one’s own community coexist with the command to see a neighbor?",
+        "type": "SCRIPTURAL_CONCEPT"
+      },
+      "concept_id": "concept-neighbor-stewardship",
+      "id": "america-first",
+      "label": "AMERICA FIRST / IN-GROUP PRIORITY",
+      "number": "03",
+      "questions": [
+        "neighbor",
+        "stranger",
+        "civil government",
+        "law",
+        "defense",
+        "stewardship",
+        "public order"
+      ],
+      "scriptural_evidence": [
+        {
+          "corpus": "NT",
+          "edge_ids": [
+            "candbpart_737f7172d349e274752c"
+          ],
+          "formatted_references": [
+            "luke:10:25-37"
+          ],
+          "kind": "event",
+          "label": "The Parable",
+          "node_id": "candbevt_c8d856f82bb3a34809d2",
+          "references": [
+            "luke:10:25-37"
+          ]
+        },
+        {
+          "corpus": "NT",
+          "edge_ids": [
+            "candbpart_763861b2d42039df1ee1"
+          ],
+          "formatted_references": [
+            "john:4:27-42"
+          ],
+          "kind": "event",
+          "label": "Preaching the Gospel to the Samaritans",
+          "node_id": "candbevt_993bca93ca8d8acf0ad9",
+          "references": [
+            "john:4:27-42"
+          ]
+        },
+        {
+          "corpus": "BOM",
+          "edge_ids": [
+            "edge:canonical:p1eg:people-ammon-jershon-settlement:group:000014",
+            "edge:canonical:p1pe:people-ammon-jershon-settlement:alma-the-younger"
+          ],
+          "formatted_references": [
+            "Alma 27:20",
+            "Alma 27:26",
+            "Alma 27:30"
+          ],
+          "kind": "event",
+          "label": "Converted community settles in Jershon and becomes known as the people of Ammon",
+          "node_id": "p1evt:people-ammon-jershon-settlement",
+          "references": [
+            "Alma 27:20",
+            "Alma 27:26",
+            "Alma 27:30"
+          ]
+        }
+      ],
+      "source_ids": [
+        "source-america-first-policy",
+        "source-america-first-trade"
+      ],
+      "sources": [
+        {
+          "administration": "Trump",
+          "branch_id": "america-first",
+          "document_type": "EXECUTIVE_ORDER",
+          "excerpt": "always put America and American citizens first.",
+          "fact": "The directive orders the State Department to align policy, programs, personnel, and operations with an America First foreign policy.",
+          "id": "source-america-first-policy",
+          "movement": "MAGA",
+          "published": "January 20, 2025",
+          "scope_note": "This is an administration policy directive, not a statement about every person who uses the MAGA label.",
+          "source_family": "WHITE_HOUSE",
+          "source_role": "GOVERNMENT_ACTION",
+          "source_type": "PRIMARY",
+          "title": "America First Policy Directive to the Secretary of State",
+          "url": "https://www.whitehouse.gov/presidential-actions/2025/01/america-first-policy-directive-to-the-secretary-of-state/",
+          "verification_status": "PRIMARY_SOURCE_CITATION"
+        },
+        {
+          "administration": "Trump",
+          "branch_id": "america-first",
+          "document_type": "PRESIDENTIAL_MEMORANDUM",
+          "excerpt": "Americans benefit from and deserve an America First trade policy.",
+          "fact": "The memorandum directs reviews and recommendations intended to prioritize American workers, manufacturers, farmers, ranchers, entrepreneurs, and businesses in trade policy.",
+          "id": "source-america-first-trade",
+          "movement": "MAGA",
+          "published": "January 20, 2025",
+          "scope_note": "This documents a trade-policy program; it does not decide the moral or scriptural status of that program.",
+          "source_family": "WHITE_HOUSE",
+          "source_role": "GOVERNMENT_ACTION",
+          "source_type": "PRIMARY",
+          "title": "America First Trade Policy",
+          "url": "https://www.whitehouse.gov/presidential-actions/2025/01/america-first-trade-policy/",
+          "verification_status": "PRIMARY_SOURCE_CITATION"
+        }
+      ],
+      "title": "What does priority for one’s own community require?"
+    },
+    {
+      "comparison": "The primary sources establish the administration’s invasion language. The scriptural layer then lets the reader inspect narratives about neighbors, strangers, enemies, protection, and mercy without treating them as a modern policy platform.",
+      "concept": {
+        "corpus": "SCRIPTURE_CONCEPT",
+        "id": "concept-outsider-protection",
+        "label": "OUTSIDER / PROTECTION",
+        "layer": "SCRIPTURAL_QUESTION",
+        "question": "What changes when fear, defense, justice, mercy, and the stranger occupy the same frame?",
+        "type": "SCRIPTURAL_CONCEPT"
+      },
+      "concept_id": "concept-outsider-protection",
+      "id": "invasion-outsider",
+      "label": "“INVASION” / OUTSIDER FRAMING",
+      "number": "04",
+      "questions": [
+        "stranger",
+        "outsider",
+        "enemy",
+        "neighbor",
+        "mercy",
+        "fear",
+        "protection",
+        "justice"
+      ],
+      "scriptural_evidence": [
+        {
+          "corpus": "NT",
+          "edge_ids": [
+            "candbpart_737f7172d349e274752c"
+          ],
+          "formatted_references": [
+            "luke:10:25-37"
+          ],
+          "kind": "event",
+          "label": "The Parable",
+          "node_id": "candbevt_c8d856f82bb3a34809d2",
+          "references": [
+            "luke:10:25-37"
+          ]
+        },
+        {
+          "corpus": "NT",
+          "edge_ids": [
+            "candbpart_ce65516349cbedfafc53"
+          ],
+          "formatted_references": [
+            "matthew:8:5-10",
+            "luke:7:1-10"
+          ],
+          "kind": "event",
+          "label": "The Centurion",
+          "node_id": "candbevt_8ca0771124333e8ab2ed",
+          "references": [
+            "matthew:8:5-10",
+            "luke:7:1-10"
+          ]
+        },
+        {
+          "corpus": "BOM",
+          "edge_ids": [
+            "edge:canonical:p1eg:anti-nephi-lehi-nonresistant-slaying:group:000014",
+            "edge:canonical:p1eg:anti-nephi-lehi-nonresistant-slaying:group:000078"
+          ],
+          "formatted_references": [
+            "Alma 24:20",
+            "Alma 24:30"
+          ],
+          "kind": "event",
+          "label": "Anti-Nephi-Lehies refuse resistance and attackers repent",
+          "node_id": "p1evt:anti-nephi-lehi-nonresistant-slaying",
+          "references": [
+            "Alma 24:20",
+            "Alma 24:30"
+          ]
+        }
+      ],
+      "source_ids": [
+        "source-invasion-proclamation",
+        "source-protecting-americans-invasion"
+      ],
+      "sources": [
+        {
+          "administration": "Trump",
+          "branch_id": "invasion-outsider",
+          "document_type": "PROCLAMATION",
+          "excerpt": "the current situation at the southern border qualifies as an invasion under Article IV, Section 4.",
+          "fact": "The proclamation describes the southern-border situation using invasion language and says it qualifies as an invasion under Article IV, Section 4.",
+          "id": "source-invasion-proclamation",
+          "movement": "MAGA",
+          "published": "January 20, 2025",
+          "scope_note": "The page records the administration’s language; it does not independently adjudicate the legal or factual claim.",
+          "source_family": "WHITE_HOUSE",
+          "source_role": "GOVERNMENT_ACTION",
+          "source_type": "PRIMARY",
+          "title": "Guaranteeing the States Protection Against Invasion",
+          "url": "https://www.whitehouse.gov/presidential-actions/2025/01/guaranteeing-the-states-protection-against-invasion/",
+          "verification_status": "PRIMARY_SOURCE_CITATION"
+        },
+        {
+          "administration": "Trump",
+          "branch_id": "invasion-outsider",
+          "document_type": "EXECUTIVE_ORDER",
+          "excerpt": "PROTECTING THE AMERICAN PEOPLE AGAINST INVASION",
+          "fact": "A same-day executive order uses invasion language in its title and sets immigration-enforcement policy and reporting requirements.",
+          "id": "source-protecting-americans-invasion",
+          "movement": "MAGA",
+          "published": "January 20, 2025",
+          "scope_note": "This is a named administration action; the page does not convert its rhetoric into a judgment about migrants or voters.",
+          "source_family": "WHITE_HOUSE",
+          "source_role": "GOVERNMENT_ACTION",
+          "source_type": "PRIMARY",
+          "title": "Protecting the American People Against Invasion",
+          "url": "https://www.whitehouse.gov/presidential-actions/2025/01/protecting-the-american-people-against-invasion/",
+          "verification_status": "PRIMARY_SOURCE_CITATION"
+        }
+      ],
+      "title": "When an outsider is described as a threat"
+    },
+    {
+      "comparison": "The comparison treats government faith initiatives as documented administration actions and asks how scripture depicts religious authority, political authority, and self-preserving power. It does not equate the Faith Office with King Noah, Abinadi, Caiaphas, or any other narrative.",
+      "concept": {
+        "corpus": "SCRIPTURE_CONCEPT",
+        "id": "concept-authority-power",
+        "label": "RELIGIOUS + POLITICAL AUTHORITY",
+        "layer": "SCRIPTURAL_QUESTION",
+        "question": "What does scripture reveal when religious authority and political power converge?",
+        "type": "SCRIPTURAL_CONCEPT"
+      },
+      "concept_id": "concept-authority-power",
+      "id": "religion-government",
+      "label": "RELIGION + GOVERNMENT",
+      "number": "05",
+      "questions": [
+        "religious authority",
+        "political authority",
+        "institutional self-preservation",
+        "servant leadership",
+        "priestcraft"
+      ],
+      "scriptural_evidence": [
+        {
+          "corpus": "NT",
+          "edge_ids": [
+            "candbpart_88758cd7f016988f5227"
+          ],
+          "formatted_references": [
+            "john:18:19-24"
+          ],
+          "kind": "event",
+          "label": "Jesus before the High Priest",
+          "node_id": "candbevt_bafecaaa567f0ad8d4da",
+          "references": [
+            "john:18:19-24"
+          ]
+        },
+        {
+          "corpus": "NT",
+          "edge_ids": [
+            "candbpart_27479595065dfa032b75",
+            "candbpart_580e5840f206cecae7f3"
+          ],
+          "formatted_references": [
+            "matthew:27:11-14",
+            "mark:15:1-5",
+            "luke:23:1-5",
+            "john:18:28-40"
+          ],
+          "kind": "event",
+          "label": "Jesus before Pilate",
+          "node_id": "candbevt_90cb65509f0973db5dd0",
+          "references": [
+            "matthew:27:11-14",
+            "mark:15:1-5",
+            "luke:23:1-5",
+            "john:18:28-40"
+          ]
+        },
+        {
+          "corpus": "BOM",
+          "edge_ids": [
+            "edge:canonical:p1eg:abinadi-before-noah-court:group:000129",
+            "edge:canonical:p1pe:abinadi-before-noah-court:king-noah"
+          ],
+          "formatted_references": [
+            "Mosiah 12:1",
+            "Mosiah 16:15"
+          ],
+          "kind": "event",
+          "label": "Abinadi testifies before Noah and his priests",
+          "node_id": "p1evt:abinadi-before-noah-court",
+          "references": [
+            "Mosiah 12:1",
+            "Mosiah 16:15"
+          ]
+        },
+        {
+          "corpus": "BOM",
+          "edge_ids": [
+            "edge:canonical:p1eg:noah-succeeds-zeniff:group:000129",
+            "edge:canonical:p1pe:noah-succeeds-zeniff:king-noah"
+          ],
+          "formatted_references": [
+            "Mosiah 11:1",
+            "Mosiah 11:5"
+          ],
+          "kind": "event",
+          "label": "Noah succeeds Zeniff and establishes oppressive rule",
+          "node_id": "p1evt:noah-succeeds-zeniff",
+          "references": [
+            "Mosiah 11:1",
+            "Mosiah 11:5"
+          ]
+        }
+      ],
+      "source_ids": [
+        "source-faith-office",
+        "source-anti-christian-bias"
+      ],
+      "sources": [
+        {
+          "administration": "Trump",
+          "branch_id": "religion-government",
+          "document_type": "EXECUTIVE_ORDER",
+          "excerpt": "There is established within the Executive Office of the President (EOP) the White House Faith Office.",
+          "fact": "The executive order establishes a White House Faith Office within the Executive Office of the President and assigns it faith-based policy and coordination functions.",
+          "id": "source-faith-office",
+          "movement": "MAGA",
+          "published": "February 7, 2025",
+          "scope_note": "The existence and functions of the office are documented; the page does not treat them alone as proof of Christian nationalism.",
+          "source_family": "WHITE_HOUSE",
+          "source_role": "GOVERNMENT_ACTION",
+          "source_type": "PRIMARY",
+          "title": "Establishment of the White House Faith Office",
+          "url": "https://www.whitehouse.gov/presidential-actions/2025/02/establishment-of-the-white-house-faith-office/",
+          "verification_status": "PRIMARY_SOURCE_CITATION"
+        },
+        {
+          "administration": "Trump",
+          "branch_id": "religion-government",
+          "document_type": "EXECUTIVE_ORDER",
+          "excerpt": "There is hereby established within the Department of Justice the Task Force to Eradicate Anti-Christian Bias.",
+          "fact": "The order establishes a Department of Justice task force called the Task Force to Eradicate Anti-Christian Bias and assigns it review and recommendation functions.",
+          "id": "source-anti-christian-bias",
+          "movement": "MAGA",
+          "published": "February 6, 2025",
+          "scope_note": "This documents an administration action and its stated purpose; it does not prove that the alleged bias exists or that every Christian shares the claim.",
+          "source_family": "WHITE_HOUSE",
+          "source_role": "GOVERNMENT_ACTION",
+          "source_type": "PRIMARY",
+          "title": "Eradicating Anti-Christian Bias",
+          "url": "https://www.whitehouse.gov/presidential-actions/2025/02/eradicating-anti-christian-bias/",
+          "verification_status": "PRIMARY_SOURCE_CITATION"
+        }
+      ],
+      "title": "When religious initiatives enter government"
+    }
+  ],
+  "modern_scope_note": "MAGA is used here for Trump / America First political rhetoric and the movement built around it. White House actions document the Trump administration; they do not establish the beliefs or motives of every individual who identifies with or votes for MAGA-aligned candidates.",
+  "modern_sources": [
+    {
+      "administration": "Trump",
+      "branch_id": "divine-purpose",
+      "document_type": "PRESIDENTIAL_REMARKS",
+      "excerpt": "I was saved by God to make America great again.",
+      "fact": "In his inaugural address, President Trump said that he was saved by God to make America great again.",
+      "id": "source-inaugural-2025",
+      "movement": "MAGA",
+      "published": "January 20, 2025",
+      "scope_note": "This records a public statement; it does not establish divine intent or a theological conclusion.",
+      "source_family": "WHITE_HOUSE",
+      "source_role": "DOCUMENTED_STATEMENT",
+      "source_type": "PRIMARY",
+      "title": "The Inaugural Address",
+      "url": "https://www.whitehouse.gov/remarks/2025/01/the-inaugural-address/",
+      "verification_status": "PRIMARY_SOURCE_CITATION"
+    },
+    {
+      "administration": "Trump",
+      "branch_id": "america-first",
+      "document_type": "EXECUTIVE_ORDER",
+      "excerpt": "always put America and American citizens first.",
+      "fact": "The directive orders the State Department to align policy, programs, personnel, and operations with an America First foreign policy.",
+      "id": "source-america-first-policy",
+      "movement": "MAGA",
+      "published": "January 20, 2025",
+      "scope_note": "This is an administration policy directive, not a statement about every person who uses the MAGA label.",
+      "source_family": "WHITE_HOUSE",
+      "source_role": "GOVERNMENT_ACTION",
+      "source_type": "PRIMARY",
+      "title": "America First Policy Directive to the Secretary of State",
+      "url": "https://www.whitehouse.gov/presidential-actions/2025/01/america-first-policy-directive-to-the-secretary-of-state/",
+      "verification_status": "PRIMARY_SOURCE_CITATION"
+    },
+    {
+      "administration": "Trump",
+      "branch_id": "america-first",
+      "document_type": "PRESIDENTIAL_MEMORANDUM",
+      "excerpt": "Americans benefit from and deserve an America First trade policy.",
+      "fact": "The memorandum directs reviews and recommendations intended to prioritize American workers, manufacturers, farmers, ranchers, entrepreneurs, and businesses in trade policy.",
+      "id": "source-america-first-trade",
+      "movement": "MAGA",
+      "published": "January 20, 2025",
+      "scope_note": "This documents a trade-policy program; it does not decide the moral or scriptural status of that program.",
+      "source_family": "WHITE_HOUSE",
+      "source_role": "GOVERNMENT_ACTION",
+      "source_type": "PRIMARY",
+      "title": "America First Trade Policy",
+      "url": "https://www.whitehouse.gov/presidential-actions/2025/01/america-first-trade-policy/",
+      "verification_status": "PRIMARY_SOURCE_CITATION"
+    },
+    {
+      "administration": "Trump",
+      "branch_id": "christian-national-identity",
+      "document_type": "PROCLAMATION",
+      "excerpt": "one Nation under God",
+      "fact": "The proclamation describes a national religious heritage and says the country should always be one Nation under God.",
+      "id": "source-cape-henry-cross",
+      "movement": "MAGA",
+      "published": "April 29, 2025",
+      "scope_note": "This is presidential proclamation language about national identity; it does not represent every American Christian or every MAGA voter.",
+      "source_family": "WHITE_HOUSE",
+      "source_role": "DOCUMENTED_STATEMENT",
+      "source_type": "PRIMARY",
+      "title": "418th Anniversary of the First Landing and the Raising of the Cape Henry Cross",
+      "url": "https://www.whitehouse.gov/presidential-actions/2025/04/418th-anniversary-of-the-first-landing-and-the-raising-of-the-cape-henry-cross/",
+      "verification_status": "PRIMARY_SOURCE_CITATION"
+    },
+    {
+      "administration": "Trump",
+      "branch_id": "christian-national-identity",
+      "document_type": "PROCLAMATION",
+      "excerpt": "faith, prayer, and devotion to God",
+      "fact": "The proclamation frames faith, prayer, and trust in God as part of the nation’s story and records the establishment of the White House Faith Office.",
+      "id": "source-national-day-prayer",
+      "movement": "MAGA",
+      "published": "May 1, 2025",
+      "scope_note": "The page uses this as evidence of public religious rhetoric, not as proof of a single national theology.",
+      "source_family": "WHITE_HOUSE",
+      "source_role": "DOCUMENTED_STATEMENT",
+      "source_type": "PRIMARY",
+      "title": "National Day of Prayer, 2025",
+      "url": "https://www.whitehouse.gov/presidential-actions/2025/05/national-day-of-prayer-2025/",
+      "verification_status": "PRIMARY_SOURCE_CITATION"
+    },
+    {
+      "administration": "Trump",
+      "branch_id": "religion-government",
+      "document_type": "EXECUTIVE_ORDER",
+      "excerpt": "There is established within the Executive Office of the President (EOP) the White House Faith Office.",
+      "fact": "The executive order establishes a White House Faith Office within the Executive Office of the President and assigns it faith-based policy and coordination functions.",
+      "id": "source-faith-office",
+      "movement": "MAGA",
+      "published": "February 7, 2025",
+      "scope_note": "The existence and functions of the office are documented; the page does not treat them alone as proof of Christian nationalism.",
+      "source_family": "WHITE_HOUSE",
+      "source_role": "GOVERNMENT_ACTION",
+      "source_type": "PRIMARY",
+      "title": "Establishment of the White House Faith Office",
+      "url": "https://www.whitehouse.gov/presidential-actions/2025/02/establishment-of-the-white-house-faith-office/",
+      "verification_status": "PRIMARY_SOURCE_CITATION"
+    },
+    {
+      "administration": "Trump",
+      "branch_id": "religion-government",
+      "document_type": "EXECUTIVE_ORDER",
+      "excerpt": "There is hereby established within the Department of Justice the Task Force to Eradicate Anti-Christian Bias.",
+      "fact": "The order establishes a Department of Justice task force called the Task Force to Eradicate Anti-Christian Bias and assigns it review and recommendation functions.",
+      "id": "source-anti-christian-bias",
+      "movement": "MAGA",
+      "published": "February 6, 2025",
+      "scope_note": "This documents an administration action and its stated purpose; it does not prove that the alleged bias exists or that every Christian shares the claim.",
+      "source_family": "WHITE_HOUSE",
+      "source_role": "GOVERNMENT_ACTION",
+      "source_type": "PRIMARY",
+      "title": "Eradicating Anti-Christian Bias",
+      "url": "https://www.whitehouse.gov/presidential-actions/2025/02/eradicating-anti-christian-bias/",
+      "verification_status": "PRIMARY_SOURCE_CITATION"
+    },
+    {
+      "administration": "Trump",
+      "branch_id": "invasion-outsider",
+      "document_type": "PROCLAMATION",
+      "excerpt": "the current situation at the southern border qualifies as an invasion under Article IV, Section 4.",
+      "fact": "The proclamation describes the southern-border situation using invasion language and says it qualifies as an invasion under Article IV, Section 4.",
+      "id": "source-invasion-proclamation",
+      "movement": "MAGA",
+      "published": "January 20, 2025",
+      "scope_note": "The page records the administration’s language; it does not independently adjudicate the legal or factual claim.",
+      "source_family": "WHITE_HOUSE",
+      "source_role": "GOVERNMENT_ACTION",
+      "source_type": "PRIMARY",
+      "title": "Guaranteeing the States Protection Against Invasion",
+      "url": "https://www.whitehouse.gov/presidential-actions/2025/01/guaranteeing-the-states-protection-against-invasion/",
+      "verification_status": "PRIMARY_SOURCE_CITATION"
+    },
+    {
+      "administration": "Trump",
+      "branch_id": "invasion-outsider",
+      "document_type": "EXECUTIVE_ORDER",
+      "excerpt": "PROTECTING THE AMERICAN PEOPLE AGAINST INVASION",
+      "fact": "A same-day executive order uses invasion language in its title and sets immigration-enforcement policy and reporting requirements.",
+      "id": "source-protecting-americans-invasion",
+      "movement": "MAGA",
+      "published": "January 20, 2025",
+      "scope_note": "This is a named administration action; the page does not convert its rhetoric into a judgment about migrants or voters.",
+      "source_family": "WHITE_HOUSE",
+      "source_role": "GOVERNMENT_ACTION",
+      "source_type": "PRIMARY",
+      "title": "Protecting the American People Against Invasion",
+      "url": "https://www.whitehouse.gov/presidential-actions/2025/01/protecting-the-american-people-against-invasion/",
+      "verification_status": "PRIMARY_SOURCE_CITATION"
+    }
   ],
   "nodes": [
     {
@@ -1429,7 +3773,14 @@
         "VECTOR_RELATED_HIGH",
         "VECTOR_RELATED_SUPPLEMENTAL"
       ],
-      "note": "Graph relationships are source-derived/canonical records. Interpretive prose is original study framing and is not itself a graph claim."
+      "modern_layer_note": "MAGA is used here for Trump / America First political rhetoric and the movement built around it. White House actions document the Trump administration; they do not establish the beliefs or motives of every individual who identifies with or votes for MAGA-aligned candidates.",
+      "note": "Scriptural graph relationships are source-derived/canonical records. Modern records are primary-source citations. Edges between modern records and scriptural questions are editorial comparisons, never canonical claims."
+    },
+    "modern_primary_sources": {
+      "note": "Official White House statements, proclamations, memoranda, and executive orders are cited as a distinct modern source layer; they are not merged into the scripture graph.",
+      "source_count": 9,
+      "source_family": "WHITE_HOUSE",
+      "source_type": "PRIMARY"
     },
     "topical_guide": {
       "accepted_provenance_manifest": {
@@ -1465,9 +3816,18 @@
       }
     }
   },
-  "schema_version": "religion-and-power-study-1",
-  "scope_note": "This study compares patterns in scripture. It does not assign motives or religious standing to individual modern voters, parties, or policy positions.",
+  "schema_version": "religion-and-power-study-2",
+  "scope_note": "The essay argued that several scriptural warnings have modern parallels in MAGA-era American Christian nationalism. This map tests those proposed connections against the scripture data and primary sources.",
   "stats": {
+    "modern_source_layer": {
+      "branches": 5,
+      "canonical_anchor_edges": 17,
+      "comparison_network_edges": 56,
+      "comparison_network_nodes": 42,
+      "editorial_comparison_edges": 9,
+      "primary_sources": 9,
+      "root": "MAGA / AMERICA FIRST"
+    },
     "source_graphs": {
       "bible": {
         "edges": 11615,
@@ -1510,7 +3870,7 @@
       "topics": 304
     }
   },
-  "subtitle": "A data-assisted scripture study of religious identity, power, outsiders, and the warnings of Jesus",
+  "subtitle": "A source-first scripture study of MAGA / America First rhetoric, administration records, and recurring scriptural warnings",
   "themes": [
     {
       "dek": "Jesus repeatedly turns the reader’s attention from religious visibility to the condition of the heart.",
@@ -7379,6 +9739,9 @@
       }
     },
     "edges_used": 31,
+    "modern_edges_are_noncanonical": true,
+    "modern_network_errors": [],
+    "modern_source_errors": [],
     "nodes_used": 38,
     "passed": true,
     "scripture_references_used": 493,

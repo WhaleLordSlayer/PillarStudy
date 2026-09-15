@@ -23,8 +23,209 @@ from pathlib import Path
 from typing import Any
 
 
-STUDY_VERSION = "religion-and-power-study-1"
+STUDY_VERSION = "religion-and-power-study-2"
 OUTPUT_NAME = "study.json"
+
+
+MODERN_SOURCE_BLUEPRINT = [
+    {
+        "id": "source-inaugural-2025",
+        "branch_id": "divine-purpose",
+        "title": "The Inaugural Address",
+        "published": "January 20, 2025",
+        "url": "https://www.whitehouse.gov/remarks/2025/01/the-inaugural-address/",
+        "document_type": "PRESIDENTIAL_REMARKS",
+        "source_role": "DOCUMENTED_STATEMENT",
+        "fact": "In his inaugural address, President Trump said that he was saved by God to make America great again.",
+        "excerpt": "I was saved by God to make America great again.",
+        "scope_note": "This records a public statement; it does not establish divine intent or a theological conclusion.",
+    },
+    {
+        "id": "source-america-first-policy",
+        "branch_id": "america-first",
+        "title": "America First Policy Directive to the Secretary of State",
+        "published": "January 20, 2025",
+        "url": "https://www.whitehouse.gov/presidential-actions/2025/01/america-first-policy-directive-to-the-secretary-of-state/",
+        "document_type": "EXECUTIVE_ORDER",
+        "source_role": "GOVERNMENT_ACTION",
+        "fact": "The directive orders the State Department to align policy, programs, personnel, and operations with an America First foreign policy.",
+        "excerpt": "always put America and American citizens first.",
+        "scope_note": "This is an administration policy directive, not a statement about every person who uses the MAGA label.",
+    },
+    {
+        "id": "source-america-first-trade",
+        "branch_id": "america-first",
+        "title": "America First Trade Policy",
+        "published": "January 20, 2025",
+        "url": "https://www.whitehouse.gov/presidential-actions/2025/01/america-first-trade-policy/",
+        "document_type": "PRESIDENTIAL_MEMORANDUM",
+        "source_role": "GOVERNMENT_ACTION",
+        "fact": "The memorandum directs reviews and recommendations intended to prioritize American workers, manufacturers, farmers, ranchers, entrepreneurs, and businesses in trade policy.",
+        "excerpt": "Americans benefit from and deserve an America First trade policy.",
+        "scope_note": "This documents a trade-policy program; it does not decide the moral or scriptural status of that program.",
+    },
+    {
+        "id": "source-cape-henry-cross",
+        "branch_id": "christian-national-identity",
+        "title": "418th Anniversary of the First Landing and the Raising of the Cape Henry Cross",
+        "published": "April 29, 2025",
+        "url": "https://www.whitehouse.gov/presidential-actions/2025/04/418th-anniversary-of-the-first-landing-and-the-raising-of-the-cape-henry-cross/",
+        "document_type": "PROCLAMATION",
+        "source_role": "DOCUMENTED_STATEMENT",
+        "fact": "The proclamation describes a national religious heritage and says the country should always be one Nation under God.",
+        "excerpt": "one Nation under God",
+        "scope_note": "This is presidential proclamation language about national identity; it does not represent every American Christian or every MAGA voter.",
+    },
+    {
+        "id": "source-national-day-prayer",
+        "branch_id": "christian-national-identity",
+        "title": "National Day of Prayer, 2025",
+        "published": "May 1, 2025",
+        "url": "https://www.whitehouse.gov/presidential-actions/2025/05/national-day-of-prayer-2025/",
+        "document_type": "PROCLAMATION",
+        "source_role": "DOCUMENTED_STATEMENT",
+        "fact": "The proclamation frames faith, prayer, and trust in God as part of the nation’s story and records the establishment of the White House Faith Office.",
+        "excerpt": "faith, prayer, and devotion to God",
+        "scope_note": "The page uses this as evidence of public religious rhetoric, not as proof of a single national theology.",
+    },
+    {
+        "id": "source-faith-office",
+        "branch_id": "religion-government",
+        "title": "Establishment of the White House Faith Office",
+        "published": "February 7, 2025",
+        "url": "https://www.whitehouse.gov/presidential-actions/2025/02/establishment-of-the-white-house-faith-office/",
+        "document_type": "EXECUTIVE_ORDER",
+        "source_role": "GOVERNMENT_ACTION",
+        "fact": "The executive order establishes a White House Faith Office within the Executive Office of the President and assigns it faith-based policy and coordination functions.",
+        "excerpt": "There is established within the Executive Office of the President (EOP) the White House Faith Office.",
+        "scope_note": "The existence and functions of the office are documented; the page does not treat them alone as proof of Christian nationalism.",
+    },
+    {
+        "id": "source-anti-christian-bias",
+        "branch_id": "religion-government",
+        "title": "Eradicating Anti-Christian Bias",
+        "published": "February 6, 2025",
+        "url": "https://www.whitehouse.gov/presidential-actions/2025/02/eradicating-anti-christian-bias/",
+        "document_type": "EXECUTIVE_ORDER",
+        "source_role": "GOVERNMENT_ACTION",
+        "fact": "The order establishes a Department of Justice task force called the Task Force to Eradicate Anti-Christian Bias and assigns it review and recommendation functions.",
+        "excerpt": "There is hereby established within the Department of Justice the Task Force to Eradicate Anti-Christian Bias.",
+        "scope_note": "This documents an administration action and its stated purpose; it does not prove that the alleged bias exists or that every Christian shares the claim.",
+    },
+    {
+        "id": "source-invasion-proclamation",
+        "branch_id": "invasion-outsider",
+        "title": "Guaranteeing the States Protection Against Invasion",
+        "published": "January 20, 2025",
+        "url": "https://www.whitehouse.gov/presidential-actions/2025/01/guaranteeing-the-states-protection-against-invasion/",
+        "document_type": "PROCLAMATION",
+        "source_role": "GOVERNMENT_ACTION",
+        "fact": "The proclamation describes the southern-border situation using invasion language and says it qualifies as an invasion under Article IV, Section 4.",
+        "excerpt": "the current situation at the southern border qualifies as an invasion under Article IV, Section 4.",
+        "scope_note": "The page records the administration’s language; it does not independently adjudicate the legal or factual claim.",
+    },
+    {
+        "id": "source-protecting-americans-invasion",
+        "branch_id": "invasion-outsider",
+        "title": "Protecting the American People Against Invasion",
+        "published": "January 20, 2025",
+        "url": "https://www.whitehouse.gov/presidential-actions/2025/01/protecting-the-american-people-against-invasion/",
+        "document_type": "EXECUTIVE_ORDER",
+        "source_role": "GOVERNMENT_ACTION",
+        "fact": "A same-day executive order uses invasion language in its title and sets immigration-enforcement policy and reporting requirements.",
+        "excerpt": "PROTECTING THE AMERICAN PEOPLE AGAINST INVASION",
+        "scope_note": "This is a named administration action; the page does not convert its rhetoric into a judgment about migrants or voters.",
+    },
+]
+
+
+MODERN_BRANCH_BLUEPRINT = [
+    {
+        "id": "divine-purpose",
+        "number": "01",
+        "label": "DIVINE PURPOSE + MAGA",
+        "title": "When national purpose is narrated as providence",
+        "source_ids": ["source-inaugural-2025"],
+        "concept_id": "concept-divine-favor",
+        "questions": ["divine favor", "chosenness", "collective righteousness", "humility", "pride", "religious certainty"],
+        "comparison": "The comparison asks how scriptural narratives treat claims of divine favor, public religious confidence, and the possibility of pride. It does not turn a presidential statement into a claim that God chose a ruler.",
+        "evidence": [
+            {"corpus": "NT", "kind": "event", "node_label": "Woes to Scribes and Pharisees"},
+            {"corpus": "NT", "kind": "event", "node_label": "The Pharisee and the Tax Collector"},
+            {"corpus": "BOM", "kind": "event", "node_label": "Alma and companions minister to the Zoramites at Antionum"},
+        ],
+    },
+    {
+        "id": "christian-national-identity",
+        "number": "02",
+        "label": "CHRISTIAN + NATIONAL IDENTITY",
+        "title": "When faith language becomes national language",
+        "source_ids": ["source-cape-henry-cross", "source-national-day-prayer"],
+        "concept_id": "concept-religious-identity",
+        "questions": ["religious identity", "group identity", "humility", "pride", "righteousness", "separation", "respect of persons"],
+        "comparison": "The comparison places official national-faith language beside scriptural questions about identity and righteousness. It does not say that national prayer or public faith statements are themselves proof of wrongdoing.",
+        "evidence": [
+            {"corpus": "NT", "kind": "event", "node_label": "Woes to Scribes and Pharisees"},
+            {"corpus": "NT", "kind": "event", "node_label": "The Pharisee and the Tax Collector"},
+            {"corpus": "BOM", "kind": "event", "node_label": "Alma and companions minister to the Zoramites at Antionum"},
+        ],
+    },
+    {
+        "id": "america-first",
+        "number": "03",
+        "label": "AMERICA FIRST / IN-GROUP PRIORITY",
+        "title": "What does priority for one’s own community require?",
+        "source_ids": ["source-america-first-policy", "source-america-first-trade"],
+        "concept_id": "concept-neighbor-stewardship",
+        "questions": ["neighbor", "stranger", "civil government", "law", "defense", "stewardship", "public order"],
+        "comparison": "The comparison exposes a tension rather than supplying an immigration or trade platform: scripture can speak about community responsibility, law, and protection while also widening the moral field to the neighbor and stranger.",
+        "evidence": [
+            {"corpus": "NT", "kind": "event", "node_label": "The Parable"},
+            {"corpus": "NT", "kind": "event", "node_label": "Preaching the Gospel to the Samaritans"},
+            {"corpus": "BOM", "kind": "event", "node_label": "Converted community settles in Jershon and becomes known as the people of Ammon"},
+        ],
+    },
+    {
+        "id": "invasion-outsider",
+        "number": "04",
+        "label": "“INVASION” / OUTSIDER FRAMING",
+        "title": "When an outsider is described as a threat",
+        "source_ids": ["source-invasion-proclamation", "source-protecting-americans-invasion"],
+        "concept_id": "concept-outsider-protection",
+        "questions": ["stranger", "outsider", "enemy", "neighbor", "mercy", "fear", "protection", "justice"],
+        "comparison": "The primary sources establish the administration’s invasion language. The scriptural layer then lets the reader inspect narratives about neighbors, strangers, enemies, protection, and mercy without treating them as a modern policy platform.",
+        "evidence": [
+            {"corpus": "NT", "kind": "event", "node_label": "The Parable"},
+            {"corpus": "NT", "kind": "event", "node_label": "The Centurion"},
+            {"corpus": "BOM", "kind": "event", "node_label": "Anti-Nephi-Lehies refuse resistance and attackers repent"},
+        ],
+    },
+    {
+        "id": "religion-government",
+        "number": "05",
+        "label": "RELIGION + GOVERNMENT",
+        "title": "When religious initiatives enter government",
+        "source_ids": ["source-faith-office", "source-anti-christian-bias"],
+        "concept_id": "concept-authority-power",
+        "questions": ["religious authority", "political authority", "institutional self-preservation", "servant leadership", "priestcraft"],
+        "comparison": "The comparison treats government faith initiatives as documented administration actions and asks how scripture depicts religious authority, political authority, and self-preserving power. It does not equate the Faith Office with King Noah, Abinadi, Caiaphas, or any other narrative.",
+        "evidence": [
+            {"corpus": "NT", "kind": "event", "node_label": "Jesus before the High Priest"},
+            {"corpus": "NT", "kind": "event", "node_label": "Jesus before Pilate"},
+            {"corpus": "BOM", "kind": "event", "node_label": "Abinadi testifies before Noah and his priests"},
+            {"corpus": "BOM", "kind": "event", "node_label": "Noah succeeds Zeniff and establishes oppressive rule"},
+        ],
+    },
+]
+
+
+MODERN_CONCEPT_BLUEPRINT = [
+    {"id": "concept-divine-favor", "label": "DIVINE FAVOR / CHOSENNESS", "question": "How does scripture test claims of divine favor, public righteousness, and humility?"},
+    {"id": "concept-religious-identity", "label": "RELIGIOUS + NATIONAL IDENTITY", "question": "When does group identity become a substitute for the weightier matters of discipleship?"},
+    {"id": "concept-neighbor-stewardship", "label": "NEIGHBOR / STEWARDSHIP", "question": "How can obligations to one’s own community coexist with the command to see a neighbor?"},
+    {"id": "concept-outsider-protection", "label": "OUTSIDER / PROTECTION", "question": "What changes when fear, defense, justice, mercy, and the stranger occupy the same frame?"},
+    {"id": "concept-authority-power", "label": "RELIGIOUS + POLITICAL AUTHORITY", "question": "What does scripture reveal when religious authority and political power converge?"},
+]
 
 
 def sha256_file(path: Path) -> str:
@@ -495,6 +696,7 @@ def main() -> None:
         compact_edge(edge, bom_by_id, "BOM") for edge in sorted(selected_bom_edges, key=lambda row: row["id"])
     ]
     edge_lookup = {edge["id"]: edge for edge in compact_edges}
+    compact_node_lookup = {(node["corpus"], node["id"]): node for node in compact_nodes}
 
     def evidence_for(item: dict[str, Any]) -> dict[str, Any]:
         corpus = item["corpus"]
@@ -516,6 +718,191 @@ def main() -> None:
             "formatted_references": [format_canonical_ref(ref) for ref in refs],
             "edge_ids": sorted(selected_edge_ids),
         }
+
+    modern_sources = [
+        {
+            **source,
+            "movement": "MAGA",
+            "administration": "Trump",
+            "source_family": "WHITE_HOUSE",
+            "source_type": "PRIMARY",
+            "verification_status": "PRIMARY_SOURCE_CITATION",
+        }
+        for source in MODERN_SOURCE_BLUEPRINT
+    ]
+    modern_source_by_id = {source["id"]: source for source in modern_sources}
+    modern_concepts = [
+        {**concept, "layer": "SCRIPTURAL_QUESTION", "type": "SCRIPTURAL_CONCEPT", "corpus": "SCRIPTURE_CONCEPT"}
+        for concept in MODERN_CONCEPT_BLUEPRINT
+    ]
+    modern_concept_by_id = {concept["id"]: concept for concept in modern_concepts}
+    modern_branches = []
+    anchor_records: dict[str, dict[str, Any]] = {}
+    for branch in MODERN_BRANCH_BLUEPRINT:
+        evidence = [evidence_for(item) for item in branch["evidence"]]
+        for item in evidence:
+            anchor_key = f"{item['corpus']}:{item['node_id']}"
+            anchor_records[anchor_key] = {
+                **item,
+                "comparison_id": f"scripture:{anchor_key}",
+            }
+        modern_branches.append({
+            **{key: value for key, value in branch.items() if key != "evidence"},
+            "sources": [modern_source_by_id[source_id] for source_id in branch["source_ids"]],
+            "concept": modern_concept_by_id[branch["concept_id"]],
+            "scriptural_evidence": evidence,
+        })
+
+    # Keep the explicitly selected evidence anchors, then add only their
+    # immediate canonical neighbors so the comparison graph can end in a
+    # real scripture neighborhood without implying that every source node is
+    # directly equivalent to every nearby narrative node.
+    scripture_network_records = dict(anchor_records)
+    anchor_keys = set(anchor_records)
+    for edge in compact_edges:
+        endpoints = ((edge["corpus"], edge["source"]), (edge["corpus"], edge["target"]))
+        if not any(f"{corpus}:{node_id}" in anchor_keys for corpus, node_id in endpoints):
+            continue
+        for corpus, node_id in endpoints:
+            key = f"{corpus}:{node_id}"
+            if key in scripture_network_records:
+                continue
+            node = compact_node_lookup.get((corpus, node_id))
+            if node is None:
+                continue
+            scripture_network_records[key] = {
+                "corpus": corpus,
+                "kind": "canonical-neighbor",
+                "node_id": node_id,
+                "label": node["name"],
+                "references": node["references"],
+                "formatted_references": node["formatted_references"],
+                "edge_ids": [],
+                "comparison_id": f"scripture:{key}",
+                "is_neighborhood": True,
+            }
+
+    modern_root_id = "modern:root:maga-america-first"
+    comparison_nodes = [{
+        "id": modern_root_id,
+        "label": "MAGA / AMERICA FIRST",
+        "type": "MODERN_ROOT",
+        "corpus": "MODERN",
+        "layer": "MODERN_SOURCE",
+        "kind": "modern-root",
+        "description": "A source layer grounded in official Trump and White House uses of Make America Great Again and America First.",
+        "branch_ids": [branch["id"] for branch in modern_branches],
+    }]
+    comparison_nodes.extend({
+        "id": f"modern:branch:{branch['id']}",
+        "label": branch["label"],
+        "type": "MODERN_BRANCH",
+        "corpus": "MODERN",
+        "layer": "MODERN_SOURCE",
+        "kind": "modern-branch",
+        "branch_id": branch["id"],
+        "concept_id": branch["concept_id"],
+    } for branch in modern_branches)
+    comparison_nodes.extend({
+        "id": f"modern:source:{source['id']}",
+        "label": source["title"],
+        "type": "MODERN_SOURCE",
+        "corpus": "MODERN",
+        "layer": "MODERN_SOURCE",
+        "kind": "modern-source",
+        "source_id": source["id"],
+        "branch_id": source["branch_id"],
+        "published": source["published"],
+    } for source in modern_sources)
+    comparison_nodes.extend({
+        "id": concept["id"],
+        "label": concept["label"],
+        "type": concept["type"],
+        "corpus": concept["corpus"],
+        "layer": concept["layer"],
+        "kind": "scriptural-question",
+        "question": concept["question"],
+        "branch_id": next(branch["id"] for branch in modern_branches if branch["concept_id"] == concept["id"]),
+    } for concept in modern_concepts)
+    comparison_nodes.extend({
+        "id": anchor["comparison_id"],
+        "label": anchor["label"],
+        "type": compact_node_lookup[(anchor["corpus"], anchor["node_id"])] ["type"],
+        "corpus": anchor["corpus"],
+        "layer": "SCRIPTURE",
+        "kind": "scriptural-anchor",
+        "scripture_node_id": anchor["node_id"],
+        "references": anchor["references"],
+        "formatted_references": anchor["formatted_references"],
+        "canonical_edge_ids": anchor["edge_ids"],
+        "is_neighborhood": anchor.get("is_neighborhood", False),
+    } for anchor in sorted(scripture_network_records.values(), key=lambda row: row["comparison_id"]))
+
+    comparison_edges = []
+
+    def comparison_edge(edge_id: str, source: str, target: str, label: str, layer: str, **extra: Any) -> dict[str, Any]:
+        return {
+            "id": edge_id,
+            "source": source,
+            "target": target,
+            "source_name": next(node["label"] for node in comparison_nodes if node["id"] == source),
+            "target_name": next(node["label"] for node in comparison_nodes if node["id"] == target),
+            "label": label,
+            "relationship_class": layer,
+            "canonical_claim": False,
+            "layer": layer,
+            "corpus": "MODERN" if layer == "MODERN_SOURCE" else "COMPARISON",
+            **extra,
+        }
+
+    for branch in modern_branches:
+        branch_node_id = f"modern:branch:{branch['id']}"
+        comparison_edges.append(comparison_edge(
+            f"cmp:root:{branch['id']}", modern_root_id, branch_node_id, "SOURCE BRANCH", "MODERN_SOURCE",
+            branch_id=branch["id"],
+        ))
+        for source in branch["sources"]:
+            source_node_id = f"modern:source:{source['id']}"
+            comparison_edges.append(comparison_edge(
+                f"cmp:source:{source['id']}", branch_node_id, source_node_id, "DOCUMENTED SOURCE", "MODERN_SOURCE",
+                source_id=source["id"],
+            ))
+            concept = branch["concept"]
+            comparison_edges.append(comparison_edge(
+                f"cmp:compare:{source['id']}:{concept['id']}", source_node_id, concept["id"], "INTERPRETIVE COMPARISON", "EDITORIAL_COMPARISON",
+                source_id=source["id"], concept_id=concept["id"], comparison=branch["comparison"],
+            ))
+        for evidence in branch["scriptural_evidence"]:
+            anchor_id = f"scripture:{evidence['corpus']}:{evidence['node_id']}"
+            comparison_edges.append(comparison_edge(
+                f"cmp:evidence:{branch['id']}:{evidence['corpus']}:{evidence['node_id']}", branch["concept_id"], anchor_id, "SCRIPTURAL EVIDENCE", "SCRIPTURAL_EVIDENCE",
+                concept_id=branch["concept_id"], scripture_node_id=evidence["node_id"], canonical_edge_ids=evidence["edge_ids"],
+            ))
+    anchor_id_by_actual = {
+        (anchor["corpus"], anchor["node_id"]): anchor["comparison_id"]
+        for anchor in scripture_network_records.values()
+    }
+    comparison_node_by_id = {node["id"]: node for node in comparison_nodes}
+    for edge in compact_edges:
+        source_anchor = anchor_id_by_actual.get((edge["corpus"], edge["source"]))
+        target_anchor = anchor_id_by_actual.get((edge["corpus"], edge["target"]))
+        if not source_anchor or not target_anchor:
+            continue
+        comparison_edges.append({
+            "id": f"canonical-network:{edge['id']}",
+            "source": source_anchor,
+            "target": target_anchor,
+            "source_name": comparison_node_by_id[source_anchor]["label"],
+            "target_name": comparison_node_by_id[target_anchor]["label"],
+            "label": edge["label"],
+            "relationship_class": "canonical",
+            "canonical_claim": True,
+            "layer": "CANONICAL",
+            "corpus": edge["corpus"],
+            "canonical_edge_id": edge["id"],
+            "references": edge["references"],
+            "formatted_references": edge["formatted_references"],
+        })
 
     themes = []
     for blueprint in theme_blueprint:
@@ -567,6 +954,17 @@ def main() -> None:
     relation_source_links = sum(len(row.get("source_attested_verse_ids", [])) for row in relation_counts)
     relation_high_links = sum(len(row.get("vector_related_high_verse_ids", [])) for row in relation_counts)
     selected_source_links = sum(topic["source_attested_link_count"] for topic in topics)
+    modern_network_node_ids = {node["id"] for node in comparison_nodes}
+    modern_network_errors = sorted({
+        f"{edge['id']}->{endpoint}"
+        for edge in comparison_edges
+        for endpoint in (edge["source"], edge["target"])
+        if endpoint not in modern_network_node_ids
+    })
+    modern_source_errors = sorted(
+        source["id"] for source in modern_sources
+        if not source.get("url", "").startswith("https://") or not source.get("published") or not source.get("fact")
+    )
     stats = {
         "source_graphs": {
             "bible": {
@@ -586,6 +984,15 @@ def main() -> None:
             "topics": len(topics),
             "accepted_topic_links": sum(topic["accepted_link_count"] for topic in topics),
             "source_attested_topic_links": selected_source_links,
+        },
+        "modern_source_layer": {
+            "root": "MAGA / AMERICA FIRST",
+            "branches": len(modern_branches),
+            "primary_sources": len(modern_sources),
+            "editorial_comparison_edges": sum(edge["layer"] == "EDITORIAL_COMPARISON" for edge in comparison_edges),
+            "canonical_anchor_edges": sum(edge["layer"] == "CANONICAL" for edge in comparison_edges),
+            "comparison_network_nodes": len(comparison_nodes),
+            "comparison_network_edges": len(comparison_edges),
         },
         "topical_guide": {
             "entries": guide.get("manifest", {}).get("entry_count"),
@@ -607,8 +1014,13 @@ def main() -> None:
         "unresolved_node_ids": unresolved_node_ids,
         "unresolved_edge_ids": sorted(set(unresolved_edge_ids)),
         "topic_link_errors": sorted(set(topic_link_errors)),
+        "modern_source_errors": modern_source_errors,
+        "modern_network_errors": modern_network_errors,
+        "modern_edges_are_noncanonical": all(
+            not edge["canonical_claim"] for edge in comparison_edges if edge["layer"] != "CANONICAL"
+        ),
         "source_attested_topic_links_only": True,
-        "passed": not (invalid_references or unresolved_node_ids or unresolved_edge_ids or topic_link_errors),
+        "passed": not (invalid_references or unresolved_node_ids or unresolved_edge_ids or topic_link_errors or modern_source_errors or modern_network_errors),
     }
 
     source_provenance = {
@@ -663,7 +1075,14 @@ def main() -> None:
         "method": {
             "accepted_relationship_layer": "SOURCE_ATTESTED",
             "excluded_layers": ["VECTOR_RELATED_HIGH", "VECTOR_RELATED_SUPPLEMENTAL"],
-            "note": "Graph relationships are source-derived/canonical records. Interpretive prose is original study framing and is not itself a graph claim.",
+            "note": "Scriptural graph relationships are source-derived/canonical records. Modern records are primary-source citations. Edges between modern records and scriptural questions are editorial comparisons, never canonical claims.",
+            "modern_layer_note": "MAGA is used here for Trump / America First political rhetoric and the movement built around it. White House actions document the Trump administration; they do not establish the beliefs or motives of every individual who identifies with or votes for MAGA-aligned candidates.",
+        },
+        "modern_primary_sources": {
+            "source_family": "WHITE_HOUSE",
+            "source_type": "PRIMARY",
+            "source_count": len(modern_sources),
+            "note": "Official White House statements, proclamations, memoranda, and executive orders are cited as a distinct modern source layer; they are not merged into the scripture graph.",
         },
     }
 
@@ -692,9 +1111,10 @@ def main() -> None:
     payload = {
         "schema_version": STUDY_VERSION,
         "title": "When Faith Becomes Power",
-        "subtitle": "A data-assisted scripture study of religious identity, power, outsiders, and the warnings of Jesus",
+        "subtitle": "A source-first scripture study of MAGA / America First rhetoric, administration records, and recurring scriptural warnings",
         "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
-        "scope_note": "This study compares patterns in scripture. It does not assign motives or religious standing to individual modern voters, parties, or policy positions.",
+        "scope_note": "The essay argued that several scriptural warnings have modern parallels in MAGA-era American Christian nationalism. This map tests those proposed connections against the scripture data and primary sources.",
+        "modern_scope_note": "MAGA is used here for Trump / America First political rhetoric and the movement built around it. White House actions document the Trump administration; they do not establish the beliefs or motives of every individual who identifies with or votes for MAGA-aligned candidates.",
         "historical_caution": [
             "Pharisees were a diverse Jewish movement, not a synonym for hypocrisy.",
             "The Gospel disputes occurred within first-century Judaism; Jesus and His earliest disciples were Jewish.",
@@ -712,6 +1132,9 @@ def main() -> None:
         "nodes": compact_nodes,
         "edges": compact_edges,
         "visual_network": {"nodes": visual_nodes, "edges": visual_edges},
+        "modern_sources": modern_sources,
+        "modern_branches": modern_branches,
+        "comparison_network": {"nodes": comparison_nodes, "edges": comparison_edges},
         "topics": topics,
         "themes": themes,
         "topic_audit": requested_topic_audit(
