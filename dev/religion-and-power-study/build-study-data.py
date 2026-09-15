@@ -148,7 +148,7 @@ MODERN_BRANCH_BLUEPRINT = [
         "source_ids": ["source-inaugural-2025"],
         "concept_id": "concept-divine-favor",
         "questions": ["divine favor", "chosenness", "collective righteousness", "humility", "pride", "religious certainty"],
-        "comparison": "The comparison asks how scriptural narratives treat claims of divine favor, public religious confidence, and the possibility of pride. It does not turn a presidential statement into a claim that God chose a ruler.",
+        "comparison": "The comparison asks how scripture treats claims of divine favor, public religious confidence, and pride.",
         "evidence": [
             {"corpus": "NT", "kind": "event", "node_label": "Woes to Scribes and Pharisees"},
             {"corpus": "NT", "kind": "event", "node_label": "The Pharisee and the Tax Collector"},
@@ -163,7 +163,7 @@ MODERN_BRANCH_BLUEPRINT = [
         "source_ids": ["source-cape-henry-cross", "source-national-day-prayer"],
         "concept_id": "concept-religious-identity",
         "questions": ["religious identity", "group identity", "humility", "pride", "righteousness", "separation", "respect of persons"],
-        "comparison": "The comparison places official national-faith language beside scriptural questions about identity and righteousness. It does not say that national prayer or public faith statements are themselves proof of wrongdoing.",
+        "comparison": "The comparison places national-faith language beside scriptural questions about identity and righteousness.",
         "evidence": [
             {"corpus": "NT", "kind": "event", "node_label": "Woes to Scribes and Pharisees"},
             {"corpus": "NT", "kind": "event", "node_label": "The Pharisee and the Tax Collector"},
@@ -178,7 +178,7 @@ MODERN_BRANCH_BLUEPRINT = [
         "source_ids": ["source-america-first-policy", "source-america-first-trade"],
         "concept_id": "concept-neighbor-stewardship",
         "questions": ["neighbor", "stranger", "civil government", "law", "defense", "stewardship", "public order"],
-        "comparison": "The comparison exposes a tension rather than supplying an immigration or trade platform: scripture can speak about community responsibility, law, and protection while also widening the moral field to the neighbor and stranger.",
+        "comparison": "The comparison tests how community responsibility, law, protection, neighbor, and stranger sit together.",
         "evidence": [
             {"corpus": "NT", "kind": "event", "node_label": "The Parable"},
             {"corpus": "NT", "kind": "event", "node_label": "Preaching the Gospel to the Samaritans"},
@@ -193,7 +193,7 @@ MODERN_BRANCH_BLUEPRINT = [
         "source_ids": ["source-invasion-proclamation", "source-protecting-americans-invasion"],
         "concept_id": "concept-outsider-protection",
         "questions": ["stranger", "outsider", "enemy", "neighbor", "mercy", "fear", "protection", "justice"],
-        "comparison": "The primary sources establish the administration’s invasion language. The scriptural layer then lets the reader inspect narratives about neighbors, strangers, enemies, protection, and mercy without treating them as a modern policy platform.",
+        "comparison": "The comparison reads invasion language alongside narratives about neighbor, stranger, enemy, protection, and mercy.",
         "evidence": [
             {"corpus": "NT", "kind": "event", "node_label": "The Parable"},
             {"corpus": "NT", "kind": "event", "node_label": "The Centurion"},
@@ -208,7 +208,7 @@ MODERN_BRANCH_BLUEPRINT = [
         "source_ids": ["source-faith-office", "source-anti-christian-bias"],
         "concept_id": "concept-authority-power",
         "questions": ["religious authority", "political authority", "institutional self-preservation", "servant leadership", "priestcraft"],
-        "comparison": "The comparison treats government faith initiatives as documented administration actions and asks how scripture depicts religious authority, political authority, and self-preserving power. It does not equate the Faith Office with King Noah, Abinadi, Caiaphas, or any other narrative.",
+        "comparison": "The comparison places faith initiatives beside scriptural depictions of religious and political authority.",
         "evidence": [
             {"corpus": "NT", "kind": "event", "node_label": "Jesus before the High Priest"},
             {"corpus": "NT", "kind": "event", "node_label": "Jesus before Pilate"},
@@ -1114,7 +1114,7 @@ def main() -> None:
         "subtitle": "A source-first scripture study of MAGA / America First rhetoric, administration records, and recurring scriptural warnings",
         "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
         "scope_note": "The essay argued that several scriptural warnings have modern parallels in MAGA-era American Christian nationalism. This map tests those proposed connections against the scripture data and primary sources.",
-        "modern_scope_note": "MAGA is used here for Trump / America First political rhetoric and the movement built around it. White House actions document the Trump administration; they do not establish the beliefs or motives of every individual who identifies with or votes for MAGA-aligned candidates.",
+        "modern_scope_note": "MAGA here names Trump / America First rhetoric and the movement around it; White House records document Trump administration actions.",
         "historical_caution": [
             "Pharisees were a diverse Jewish movement, not a synonym for hypocrisy.",
             "The Gospel disputes occurred within first-century Judaism; Jesus and His earliest disciples were Jewish.",
