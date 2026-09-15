@@ -5,18 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#10171f">
   <title>So I mapped it. · Cultivate Study</title>
-  <meta name="description" content="Five Trump / MAGA claims mapped to official primary-source receipts and the Scripture graph around each one.">
+  <meta name="description" content="Five claims from an essay about MAGA and scripture, mapped through official sources and a Scripture graph.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="topbar">
     <a class="wordmark" href="#top" aria-label="Cultivate Study home"><span class="wordmark-mark">✦</span><span>CULTIVATE<br><em>STUDY</em></span></a>
     <nav class="topnav" aria-label="Study navigation">
-      <a href="#claims">The Claims</a>
-      <a href="#full-map">Scripture Map</a>
-      <a href="#methodology">How It Works</a>
+      <a href="#explorer">Explore</a>
+      <a href="#full-map">Full map</a>
     </nav>
-    <button class="outline-button" type="button" data-share>SHARE STUDY ↗</button>
+    <button class="outline-button" type="button" data-open-method>HOW THIS WORKS</button>
   </header>
 
   <main id="top">
@@ -24,68 +23,48 @@
       <div class="hero-copy">
         <p class="eyebrow">YOU SENT ME AN ESSAY</p>
         <h1>So I<br><em>mapped</em><br>it.</h1>
-        <p class="hero-lede">The essay argued that several scriptural warnings have modern parallels in MAGA-era American Christian nationalism. I have a scripture knowledge graph. So I took the major claims, attached them to primary sources, and followed the connections.</p>
-        <div class="hero-actions"><a class="solid-button" href="#claims">EXPLORE THE CLAIMS ↓</a><a class="text-button" href="#full-map">OPEN FULL MAP <span>↗</span></a></div>
-        <div class="hero-disclaimer"><span class="teal-mark">✦</span><span>Five claims. Official receipts. Bible + Book of Mormon evidence. The connections are editorial; the scripture edges remain canonical.</span></div>
+        <p class="hero-lede">I took five claims from it, attached them to the primary sources, and followed them through my scripture graph.</p>
+        <a class="solid-button" href="#explorer">EXPLORE THE MAP ↓</a>
+        <div class="hero-metrics" id="hero-metrics" aria-label="Study counts"></div>
       </div>
-      <div class="hero-visual" aria-label="A claim connected to a primary source and Scripture graph">
+      <div class="hero-visual" aria-label="A claim connected to a source and Scripture graph">
         <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
         <div class="hero-node hero-node-small node-source"><span>PRIMARY<br>SOURCE</span></div>
         <div class="hero-node hero-node-main"><small>CLAIM</small><span>TRUMP /<br>MAGA</span><b>↘</b></div>
         <div class="hero-node hero-node-small node-scripture"><span>SCRIPTURE<br>GRAPH</span></div>
         <div class="hero-line line-a"></div><div class="hero-line line-b"></div>
-        <div class="hero-caption">SOURCE → QUESTION →<br>CANONICAL NEIGHBORHOOD</div>
+        <div class="hero-caption">SOURCE → SCRIPTURE<br>GRAPH</div>
       </div>
     </section>
 
-    <section class="method-strip">
-      <div class="method-strip-inner section-pad">
-        <div class="method-intro"><span class="teal-mark">01—05</span><p>THE CLAIMS ARE THE SPINE</p></div>
-        <div class="stat-grid" id="top-stats">
-          <div class="stat-item"><strong>5</strong><span>claim chapters</span></div>
-          <div class="stat-item"><strong>8</strong><span>primary receipts</span></div>
-          <div class="stat-item"><strong>38</strong><span>scripture nodes</span></div>
-          <div class="stat-item"><strong>14</strong><span>canonical edges</span></div>
-        </div>
+    <section class="explorer-section section-pad" id="explorer">
+      <div class="explorer-heading">
+        <div><p class="eyebrow">THE EXPLORER</p><h2>Pick a claim.</h2></div>
+        <p class="tiny-note">The graph is the point. Everything else stays close to it.</p>
+      </div>
+      <div class="claim-selector" id="claim-selector" role="tablist" aria-label="Essay claims"></div>
+      <div class="workspace" id="workspace">
+        <aside class="receipt-panel" id="receipt-panel" aria-label="Primary source receipt"></aside>
+        <section class="map-panel" aria-label="Interactive Scripture map">
+          <div class="map-panel-top"><div><p class="eyebrow">SCRIPTURE MAP</p><h3 id="map-title">Select a claim</h3></div><div class="graph-legend" aria-label="Graph legend"><span><i class="line-key comparison-key"></i>comparison</span><span><i class="line-key scripture-key"></i>scripture data</span><span><i class="line-key canonical-key"></i>canonical link</span></div></div>
+          <div class="map-and-inspector"><div class="case-graph-canvas"><svg id="case-graph-svg" viewBox="0 0 920 590" role="img" aria-label="Interactive Scripture map"></svg></div><aside class="map-inspector" id="map-inspector"><div class="inspector-kicker">SELECT A NODE</div><h3 class="node-detail-name">The graph is ready.</h3><p>Choose a node to inspect the source, question, or Scripture relationship.</p></aside></div>
+        </section>
       </div>
     </section>
 
-    <section class="claims-section section-pad" id="claims">
-      <div class="claims-heading section-heading">
-        <div><p class="eyebrow">THE CLAIMS</p><h2>Start with what was actually said.</h2></div>
-        <p class="section-lede">Each chapter keeps three layers visible: the primary-source fact, the Scripture data, and the interpretation that connects them.</p>
-      </div>
-      <div class="claims-layout">
-        <aside class="claims-rail" aria-label="Claim chapters"><p class="rail-label">CASE FILES</p><div id="case-nav"></div><div class="rail-rule"></div><p>Scroll the receipts first. Then run the graph.</p></aside>
-        <div class="case-list" id="case-list"></div>
-      </div>
-    </section>
+    <section class="full-map-cta section-pad"><div><p class="eyebrow">OPTIONAL</p><h2>See all five together.</h2></div><a class="text-button" href="#full-map">OPEN THE FULL MAP <span>→</span></a></section>
 
-    <section class="network-section" id="full-map">
-      <div class="network-inner section-pad">
-        <div class="network-heading section-heading">
-          <div><p class="eyebrow">THE WHOLE ARGUMENT</p><h2>See the full map.</h2><p class="section-lede light-copy">Five source branches, five scriptural questions, and only the canonical neighborhood edges that the selected graph provides.</p></div>
-          <div class="network-legend"><span><i class="dot dot-modern"></i>Primary source</span><span><i class="dot dot-concept"></i>Scriptural question</span><span><i class="dot dot-canonical"></i>Canonical edge</span></div>
-        </div>
-        <div class="network-workspace">
-          <div class="network-canvas-wrap"><div class="network-toolbar"><span id="network-filter-label">COMBINED · MODERN + SCRIPTURE</span><span id="network-edge-count">—</span></div><svg id="network-svg" viewBox="0 0 1160 760" role="img" aria-label="Interactive full study graph"></svg></div>
-          <aside class="network-inspector" id="network-inspector"><div class="inspector-kicker">SELECT A NODE</div><h3 class="node-detail-name">Follow a connection.</h3><p>Choose a source, a scriptural question, or a canonical neighbor in the map.</p><div class="inspector-tip"><span>↘</span>Modern-to-Scripture links are editorial comparisons. Canonical edges stay inside the Bible and Book of Mormon graphs.</div></aside>
-        </div>
-      </div>
-    </section>
-
-    <section class="methodology-section" id="methodology">
-      <div class="section-pad">
-        <div class="section-heading"><div><p class="eyebrow">HOW IT WORKS</p><h2>Three layers, kept apart.</h2></div><span class="status-badge" id="validation-badge">Loading validation</span></div>
-        <div class="methodology-grid" id="methodology-grid"></div>
-        <div class="method-footer"><span id="generated-at">Loading study artifact…</span><button class="text-button" type="button" data-open-method>OPEN SOURCE MANIFEST <span>↗</span></button></div>
+    <section class="full-map-section" id="full-map">
+      <div class="full-map-inner section-pad">
+        <div class="full-map-heading"><div><p class="eyebrow">THE FULL MAP</p><h2>All five claims, one view.</h2></div><p class="tiny-note light-copy">Click a source, question, or Scripture node.</p></div>
+        <div class="full-map-workspace"><div class="network-canvas-wrap"><div class="network-toolbar"><span>COMBINED · SOURCE + SCRIPTURE</span><span id="network-edge-count">—</span></div><svg id="network-svg" viewBox="0 0 1160 760" role="img" aria-label="Combined study graph"></svg></div><aside class="network-inspector" id="network-inspector"><div class="inspector-kicker">SELECT A NODE</div><h3 class="node-detail-name">All five branches.</h3><p>Choose a node to inspect the combined map.</p></aside></div>
       </div>
     </section>
   </main>
 
-  <footer class="footer section-pad"><span>BUILT FROM ACCEPTED CULTIVATE EXPORTS · PRIMARY SOURCES STAY DISTINCT</span><a href="#top">BACK TO TOP ↑</a></footer>
+  <footer class="footer section-pad"><span>PRIMARY SOURCES · SCRIPTURE DATA · ONE MAPPED ARGUMENT</span><button class="text-button" type="button" data-open-method>HOW THIS WORKS <span>↗</span></button></footer>
 
-  <dialog class="modal" id="method-modal"><div class="modal-shell"><button class="modal-close" type="button" data-close-modal aria-label="Close source manifest">×</button><div id="method-modal-body"></div></div></dialog>
+  <dialog class="modal" id="method-modal"><div class="modal-shell"><button class="modal-close" type="button" data-close-modal aria-label="Close how this works">×</button><div id="method-modal-body"></div></div></dialog>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="app.js" defer></script>
 </body>
