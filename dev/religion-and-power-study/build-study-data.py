@@ -41,30 +41,6 @@ MODERN_SOURCE_BLUEPRINT = [
         "scope_note": "This records a public statement; it does not establish divine intent or a theological conclusion.",
     },
     {
-        "id": "source-america-first-policy",
-        "branch_id": "america-first",
-        "title": "America First Policy Directive to the Secretary of State",
-        "published": "January 20, 2025",
-        "url": "https://www.whitehouse.gov/presidential-actions/2025/01/america-first-policy-directive-to-the-secretary-of-state/",
-        "document_type": "EXECUTIVE_ORDER",
-        "source_role": "GOVERNMENT_ACTION",
-        "fact": "The directive orders the State Department to align policy, programs, personnel, and operations with an America First foreign policy.",
-        "excerpt": "always put America and American citizens first.",
-        "scope_note": "This is an administration policy directive, not a statement about every person who uses the MAGA label.",
-    },
-    {
-        "id": "source-america-first-trade",
-        "branch_id": "america-first",
-        "title": "America First Trade Policy",
-        "published": "January 20, 2025",
-        "url": "https://www.whitehouse.gov/presidential-actions/2025/01/america-first-trade-policy/",
-        "document_type": "PRESIDENTIAL_MEMORANDUM",
-        "source_role": "GOVERNMENT_ACTION",
-        "fact": "The memorandum directs reviews and recommendations intended to prioritize American workers, manufacturers, farmers, ranchers, entrepreneurs, and businesses in trade policy.",
-        "excerpt": "Americans benefit from and deserve an America First trade policy.",
-        "scope_note": "This documents a trade-policy program; it does not decide the moral or scriptural status of that program.",
-    },
-    {
         "id": "source-cape-henry-cross",
         "branch_id": "christian-national-identity",
         "title": "418th Anniversary of the First Landing and the Raising of the Cape Henry Cross",
@@ -89,8 +65,20 @@ MODERN_SOURCE_BLUEPRINT = [
         "scope_note": "The page uses this as evidence of public religious rhetoric, not as proof of a single national theology.",
     },
     {
+        "id": "source-religious-freedom-day-2026",
+        "branch_id": "christian-national-identity",
+        "title": "Religious Freedom Day, 2026",
+        "published": "January 16, 2026",
+        "url": "https://www.whitehouse.gov/presidential-actions/2026/01/religious-freedom-day-2026/",
+        "document_type": "PROCLAMATION",
+        "source_role": "DOCUMENTED_STATEMENT",
+        "fact": "The proclamation describes the administration’s religious-freedom message as a promise to restore America as a nation of prayer and a country of faith.",
+        "excerpt": "restore America as a Nation of prayer, a country of faith, and a radiant beacon of liberty and justice for all.",
+        "scope_note": "This is proclamation language about the nation; it does not establish one shared theology for all Americans.",
+    },
+    {
         "id": "source-faith-office",
-        "branch_id": "religion-government",
+        "branch_id": "faith-executive-power",
         "title": "Establishment of the White House Faith Office",
         "published": "February 7, 2025",
         "url": "https://www.whitehouse.gov/presidential-actions/2025/02/establishment-of-the-white-house-faith-office/",
@@ -102,7 +90,7 @@ MODERN_SOURCE_BLUEPRINT = [
     },
     {
         "id": "source-anti-christian-bias",
-        "branch_id": "religion-government",
+        "branch_id": "anti-christian-bias",
         "title": "Eradicating Anti-Christian Bias",
         "published": "February 6, 2025",
         "url": "https://www.whitehouse.gov/presidential-actions/2025/02/eradicating-anti-christian-bias/",
@@ -144,11 +132,15 @@ MODERN_BRANCH_BLUEPRINT = [
         "id": "divine-purpose",
         "number": "01",
         "label": "DIVINE PURPOSE + MAGA",
-        "title": "When national purpose is narrated as providence",
+        "title": "I was saved by God to make America great again.",
         "source_ids": ["source-inaugural-2025"],
         "concept_id": "concept-divine-favor",
-        "questions": ["divine favor", "chosenness", "collective righteousness", "humility", "pride", "religious certainty"],
+        "topic_labels": ["FAITH", "HUMILITY", "PRIDE", "RICHES"],
+        "question": "What does scripture do with claims of divine favor, purpose, chosenness, and collective righteousness?",
+        "what_establishes": "The official record establishes that President Trump publicly framed his survival and political mission as being saved by God to make America great again.",
+        "questions": ["divine favor", "purpose", "chosenness", "collective righteousness", "humility", "pride", "religious certainty"],
         "comparison": "The comparison asks how scripture treats claims of divine favor, public religious confidence, and pride.",
+        "counter_evidence": [{"label": "Humility complicates chosenness", "text": "The Pharisee and the Tax Collector places public religious confidence beside a warning about self-exaltation.", "evidence": {"corpus": "NT", "kind": "event", "node_label": "The Pharisee and the Tax Collector"}}],
         "evidence": [
             {"corpus": "NT", "kind": "event", "node_label": "Woes to Scribes and Pharisees"},
             {"corpus": "NT", "kind": "event", "node_label": "The Pharisee and the Tax Collector"},
@@ -159,11 +151,15 @@ MODERN_BRANCH_BLUEPRINT = [
         "id": "christian-national-identity",
         "number": "02",
         "label": "CHRISTIAN + NATIONAL IDENTITY",
-        "title": "When faith language becomes national language",
-        "source_ids": ["source-cape-henry-cross", "source-national-day-prayer"],
+        "title": "America as a nation of prayer and a country of faith.",
+        "source_ids": ["source-cape-henry-cross", "source-national-day-prayer", "source-religious-freedom-day-2026"],
         "concept_id": "concept-religious-identity",
+        "topic_labels": ["FAITH", "HUMILITY", "PRIDE", "Government"],
+        "question": "What happens when Christian faith language becomes national identity language?",
+        "what_establishes": "These official proclamations establish a recurring presidential use of Christian faith, prayer, and national belonging in the same public frame.",
         "questions": ["religious identity", "group identity", "humility", "pride", "righteousness", "separation", "respect of persons"],
         "comparison": "The comparison places national-faith language beside scriptural questions about identity and righteousness.",
+        "counter_evidence": [{"label": "Identity is not righteousness", "text": "The Woes to Scribes and Pharisees complicate any assumption that religious identity or public devotion settles the question of faithfulness.", "evidence": {"corpus": "NT", "kind": "event", "node_label": "Woes to Scribes and Pharisees"}}],
         "evidence": [
             {"corpus": "NT", "kind": "event", "node_label": "Woes to Scribes and Pharisees"},
             {"corpus": "NT", "kind": "event", "node_label": "The Pharisee and the Tax Collector"},
@@ -171,29 +167,18 @@ MODERN_BRANCH_BLUEPRINT = [
         ],
     },
     {
-        "id": "america-first",
-        "number": "03",
-        "label": "AMERICA FIRST / IN-GROUP PRIORITY",
-        "title": "What does priority for one’s own community require?",
-        "source_ids": ["source-america-first-policy", "source-america-first-trade"],
-        "concept_id": "concept-neighbor-stewardship",
-        "questions": ["neighbor", "stranger", "civil government", "law", "defense", "stewardship", "public order"],
-        "comparison": "The comparison tests how community responsibility, law, protection, neighbor, and stranger sit together.",
-        "evidence": [
-            {"corpus": "NT", "kind": "event", "node_label": "The Parable"},
-            {"corpus": "NT", "kind": "event", "node_label": "Preaching the Gospel to the Samaritans"},
-            {"corpus": "BOM", "kind": "event", "node_label": "Converted community settles in Jershon and becomes known as the people of Ammon"},
-        ],
-    },
-    {
         "id": "invasion-outsider",
-        "number": "04",
-        "label": "“INVASION” / OUTSIDER FRAMING",
-        "title": "When an outsider is described as a threat",
-        "source_ids": ["source-invasion-proclamation", "source-protecting-americans-invasion"],
+        "number": "03",
+        "label": "PROTECTING THE AMERICAN PEOPLE AGAINST INVASION",
+        "title": "When an outsider is described as a threat.",
+        "source_ids": ["source-protecting-americans-invasion", "source-invasion-proclamation"],
         "concept_id": "concept-outsider-protection",
-        "questions": ["stranger", "outsider", "enemy", "neighbor", "mercy", "fear", "protection", "justice"],
+        "topic_labels": ["MERCY", "Government", "Enemies", "Humility"],
+        "question": "What changes when strangers, outsiders, neighbors, enemies, and vulnerable people occupy the same frame?",
+        "what_establishes": "The official records establish invasion as the administration’s governing frame for a border and immigration-enforcement program.",
+        "questions": ["stranger", "outsider", "enemy", "neighbor", "mercy", "fear", "protection", "justice", "public order"],
         "comparison": "The comparison reads invasion language alongside narratives about neighbor, stranger, enemy, protection, and mercy.",
+        "counter_evidence": [{"label": "Protection does not erase neighbor", "text": "The Parable keeps mercy toward the person in front of you inside the question of public danger and social boundaries.", "evidence": {"corpus": "NT", "kind": "event", "node_label": "The Parable"}}],
         "evidence": [
             {"corpus": "NT", "kind": "event", "node_label": "The Parable"},
             {"corpus": "NT", "kind": "event", "node_label": "The Centurion"},
@@ -201,14 +186,37 @@ MODERN_BRANCH_BLUEPRINT = [
         ],
     },
     {
-        "id": "religion-government",
+        "id": "anti-christian-bias",
+        "number": "04",
+        "label": "ERADICATING ANTI-CHRISTIAN BIAS",
+        "title": "When perceived persecution becomes a mandate for power.",
+        "source_ids": ["source-anti-christian-bias"],
+        "concept_id": "concept-persecution-power",
+        "topic_labels": ["PERSECUTION", "FORGIVENESS", "LOVE", "AUTHORITY"],
+        "question": "How does scripture treat persecution, grievance, retaliation, enemy love, and religious liberty when power responds?",
+        "what_establishes": "The executive order establishes a Department of Justice task force with the stated purpose of eradicating anti-Christian bias.",
+        "questions": ["persecution", "grievance", "retaliation", "enemy love", "religious liberty", "conscience", "authority"],
+        "comparison": "The comparison places a government response to perceived religious persecution beside scriptural accounts of power and non-retaliation.",
+        "counter_evidence": [{"label": "Persecution does not authorize retaliation", "text": "The Anti-Nephi-Lehies refuse resistance even while remembering the violence that preceded their conversion.", "evidence": {"corpus": "BOM", "kind": "event", "node_label": "Anti-Nephi-Lehies refuse resistance and attackers repent"}}],
+        "evidence": [
+            {"corpus": "NT", "kind": "event", "node_label": "Jesus before the High Priest"},
+            {"corpus": "NT", "kind": "event", "node_label": "Jesus before Pilate"},
+            {"corpus": "BOM", "kind": "event", "node_label": "Anti-Nephi-Lehies refuse resistance and attackers repent"},
+        ],
+    },
+    {
+        "id": "faith-executive-power",
         "number": "05",
-        "label": "RELIGION + GOVERNMENT",
-        "title": "When religious initiatives enter government",
+        "label": "FAITH + EXECUTIVE POWER",
+        "title": "When religious authority enters the executive branch.",
         "source_ids": ["source-faith-office", "source-anti-christian-bias"],
         "concept_id": "concept-authority-power",
+        "topic_labels": ["AUTHORITY", "Government", "FAITH", "Humility"],
+        "question": "What happens when religious authority and political authority share an institution?",
+        "what_establishes": "The official record establishes a White House Faith Office and a related executive task force as instruments of administration policy.",
         "questions": ["religious authority", "political authority", "institutional self-preservation", "servant leadership", "priestcraft"],
         "comparison": "The comparison places faith initiatives beside scriptural depictions of religious and political authority.",
+        "counter_evidence": [{"label": "Authority is tested by relinquished power", "text": "Jesus before Pilate keeps political authority, religious accusation, and the refusal to seize power in the same canonical neighborhood.", "evidence": {"corpus": "NT", "kind": "event", "node_label": "Jesus before Pilate"}}],
         "evidence": [
             {"corpus": "NT", "kind": "event", "node_label": "Jesus before the High Priest"},
             {"corpus": "NT", "kind": "event", "node_label": "Jesus before Pilate"},
@@ -222,8 +230,8 @@ MODERN_BRANCH_BLUEPRINT = [
 MODERN_CONCEPT_BLUEPRINT = [
     {"id": "concept-divine-favor", "label": "DIVINE FAVOR / CHOSENNESS", "question": "How does scripture test claims of divine favor, public righteousness, and humility?"},
     {"id": "concept-religious-identity", "label": "RELIGIOUS + NATIONAL IDENTITY", "question": "When does group identity become a substitute for the weightier matters of discipleship?"},
-    {"id": "concept-neighbor-stewardship", "label": "NEIGHBOR / STEWARDSHIP", "question": "How can obligations to one’s own community coexist with the command to see a neighbor?"},
     {"id": "concept-outsider-protection", "label": "OUTSIDER / PROTECTION", "question": "What changes when fear, defense, justice, mercy, and the stranger occupy the same frame?"},
+    {"id": "concept-persecution-power", "label": "PERSECUTION / POWER", "question": "What does scripture reveal when grievance and perceived persecution become reasons to exercise power?"},
     {"id": "concept-authority-power", "label": "RELIGIOUS + POLITICAL AUTHORITY", "question": "What does scripture reveal when religious authority and political power converge?"},
 ]
 
@@ -782,15 +790,15 @@ def main() -> None:
                 "is_neighborhood": True,
             }
 
-    modern_root_id = "modern:root:maga-america-first"
+    modern_root_id = "modern:root:trump-maga-claims"
     comparison_nodes = [{
         "id": modern_root_id,
-        "label": "MAGA / AMERICA FIRST",
+        "label": "TRUMP / MAGA CLAIMS",
         "type": "MODERN_ROOT",
         "corpus": "MODERN",
         "layer": "MODERN_SOURCE",
         "kind": "modern-root",
-        "description": "A source layer grounded in official Trump and White House uses of Make America Great Again and America First.",
+        "description": "Five claim-led source chapters grounded in official Trump and White House records.",
         "branch_ids": [branch["id"] for branch in modern_branches],
     }]
     comparison_nodes.extend({
@@ -904,6 +912,95 @@ def main() -> None:
             "formatted_references": edge["formatted_references"],
         })
 
+    topic_by_exact_label = {normalize(topic["label"]): topic for topic in topics}
+
+    def resolve_case_topic(label: str) -> dict[str, Any]:
+        exact = topic_by_exact_label.get(normalize(label))
+        if exact:
+            return exact
+        matches = [topic for topic in topics if normalize(label) in normalize(topic["label"])]
+        if len(matches) != 1:
+            raise RuntimeError(f"Expected one accepted TOPIC containing {label!r}; found {len(matches)}")
+        return matches[0]
+
+    def compact_case_graph(branch: dict[str, Any]) -> dict[str, list[dict[str, Any]]]:
+        evidence_ids = {
+            f"scripture:{evidence['corpus']}:{evidence['node_id']}"
+            for evidence in branch["scriptural_evidence"]
+        }
+        graph_ids = {
+            modern_root_id,
+            f"modern:branch:{branch['id']}",
+            branch["concept_id"],
+            *(f"modern:source:{source['id']}" for source in branch["sources"]),
+            *evidence_ids,
+        }
+        canonical_case_edges = [
+            edge for edge in comparison_edges
+            if edge["layer"] == "CANONICAL" and (edge["source"] in graph_ids or edge["target"] in graph_ids)
+        ]
+        for edge in canonical_case_edges:
+            graph_ids.update((edge["source"], edge["target"]))
+        graph_nodes = [node for node in comparison_nodes if node["id"] in graph_ids]
+        graph_edges = [
+            edge for edge in comparison_edges
+            if edge["source"] in graph_ids and edge["target"] in graph_ids
+        ]
+        return {"nodes": graph_nodes, "edges": graph_edges}
+
+    cases = []
+    for branch in modern_branches:
+        topics_for_case = [resolve_case_topic(label) for label in branch.get("topic_labels", [])]
+        counter_evidence = []
+        for item in branch.get("counter_evidence", []):
+            counter_evidence.append({
+                "label": item["label"],
+                "text": item["text"],
+                "evidence": evidence_for(item["evidence"]),
+            })
+        evidence_node_keys = {
+            (evidence["corpus"], evidence["node_id"])
+            for evidence in branch["scriptural_evidence"]
+        }
+        canonical_edges_for_case = [
+            edge for edge in compact_edges
+            if (edge["corpus"], edge["source"]) in evidence_node_keys
+            or (edge["corpus"], edge["target"]) in evidence_node_keys
+        ]
+        cases.append({
+            "id": branch["id"],
+            "number": branch["number"],
+            "label": branch["label"],
+            "claim": branch["title"],
+            "primary_sources": branch["sources"],
+            "scriptural_question": branch["question"],
+            "scriptural_questions": branch["questions"],
+            "what_this_establishes": branch["what_establishes"],
+            "interpretation": branch["comparison"],
+            "topics": topics_for_case,
+            "passages": branch["scriptural_evidence"],
+            "events": [evidence for evidence in branch["scriptural_evidence"] if evidence["kind"] == "event"],
+            "entities": [
+                node for node in compact_nodes
+                if (node["corpus"], node["id"]) in {
+                    endpoint for edge in canonical_edges_for_case for endpoint in (
+                        (edge["corpus"], edge["source"]),
+                        (edge["corpus"], edge["target"]),
+                    )
+                } and node["type"] in {"PERSON", "GROUP"}
+            ],
+            "canonical_edges": canonical_edges_for_case,
+            "editorial_edges": [
+                edge for edge in comparison_edges
+                if edge["layer"] != "CANONICAL" and (
+                    edge.get("branch_id") == branch["id"]
+                    or edge.get("concept_id") == branch["concept_id"]
+                )
+            ],
+            "graph": compact_case_graph(branch),
+            "counter_evidence": counter_evidence,
+        })
+
     themes = []
     for blueprint in theme_blueprint:
         evidences = [evidence_for(item) for item in blueprint["data_evidence"]]
@@ -986,7 +1083,7 @@ def main() -> None:
             "source_attested_topic_links": selected_source_links,
         },
         "modern_source_layer": {
-            "root": "MAGA / AMERICA FIRST",
+            "root": "TRUMP / MAGA CLAIMS",
             "branches": len(modern_branches),
             "primary_sources": len(modern_sources),
             "editorial_comparison_edges": sum(edge["layer"] == "EDITORIAL_COMPARISON" for edge in comparison_edges),
@@ -1110,10 +1207,10 @@ def main() -> None:
 
     payload = {
         "schema_version": STUDY_VERSION,
-        "title": "When Faith Becomes Power",
-        "subtitle": "A source-first scripture study of MAGA / America First rhetoric, administration records, and recurring scriptural warnings",
+        "title": "So I mapped it.",
+        "subtitle": "Five Trump / MAGA claims, official receipts, and the Scripture graph around each one",
         "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
-        "scope_note": "The essay argued that several scriptural warnings have modern parallels in MAGA-era American Christian nationalism. This map tests those proposed connections against the scripture data and primary sources.",
+        "scope_note": "The essay argued that several scriptural warnings have modern parallels in MAGA-era American Christian nationalism. This map follows five concrete claims through official primary sources and the Scripture graph.",
         "modern_scope_note": "MAGA here names Trump / America First rhetoric and the movement around it; White House records document Trump administration actions.",
         "historical_caution": [
             "Pharisees were a diverse Jewish movement, not a synonym for hypocrisy.",
@@ -1134,6 +1231,7 @@ def main() -> None:
         "visual_network": {"nodes": visual_nodes, "edges": visual_edges},
         "modern_sources": modern_sources,
         "modern_branches": modern_branches,
+        "cases": cases,
         "comparison_network": {"nodes": comparison_nodes, "edges": comparison_edges},
         "topics": topics,
         "themes": themes,

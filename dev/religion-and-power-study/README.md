@@ -1,4 +1,4 @@
-# When Faith Becomes Power
+# So I mapped it.
 
 Standalone Cultivate Labs data study. This directory is intentionally isolated
 from the Bible Explorer, Book of Mormon Explorer, Topical Guide, and normal
@@ -19,26 +19,30 @@ bundles, extracts only the study projection, preserves source hashes, and runs
 validation before writing `data/study.json`. Re-running with identical source
 files produces identical data apart from `generated_at`.
 
-## Modern source layer
+## Claim-led source layer
 
-The page explicitly uses `MAGA / AMERICA FIRST` as a modern source layer. It
-does not merge modern politics into the scripture graph or treat MAGA as a
-one-to-one equivalent of any scriptural group. Five branches connect nine
-official White House primary sources to bounded scriptural questions:
+The page is organized around five concrete Trump / MAGA claims. Each case
+connects official White House primary sources to a bounded scriptural question
+and a real canonical graph neighborhood. It does not merge modern politics
+into the scripture graph or treat MAGA as a one-to-one equivalent of any
+scriptural group:
 
 - divine purpose and chosenness
 - Christian faith and American national identity
-- America First and in-group priority
 - invasion language and outsider framing
-- religion and government
+- anti-Christian bias and perceived persecution
+- faith and executive power
 
 Each source carries `movement`, `administration`, `source_family`,
 `source_type`, publication metadata, an official URL, and a documented-fact
-excerpt. The comparison graph labels every cross-layer edge as editorial;
-canonical scripture edges remain separate and are limited to the selected
-scripture neighborhood. White House actions document the Trump administration;
-they do not establish the beliefs or motives of every person who identifies
-with or votes for MAGA-aligned candidates.
+excerpt. The generated payload exposes a `cases` model with
+`primary_sources`, `scriptural_questions`, `topics`, `passages`, `entities`,
+`canonical_edges`, `editorial_edges`, and `counter_evidence`. The comparison
+graph labels every cross-layer edge as editorial; canonical scripture edges
+remain separate and are limited to the selected scripture neighborhood. White
+House actions document the Trump administration; they do not establish the
+beliefs or motives of every person who identifies with or votes for
+MAGA-aligned candidates.
 
 ## Current source manifest
 
@@ -76,6 +80,6 @@ memberships.
 The checked-in artifact records the complete validation result. The current
 build uses 38 scriptural nodes, 31 canonical study edges, 16 accepted topics,
 493 distinct scripture locators, and has zero broken or unresolved references.
-The separate comparison network contains 42 nodes, including 9 primary
-sources, 5 scriptural-question nodes, 17 canonical neighborhood edges, and 9
+The separate comparison network contains the five claim branches, 8 primary
+sources, 5 scriptural-question nodes, 14 canonical neighborhood edges, and 9
 editorial comparison edges.

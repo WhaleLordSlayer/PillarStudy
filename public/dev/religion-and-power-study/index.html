@@ -1,183 +1,92 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#10171f">
-    <meta name="description" content="When Faith Becomes Power — a data-assisted scripture study from Cultivate Labs.">
-    <title>When Faith Becomes Power · Cultivate Labs</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div class="site-shell" id="top">
-      <header class="topbar">
-        <a class="wordmark" href="#top" aria-label="Back to the beginning">
-          <span class="wordmark-mark">C</span>
-          <span><b>CULTIVATE</b><small>LABS / STUDY 01</small></span>
-        </a>
-        <nav class="topnav" aria-label="Study navigation">
-          <a href="#modern-sources">MAGA layer</a>
-          <a href="#patterns">Patterns</a>
-          <a href="#network">Graph</a>
-          <a href="#topic-layer">Topics</a>
-          <a href="#limits">Limits</a>
-        </nav>
-        <button class="outline-button" type="button" data-open-method>Methodology <span>↗</span></button>
-      </header>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10171f">
+  <title>So I mapped it. · Cultivate Study</title>
+  <meta name="description" content="Five Trump / MAGA claims mapped to official primary-source receipts and the Scripture graph around each one.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="wordmark" href="#top" aria-label="Cultivate Study home"><span class="wordmark-mark">✦</span><span>CULTIVATE<br><em>STUDY</em></span></a>
+    <nav class="topnav" aria-label="Study navigation">
+      <a href="#claims">The Claims</a>
+      <a href="#full-map">Scripture Map</a>
+      <a href="#methodology">How It Works</a>
+    </nav>
+    <button class="outline-button" type="button" data-share>SHARE STUDY ↗</button>
+  </header>
 
-      <main>
-        <section class="hero section-pad" aria-labelledby="hero-title">
-          <div class="hero-copy">
-            <p class="eyebrow"><span class="eyebrow-line"></span> An evidence-first data story</p>
-            <h1 id="hero-title">When faith<br><em>becomes power.</em></h1>
-            <p class="hero-lede">A source-first scripture study of MAGA / America First rhetoric, Trump administration records, and recurring scriptural warnings.</p>
-            <div class="hero-actions">
-              <a class="primary-button" href="#patterns">Read the study <span>↓</span></a>
-              <button class="text-button" type="button" data-share>Copy study link <span>↗</span></button>
-            </div>
-          </div>
-          <div class="hero-visual" aria-label="Abstract network diagram">
-            <div class="hero-orbit orbit-one"></div>
-            <div class="hero-orbit orbit-two"></div>
-            <div class="hero-orbit orbit-three"></div>
-            <div class="hero-node hero-node-main"><span>MAGA /</span><small>AMERICA FIRST</small></div>
-            <div class="hero-node hero-node-a"><span>DIVINE</span><small>purpose</small></div>
-            <div class="hero-node hero-node-b"><span>FAITH +</span><small>nation</small></div>
-            <div class="hero-node hero-node-c"><span>OUTSIDER</span><small>framing</small></div>
-            <div class="hero-annotation annotation-a">source → comparison</div>
-            <div class="hero-annotation annotation-b">fact → evidence</div>
-            <svg class="hero-lines" viewBox="0 0 600 560" aria-hidden="true">
-              <path d="M305 278 L115 130 M305 278 L472 112 M305 278 L485 410 M305 278 L112 430" />
-              <path d="M115 130 C260 34 390 45 472 112 M112 430 C260 520 390 510 485 410" class="line-soft" />
-            </svg>
-          </div>
-          <div class="hero-disclaimer">
-            <span class="label-chip">READ THIS FIRST</span>
-            <p>Primary sources, scripture data, and editorial comparisons stay distinct.</p>
-          </div>
-        </section>
+  <main id="top">
+    <section class="hero section-pad">
+      <div class="hero-copy">
+        <p class="eyebrow">YOU SENT ME AN ESSAY</p>
+        <h1>So I<br><em>mapped</em><br>it.</h1>
+        <p class="hero-lede">The essay argued that several scriptural warnings have modern parallels in MAGA-era American Christian nationalism. I have a scripture knowledge graph. So I took the major claims, attached them to primary sources, and followed the connections.</p>
+        <div class="hero-actions"><a class="solid-button" href="#claims">EXPLORE THE CLAIMS ↓</a><a class="text-button" href="#full-map">OPEN FULL MAP <span>↗</span></a></div>
+        <div class="hero-disclaimer"><span class="teal-mark">✦</span><span>Five claims. Official receipts. Bible + Book of Mormon evidence. The connections are editorial; the scripture edges remain canonical.</span></div>
+      </div>
+      <div class="hero-visual" aria-label="A claim connected to a primary source and Scripture graph">
+        <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
+        <div class="hero-node hero-node-small node-source"><span>PRIMARY<br>SOURCE</span></div>
+        <div class="hero-node hero-node-main"><small>CLAIM</small><span>TRUMP /<br>MAGA</span><b>↘</b></div>
+        <div class="hero-node hero-node-small node-scripture"><span>SCRIPTURE<br>GRAPH</span></div>
+        <div class="hero-line line-a"></div><div class="hero-line line-b"></div>
+        <div class="hero-caption">SOURCE → QUESTION →<br>CANONICAL NEIGHBORHOOD</div>
+      </div>
+    </section>
 
-        <section class="method-strip" id="method-strip" aria-label="Study scale">
-          <div class="method-strip-inner">
-            <div class="method-intro"><span class="eyebrow-line"></span><span>Built from scripture graphs, the Guide, and primary modern sources</span></div>
-            <div class="stat-grid" id="top-stats">
-              <div class="stat-item"><strong>—</strong><span>scriptural nodes</span></div>
-              <div class="stat-item"><strong>—</strong><span>canonical edges</span></div>
-              <div class="stat-item"><strong>—</strong><span>primary sources</span></div>
-              <div class="stat-item"><strong>—</strong><span>interpretive edges</span></div>
-            </div>
-          </div>
-        </section>
+    <section class="method-strip">
+      <div class="method-strip-inner section-pad">
+        <div class="method-intro"><span class="teal-mark">01—05</span><p>THE CLAIMS ARE THE SPINE</p></div>
+        <div class="stat-grid" id="top-stats">
+          <div class="stat-item"><strong>5</strong><span>claim chapters</span></div>
+          <div class="stat-item"><strong>8</strong><span>primary receipts</span></div>
+          <div class="stat-item"><strong>38</strong><span>scripture nodes</span></div>
+          <div class="stat-item"><strong>14</strong><span>canonical edges</span></div>
+        </div>
+      </div>
+    </section>
 
-        <section class="opening section-pad narrow-copy" aria-labelledby="question-title">
-          <p class="eyebrow">The question</p>
-          <h2 id="question-title">The essay argued that several scriptural warnings have modern parallels in <em>MAGA-era American Christian nationalism.</em></h2>
-          <p>Jesus’s disputes with Pharisees are not a license to condemn Judaism, Jewish people, or every religious authority. They are particular first-century arguments preserved inside a Jewish religious world. The Book of Mormon offers a separate set of narratives where status, priestcraft, political power, pride, persecution, and repentance can be traced through different people, groups, and events.</p>
-          <p class="small-note">This map tests those proposed connections against primary sources and scripture data.</p>
-        </section>
+    <section class="claims-section section-pad" id="claims">
+      <div class="claims-heading section-heading">
+        <div><p class="eyebrow">THE CLAIMS</p><h2>Start with what was actually said.</h2></div>
+        <p class="section-lede">Each chapter keeps three layers visible: the primary-source fact, the Scripture data, and the interpretation that connects them.</p>
+      </div>
+      <div class="claims-layout">
+        <aside class="claims-rail" aria-label="Claim chapters"><p class="rail-label">CASE FILES</p><div id="case-nav"></div><div class="rail-rule"></div><p>Scroll the receipts first. Then run the graph.</p></aside>
+        <div class="case-list" id="case-list"></div>
+      </div>
+    </section>
 
-        <section class="modern-section section-pad" id="modern-sources" aria-labelledby="modern-title">
-          <div class="section-heading split-heading">
-            <div><p class="eyebrow">The explicit modern source layer</p><h2 id="modern-title">Start with MAGA / America First.</h2><p class="section-lede">Official receipts first. Scriptural questions second. Editorial comparison is visible at every cross-layer edge.</p></div>
-            <span class="status-badge modern-status">PRIMARY SOURCES · 9</span>
-          </div>
-          <div class="modern-root-card" id="modern-root-card"></div>
-          <div class="modern-branch-grid" id="modern-branch-grid"></div>
-        </section>
+    <section class="network-section" id="full-map">
+      <div class="network-inner section-pad">
+        <div class="network-heading section-heading">
+          <div><p class="eyebrow">THE WHOLE ARGUMENT</p><h2>See the full map.</h2><p class="section-lede light-copy">Five source branches, five scriptural questions, and only the canonical neighborhood edges that the selected graph provides.</p></div>
+          <div class="network-legend"><span><i class="dot dot-modern"></i>Primary source</span><span><i class="dot dot-concept"></i>Scriptural question</span><span><i class="dot dot-canonical"></i>Canonical edge</span></div>
+        </div>
+        <div class="network-workspace">
+          <div class="network-canvas-wrap"><div class="network-toolbar"><span id="network-filter-label">COMBINED · MODERN + SCRIPTURE</span><span id="network-edge-count">—</span></div><svg id="network-svg" viewBox="0 0 1160 760" role="img" aria-label="Interactive full study graph"></svg></div>
+          <aside class="network-inspector" id="network-inspector"><div class="inspector-kicker">SELECT A NODE</div><h3 class="node-detail-name">Follow a connection.</h3><p>Choose a source, a scriptural question, or a canonical neighbor in the map.</p><div class="inspector-tip"><span>↘</span>Modern-to-Scripture links are editorial comparisons. Canonical edges stay inside the Bible and Book of Mormon graphs.</div></aside>
+        </div>
+      </div>
+    </section>
 
-        <section class="caution-section section-pad" id="limits" aria-labelledby="caution-title">
-          <div class="caution-marker">A NOTE ON HISTORY</div>
-          <div>
-            <h2 id="caution-title">The Pharisees are not a modern type.</h2>
-            <p>Pharisees were a diverse Jewish movement. Jesus and His earliest disciples were Jewish, and the Gospel disputes happened within first-century Judaism. Here, “Pharisee” names the people and events represented in specific Gospel narratives; it is never used as a synonym for Jewish hypocrisy.</p>
-          </div>
-          <div class="caution-list" id="historical-caution-list"></div>
-        </section>
+    <section class="methodology-section" id="methodology">
+      <div class="section-pad">
+        <div class="section-heading"><div><p class="eyebrow">HOW IT WORKS</p><h2>Three layers, kept apart.</h2></div><span class="status-badge" id="validation-badge">Loading validation</span></div>
+        <div class="methodology-grid" id="methodology-grid"></div>
+        <div class="method-footer"><span id="generated-at">Loading study artifact…</span><button class="text-button" type="button" data-open-method>OPEN SOURCE MANIFEST <span>↗</span></button></div>
+      </div>
+    </section>
+  </main>
 
-        <section class="patterns-section section-pad" id="patterns" aria-labelledby="patterns-title">
-          <div class="section-heading split-heading">
-            <div><p class="eyebrow">Six recurring patterns</p><h2 id="patterns-title">The argument, in evidence-sized pieces.</h2></div>
-            <div class="corpus-switch" role="group" aria-label="Filter evidence by corpus">
-              <button class="corpus-button active" data-corpus="ALL" type="button">Combined</button>
-              <button class="corpus-button" data-corpus="NT" type="button">New Testament</button>
-              <button class="corpus-button" data-corpus="BOM" type="button">Book of Mormon</button>
-            </div>
-          </div>
-          <div class="study-layout">
-            <aside class="chapter-rail" aria-label="Study chapters">
-              <div class="rail-title">IN THIS STUDY</div>
-              <div id="chapter-links"></div>
-              <div class="rail-rule"></div>
-              <p>Every claim opens onto the exact nodes, edges, topics, and references used to build it.</p>
-            </aside>
-            <div class="theme-list" id="theme-list"></div>
-          </div>
-        </section>
+  <footer class="footer section-pad"><span>BUILT FROM ACCEPTED CULTIVATE EXPORTS · PRIMARY SOURCES STAY DISTINCT</span><a href="#top">BACK TO TOP ↑</a></footer>
 
-        <section class="network-section" id="network" aria-labelledby="network-title">
-          <div class="section-pad network-inner">
-            <div class="section-heading split-heading network-heading">
-              <div><p class="eyebrow light">The comparison map</p><h2 id="network-title">Follow the evidence chain.</h2><p class="section-lede light-copy">Receipts on the left; scriptural questions and canonical neighborhoods on the right. Dashed lines are editorial comparisons.</p></div>
-              <div class="network-legend"><span><i class="dot dot-modern"></i> modern source</span><span><i class="dot dot-concept"></i> scriptural question</span><span><i class="dot dot-event"></i> scripture anchor</span><span><i class="dot dot-canonical"></i> canonical edge</span></div>
-            </div>
-            <div class="network-workspace">
-              <div class="network-canvas-wrap">
-                <div class="network-toolbar"><span id="network-filter-label">COMBINED CORPORA</span><span id="network-edge-count">— edges shown</span></div>
-                <svg id="network-svg" viewBox="0 0 1160 900" preserveAspectRatio="xMidYMin meet" role="img" aria-label="MAGA source to scripture comparison network"></svg>
-              </div>
-              <aside class="network-inspector" id="network-inspector">
-                <div class="inspector-kicker">SELECT A NODE</div>
-                <h3>See the graph up close.</h3>
-                <p>Select a source, question, or scripture anchor to inspect its evidence chain.</p>
-                <div class="inspector-tip"><span>⌁</span> Start with the MAGA / America First root, an official source receipt, or a scripture anchor.</div>
-              </aside>
-            </div>
-          </div>
-        </section>
-
-        <section class="topic-section section-pad" id="topic-layer" aria-labelledby="topics-title">
-          <div class="section-heading split-heading">
-            <div><p class="eyebrow">The taxonomy beneath the prose</p><h2 id="topics-title">Let the Guide show its hand.</h2><p class="section-lede">These are the accepted topic links used in the study projection. The taxonomy is uneven across corpora—and that unevenness is part of the finding.</p></div>
-            <button class="outline-button" id="clear-topic" type="button" hidden>Clear topic filter ×</button>
-          </div>
-          <div class="topic-summary" id="topic-summary"></div>
-          <div class="topic-grid" id="topic-grid"></div>
-          <div class="topic-audit" id="topic-audit"></div>
-        </section>
-
-        <section class="compare-section section-pad" aria-labelledby="compare-title">
-          <div class="section-heading"><p class="eyebrow">Across the corpora</p><h2 id="compare-title">Some patterns rhyme. None are interchangeable.</h2><p class="section-lede">A cross-corpus comparison is useful only when it preserves differences in narrative, genre, and evidence density.</p></div>
-          <div class="compare-table" id="compare-table"></div>
-          <div class="compare-note"><span>↳</span><p>“Supported” here means the selected projection contains evidence in both corpora. It does not mean the stories are historical equivalents or that the same interpretation applies to both.</p></div>
-        </section>
-
-        <section class="application-section section-pad" aria-labelledby="application-title">
-          <div class="application-copy"><p class="eyebrow">MAGA comparison</p><h2 id="application-title">The source layer makes the question inspectable.</h2><p>Here, “MAGA” names Trump / America First rhetoric and the movement around it; White House records document administration actions. The prompts compare those records with scriptural structures such as identity, divine favor, neighbor-love, outsider framing, authority, pride, and mercy.</p></div>
-          <div class="warning-grid" id="warning-grid"></div>
-        </section>
-
-        <section class="closing-section section-pad" aria-labelledby="closing-title">
-          <div class="closing-mark">DATA<br><span>→</span><br>DISCIPLESHIP</div>
-          <div><p class="eyebrow">The limit of the graph</p><h2 id="closing-title">The graph can surface a parallel. It cannot prove a motive.</h2><p>Read each comparison as a question for discipleship, with the underlying receipt and text close at hand.</p><a class="primary-button" href="#methodology">Inspect the source manifest <span>↓</span></a></div>
-        </section>
-
-        <section class="methodology-section section-pad" id="methodology" aria-labelledby="methodology-title">
-          <div class="section-heading split-heading"><div><p class="eyebrow">Open methods</p><h2 id="methodology-title">A small page built from large sources.</h2></div><span class="status-badge" id="validation-badge">Checking projection…</span></div>
-          <div class="methodology-grid" id="methodology-grid"></div>
-          <div class="method-footer"><span id="generated-at">Generated —</span><button class="text-button" type="button" data-open-method>View full provenance <span>↗</span></button><a class="text-button" href="build-study-data.py">Read the extractor <span>↗</span></a></div>
-        </section>
-      </main>
-
-      <footer class="footer section-pad"><div><span class="wordmark-mark">C</span><span> Cultivate Labs · Standalone study</span></div><div>Not linked from normal navigation · <a href="#top">Back to top ↑</a></div></footer>
-    </div>
-
-    <dialog class="modal" id="method-modal">
-      <div class="modal-shell"><button class="modal-close" type="button" data-close-modal aria-label="Close methodology">×</button><p class="eyebrow">Provenance</p><h2>How this page was made.</h2><div id="method-modal-body"></div></div>
-    </dialog>
-    <dialog class="modal evidence-modal" id="evidence-modal">
-      <div class="modal-shell"><button class="modal-close" type="button" data-close-modal aria-label="Close evidence">×</button><div id="evidence-modal-body"></div></div>
-    </dialog>
-    <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script src="app.js" defer></script>
-  </body>
+  <dialog class="modal" id="method-modal"><div class="modal-shell"><button class="modal-close" type="button" data-close-modal aria-label="Close source manifest">×</button><div id="method-modal-body"></div></div></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js" defer></script>
+</body>
 </html>
