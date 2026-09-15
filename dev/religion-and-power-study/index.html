@@ -1,70 +1,48 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#10171f">
-  <title>So I mapped it. · Cultivate Study</title>
-  <meta name="description" content="Five claims from an essay about MAGA and scripture, mapped through official sources and a Scripture graph.">
+  <meta name="theme-color" content="#f2eee5">
+  <title>When Faith Seeks Power · Cultivate Study</title>
+  <meta name="description" content="A scripture study of religious identity, power, outsiders, mercy, and a modern political argument.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="topbar">
     <a class="wordmark" href="#top" aria-label="Cultivate Study home"><span class="wordmark-mark">✦</span><span>CULTIVATE<br><em>STUDY</em></span></a>
-    <nav class="topnav" aria-label="Study navigation">
-      <a href="#explorer">Explore</a>
-      <a href="#full-map">Full map</a>
-    </nav>
-    <button class="outline-button" type="button" data-open-method>HOW THIS WORKS</button>
+    <nav class="topnav" aria-label="Study navigation"><a href="#essay">Essay</a><a href="#full-map">Scripture graph</a></nav>
+    <button class="outline-button" type="button" data-open-method>HOW THIS WAS BUILT</button>
   </header>
 
   <main id="top">
     <section class="hero section-pad">
-      <div class="hero-copy">
-        <p class="eyebrow">YOU SENT ME AN ESSAY</p>
-        <h1>So I<br><em>mapped</em><br>it.</h1>
-        <p class="hero-lede">I took five claims from it, attached them to the primary sources, and followed them through my scripture graph.</p>
-        <a class="solid-button" href="#explorer">EXPLORE THE MAP ↓</a>
-        <div class="hero-metrics" id="hero-metrics" aria-label="Study counts"></div>
-      </div>
-      <div class="hero-visual" aria-label="A claim connected to a source and Scripture graph">
-        <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
-        <div class="hero-node hero-node-small node-source"><span>PRIMARY<br>SOURCE</span></div>
-        <div class="hero-node hero-node-main"><small>CLAIM</small><span>TRUMP /<br>MAGA</span><b>↘</b></div>
-        <div class="hero-node hero-node-small node-scripture"><span>SCRIPTURE<br>GRAPH</span></div>
-        <div class="hero-line line-a"></div><div class="hero-line line-b"></div>
-        <div class="hero-caption">SOURCE → SCRIPTURE<br>GRAPH</div>
+      <div class="hero-rule"></div>
+      <p class="eyebrow">SCRIPTURE STUDY · RELIGION AND POWER</p>
+      <h1>When Faith<br><em>Seeks Power</em></h1>
+      <p class="hero-lede">A scripture study of religious identity, political power, outsiders, mercy, and the argument that these recurring warnings have parallels in MAGA-era American Christian nationalism.</p>
+      <a class="solid-button" href="#essay">READ THE STUDY ↓</a>
+      <div class="hero-metrics" id="hero-metrics" aria-label="Study counts"></div>
+    </section>
+
+    <section class="intro section-pad" id="essay">
+      <div class="intro-label"><span>THE QUESTION</span><span>01</span></div>
+      <div class="intro-copy">
+        <p class="lead-copy">What can scripture help us see when religious identity, national belonging, and political power begin to reinforce one another?</p>
+        <p>This study follows a modern argument through a structured scripture corpus. It looks for recurring questions about status, chosenness, outsiders, mercy, truth, and the uses of authority—not to make ancient groups identical to modern ones, but to let the texts put pressure on the claims being examined.</p>
+        <p>The evidence layer underneath the essay keeps primary-source facts, scripture data, and interpretation distinct. The writing is the path through the material. The graph is there when a passage, person, event, or topic deserves a closer look.</p>
       </div>
     </section>
 
-    <section class="explorer-section section-pad" id="explorer">
-      <div class="explorer-heading">
-        <div><p class="eyebrow">THE EXPLORER</p><h2>Pick a claim.</h2></div>
-        <p class="tiny-note">The graph is the point. Everything else stays close to it.</p>
-      </div>
-      <div class="claim-selector" id="claim-selector" role="tablist" aria-label="Essay claims"></div>
-      <div class="workspace" id="workspace">
-        <aside class="receipt-panel" id="receipt-panel" aria-label="Primary source receipt"></aside>
-        <section class="map-panel" aria-label="Interactive Scripture map">
-          <div class="map-panel-top"><div><p class="eyebrow">SCRIPTURE MAP</p><h3 id="map-title">Select a claim</h3></div><div class="graph-legend" aria-label="Graph legend"><span><i class="line-key comparison-key"></i>comparison</span><span><i class="line-key scripture-key"></i>scripture data</span><span><i class="line-key canonical-key"></i>canonical link</span></div></div>
-          <div class="map-and-inspector"><div class="case-graph-canvas"><svg id="case-graph-svg" viewBox="0 0 920 470" role="img" aria-label="Interactive Scripture map"></svg></div><aside class="map-inspector" id="map-inspector"><div class="inspector-kicker">SELECT A NODE</div><h3 class="node-detail-name">The graph is ready.</h3><p>Choose a node to inspect the source, question, or Scripture relationship.</p></aside></div>
-        </section>
-      </div>
-    </section>
+    <div class="essay-layout section-pad"><aside class="essay-rail" id="essay-rail" aria-label="Essay sections"></aside><div class="essay-sections" id="essay-sections"></div></div>
 
-    <section class="full-map-cta section-pad"><div><p class="eyebrow">OPTIONAL</p><h2>See all five together.</h2></div><a class="text-button" href="#full-map">OPEN THE FULL MAP <span>→</span></a></section>
+    <section class="full-map-cta section-pad"><div><p class="eyebrow">OPTIONAL DEEP DIVE</p><h2>Explore the complete scripture map.</h2><p>See the wider graph after you have read the argument.</p></div><a class="text-button" href="#full-map">OPEN THE FULL MAP <span>→</span></a></section>
 
-    <section class="full-map-section" id="full-map">
-      <div class="full-map-inner section-pad">
-        <div class="full-map-heading"><div><p class="eyebrow">THE FULL MAP</p><h2>All five claims, one view.</h2></div><p class="tiny-note light-copy">Click a source, question, or Scripture node.</p></div>
-        <div class="full-map-workspace"><div class="network-canvas-wrap"><div class="network-toolbar"><span>COMBINED · SOURCE + SCRIPTURE</span><span id="network-edge-count">—</span></div><svg id="network-svg" viewBox="0 0 1160 760" role="img" aria-label="Combined study graph"></svg></div><aside class="network-inspector" id="network-inspector"><div class="inspector-kicker">SELECT A NODE</div><h3 class="node-detail-name">All five branches.</h3><p>Choose a node to inspect the combined map.</p></aside></div>
-      </div>
-    </section>
+    <section class="full-map-section" id="full-map"><div class="full-map-inner section-pad"><details class="full-map-details"><summary><span><span class="eyebrow">THE COMPLETE MAP</span><strong>All five source branches, one view.</strong></span><span class="summary-arrow">↓</span></summary><div class="full-map-content"><p class="tiny-note light-copy">Click a source, question, or Scripture node to inspect the preserved graph relationships.</p><div class="full-map-workspace"><div class="network-canvas-wrap"><div class="network-toolbar"><span>SOURCE + SCRIPTURE</span><span id="network-edge-count">—</span></div><svg id="network-svg" viewBox="0 0 1160 760" role="img" aria-label="Combined study graph"></svg></div><aside class="network-inspector" id="network-inspector"><div class="inspector-kicker">SELECT A NODE</div><h3 class="node-detail-name">The complete map.</h3><p>Choose a source, question, or Scripture node.</p></aside></div></div></details></div></section>
   </main>
 
-  <footer class="footer section-pad"><span>PRIMARY SOURCES · SCRIPTURE DATA · ONE MAPPED ARGUMENT</span><button class="text-button" type="button" data-open-method>HOW THIS WORKS <span>↗</span></button></footer>
-
-  <dialog class="modal" id="method-modal"><div class="modal-shell"><button class="modal-close" type="button" data-close-modal aria-label="Close how this works">×</button><div id="method-modal-body"></div></div></dialog>
+  <footer class="footer section-pad"><span>PRIMARY SOURCES · SCRIPTURE DATA · INTERPRETIVE QUESTIONS</span><button class="text-button" type="button" data-open-method>HOW THIS WAS BUILT <span>↗</span></button></footer>
+  <dialog class="modal" id="method-modal"><div class="modal-shell"><button class="modal-close" type="button" data-close-modal aria-label="Close how this was built">×</button><div id="method-modal-body"></div></div></dialog>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="app.js" defer></script>
 </body>
