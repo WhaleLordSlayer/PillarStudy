@@ -100,13 +100,13 @@
         <div class="story-qa-grid">
           <div class="story-qa-copy">
             <span class="kicker">Show the math</span>
-            <h2>5,900 canonical Bible entities, connected on purpose.</h2>
-            <p><strong>3,131 people + 1,001 places + 101 groups + 1,667 events = 5,900 canonical entities.</strong> Those records are joined by 11,875 canonical relationships. The point is not to make the biggest graph possible. It is to make a graph where the connections are useful, source-grounded, and reviewable.</p>
-            <p>Different relationship types are handled differently. A person merely mentioned in a passage is not automatically treated as a participant in an event. Similar names are not automatically merged. If a place, event, or relationship is uncertain, the data can preserve that uncertainty instead of forcing a clean answer.</p>
+            <h2>A large graph is useful only if the connections mean something.</h2>
+            <p>The current Bible graph contains <strong>5,900 canonical entities</strong>: people, places, groups, and events. Those records are joined by <strong>11,875 relationships</strong> that let Explorer move from one part of the story to another and back to the scripture passages behind it.</p>
+            <p>The graph is intentionally conservative. A person mentioned in a passage is not automatically treated as a participant in an event. Similar names are not automatically merged. When the evidence is uncertain, the data can preserve that uncertainty rather than force a connection.</p>
           </div>
           <div class="qa-stats">
-            <article class="qa-stat"><b>8</b><strong>critical near-orphans connected</strong><p>Records that should have been part of the story network but had too little connectivity were identified and repaired during story-integrity QA.</p></article>
-            <article class="qa-stat"><b>19</b><strong>empty narrative events resolved</strong><p>Events that existed structurally but did not carry enough narrative value were reviewed rather than left as hollow nodes in the graph.</p></article>
+            <article class="qa-stat"><b>5,900</b><strong>canonical Bible entities</strong><p>People, places, groups, and events organized into a connected model of the biblical record.</p></article>
+            <article class="qa-stat"><b>11,875</b><strong>relationships between them</strong><p>Connections that tie records to one another and help lead study back to the relevant scripture passages.</p></article>
           </div>
         </div>
       </div>
@@ -114,16 +114,12 @@
 
     <section class="detail-section release-section">
       <div class="container">
-        <div class="detail-heading"><span class="kicker">From source to release</span><h2>Explorer is treated like a data release, not a pile of links.</h2><p>Cultivate Labs builds the graph in repeatable stages, checks the result, and packages a specific reviewed version for the app.</p></div>
+        <div class="detail-heading"><span class="kicker">From source to release</span><h2>Explorer is treated like a data product, not a pile of links.</h2><p>Cultivate Labs builds the graph in repeatable stages and reviews the result before it becomes part of the app.</p></div>
         <div class="release-grid">
           <article class="release-card"><span>01 · Source grounding</span><h3>Start with the text and source records.</h3><p>People, places, events, groups, and relationships are tied back to scripture passages so the graph has a trail back to the source.</p></article>
-          <article class="release-card"><span>02 · Conservative identity</span><h3>Same-looking names are not enough.</h3><p>Repeated names, quoted figures, and related accounts are handled carefully so one convenient merge does not create dozens of false downstream connections.</p></article>
-          <article class="release-card"><span>03 · Adversarial review</span><h3>Try to break the graph before users do.</h3><p>Review passes look for suspicious relationships, disconnected story records, empty events, and other cases where the data can be technically valid but still misleading.</p></article>
-          <article class="release-card"><span>04 · Reproducible release</span><h3>Every accepted build has an identity.</h3><p>The release is deterministic and carries a content hash, giving Cultivate Labs a concrete way to confirm exactly which graph was reviewed and shipped.</p></article>
-          <div class="test-strip">
-            <div class="test-number">522</div>
-            <div class="test-copy"><strong>automated tests passing at the release checkpoint</strong><p>Six checks were skipped and zero failed. Automated testing does not replace review, but it gives every release a repeatable baseline before it reaches the app.</p></div>
-          </div>
+          <article class="release-card"><span>02 · Conservative identity</span><h3>Same-looking names are not enough.</h3><p>Repeated names, quoted figures, and related accounts are handled carefully so one convenient merge does not create false downstream connections.</p></article>
+          <article class="release-card"><span>03 · Adversarial review</span><h3>Try to break the graph before users do.</h3><p>Review passes look for suspicious relationships, weak story connections, and places where technically valid data could still be misleading.</p></article>
+          <article class="release-card"><span>04 · Reproducible release</span><h3>A reviewed graph can be reproduced.</h3><p>The same inputs and processing steps can produce the same graph again, which makes changes easier to inspect and releases easier to compare.</p></article>
         </div>
       </div>
     </section>
