@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#07111f" />
+  <meta name="description" content="You are invited to try Cultivate. See the main features and install the current iOS or Android test build." />
+  <title>Try Cultivate | Beta Invitation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Literata:opsz,wght@7..72,500;7..72,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    :root{--invite-navy:#07111f;--invite-navy2:#0b1b2a;--invite-paper:#f5f2eb;--invite-ink:#111817;--invite-muted:#66716d;--invite-brand:#10c6b4}
+    body{background:var(--invite-paper);color:var(--invite-ink)}
+    .invite-hero{color:#fff;background:radial-gradient(circle at 80% 12%,rgba(16,198,180,.18),transparent 30%),linear-gradient(180deg,#07111f,#091723 78%,#0b1824)}
+    .invite-nav{display:flex;align-items:center;justify-content:space-between;padding:24px 0}
+    .invite-nav-links{display:flex;align-items:center;gap:22px;color:#c7d1d7;font-size:.9rem}
+    .invite-nav-links a{text-decoration:none}
+    .invite-nav-links a:hover{color:#fff}
+    .invite-hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center;padding:72px 0 96px}
+    .invite-copy h1{font-size:clamp(3.7rem,7vw,7rem);line-height:.92;letter-spacing:-.065em;margin:20px 0 26px;max-width:780px}
+    .invite-copy>p{max-width:710px;color:#c6d0d7;font-size:clamp(1.05rem,1.45vw,1.22rem);line-height:1.72}
+    .invite-copy .small-note{color:#93a3ad;font-size:.86rem;margin-top:18px}
+    .invite-kicker{color:#75dfd3;font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+    .start-card{border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.055);border-radius:30px;padding:30px;box-shadow:0 30px 80px rgba(0,0,0,.28)}
+    .start-card small{display:block;color:#75dfd3;font-weight:800;letter-spacing:.13em;text-transform:uppercase;margin-bottom:8px}
+    .start-card h2{font-size:2rem;letter-spacing:-.04em;margin:0 0 12px}
+    .start-card p{color:#b9c6cd;line-height:1.65;margin:0 0 22px}
+    .start-actions{display:grid;gap:10px}
+    .start-actions .btn{justify-content:center;width:100%}
+    .invite-section{padding:104px 0}
+    .invite-heading{max-width:850px;margin-bottom:46px}
+    .invite-heading h2{font-size:clamp(2.8rem,5.3vw,5rem);line-height:.98;letter-spacing:-.057em;margin:14px 0 18px}
+    .invite-heading p{color:var(--invite-muted);font-size:1.06rem;line-height:1.72;max-width:760px}
+    .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .feature-card{background:#fff;border:1px solid #dce1de;border-radius:26px;padding:28px;min-height:270px}
+    .feature-card span{display:block;color:#4e8678;font-size:.68rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+    .feature-card h3{font-size:1.55rem;letter-spacing:-.035em;line-height:1.08;margin:13px 0}
+    .feature-card p{color:var(--invite-muted);line-height:1.65;margin:0}
+    .feature-card a{display:inline-block;margin-top:18px;color:#137f78;font-weight:700;text-decoration:none}
+    .testing-explainer{background:#e7eeea}
+    .testing-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:54px;align-items:start}
+    .testing-grid h2{font-size:clamp(2.7rem,5vw,4.7rem);line-height:.98;letter-spacing:-.055em;margin:14px 0 18px}
+    .testing-grid>div>p{color:var(--invite-muted);line-height:1.72}
+    .testing-points{display:grid;gap:12px}
+    .testing-point{background:#fff;border:1px solid #d7dfdb;border-radius:22px;padding:22px}
+    .testing-point strong{display:block;font-size:1.05rem;margin-bottom:6px}
+    .testing-point p{margin:0;color:var(--invite-muted);line-height:1.58}
+    .install-section{background:#07111f;color:#fff}
+    .install-section .invite-heading p{color:#bac6cd}
+    .install-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .install-card{border:1px solid rgba(255,255,255,.12);background:#0b1b2a;border-radius:28px;padding:30px}
+    .install-card small{display:block;color:#75dfd3;font-weight:800;letter-spacing:.13em;text-transform:uppercase;margin-bottom:6px}
+    .install-card h3{font-size:1.55rem;margin:0 0 14px}
+    .install-card>p,.install-card li{color:#c7d1d7;line-height:1.66}
+    .install-card ol{padding-left:1.3rem;margin:20px 0 0}
+    .install-card .hero-actions{margin-top:24px}
+    .more-links{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .more-link{display:block;background:#fff;border:1px solid #dce1de;border-radius:22px;padding:22px;text-decoration:none}
+    .more-link small{display:block;color:#648779;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:7px}
+    .more-link strong{font-size:1.1rem}
+    .more-link p{color:var(--invite-muted);line-height:1.55;margin:8px 0 0}
+    .invite-footer{background:#07111f;color:#c2ccd2}
+    .invite-footer .footer-row{padding:34px 0}
+    @media(max-width:900px){.invite-hero-grid,.testing-grid{grid-template-columns:1fr}.feature-grid,.more-links{grid-template-columns:1fr}.install-grid{grid-template-columns:1fr}.invite-nav-links a:not(.nav-cta){display:none}}
+    @media(max-width:640px){.invite-hero-grid{padding:52px 0 76px}.invite-copy h1{font-size:3.6rem}.invite-section{padding:82px 0}.start-card,.feature-card,.install-card{padding:23px}}
+  </style>
+</head>
+<body>
+<div class="site-shell">
+  <header class="invite-hero">
+    <div class="container">
+      <nav class="invite-nav" aria-label="Beta navigation">
+        <a class="brand-lockup" href="../" aria-label="Cultivate home">
+          <svg class="brand-mark" viewBox="0 0 320 320" role="img" aria-label="Cultivate logo">
+            <defs><linearGradient id="cultivate-gradient-beta" x1="42" y1="46" x2="265" y2="270"><stop stop-color="#08B3A9"/><stop offset="1" stop-color="#18D2BC"/></linearGradient></defs>
+            <path fill="url(#cultivate-gradient-beta)" d="M158.7 39L134.5 42.1 112.5 49.5 90.3 62.3 74.3 76 57.7 97.2 48.5 115.6 41.9 139.6 40.3 161.5 43.1 185.8 50.3 207.5 62.5 228.9 76.8 245.2 98.8 261.6 119.2 271 140.4 276.6 167.4 278.1 195.5 273.6 220 263.6 243.4 247.8 262.3 227.9 263.1 224.8 261.3 221.8 247 211 243.2 210.8 225.1 229.4 208.2 241.1 187.3 250.1 168.9 253.1 168.9 222 170.2 209.8 174.5 194.4 183.7 177.1 192.7 165.9 207 152.9 220.7 144.4 230.9 140.4 212.1 155.2 197.3 171.2 185.8 190.4 182.2 201.6 195 201.6 208.7 198.8 219.7 194.4 233 186 245.2 173.5 255.4 156.9 261.8 137.3 263.3 111.5 261.8 111.3 248.5 111.5 229.9 114.8 206.4 124.5 190.4 136 177.6 150.3 168.9 165.6 162.6 185.3 159.2 205.4 150.3 180.4 145.7 173 137.5 164.3 129.1 158.5 118.4 153.9 107.4 151.6 97.7 151.3 98 163.3 101.3 176.6 106.4 186.8 113.6 195.2 119.4 199.6 127.8 203.4 135.5 204.9 144.9 204.4 142.6 197.5 135.8 187 117.4 170.2 133 177.6 141.6 185.5 146.5 192.2 150.8 201.1 153.6 213.6 154.1 253.1 143.4 252.1 130.1 248.5 115.6 242.2 105.4 235.8 88.5 220.7 79.4 208.2 70.2 188.6 66.3 171.7 65.8 151.6 69.2 133.5 76.8 114.8 87.3 99.3 98.8 87.5 113.3 77.1 127.6 70.2 145.5 65.3 164.6 64.1 187.3 67.9 202.6 74 222.8 87.5 227.6 85.7 240.4 73.2 239.6 69.7 230.4 61.8 218.7 54.1 205.4 47.7 184 41.3Z"/>
+          </svg>
+          <span>Cultivate</span>
+        </a>
+        <div class="invite-nav-links">
+          <a href="#features">What you&apos;ll try</a>
+          <a href="#install">Install</a>
+          <a class="nav-cta" href="../">Main site</a>
+        </div>
+      </nav>
+
+      <div class="invite-hero-grid">
+        <div class="invite-copy">
+          <span class="invite-kicker">Cultivate testing invitation</span>
+          <h1>You&apos;re invited to try Cultivate.</h1>
+          <p>This is the real Cultivate app in active testing. Install it through Apple TestFlight or Google Play&apos;s testing program, use it normally, and expect occasional updates as we refine the experience.</p>
+          <p class="small-note">You do not need to be technical to help. If something feels confusing, broken, or unexpected, that is useful feedback.</p>
+        </div>
+        <aside class="start-card">
+          <small>Start here</small>
+          <h2>Choose your device.</h2>
+          <p>Both links use Apple or Google&apos;s official testing systems. The install steps are explained below if you have never used them before.</p>
+          <div class="start-actions">
+            <a class="btn btn-primary" href="https://testflight.apple.com/join/VZycpDUV" target="_blank" rel="noopener noreferrer">Install on iOS</a>
+            <a class="btn btn-secondary" href="https://play.google.com/apps/internaltest/4701059627162618589" target="_blank" rel="noopener noreferrer">Install on Android</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="invite-section" id="features">
+      <div class="container">
+        <div class="invite-heading">
+          <span class="kicker">What you&apos;ll be trying</span>
+          <h2>Three parts of Cultivate are at the center of the experience.</h2>
+          <p>You can use the app however you normally study. These are the three areas most worth exploring first.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span>01 · Reader</span>
+            <h3>One verse at a time.</h3>
+            <p>Swipe through scripture one verse at a time for a focused reading flow, then switch to a traditional full chapter whenever you want more context.</p>
+          </article>
+          <article class="feature-card">
+            <span>02 · Study Spaces</span>
+            <h3>Study together across devices.</h3>
+            <p>Create or join a private group, follow shared reading progress, and share selected thoughts. Groups work across iOS and Android phones and tablets, while personal notes stay private unless you choose to share them.</p>
+          </article>
+          <article class="feature-card">
+            <span>03 · Cultivate Labs</span>
+            <h3>Explore the people, stories, and topics behind the text.</h3>
+            <p>Scripture Explorer connects people, places, events, groups, and source passages. The Topical Guide provides a topic-first path into related scripture across the standard works.</p>
+            <a href="../explorer/">See Scripture Explorer →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="invite-section testing-explainer">
+      <div class="container testing-grid">
+        <div>
+          <span class="kicker">What beta testing means</span>
+          <h2>Use it like the finished app.</h2>
+          <p>The goal is not to make you follow a test script. Read, create a group, make notes, explore scripture, and see what feels natural. The testing phase is where we find the rough edges before a wider release.</p>
+        </div>
+        <div class="testing-points">
+          <article class="testing-point"><strong>Updates may arrive often.</strong><p>New test builds are delivered through TestFlight on iOS and Google Play on Android.</p></article>
+          <article class="testing-point"><strong>You may hit a bug.</strong><p>Something occasionally being incomplete or behaving unexpectedly is normal during this phase.</p></article>
+          <article class="testing-point"><strong>Confusing counts too.</strong><p>If you cannot tell what a button does, where to find something, or what a feature means, that is just as useful to hear about as a crash.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="invite-section install-section" id="install">
+      <div class="container">
+        <div class="invite-heading">
+          <span class="invite-kicker">Install Cultivate</span>
+          <h2>Choose iOS or Android.</h2>
+          <p>You will not find this test build by searching the public App Store or Google Play Store. Use the invitation link for your platform.</p>
+        </div>
+        <div class="install-grid">
+          <article class="install-card">
+            <small>iOS</small>
+            <h3>Install with Apple TestFlight</h3>
+            <p>TestFlight is Apple&apos;s official app-testing system. It handles the Cultivate installation and future beta updates.</p>
+            <ol>
+              <li>Tap <strong>Join iOS test</strong> below.</li>
+              <li>If TestFlight is not already installed, Apple will direct you to install it.</li>
+              <li>Return to the Cultivate invitation in TestFlight, then tap <strong>Accept</strong> and <strong>Install</strong>.</li>
+              <li>Future Cultivate test builds will update through TestFlight.</li>
+            </ol>
+            <div class="hero-actions"><a class="btn btn-primary" href="https://testflight.apple.com/join/VZycpDUV" target="_blank" rel="noopener noreferrer">Join iOS test</a></div>
+          </article>
+          <article class="install-card">
+            <small>Android</small>
+            <h3>Install with Google Play testing</h3>
+            <p>Android testing is handled through Google Play. You join the test first, then install Cultivate like any other Play Store app.</p>
+            <ol>
+              <li>Tap <strong>Join Android test</strong> below.</li>
+              <li>If Google asks you to sign in, use the Google account connected to your Android device.</li>
+              <li>Join the testing program when prompted, then continue to Google Play and install Cultivate.</li>
+              <li>Future test builds update through Google Play. If Google says your account does not have access, contact the person who invited you.</li>
+            </ol>
+            <div class="hero-actions"><a class="btn btn-primary" href="https://play.google.com/apps/internaltest/4701059627162618589" target="_blank" rel="noopener noreferrer">Join Android test</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="invite-section">
+      <div class="container">
+        <div class="invite-heading">
+          <span class="kicker">Want to see more first?</span>
+          <h2>Explore Cultivate before you install.</h2>
+          <p>The main site goes deeper into the reader, Study Spaces, and the Cultivate Labs data behind Explorer and the Topical Guide.</p>
+        </div>
+        <div class="more-links">
+          <a class="more-link" href="../"><small>Cultivate</small><strong>Main site</strong><p>See the overall app and the core study experience.</p></a>
+          <a class="more-link" href="../explorer/"><small>Cultivate Labs</small><strong>Scripture Explorer</strong><p>See how people, places, events, groups, and source passages connect.</p></a>
+          <a class="more-link" href="../topical-guide/"><small>Cultivate Labs</small><strong>Topical Guide</strong><p>See the topic-first scripture discovery experience.</p></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="invite-footer footer">
+    <div class="container footer-row">
+      <div class="brand-lockup footer-brand"><span>Cultivate</span></div>
+      <div class="footer-copy"><a href="../privacy/">Privacy</a><p>Cultivate Study is an independent application and is not affiliated with, nor officially supported or endorsed by, The Church of Jesus Christ of Latter-day Saints.</p><small>© 2026 Cultivate Study.</small></div>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
