@@ -106,7 +106,7 @@
   <a class="back-link" href="/">&larr; Back to Cultivate Study</a>
 
   <h1>Privacy Policy</h1>
-  <p class="effective-date">Effective date: August 31, 2026</p>
+  <p class="effective-date">Effective date: September 30, 2026</p>
 
   <p>This Privacy Policy explains what information the Cultivate Study app
   ("Cultivate Study," "we," "us") collects, how we use it, when it may be
@@ -152,11 +152,23 @@
   entry was shared. We may also store reports and moderation records when shared
   content is reported or removed.</p>
 
-  <p><strong>Profile photos and device permissions.</strong> If you choose to use
-  a Study Space profile photo, the app may ask for access to your camera or photo
-  library at that time. We process the image you select or take and upload the
-  prepared profile image to our backend. We do not collect your photo library
-  generally.</p>
+  <p><strong>Profile photos, Passage Lens, and device permissions.</strong> If you
+  choose to use a Study Space profile photo, the app may ask for access to your
+  camera or photo library at that time. We process the image you select or take
+  and upload the prepared profile image to our backend. We do not collect your
+  photo library generally.</p>
+
+  <p>If you use Passage Lens to identify scripture from a page or image, Cultivate
+  Study may ask for camera or photo-library access only when you choose one of
+  those inputs. The selected image is processed on your device for text
+  recognition; on iOS, Cultivate Study uses Apple Vision for this OCR step, and
+  the selected Passage Lens image is not uploaded to our backend.</p>
+
+  <p>If you use a Passage Lens speech input, Cultivate Study requests microphone
+  and speech-recognition permission only when you start that feature. The iOS
+  speech-recognition service converts spoken scripture to text so Cultivate Study
+  can identify the passage. Cultivate Study does not save an audio recording of
+  that speech to your account.</p>
 
   <p><strong>Notifications.</strong> If you allow Study Space or other remote
   notifications, we may store a device push token together with your account
@@ -197,11 +209,20 @@
     <li>When you separately opt in, to evaluate and improve scripture-connection data and related research features.</li>
   </ul>
 
-  <h2>Private study content and generative AI</h2>
-  <p>Current Cultivate Study features do not send the text of your private notes,
-  highlights, or Study Space Shared Thoughts to a third-party generative AI
-  service for generation. Some app content or datasets may be prepared or
-  reviewed before publication using development tools, but that is separate from
+  <h2>Generative AI features</h2>
+  <p>Some scripture-study assistance features may use generative AI. Cultivate
+  Study can use <strong>Google Gemini</strong> for cloud generation and, on
+  supported Apple devices, <strong>Apple Intelligence</strong> as an on-device
+  generation option or fallback.</p>
+  <p>When Google Gemini is used, Cultivate Study sends the prompt needed for the
+  requested feature, which may include scripture text, a scripture reference,
+  and other scripture context needed to produce the response. Cultivate Study
+  does not send the text of your private notes, highlights, or Study Space
+  Shared Thoughts to Gemini as part of these generation features. When Apple
+  Intelligence performs the generation on-device, the generation request is
+  processed on the device rather than sent to Cultivate Study's backend.</p>
+  <p>Some app content or datasets may also be prepared or reviewed before
+  publication using development tools. That development work is separate from
   processing your private study content. If a future user-facing feature changes
   what personal or private study data is sent to an AI provider, we will update
   this policy to explain that data flow.</p>
@@ -236,10 +257,15 @@
   specific entry you explicitly share to that Study Space is made available to
   its members. Older or ambiguous note data that does not contain an explicit
   Study Space audience is not automatically exposed to other members.</p>
-  <p>Shared Thoughts can be reported, and Study Space owners or administrators
-  may have tools to remove shared content from that Study Space. Removing a share
-  removes it from the member-facing Study Space view; your underlying private
-  note remains yours unless you delete it.</p>
+  <p>Shared Thoughts can be reported in the app. Study Space owners or
+  administrators can remove shared content from that Study Space, and a Study
+  Space can use moderated mode so reported Shared Thoughts are hidden while an
+  administrator reviews them. Study Space administrators can also remove
+  members from the Study Space. Removing a share removes it from the
+  member-facing Study Space view; your underlying private note remains yours
+  unless you delete it. If you encounter abusive or objectionable content, you
+  can use the in-app report action or contact us at
+  <a href="mailto:cultivatestudy@gmail.com">cultivatestudy@gmail.com</a>.</p>
 
   <h2>How information is stored and shared</h2>
   <p>We use <strong>Supabase</strong> for backend services including
@@ -250,9 +276,9 @@
   <p>Other service providers that may process limited information on our behalf
   include <strong>PostHog</strong> for analytics and error reporting,
   <strong>Expo</strong> and platform push-notification services for notification
-  delivery, <strong>Apple</strong> for Sign in with Apple and Apple platform
-  services, and <strong>Google</strong> for Google Sign-In and Google/Android
-  platform services when you use them.</p>
+  delivery, <strong>Apple</strong> for Sign in with Apple, Apple Intelligence,
+  and Apple platform services, and <strong>Google</strong> for Google Sign-In,
+  Google Gemini, and Google/Android platform services when you use them.</p>
   <p>We do not sell your personal information. We do not share personal
   information for cross-context behavioral advertising, and we do not use your
   study data to show ads. We may disclose information when reasonably necessary
