@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Literata:opsz,wght@7..72,500;7..72,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./image-overrides.css" />
 </head>
 <body>
   <div class="page">
@@ -47,16 +48,15 @@
         <div class="hero-visual">
           <div class="ambient orb-a"></div>
           <div class="ambient orb-b"></div>
-          <div class="shot shot-primary">
-            <div class="shot-label"><b>IMAGE PLACEHOLDER</b><span>Study Space overview</span></div>
-            <div class="shot-note">Best screenshot: group name + reading plan + members + progress visible.</div>
+          <div class="shot shot-primary real-shot">
+            <img src="./assets/study-space.jpg" alt="Cultivate Study Space showing shared reading, members, and group progress" fetchpriority="high" />
           </div>
-          <div class="shot shot-secondary">
-            <div class="shot-label"><b>IMAGE PLACEHOLDER</b><span>Shared Thought</span></div>
+          <div class="shot shot-secondary real-shot">
+            <img src="./assets/shared-thought.jpg" alt="Shared Thoughts inside a Cultivate Study Space" fetchpriority="high" />
           </div>
           <div class="float-card progress-card">
-            <small>THIS WEEK</small>
-            <strong>Everyone is moving through it together.</strong>
+            <small>STUDY TOGETHER</small>
+            <strong>One plan. Individual study. Shared progress.</strong>
             <div class="mini-progress"><i></i></div>
           </div>
         </div>
@@ -79,10 +79,8 @@
         </div>
 
         <div class="spaces-grid">
-          <div class="visual-panel tall">
-            <div class="placeholder phone-placeholder">
-              <div class="shot-label"><b>IMAGE PLACEHOLDER</b><span>Study Space home / progress</span></div>
-            </div>
+          <div class="visual-panel tall screenshot-stage">
+            <img class="feature-phone journey-shot" src="./assets/journey.jpg" alt="Cultivate Study Space journey recap showing chapters read, people met, and places visited" loading="lazy" />
           </div>
 
           <div class="story-points">
@@ -97,19 +95,26 @@
               <p>Your personal notes stay private. When something is worth sharing, choose the individual thought you want the group to see.</p>
             </article>
             <article>
-              <span>Gentle connection</span>
-              <h3>Encouragement without the noise.</h3>
-              <p>Nudges and group activity help people reconnect with the plan without creating another always-on social feed.</p>
+              <span>A journey you can see</span>
+              <h3>Your group builds a story as you read.</h3>
+              <p>See chapters completed together and the people, places, and events your reading has brought the group to.</p>
             </article>
           </div>
         </div>
 
-        <div class="wide-placeholder">
-          <div>
-            <b>IMAGE PLACEHOLDER</b>
-            <span>Optional wide Study Spaces montage</span>
-            <p>Could combine members, reading progress, reactions, and a shared thought in one polished composition.</p>
-          </div>
+        <div class="study-montage" aria-label="Study Spaces screenshots">
+          <figure>
+            <img src="./assets/study-space.jpg" alt="Study Space overview with a shared reading plan" loading="lazy" />
+            <figcaption>Follow the same reading plan.</figcaption>
+          </figure>
+          <figure class="montage-feature">
+            <img src="./assets/shared-thought.jpg" alt="A thought shared with a private Study Space" loading="lazy" />
+            <figcaption>Share the thought you choose.</figcaption>
+          </figure>
+          <figure>
+            <img src="./assets/journey.jpg" alt="A shareable recap of a Study Space reading journey" loading="lazy" />
+            <figcaption>Watch the journey grow together.</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -130,22 +135,16 @@
             <p>Explorer makes the relationships in scripture visible without asking you to leave the reading experience behind.</p>
           </div>
 
-          <div class="visual-panel explorer-panel">
-            <div class="placeholder tablet-placeholder dark-placeholder">
-              <div class="shot-label"><b>IMAGE PLACEHOLDER</b><span>Best Explorer record</span></div>
-              <div class="shot-note">Ideal: a visually rich person or event with several connected records visible.</div>
-            </div>
+          <div class="visual-panel explorer-panel screenshot-stage">
+            <img class="feature-phone explorer-shot" src="./assets/explorer-map.jpg" alt="Scripture Explorer showing Jesus and connected locations on a map" loading="lazy" />
           </div>
         </div>
       </section>
 
       <section class="reader section" id="reader">
         <div class="reader-layout">
-          <div class="reader-visual">
-            <div class="placeholder phone-placeholder reader-phone">
-              <div class="shot-label"><b>IMAGE PLACEHOLDER</b><span>One-verse reader</span></div>
-              <div class="shot-note">Choose a verse with speaker/story context so the screen feels unmistakably Cultivate.</div>
-            </div>
+          <div class="reader-visual screenshot-stage">
+            <img class="feature-phone reader-phone-real" src="./assets/reader.jpg" alt="Cultivate one-verse reader showing Mosiah 27 with story context" loading="lazy" />
           </div>
           <div class="reader-copy">
             <p class="eyebrow">A calmer reader</p>
@@ -169,15 +168,15 @@
 
         <div class="feature-grid">
           <article>
-            <div class="mini-placeholder"><span>Topical Guide screenshot</span></div>
+            <img class="mini-shot" src="./assets/topics.jpg" alt="Cultivate Topics screen with scripture themes" loading="lazy" />
             <small>Topical Guide</small>
             <h3>Start with an idea and follow it through scripture.</h3>
             <a href="../topical-guide/">Explore the guide →</a>
           </article>
           <article>
-            <div class="mini-placeholder"><span>Plans screenshot</span></div>
+            <img class="mini-shot" src="./assets/plans.jpg" alt="Cultivate plan creation screen" loading="lazy" />
             <small>Reading plans</small>
-            <h3>Know what to read next without feeling behind.</h3>
+            <h3>Build a goal, schedule, or custom study that fits real life.</h3>
           </article>
           <article>
             <div class="mini-placeholder watch"><span>Apple Watch screenshot</span></div>
