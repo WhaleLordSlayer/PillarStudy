@@ -17,7 +17,7 @@ export default defineConfig({
         beta: resolve(projectRoot, 'beta/index.html'),
         explorer: resolve(projectRoot, 'explorer/index.html'),
         topicalGuide: resolve(projectRoot, 'topical-guide/index.html'),
-        newSite: resolve(projectRoot, 'new-site/index.html'),
+        newSite: resolve(projectRoot, 'new-site/index.html'),\n        newSiteV2: resolve(projectRoot, 'new/index.html'),
       },
     },
   },
