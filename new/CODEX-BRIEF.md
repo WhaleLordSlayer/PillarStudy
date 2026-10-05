@@ -3,11 +3,19 @@
 ## Goal
 Create a sharper Cultivate marketing page that communicates the product in about 20 seconds and uses real app screenshots as the primary proof.
 
-## Positioning
-Cultivate is not differentiated by having the longest scripture-app feature list. The story is:
-1. Focused scripture reading.
-2. Private Study Spaces that let people study together without making study feel like social media.
-3. Scripture Explorer that makes people, places, events, groups, and source passages easier to follow.
+## Product hierarchy
+This changed after Lessons 2.0 and the Mastery overhaul. Do NOT position Cultivate primarily as a reader with group features.
+
+The marketing story is now:
+1. **Lessons 2.0** — build reusable scripture lessons from scripture, personal study material, questions, saved quotes/images, and Explorer context.
+2. **Study Spaces + Live Lessons** — share lessons to groups, run synchronized host-led sessions, or let the group work through material asynchronously.
+3. **Scripture Explorer** — follow people, places, events, groups, source passages, and connected context.
+4. **Reader** — one-verse focus with full-chapter context and integrated study tools.
+5. **Mastery** — newly rebuilt guided recall that moves toward whole-passage memory.
+6. Supporting tools such as Topical Guide, plans, and Library.
+
+The most important workflow to communicate is:
+**Read / collect → build a lesson → share to a Study Space → teach live or asynchronously.**
 
 ## Voice
 - Calm, confident, concise.
@@ -15,6 +23,7 @@ Cultivate is not differentiated by having the longest scripture-app feature list
 - Do not over-explain.
 - Avoid feature-dump sections.
 - Let screenshots carry the page.
+- It should feel like a serious study/teaching product, not a gamified devotional app.
 
 ## Visual direction
 - Editorial, warm, modern.
@@ -22,12 +31,12 @@ Cultivate is not differentiated by having the longest scripture-app feature list
 - Literata for major display headings, DM Sans for UI/body.
 - Large real screenshots.
 - Do not simulate fake app UI when a real screenshot exists.
-- Keep screenshot rendering crisp: use normal <img>, height:auto, object-fit:contain for hero/feature phones, and avoid CSS scale transforms/filters.
-- Slight depth through shadows and layered layout is okay.
-- Mobile must remain visually strong, not merely stack everything into tiny cards.
+- Keep screenshot rendering crisp: normal <img>, height:auto, object-fit:contain, no scaling filters.
+- Slight depth through shadows and layered layouts is okay.
+- Mobile must remain visually strong.
 
 ## Current screenshot assets
-Reuse the existing assets under ../new-site/assets/:
+Reuse existing assets under ../new-site/assets/:
 - study-space.jpg
 - shared-thought.jpg
 - journey.jpg
@@ -36,14 +45,24 @@ Reuse the existing assets under ../new-site/assets/:
 - topics.jpg
 - plans.jpg
 
+## Screenshot gaps that MUST be filled before launch
+The website repo does not currently contain current screenshots for:
+- Lesson Builder / lesson canvas — highest priority. Prefer iPad.
+- Live Lesson participant/host experience — ideally one host and one participant view.
+- New Mastery flow.
+
+Do not invent fake product UI for those. The current /new/ page intentionally uses obvious temporary screenshot slots.
+
 ## Page hierarchy
-1. Hero: "Read in your own way. Study with your people."
-2. Short positioning statement: not another longer feature list.
-3. Study Spaces: strongest differentiator, private by default.
-4. Explorer: connected scripture context.
-5. Reader: one verse for focus, chapter for context.
-6. Small supporting-tools strip.
-7. Simple CTA/footer.
+1. Hero: read → build → study together.
+2. Short workflow/positioning statement.
+3. Lessons 2.0.
+4. Study Spaces + Live Lessons.
+5. Explorer.
+6. Reader.
+7. Mastery overhaul.
+8. Small supporting-tools strip.
+9. Simple CTA/footer.
 
 ## Constraints
 - Build only under /new/ for now.
@@ -53,12 +72,12 @@ Reuse the existing assets under ../new-site/assets/:
 - Android beta can link to ../beta/.
 - Preserve the Church non-affiliation footer language.
 - Avoid introducing a framework or JS unless there is a clear user-facing reason.
+- Do not market runtime AI as a product feature.
 
 ## Next iteration targets
-When refining this pass, prioritize:
-1. Visual balance and screenshot scale.
-2. Mobile hero composition.
-3. Copy reduction.
-4. Stronger Study Spaces storytelling.
-5. Crisp screenshots at all breakpoints.
-6. Lighthouse/accessibility basics.
+1. Replace the Lesson Builder, Live Lessons, and Mastery placeholders with real screenshots.
+2. Use Lesson Builder as the biggest screenshot on the page.
+3. Consider a paired host/participant image for live sessions.
+4. Tighten hero once the lesson screenshots exist; a lesson image may become the primary hero visual.
+5. Review mobile screenshot cropping and screenshot density.
+6. Run Lighthouse/accessibility basics.
