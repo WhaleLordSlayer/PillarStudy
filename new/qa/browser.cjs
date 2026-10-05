@@ -63,7 +63,8 @@ const assert = require('node:assert/strict');
       await page.screenshot({ path: path.join(output, `${width}.png`), fullPage: true });
       assert.deepEqual(errors, []);
       assert.deepEqual(failures, []);
-      assert(responses.every(response => response.status === 200), JSON.stringify(responses));
+      // Hosting analytics may legitimately return 204; image requests above must be 200.
+      assert(responses.every(response => response.status >= 200 && response.status < 300), JSON.stringify(responses));
       results.push({ width, images, anchors, links, overflow, errors, failures, responses });
       await context.close();
       console.log(`PASS ${width}px: ${images.length} images; anchors, links, overflow, console and network clean`);

@@ -42,6 +42,14 @@ Fresh Edge browser contexts at 1440, 1280, 1024, 768, 430, and 390px:
 
 Two layout iterations followed inspection: full screenshots replaced overlapping crops; font rendering, text encoding, and the mislabeled reading-goal image were corrected before the final checks.
 
+### Deployed verification
+
+The same six-width browser checks passed against `https://www.cultivatestudy.com/new/` after commit `9c002a4` was pushed to `gh-pages`. All 13 image elements load with HTTP 200; links, anchors, overflow, console, and network checks pass. Cloudflare's analytics endpoint returns a successful HTTP 204, which is accepted separately from the mandatory image HTTP 200 checks.
+
+All ten unique deployed screenshot files were fetched through the browser request context. Their SHA-256 hashes match the strictly decoded local originals, and the fetched bytes also pass Pillow decoding. Deployment therefore serves the audited images rather than a stale or damaged upload. The first live anchor check timed out during deployment; fresh inspection and the subsequent complete run passed.
+
+The issue remains incomplete only for the preferred wide participant screenshot pairing, pending its source export. No substitute UI was fabricated.
+
 ## Repeatable checks
 
 From the repository root, run a static server, for example `python -m http.server 8765 --bind 127.0.0.1`.
