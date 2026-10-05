@@ -6,9 +6,8 @@
   <meta name="theme-color" content="#f4f1e9" />
   <meta name="description" content="Cultivate brings scripture reading, lesson building, live study, private Study Spaces, Scripture Explorer, and Mastery into one connected study app." />
   <title>Cultivate | Read. Build. Teach. Study together.</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Literata:opsz,wght@7..72,500;7..72,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./fonts.css" />
+  <link rel="icon" href="../public/favicon.svg" />
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
@@ -40,7 +39,7 @@
         <div class="hero-copy">
           <p class="eyebrow">Cultivate Study</p>
           <h1>Study it. Build from it.<br><span>Teach it together.</span></h1>
-          <p class="hero-lede">Focused scripture reading, deeper context, reusable lessons, and live study with the people around you.</p>
+          <p class="hero-lede">Build scripture lessons. Lead a live session. Keep your study connected.</p>
 
           <div class="hero-actions">
             <a class="button primary" href="#lessons">See Lessons</a>
@@ -53,10 +52,10 @@
         <div class="hero-visual" aria-label="Cultivate lesson and live study screenshots">
           <div class="hero-glow"></div>
           <figure class="shot hero-template-shot">
-            <img src="./assets/lesson-template.webp" alt="Cultivate lesson template preview for Comfort Ye My People" fetchpriority="high" />
+            <img src="./assets/lesson-template.webp" width="538" height="374" alt="Cultivate lesson template preview for Comfort Ye My People" fetchpriority="high" />
           </figure>
           <figure class="shot hero-live-shot">
-            <img src="./assets/live-host.webp" alt="Cultivate live lesson host controls on iPhone" fetchpriority="high" />
+            <img src="./assets/live-host.webp" width="280" height="608" alt="Cultivate live lesson host controls on iPhone" fetchpriority="high" />
           </figure>
           <div class="hero-badge">
             <span>LESSONS 2.0</span>
@@ -67,76 +66,31 @@
 
       <section class="manifesto">
         <p class="eyebrow">One connected study system</p>
-        <h2>What you find in scripture can become something you share.</h2>
-        <p>Save what matters. Turn it into a lesson. Share it with a Study Space. Teach it live—or let the group study on their own time.</p>
+        <h2>From personal study to shared discovery.</h2>
+        <p>Collect what matters. Build a lesson. Study together, live or on your own time.</p>
       </section>
 
       <section class="feature-section lessons" id="lessons">
         <div class="feature-copy">
           <p class="eyebrow">Lessons 2.0</p>
-          <h2>From blank canvas to ready-to-teach lesson.</h2>
-          <p>Build with scripture, text, questions, images, notes, and material from your study. Preview the finished lesson, then teach it.</p>
+          <h2>Build once. Teach your way.</h2>
+          <p>Bring scripture, questions, images, and private notes into one reusable lesson.</p>
 
           <div class="lesson-flow" aria-label="Lesson workflow">
             <span>Build</span><i></i><span>Preview</span><i></i><span>Teach</span><i></i><span>Share</span>
           </div>
 
-          <div class="point-grid">
-            <article>
-              <strong>Build visually</strong>
-              <span>Drag teaching elements into the lesson instead of assembling a document around them.</span>
-            </article>
-            <article>
-              <strong>Reuse your study</strong>
-              <span>Bring scripture, saved material, notes, images, and questions into the same lesson.</span>
-            </article>
-            <article>
-              <strong>Teach your way</strong>
-              <span>Present it yourself, pass a device around, share it asynchronously, or take it live.</span>
-            </article>
-          </div>
+          <p class="feature-detail">Preview before you teach. Share it with your group for live or later study.</p>
         </div>
 
         <div class="lesson-visuals" aria-label="Lesson Builder and template preview">
           <figure class="shot lesson-builder-shot">
             <figcaption>BUILD</figcaption>
-            <img src="./assets/lesson-builder.webp" alt="Cultivate Lesson Builder with teaching element dock and lesson canvas" loading="lazy" />
+            <img src="./assets/lesson-builder.webp" width="600" height="417" alt="Cultivate Lesson Builder with teaching element dock and lesson canvas" loading="lazy" />
           </figure>
           <figure class="shot lesson-preview-shot">
             <figcaption>PREVIEW</figcaption>
-            <img src="./assets/lesson-template.webp" alt="Finished Cultivate lesson template preview" loading="lazy" />
-          </figure>
-        </div>
-      </section>
-
-      <section class="feature-section spaces" id="spaces">
-        <div class="feature-copy">
-          <p class="eyebrow">Study Spaces</p>
-          <h2>Study together without turning scripture study into a social feed.</h2>
-          <p>One plan. Shared progress. Thoughts you choose to share. And now, a home for lessons before, during, and after you meet.</p>
-
-          <div class="point-grid">
-            <article>
-              <strong>One plan, your pace</strong>
-              <span>Read the same material without needing the same schedule.</span>
-            </article>
-            <article>
-              <strong>Private by default</strong>
-              <span>Your personal notes stay personal unless you choose to share one.</span>
-            </article>
-            <article>
-              <strong>Lessons have a home</strong>
-              <span>Share material with the group for a live session or for later study.</span>
-            </article>
-          </div>
-        </div>
-
-        <div class="spaces-visual" aria-label="Study Space screenshots">
-          <figure class="shot space-main-shot">
-            <img src="../new-site/assets/study-space.jpg" alt="Study Space overview with a shared reading plan" loading="lazy" />
-          </figure>
-          <figure class="shot space-journey-shot">
-            <img src="./assets/home.webp" alt="Cultivate home with reading plans, progress, and Study Spaces" loading="lazy" />
+            <img src="./assets/lesson-template.webp" width="538" height="374" alt="Finished Cultivate lesson template preview" loading="lazy" />
           </figure>
         </div>
       </section>
@@ -152,25 +106,43 @@
           </div>
         </div>
 
-        <div class="live-visual" aria-label="Live lesson participant and host views">
-          <figure class="shot participant-shot">
-            <span class="shot-label">PARTICIPANT VIEW</span>
-            <img src="./assets/live-participant.webp" alt="Cultivate live lesson participant view following the teacher" loading="lazy" />
-          </figure>
+        <div class="live-visual" aria-label="Live lesson host view">
+
           <figure class="shot host-shot">
             <span class="shot-label">HOST VIEW</span>
-            <img src="./assets/live-host.webp" alt="Cultivate live lesson host view with a private teacher note" loading="lazy" />
+            <img src="./assets/live-host.webp" width="280" height="608" alt="Cultivate live lesson host view with a private teacher note" loading="lazy" />
           </figure>
         </div>
       </section>
 
+      <section class="feature-section spaces" id="spaces">
+        <div class="feature-copy">
+          <p class="eyebrow">Study Spaces</p>
+          <h2>A shared place for your study.</h2>
+          <p>Share a reading plan, follow group progress, and keep lessons close. Your notes stay private until you choose to share them.</p>
+
+
+        </div>
+
+        <div class="spaces-visual" aria-label="Study Space screenshots">
+          <figure class="shot space-main-shot">
+            <img src="./assets/study-space.webp" width="660" height="1434" alt="Study Space overview with a shared reading plan" loading="lazy" />
+          </figure>
+          <figure class="shot space-journey-shot">
+            <img src="./assets/reading-plans.webp" width="660" height="1434" alt="Cultivate reading plans with a shared family plan and lesson playlists" loading="lazy" />
+          </figure>
+        </div>
+      </section>
+
+
+
       <section class="feature-section explorer" id="explorer">
         <div class="explorer-visual" aria-label="Scripture Explorer screenshots">
           <figure class="shot connections-shot">
-            <img src="./assets/explorer-connections.webp" alt="Scripture Explorer showing Peter's family and event connections" loading="lazy" />
+            <img src="./assets/explorer-connections.webp" width="369" height="802" alt="Scripture Explorer showing Peter's family and event connections" loading="lazy" />
           </figure>
           <figure class="shot map-shot">
-            <img src="./assets/explorer-map.webp" alt="Scripture Explorer map showing locations associated with Peter" loading="lazy" />
+            <img src="./assets/explorer-map.webp" width="280" height="608" alt="Scripture Explorer map showing locations associated with Peter" loading="lazy" />
           </figure>
         </div>
 
@@ -185,8 +157,8 @@
       <section class="feature-section reader" id="reader">
         <div class="feature-copy">
           <p class="eyebrow">The Reader</p>
-          <h2>One verse when you want focus. The whole chapter when you want context.</h2>
-          <p>Swipe one verse at a time, switch to chapter view when you want the wider passage, and keep study tools close without crowding the text.</p>
+          <h2>One verse. Room to focus.</h2>
+          <p>Read one verse at a time. Switch to the full chapter whenever you want context.</p>
           <div class="reader-tags" aria-label="Reader features">
             <span>Notes</span>
             <span>Highlights</span>
@@ -198,7 +170,7 @@
 
         <div class="reader-stage">
           <figure class="shot reader-shot">
-            <img src="../new-site/assets/reader.jpg" alt="Cultivate one-verse scripture reader" loading="lazy" />
+            <img src="./assets/reader.webp" width="300" height="652" alt="Cultivate one-verse scripture reader" loading="lazy" />
           </figure>
         </div>
       </section>
@@ -207,7 +179,7 @@
         <div class="mastery-visual">
           <div class="mastery-backdrop">MASTER</div>
           <figure class="shot mastery-shot">
-            <img src="./assets/mastery.webp" alt="Cultivate Mastery quick practice using Fill the gaps for Genesis 2:24" loading="lazy" />
+            <img src="./assets/mastery.webp" width="420" height="913" alt="Cultivate Mastery quick practice using Fill the gaps for Genesis 2:24" loading="lazy" />
           </figure>
         </div>
 
@@ -227,19 +199,19 @@
       <section class="supporting">
         <div class="supporting-heading">
           <p class="eyebrow">More when you want it</p>
-          <h2>A deeper toolkit without putting every tool in your way.</h2>
+          <h2>Keep exploring. Keep growing.</h2>
         </div>
 
         <div class="support-grid">
           <article>
-            <img src="../new-site/assets/topics.jpg" alt="Cultivate Topical Guide" loading="lazy" />
+            <img src="./assets/reading-goal.webp" width="180" height="391" alt="Cultivate personal reading goal with scripture books and a study schedule" loading="lazy" />
             <div>
-              <span>Topical Guide</span>
-              <strong>Start with an idea and follow it through scripture.</strong>
+              <span>Personal Goals</span>
+              <strong>Choose what to read. Make time for it.</strong>
             </div>
           </article>
           <article>
-            <img src="./assets/home.webp" alt="Cultivate home with reading plans and study progress" loading="lazy" />
+            <img src="./assets/reading-plans.webp" width="660" height="1434" alt="Cultivate reading plans and lesson playlists" loading="lazy" />
             <div>
               <span>Reading Plans</span>
               <strong>Build a study rhythm that fits real life.</strong>
@@ -249,7 +221,7 @@
             <div class="simple-icon">✦</div>
             <div>
               <span>Your Library</span>
-              <strong>Keep the notes, highlights, bookmarks, passages, and saved material you want to use again.</strong>
+              <strong>Keep your notes, highlights, and saved material ready to use again.</strong>
             </div>
           </article>
         </div>
@@ -259,7 +231,7 @@
         <div>
           <p class="eyebrow">Cultivate</p>
           <h2>Read. Build. Teach. Study together.</h2>
-          <p>One study system for personal reading, deeper exploration, reusable lessons, and the people you study with.</p>
+          <p>Make more of your study. Bring others along.</p>
         </div>
         <div class="final-actions">
           <a class="button primary" href="../beta/">Join the beta</a>
