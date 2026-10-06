@@ -1,77 +1,35 @@
-# /new/ screenshot QA — October 6, 2026
+# Full marketing site QA — October 6, 2026
 
-## Final layout pass — October 6
+## Scope and outcome
 
-Read GitHub issue #3 and repeated the audit against the current checkout before editing. All existing page images strictly decode; no further asset replacements were necessary.
+Nine coherent static pages under /new/: Home, Lessons, Study groups, Explorer, Reader, Topical Guide, More to explore, Labs, and Download. Each page uses the shared editorial style, self-hosted fonts, navigation, conversion CTA, and legal footer. The build registers every route explicitly in vite.config.ts; direct links do not depend on an SPA fallback. No site JavaScript is needed for the menu or FAQ controls.
 
-- Enlarged the mobile hero's finished lesson to full available width, followed by the host screenshot and a short private-notes message.
-- Presented Builder and Preview side by side on desktop, with full-width stacked images on tablet/mobile. Removed the empty left column beside the previous stacked desktop layout.
-- Added a direct beta CTA to the hero and a keyboard-accessible skip link.
-- Shortened the Mastery headline while retaining its complete Quick Practice screenshot and all four modes.
-- Removed the repetitive supporting-tools section, its small reading-goal image, and obsolete styles. All six priority features retain dedicated sections. No video; disclaimer preserved.
+The homepage focuses on the five requested core features. Mastery and supporting tools move to More to explore. Labs links to existing research pages, keeping the homepage concise. Public wording is Topical Guide. Offline and no-AI messaging refers to the app; connected sharing and Live are explained accurately.
 
-Rendered the original page, an initial layout iteration, and the final page. Fresh isolated Edge contexts passed at 1440x1000, 1280x1000, 1024x768, 768x1024, 430x844, and 390x844. All 11 image elements (nine unique screenshot files) return HTTP 200, decode, and have valid dimensions; anchors, CTA destinations, keyboard skip navigation, overflow, console and network checks pass. Full-page, viewport, and individual-section captures were reviewed visually. HTTP-fetched bytes match local SHA-256 hashes; downloaded assets also undergo strict Pillow decoding.
+## Iterations
 
-Rechecked every unique historical `live-participant.webp` version: all four fail strict decoding. Neither workspace contains a valid participant/follower original. The existing `participant-inspect.png` QA capture records partial corrupt rendering and is not a replacement source. **Still needed: the original full-resolution wide Live Lesson participant/follower screenshot.** The live section gracefully uses the valid host view, including private teacher notes. Higher-resolution light-theme Study Space exports are deferred until supplied.
+1. Rendered all nine authored pages at six widths. Reused real screenshots, replaced stale leaderboard imagery with screenshot slots, and checked menu / FAQ / link behavior.
+2. Visual review showed an overly tall home hero. Removed its redundant second screenshot and message, making the download action visible earlier.
+3. Built the production site, tested all direct routes, removed the unnecessary default outline around programmatically focused main content, and moved the QA pointer off links before captures.
+4. Final built and deployed checks use fresh isolated Edge contexts. Evidence is saved outside Git in ../PillarStudy-QA/site-first, site-built, site-final, and site-live. Hero, full-page, and section captures support visual review.
 
-Evidence is saved outside the repository in `../PillarStudy-QA/before`, `../PillarStudy-QA/iteration1`, `../PillarStudy-QA/final`, and `../PillarStudy-QA/live-final`. The repeatable browser check now captures individual sections, verifies keyboard skip navigation, and compares fetched image hashes even when the host fingerprints filenames.
+## Checks
 
-## Earlier image repair pass — October 5
+- npm run build succeeds and emits all nine marketing routes.
+- npm run lint succeeds. Existing warnings are in unrelated React and graph-viewer files.
+- Strict Pillow audit covers all 14 image elements and every local WebP. Intrinsic dimensions match declared dimensions. Seven unique screenshot files are used.
+- Browser matrix: 1440x1000, 1280x1000, 1024x768, 768x1024, 430x844, 390x844, on all nine routes (54 page/viewport combinations per complete run).
+- HTTP 200, image decoding, full aspect ratios, meaningful alt text, no horizontal overflow, no console/page errors, no failed network requests.
+- Keyboard skip link, mobile menu (all seven links), section anchors, download FAQ controls, one h1 per route, non-affiliation footer, no video, no malformed encoding.
+- All same-origin navigation, legal, and research destinations return HTTP 200. Fetched screenshot SHA-256 hashes match strictly audited local source files, including host-fingerprinted asset filenames. Fetched bytes are also strictly decoded with Pillow.
+- The iOS TestFlight invitation returns HTTP 200 and identifies Cultivate Study, with no full/closed-beta notice. The Android signup form returns HTTP 200 and identifies Android App Beta Signup. The approved-user testing link correctly redirects to Google sign-in. No forms were submitted and no account actions were taken.
 
-## Changes
+## Pending screenshots
 
-- Lessons 2.0 and Live Lessons are consecutive headline sections. Mastery retains a full, uncropped Quick Practice screenshot and all four practice modes.
-- All product images are real screenshots. Replaced corrupt Study Space and Reader references with valid repository sources; replaced Home with a real reading-plan screenshot. Supporting “topics” was actually a reading-goal screen, so its caption now describes that screen accurately.
-- Screenshots use intrinsic dimensions and their full aspect ratios. Labels sit outside the product UI. Removed absolute-positioned overlaps, hidden horizontal overflow, and screenshot crops.
-- Visible text went from 533 to 383 words (28% less). Mobile navigation remains accessible. The Church disclaimer and beta links are retained. No video.
-- Self-hosted the existing DM Sans and Literata fonts with their OFL licenses, avoiding third-party requests on this page.
-- Root and `/new-site/` remain untouched.
+See SCREENSHOTS.md. Current placeholders are intentional, labelled screenshot slots, not broken requests or fabricated UI. Pending: cooperative Study Space overview, Shared Thoughts, Lesson Channel, wide Live participant view, Chapter reader, Topical Guide overview and topic detail. Higher-resolution populated Builder and other product exports would improve sharpness and storytelling.
 
-## Source audit and remaining gap
+Every historical participant WebP audited in the prior pass was corrupt. No valid replacement original was found. Old leaderboard / plan screenshots are no longer used on the new site.
 
-Strict Pillow decoding failed for `new/assets/home.webp` and `new/assets/live-participant.webp`. Every historical version of these files also failed. Browser rendering recovered only partial content: Home showed damaged pixels at the bottom; participant showed severe corruption halfway down. Browser `decode()` nevertheless resolved, which is why strict byte decoding AND visual inspection are both required.
+## Repeat
 
-**Still needed: a fresh full-resolution wide Live Lesson participant/follower export.** The page currently shows the intact iPhone host screenshot, including its private teacher note. It does not claim to show the participant view. The corrupt participant and Home files were removed from `/new/`; Git history preserves them for diagnosis. Do not restore them or re-encode a partially decoded image. After the participant source arrives, add it beside the host and repeat both QA checks and visual inspection.
-
-The current light-theme Home export is also unavailable. A valid actual reading-plan screenshot is used instead. The older dark-theme Study Space and plan sources are genuine product screenshots, but newer matching light-theme exports would improve consistency. Remaining light screenshots are relatively small (280–600px wide); higher-resolution originals would improve Retina sharpness.
-
-Asset provenance:
-
-| New asset | Repository source |
-| --- | --- |
-| `assets/study-space.webp` | `public/assets/IMG_0940.PNG`, strictly decoded and resized to 660px |
-| `assets/reading-plans.webp` | `public/assets/IMG_0932.PNG`, strictly decoded and resized to 660px |
-| `assets/reader.webp` | `assets/screens/reader.webp`, strictly decoded |
-| `assets/reading-goal.webp` | `new-site/assets/topics.jpg`, strictly decoded; corrected caption |
-
-Other Lesson, Live host, Explorer, and Mastery images pass strict decoding and are retained. Corrupt assets outside `/new/` were not changed.
-
-## Verification
-
-Fresh Edge browser contexts at 1440, 1280, 1024, 768, 430, and 390px:
-
-- All 13 image elements load, decode, and receive HTTP 200.
-- No document or element horizontal overflow; no screenshot height clipping.
-- All navigation and hero anchors land at their section heading with 24px clearance.
-- Root, beta, Explorer, and Privacy URLs return HTTP 200.
-- No console errors, uncaught page errors, failed network requests, or non-200 responses.
-- Self-hosted fonts load. No video or malformed text encoding.
-- Full-page screenshots captured and visually inspected across desktop, tablet, and mobile layouts; further section inspections confirmed full host private note, Explorer Connections/Map, Reader, and Mastery controls remain visible.
-
-Two layout iterations followed inspection: full screenshots replaced overlapping crops; font rendering, text encoding, and the mislabeled reading-goal image were corrected before the final checks.
-
-### Deployed verification
-
-The same six-width browser checks passed against `https://www.cultivatestudy.com/new/` after commit `9c002a4` was pushed to `gh-pages`. All 13 image elements load with HTTP 200; links, anchors, overflow, console, and network checks pass. Cloudflare's analytics endpoint returns a successful HTTP 204, which is accepted separately from the mandatory image HTTP 200 checks.
-
-All ten unique deployed screenshot files were fetched through the browser request context. Their SHA-256 hashes match the strictly decoded local originals, and the fetched bytes also pass Pillow decoding. Deployment therefore serves the audited images rather than a stale or damaged upload. The first live anchor check timed out during deployment; fresh inspection and the subsequent complete run passed.
-
-The issue remains incomplete only for the preferred wide participant screenshot pairing, pending its source export. No substitute UI was fabricated.
-
-## Repeatable checks
-
-From the repository root, run a static server, for example `python -m http.server 8765 --bind 127.0.0.1`.
-
-Run `python new/qa/check-assets.py` with Pillow installed. This refuses truncated bytes and validates every declared image dimension.
-
-Run `node new/qa/browser.cjs` with Playwright available. `QA_BROWSER` can point to a local Chrome/Edge executable. `QA_URL` defaults to `http://127.0.0.1:8765/new/`; set it to the live URL for deployed verification. `QA_OUTPUT` chooses the directory for screenshots and `results.json`. The default output directory is outside the repository. Inspect the resulting screenshots; passing browser decoding alone cannot establish that an image is intact.
+Run a static server at repo root for authored HTML or at dist for the production build. QA_URL chooses the /new/ base URL. QA_OUTPUT chooses an evidence directory outside Git. QA_BROWSER can point to Edge/Chrome. Run node new/qa/site.cjs with Playwright available through NODE_PATH; browser.cjs is a compatibility wrapper. Run python new/qa/check-assets.py with Pillow. Inspect the resulting screenshots rather than treating decode() alone as proof of valid source bytes.
