@@ -74,8 +74,12 @@ const localAssets = path.resolve(__dirname, '../assets');
         assert.equal(await page.locator('video').count(),0);
         assert(!await page.locator('main').evaluate(el=>/[\u00c2\u00c3\ufffd]/.test(el.innerText)));
         assert(!await page.locator('main').evaluate(el=>/historical guide/i.test(el.innerText)));
-        await page.evaluate(()=>scrollTo(0,0));
+        await page.evaluate(()=>{document.activeElement?.blur();scrollTo({top:0,behavior:'instant'});});
+        await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+        await page.waitForFunction(()=>scrollY===0);
         await page.mouse.move(0,0);
+        // Edge can report layout ready before its compositor paints a remote page.
+        await page.waitForTimeout(300);
         const name=route.replace('/','')||'home';
         await page.screenshot({path:path.join(output,`${width}-${name}-hero.png`)});
         await page.screenshot({path:path.join(output,`${width}-${name}.png`),fullPage:true});
