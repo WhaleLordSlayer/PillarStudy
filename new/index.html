@@ -4,13 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#f4f1e9" />
-  <meta name="description" content="Cultivate brings scripture reading, lesson building, live study, private Study Spaces, Scripture Explorer, and Mastery into one connected study app." />
+  <meta name="description" content="Build scripture lessons. Teach live with your group. Cultivate connects Lessons 2.0, Study Spaces, Scripture Explorer, focused reading, and Mastery practice." />
   <title>Cultivate | Read. Build. Teach. Study together.</title>
   <link rel="stylesheet" href="./fonts.css" />
   <link rel="icon" href="../public/favicon.svg" />
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="page">
     <header class="site-header">
       <div class="nav-shell">
@@ -34,7 +35,7 @@
       </div>
     </header>
 
-    <main>
+    <main id="main" tabindex="-1">
       <section class="hero">
         <div class="hero-copy">
           <p class="eyebrow">Cultivate Study</p>
@@ -42,24 +43,24 @@
           <p class="hero-lede">Build scripture lessons. Lead a live session. Keep your study connected.</p>
 
           <div class="hero-actions">
-            <a class="button primary" href="#lessons">See Lessons</a>
-            <a class="button ghost" href="#live">See Live Study</a>
+            <a class="button primary" href="../beta/">Join the beta</a>
+            <a class="button ghost" href="#lessons">Explore Lessons</a>
           </div>
 
           <p class="availability">iPhone &amp; iPad coming soon · Android beta available</p>
         </div>
 
         <div class="hero-visual" aria-label="Cultivate lesson and live study screenshots">
-          <div class="hero-glow"></div>
           <figure class="shot hero-template-shot">
-            <img src="./assets/lesson-template.webp" width="538" height="374" alt="Cultivate lesson template preview for Comfort Ye My People" fetchpriority="high" />
+            <figcaption class="shot-label">FINISHED LESSON</figcaption>
+            <img src="./assets/lesson-template.webp" width="538" height="374" alt="Cultivate finished lesson preview for Comfort Ye My People" fetchpriority="high" />
           </figure>
           <figure class="shot hero-live-shot">
             <img src="./assets/live-host.webp" width="280" height="608" alt="Cultivate live lesson host controls on iPhone" fetchpriority="high" />
           </figure>
           <div class="hero-badge">
-            <span>LESSONS 2.0</span>
-            <strong>Build once. Teach in more than one way.</strong>
+            <span>LIVE LESSONS</span>
+            <strong>Your lesson, together.<br>Your teaching notes, private.</strong>
           </div>
         </div>
       </section>
@@ -80,7 +81,6 @@
             <span>Build</span><i></i><span>Preview</span><i></i><span>Teach</span><i></i><span>Share</span>
           </div>
 
-          <p class="feature-detail">Preview before you teach. Share it with your group for live or later study.</p>
         </div>
 
         <div class="lesson-visuals" aria-label="Lesson Builder and template preview">
@@ -177,7 +177,6 @@
 
       <section class="feature-section mastery" id="mastery">
         <div class="mastery-visual">
-          <div class="mastery-backdrop">MASTER</div>
           <figure class="shot mastery-shot">
             <img src="./assets/mastery.webp" width="420" height="913" alt="Cultivate Mastery quick practice using Fill the gaps for Genesis 2:24" loading="lazy" />
           </figure>
@@ -185,45 +184,14 @@
 
         <div class="feature-copy">
           <p class="eyebrow">Mastery, rebuilt</p>
-          <h2>Practice the same passage four different ways.</h2>
-          <p>Rebuild the words in order. Fill the gaps. Work from first letters. Type the whole passage.</p>
+          <h2>Practice a passage.<br>Four ways.</h2>
+          <p>Start with Fill the gaps. Switch practice modes to work toward recalling the whole passage.</p>
           <div class="reader-tags mastery-tags" aria-label="Mastery practice modes">
             <span>Put it in order</span>
             <span>Fill the gaps</span>
             <span>First letters</span>
             <span>Type it</span>
           </div>
-        </div>
-      </section>
-
-      <section class="supporting">
-        <div class="supporting-heading">
-          <p class="eyebrow">More when you want it</p>
-          <h2>Keep exploring. Keep growing.</h2>
-        </div>
-
-        <div class="support-grid">
-          <article>
-            <img src="./assets/reading-goal.webp" width="180" height="391" alt="Cultivate personal reading goal with scripture books and a study schedule" loading="lazy" />
-            <div>
-              <span>Personal Goals</span>
-              <strong>Choose what to read. Make time for it.</strong>
-            </div>
-          </article>
-          <article>
-            <img src="./assets/reading-plans.webp" width="660" height="1434" alt="Cultivate reading plans and lesson playlists" loading="lazy" />
-            <div>
-              <span>Reading Plans</span>
-              <strong>Build a study rhythm that fits real life.</strong>
-            </div>
-          </article>
-          <article class="simple-card">
-            <div class="simple-icon">✦</div>
-            <div>
-              <span>Your Library</span>
-              <strong>Keep your notes, highlights, and saved material ready to use again.</strong>
-            </div>
-          </article>
         </div>
       </section>
 

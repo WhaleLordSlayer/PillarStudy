@@ -1,4 +1,22 @@
-# /new/ screenshot QA — October 5, 2026
+# /new/ screenshot QA — October 6, 2026
+
+## Final layout pass — October 6
+
+Read GitHub issue #3 and repeated the audit against the current checkout before editing. All existing page images strictly decode; no further asset replacements were necessary.
+
+- Enlarged the mobile hero's finished lesson to full available width, followed by the host screenshot and a short private-notes message.
+- Presented Builder and Preview side by side on desktop, with full-width stacked images on tablet/mobile. Removed the empty left column beside the previous stacked desktop layout.
+- Added a direct beta CTA to the hero and a keyboard-accessible skip link.
+- Shortened the Mastery headline while retaining its complete Quick Practice screenshot and all four modes.
+- Removed the repetitive supporting-tools section, its small reading-goal image, and obsolete styles. All six priority features retain dedicated sections. No video; disclaimer preserved.
+
+Rendered the original page, an initial layout iteration, and the final page. Fresh isolated Edge contexts passed at 1440x1000, 1280x1000, 1024x768, 768x1024, 430x844, and 390x844. All 11 image elements (nine unique screenshot files) return HTTP 200, decode, and have valid dimensions; anchors, CTA destinations, keyboard skip navigation, overflow, console and network checks pass. Full-page, viewport, and individual-section captures were reviewed visually. HTTP-fetched bytes match local SHA-256 hashes; downloaded assets also undergo strict Pillow decoding.
+
+Rechecked every unique historical `live-participant.webp` version: all four fail strict decoding. Neither workspace contains a valid participant/follower original. The existing `participant-inspect.png` QA capture records partial corrupt rendering and is not a replacement source. **Still needed: the original full-resolution wide Live Lesson participant/follower screenshot.** The live section gracefully uses the valid host view, including private teacher notes. Higher-resolution light-theme Study Space exports are deferred until supplied.
+
+Evidence is saved outside the repository in `../PillarStudy-QA/before`, `../PillarStudy-QA/iteration1`, `../PillarStudy-QA/final`, and `../PillarStudy-QA/live-final`. The repeatable browser check now captures individual sections, verifies keyboard skip navigation, and compares fetched image hashes even when the host fingerprints filenames.
+
+## Earlier image repair pass — October 5
 
 ## Changes
 
