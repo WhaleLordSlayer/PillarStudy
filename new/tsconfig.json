@@ -1,5 +1,5 @@
 {
   "extends": "../tsconfig.app.json",
   "compilerOptions": { "tsBuildInfoFile": "../node_modules/.tmp/tsconfig.marketing-home.tsbuildinfo" },
-  "include": ["home.tsx", "components.tsx"]
+  "include": ["home.tsx", "components.tsx", "showcases.tsx"]
 }

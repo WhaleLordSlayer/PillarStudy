@@ -33,9 +33,24 @@ const normalizedHtml = value => value.toString().replace(/\r/g, '').replace(/<sc
       for(const device of await page.locator('.hero-products .device').all()) assert(await device.isVisible());
       assert.deepEqual(await page.locator('.workflow-card h3').allTextContents(),['Read','Explore','Save','Build','Share','Teach']);
       assert.equal(await page.locator('.depth-feature').count(),8);
+      for(const img of await page.locator('img').all())assert(await img.evaluate(el=>el.complete&&el.naturalWidth>0));
       const copy=await page.locator('main').innerText();
       assert(!/interlinear|Strong['’]s|\bESV\b|\bNIV\b|\bNASB\b|voice reflections|word clouds|liturgical|ambient audio|macOS|120,000|free trial|shared revelation|\bstars\b/i.test(copy));
-      assert(copy.includes('in development'));
+      assert(!copy.includes('in development'));
+      for(const id of ['explorer-showcase','spaces-showcase','channels-showcase','live-showcase'])assert.equal(await page.locator(`#${id}`).count(),1);
+      assert.equal(await page.locator('.experiences > .experience').count(),3);
+      assert(copy.includes('invite-only Early Access'));
+      await page.getByRole('button',{name:'Request Early Access'}).click();
+      assert(await page.getByRole('dialog').isVisible());
+      assert((await page.getByRole('dialog').innerText()).includes('does not submit a request'));
+      await page.keyboard.press('Escape');
+      assert(!await page.getByRole('dialog').isVisible());
+      assert(await page.getByRole('button',{name:'Request Early Access'}).evaluate(el=>document.activeElement===el));
+      await page.getByRole('button',{name:'Request Early Access'}).click();
+      await page.getByRole('button',{name:'Close',exact:true}).click();
+      await page.reload();
+      await page.locator('h1').waitFor();
+      await page.evaluate(()=>{document.activeElement?.blur();scrollTo({top:0,behavior:'instant'})});
       const checkBounds=async()=>{
         const bounds=await page.evaluate(()=>({width:innerWidth,scroll:document.documentElement.scrollWidth,overflow:[...document.querySelectorAll('header a,header summary,main .button,.hero-products .device,.experience-copy,.visual-surface,footer a')].filter(el=>{const r=el.getBoundingClientRect();return r.width>0&&(r.left<-1||r.right>innerWidth+1)}).map(el=>el.className)}));
         assert(bounds.scroll<=width+1,JSON.stringify(bounds));assert.deepEqual(bounds.overflow,[],JSON.stringify(bounds));return bounds;
@@ -52,7 +67,7 @@ const normalizedHtml = value => value.toString().replace(/\r/g, '').replace(/<sc
       }
       await page.evaluate(()=>document.activeElement?.blur());
       await page.mouse.move(0,0);
-      for(const name of ['study','together','teach','workflow','about'])await page.locator(`#${name}`).screenshot({path:path.join(output,`${width}-${name}.png`),style:'.site-header,.skip-link{visibility:hidden!important}'});
+      for(const name of ['study','together','teach','explorer-showcase','spaces-showcase','channels-showcase','live-showcase','workflow','about'])await page.locator(`#${name}`).screenshot({path:path.join(output,`${width}-${name}.png`),style:'.site-header,.skip-link{visibility:hidden!important}'});
       await page.locator('footer').screenshot({path:path.join(output,`${width}-footer.png`),style:'.site-header,.skip-link{visibility:hidden!important}'});
       await page.evaluate(()=>{document.activeElement?.blur();scrollTo({top:0,behavior:'instant'})});
       await page.screenshot({path:path.join(output,`${width}-hero.png`)});

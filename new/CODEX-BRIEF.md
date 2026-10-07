@@ -1,5 +1,9 @@
 # Cultivate marketing site direction
 
+Publication approval — October 7, 2026: the user explicitly requested pushing the reviewed positioning revision to the live `/new/` site. This supersedes the local PM-review stop below; keep the main production homepage intact.
+
+Current positioning revision — October 7, 2026: the user's latest brief establishes three equally important flagships, Study / Together / Teach, followed by four major showcases: Explorer, Study Spaces, Lesson Channels, and Live Classes. Lessons and Channels are available; Live is invite-only Early Access. Preserve the Stitch visual direction. Stop for PM review of this revision; do not replace the production homepage. See POSITIONING-REVIEW.md for local URL, validation, concept visuals, and the explicitly unconnected Early Access CTA.
+
 Publication authorization — October 7, 2026: the user explicitly approved pushing the reviewed site to the real site under `/new/`. This supersedes the earlier deployment restriction below. Keep the production homepage and existing production routes intact.
 
 Current homepage direction — October 7, 2026: the user's pasted Stitch brief supersedes the earlier homepage layout, palette, and no-concept-mockup instruction below. Implement only the `/new/` homepage and reusable design system in this pass. Stitch is the visual reference, not the product source. Study / Together / Teach lead the cream/sage/terracotta editorial page. Conceptual product views are authorized, must use real Cultivate concepts, and must be labelled. Shared participation and Live need cautious availability language. Do not merge, deploy, replace production, or build new deep pages. See STITCH-REVIEW.md for current implementation, deviations, validation, and PM review items. Earlier notes below document the previous iteration and existing detail pages.
