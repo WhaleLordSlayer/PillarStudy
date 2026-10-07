@@ -7,7 +7,7 @@ const base = process.env.QA_URL || 'http://127.0.0.1:8765/new/';
 const output = process.env.QA_OUTPUT || path.resolve(__dirname, '../../../PillarStudy-QA/stitch-built');
 const root = path.resolve(__dirname, '../..');
 const productionRoutes = ['', 'join/', 'privacy/', 'account-deletion/', 'beta/', 'explorer/', 'topical-guide/', 'new-site/'];
-const detailRoutes = ['lessons/', 'groups/', 'explorer/', 'reader/', 'topical-guide/', 'more/', 'labs/', 'download/'];
+const detailRoutes = ['study/', 'together/', 'teach/', 'channels/', 'live/', 'lessons/', 'groups/', 'explorer/', 'reader/', 'topical-guide/', 'more/', 'labs/', 'download/'];
 // Hosting injects a versioned analytics beacon; Linux builds also normalize line endings.
 const normalizedHtml = value => value.toString().replace(/\r/g, '').replace(/<script\b[^>]*src="https:\/\/static\.cloudflareinsights\.com\/[^\"]*"[^>]*>[\s\S]*?<\/script>\n?/g, '');
 (async () => {
@@ -93,6 +93,6 @@ const normalizedHtml = value => value.toString().replace(/\r/g, '').replace(/<sc
     for(const route of detailRoutes)assert.equal((await context.request.get(new URL(route,base).href)).status(),200,route);
     await context.close();
     await fs.writeFile(path.join(output,'results.json'),JSON.stringify({results,productionRoutes,detailRoutes},null,2));
-    console.log('PASS eight existing production routes and eight existing /new/ detail routes; production HTML matches build after normalizing line endings and hosting analytics');
+    console.log('PASS eight existing production routes and thirteen /new/ hub/detail routes; production HTML matches build after normalizing line endings and hosting analytics');
   } finally { await browser.close(); }
 })().catch(error=>{console.error(error);process.exitCode=1});
