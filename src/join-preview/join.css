@@ -1,13 +1,13 @@
 :root {
-  --join-paper: #fbfaf7;
-  --join-card: #fffefa;
-  --join-wash: #eef8f6;
-  --join-line: #dbe8e6;
-  --join-ink: #1d2423;
-  --join-muted: #5a6a67;
-  --join-teal: #08b3a9;
-  --join-aqua: #18d2bc;
-  --join-teal-dark: #087e78;
+  --join-paper: #f5f2eb;
+  --join-card: #fff;
+  --join-wash: #eef3ef;
+  --join-line: rgba(17,24,23,.12);
+  --join-ink: #111817;
+  --join-muted: #697470;
+  --join-teal: #10c6b4;
+  --join-aqua: #1bd7c0;
+  --join-teal-dark: #08aaa0;
 }
 
 .join-page {
@@ -16,8 +16,8 @@
   place-items: center;
   padding: 32px 20px;
   background:
-    radial-gradient(circle at 50% 0%, rgba(24, 210, 188, 0.16), transparent 38%),
-    var(--join-paper);
+    radial-gradient(circle at 50% 0%, rgba(16,198,180,.18), transparent 38%),
+    linear-gradient(180deg,#07111f,#091623 72%,#0b1824);
   color: var(--join-ink);
 }
 
@@ -27,7 +27,7 @@
   background: var(--join-card);
   border: 1px solid var(--join-line);
   border-radius: 30px;
-  box-shadow: 0 24px 70px rgba(8, 126, 120, 0.12);
+  box-shadow: 0 24px 80px rgba(0,0,0,.3);
   text-align: center;
 }
 
@@ -105,7 +105,7 @@
   margin-top: 30px;
   padding: 16px 20px;
   background: linear-gradient(135deg, var(--join-teal), var(--join-aqua));
-  color: #063f3c;
+  color:#052522;
   font-size: 1rem;
   box-shadow: 0 8px 22px rgba(8,179,169,.18);
 }
