@@ -37,6 +37,7 @@ export default defineConfig({
         marketingAccountDeletion: resolve(projectRoot, 'new/account-deletion/index.html'),
         marketingBeta: resolve(projectRoot, 'new/beta/index.html'),
         marketingJoin: resolve(projectRoot, 'new/join/index.html'),
+        marketingReview: resolve(projectRoot, 'new/review/index.html'),
         marketingDownload: resolve(projectRoot, 'new/download/index.html'),
       },
     },
