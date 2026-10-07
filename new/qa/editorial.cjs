@@ -8,6 +8,8 @@ const output = process.env.QA_OUTPUT || path.resolve(__dirname, '../../../Pillar
 const root = path.resolve(__dirname, '../..');
 const productionRoutes = ['', 'join/', 'privacy/', 'account-deletion/', 'beta/', 'explorer/', 'topical-guide/', 'new-site/'];
 const detailRoutes = ['lessons/', 'groups/', 'explorer/', 'reader/', 'topical-guide/', 'more/', 'labs/', 'download/'];
+// Hosting injects a versioned analytics beacon; Linux builds also normalize line endings.
+const normalizedHtml = value => value.toString().replace(/\r/g, '').replace(/<script\b[^>]*src="https:\/\/static\.cloudflareinsights\.com\/[^\"]*"[^>]*>[\s\S]*?<\/script>\n?/g, '');
 (async () => {
   await fs.mkdir(output, {recursive:true});
   const browser = await chromium.launch({headless:true, executablePath:process.env.QA_BROWSER || 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe'});
@@ -66,10 +68,10 @@ const detailRoutes = ['lessons/', 'groups/', 'explorer/', 'reader/', 'topical-gu
       await context.close();
     }
     const context=await browser.newContext();
-    for(const route of productionRoutes){const url=new URL('../'+route,base);const response=await context.request.get(url.href);assert.equal(response.status(),200,url.href);const local=await fs.readFile(path.join(root,'dist',route,'index.html'));assert.equal(createHash('sha256').update(await response.body()).digest('hex'),createHash('sha256').update(local).digest('hex'));}
+    for(const route of productionRoutes){const url=new URL('../'+route,base);const response=await context.request.get(url.href);assert.equal(response.status(),200,url.href);const local=await fs.readFile(path.join(root,'dist',route,'index.html'));assert.equal(createHash('sha256').update(normalizedHtml(await response.body())).digest('hex'),createHash('sha256').update(normalizedHtml(local)).digest('hex'),url.href);}
     for(const route of detailRoutes)assert.equal((await context.request.get(new URL(route,base).href)).status(),200,route);
     await context.close();
     await fs.writeFile(path.join(output,'results.json'),JSON.stringify({results,productionRoutes,detailRoutes},null,2));
-    console.log('PASS eight existing production routes and eight existing /new/ detail routes; served production HTML matches built source bytes');
+    console.log('PASS eight existing production routes and eight existing /new/ detail routes; production HTML matches build after normalizing line endings and hosting analytics');
   } finally { await browser.close(); }
 })().catch(error=>{console.error(error);process.exitCode=1});

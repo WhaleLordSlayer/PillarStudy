@@ -1,5 +1,7 @@
 # Full marketing site QA — October 6, 2026
 
+Publication verification — October 7, 2026: approved redesign published under https://www.cultivatestudy.com/new/ from `e286b34`. Cloudflare build succeeded. Live editorial checks pass at 390, 768, 1440, and 1920px; all existing production and detail routes load successfully. Main homepage content matches the pre-publication snapshot, excluding Cloudflare's injected analytics beacon. Evidence: `../PillarStudy-QA/stitch-live/`. HTML comparisons account for line-ending normalization and hosting analytics.
+
 Current homepage QA — October 7, 2026: the Stitch-based React homepage is verified with `node new/qa/editorial.cjs`, not the previous homepage's tab-based tests below. Build and `npx tsc --noEmit -p new/tsconfig.json` pass. Browser checks pass at 390, 768, 1440, and 1920px, including direct load/refresh, three visible device mockups, navigation, menu, skip link, overflow/bounds, internal links, content checks, and console/network. Eight existing production routes and eight existing detail routes load; production source is unchanged. Reviewed full desktop/mobile/tablet and per-section/footer screenshots in ../PillarStudy-QA/stitch-built/. STITCH-REVIEW.md contains the full current report. Everything below records earlier iterations.
 
 ## Botanical redesign follow-up

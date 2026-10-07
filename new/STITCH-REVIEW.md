@@ -38,6 +38,8 @@ Preserved cream/sage/terracotta, Literata headings, centered hero, layered table
 
 ## Validation
 
+Published October 7, 2026 from commit `e286b34`; Cloudflare's hosting build succeeded. Live browser checks at 390, 768, 1440, and 1920px pass, including all eight existing production routes and eight `/new/` detail routes. Evidence is saved in `../PillarStudy-QA/stitch-live/`. The production homepage matches its pre-publication snapshot after excluding the hosting-injected analytics beacon. Route HTML comparisons normalize Windows/Linux line endings and that beacon; site content must still match the built output.
+
 - `npm run build`: passes, retains all existing Vite route inputs.
 - `npx tsc --noEmit -p new/tsconfig.json`: passes.
 - `npm run lint`: passes with pre-existing warnings in unrelated React and graph code.
