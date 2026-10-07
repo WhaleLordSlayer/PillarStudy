@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#fbfaf7">
+  <title>Cultivate /new Review Index</title>
+  <link rel="stylesheet" href="../fonts.css">
+  <link rel="stylesheet" href="../editorial.css">
+  <style>
+    body{background:var(--surface);color:var(--ink);font-family:var(--sans)}
+    main{width:min(980px,calc(100% - 40px));margin:0 auto;padding:64px 0 96px}
+    h1{font:500 clamp(2.5rem,6vw,4.6rem)/1.05 var(--serif);letter-spacing:-.05em;margin:0}
+    .lead{max-width:680px;color:var(--ink-secondary);font-size:1rem;margin:18px 0 44px}
+    h2{font:500 1.6rem var(--serif);margin:42px 0 16px}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    a{display:block;padding:18px 20px;border:1px solid var(--border);border-radius:16px;background:var(--surface-card);text-decoration:none}
+    a:hover{border-color:var(--sage);box-shadow:var(--shadow)}
+    strong{display:block;font-size:.92rem}
+    span{display:block;color:var(--ink-muted);font-size:.72rem;margin-top:5px}
+    .note{margin-top:36px;padding:18px 20px;background:var(--sage-wash);border-radius:14px;color:var(--ink-secondary);font-size:.8rem}
+    @media(max-width:680px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<main>
+  <p class="eyebrow">Internal review</p>
+  <h1>Cultivate website staging</h1>
+  <p class="lead">Everything in this review set lives under <strong>/new/</strong>. Production routes remain unchanged until the final cutover.</p>
+
+  <h2>Core site</h2>
+  <div class="grid">
+    <a href="../"><strong>Homepage</strong><span>/new/</span></a>
+    <a href="../study/"><strong>Study</strong><span>/new/study/</span></a>
+    <a href="../together/"><strong>Together</strong><span>/new/together/</span></a>
+    <a href="../teach/"><strong>Teach</strong><span>/new/teach/</span></a>
+    <a href="../channels/"><strong>Lesson Channels</strong><span>/new/channels/</span></a>
+    <a href="../live/"><strong>Live Classes</strong><span>/new/live/</span></a>
+  </div>
+
+  <h2>Study & teaching detail</h2>
+  <div class="grid">
+    <a href="../reader/"><strong>Reader</strong><span>/new/reader/</span></a>
+    <a href="../explorer/"><strong>Explorer product page</strong><span>/new/explorer/</span></a>
+    <a href="../topical-guide/"><strong>Topical Guide product page</strong><span>/new/topical-guide/</span></a>
+    <a href="../more/"><strong>Mastery / Plans / Library</strong><span>/new/more/</span></a>
+    <a href="../groups/"><strong>Study Spaces</strong><span>/new/groups/</span></a>
+    <a href="../lessons/"><strong>Lesson Builder</strong><span>/new/lessons/</span></a>
+  </div>
+
+  <h2>Cultivate Labs</h2>
+  <div class="grid">
+    <a href="../labs/"><strong>Labs hub</strong><span>/new/labs/</span></a>
+    <a href="../labs/explorer/"><strong>Scripture Explorer Lab</strong><span>/new/labs/explorer/</span></a>
+    <a href="../labs/topical-guide/"><strong>Topical Guide Lab</strong><span>/new/labs/topical-guide/</span></a>
+  </div>
+
+  <h2>Operational & launch pages</h2>
+  <div class="grid">
+    <a href="../download/"><strong>Download</strong><span>/new/download/</span></a>
+    <a href="../beta/"><strong>Beta invitation</strong><span>/new/beta/</span></a>
+    <a href="../privacy/"><strong>Privacy</strong><span>/new/privacy/</span></a>
+    <a href="../account-deletion/"><strong>Account deletion</strong><span>/new/account-deletion/</span></a>
+    <a href="../join/?code=ABC123&inviteToken=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"><strong>Study Space invite preview</strong><span>Valid demo query under /new/join/</span></a>
+    <a href="../join/?code=ABC123"><strong>Incomplete invite state</strong><span>Fallback/error behavior</span></a>
+  </div>
+
+  <div class="note">The real production <code>/join/</code> route and its secure invite parser/deep-link contract are untouched. This page is only a staging mirror for visual review.</div>
+</main>
+</body>
+</html>
