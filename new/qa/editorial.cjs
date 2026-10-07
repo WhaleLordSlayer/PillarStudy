@@ -46,13 +46,13 @@ const normalizedHtml = value => value.toString().replace(/\r/g, '').replace(/<sc
       for(const id of ['explorer-showcase','spaces-showcase','channels-showcase','live-showcase'])assert.equal(await page.locator(`#${id}`).count(),1);
       assert.equal(await page.locator('.experiences > .experience').count(),3);
       assert(copy.includes('invite-only Early Access'));
-      await page.getByRole('button',{name:'Request Early Access'}).click();
+      await page.getByRole('button',{name:'How to request Early Access'}).click();
       assert(await page.getByRole('dialog').isVisible());
-      assert((await page.getByRole('dialog').innerText()).includes('signup is not connected on this website preview yet'));
+      assert((await page.getByRole('dialog').innerText()).includes('Open the app, start a Live Session, and complete the Early Access request form when prompted.'));
       await page.keyboard.press('Escape');
       assert(!await page.getByRole('dialog').isVisible());
-      assert(await page.getByRole('button',{name:'Request Early Access'}).evaluate(el=>document.activeElement===el));
-      await page.getByRole('button',{name:'Request Early Access'}).click();
+      assert(await page.getByRole('button',{name:'How to request Early Access'}).evaluate(el=>document.activeElement===el));
+      await page.getByRole('button',{name:'How to request Early Access'}).click();
       await page.getByRole('button',{name:'Close',exact:true}).click();
       await page.reload();
       await page.locator('h1').waitFor();
