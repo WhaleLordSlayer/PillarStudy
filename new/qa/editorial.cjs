@@ -65,7 +65,8 @@ const normalizedHtml = value => value.toString().replace(/\r/g, '').replace(/<sc
       await page.keyboard.press('Tab');assert(await page.locator('.skip-link').evaluate(el=>document.activeElement===el));
       await page.keyboard.press('Enter');assert(await page.locator('main').evaluate(el=>document.activeElement===el));
       if(width===390){await page.locator('.mobile-menu summary').click();assert.equal(await page.locator('.mobile-menu nav a').count(),5);assert(await page.locator('.mobile-menu nav').isVisible());await checkBounds();await page.locator('.mobile-menu summary').click();}
-      for(const id of ['study','together','teach','about','experiences']){
+      for(const href of ['./study/','./together/','./teach/']) assert.equal(await page.locator(`a[href="${href}"]`).count()>0,true,href);
+      for(const id of ['about','experiences']){
         if(!await page.locator(`a[href="#${id}"]`).filter({visible:true}).count()) await page.locator('.mobile-menu summary').click();
         await page.locator(`a[href="#${id}"]`).filter({visible:true}).first().click();
         assert.equal(new URL(page.url()).hash,`#${id}`);
@@ -91,8 +92,24 @@ const normalizedHtml = value => value.toString().replace(/\r/g, '').replace(/<sc
     const context=await browser.newContext();
     for(const route of productionRoutes){const url=new URL('../'+route,base);const response=await context.request.get(url.href);assert.equal(response.status(),200,url.href);const local=await fs.readFile(path.join(root,'dist',route,'index.html'));assert.equal(createHash('sha256').update(normalizedHtml(await response.body())).digest('hex'),createHash('sha256').update(normalizedHtml(local)).digest('hex'),url.href);}
     for(const route of detailRoutes)assert.equal((await context.request.get(new URL(route,base).href)).status(),200,route);
+
+    const joinPage=await context.newPage();
+    const secureToken='a'.repeat(64);
+    const validJoin=new URL(`../join/?code=ABC123&inviteToken=${secureToken}`,base);
+    assert.equal((await joinPage.goto(validJoin.href)).status(),200);
+    await joinPage.getByRole('heading',{name:'Study together in Cultivate'}).waitFor();
+    assert.equal((await joinPage.locator('.join-code').innerText()).trim(),'ABC123');
+    assert(await joinPage.getByRole('button',{name:'Open Cultivate'}).isVisible());
+    assert(await joinPage.getByRole('link',{name:'Get Cultivate'}).isVisible());
+
+    const incompleteJoin=new URL('../join/?code=ABC123',base);
+    assert.equal((await joinPage.goto(incompleteJoin.href)).status(),200);
+    assert((await joinPage.locator('h1').innerText()).includes('incomplete'));
+    assert.equal((await joinPage.locator('.join-code').innerText()).trim(),'ABC123');
+    await joinPage.close();
+
     await context.close();
-    await fs.writeFile(path.join(output,'results.json'),JSON.stringify({results,productionRoutes,detailRoutes},null,2));
-    console.log('PASS eight existing production routes and thirteen /new/ hub/detail routes; production HTML matches build after normalizing line endings and hosting analytics');
+    await fs.writeFile(path.join(output,'results.json'),JSON.stringify({results,productionRoutes,detailRoutes,joinInvite:true},null,2));
+    console.log('PASS production routes, thirteen /new/ routes, and secure Study Space join-link smoke test; production HTML matches build after normalizing line endings and hosting analytics');
   } finally { await browser.close(); }
 })().catch(error=>{console.error(error);process.exitCode=1});
