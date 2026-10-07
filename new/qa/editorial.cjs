@@ -29,12 +29,18 @@ const normalizedHtml = value => value.toString().replace(/\r/g, '').replace(/<sc
       await page.locator('h1').waitFor();
       await page.evaluate(()=>document.fonts.ready);
       assert.equal(await page.locator('h1').count(),1);
+      assert.equal(await page.title(),'Cultivate | Read. Study. Teach. Together.');
+      assert.equal(await page.locator('meta[name="description"]').getAttribute('content'),'Cultivate brings personal scripture study, Explorer, private Study Spaces, interactive lessons, Lesson Channels, and Live Classes into one connected app.');
+      assert.equal(await page.locator('meta[property="og:title"]').getAttribute('content'),'Cultivate — Read. Study. Teach. Together.');
+      assert.equal(await page.locator('meta[property="og:description"]').getAttribute('content'),'Study scripture deeply, explore its people and stories, grow with others in private Study Spaces, and build lessons you can share and teach.');
       assert.equal(await page.locator('.hero-products .device').count(),3);
       for(const device of await page.locator('.hero-products .device').all()) assert(await device.isVisible());
       assert.deepEqual(await page.locator('.workflow-card h3').allTextContents(),['Read','Explore','Save','Build','Share','Teach']);
       assert.equal(await page.locator('.depth-feature').count(),8);
       for(const img of await page.locator('img').all())assert(await img.evaluate(el=>el.complete&&el.naturalWidth>0));
       const copy=await page.locator('main').innerText();
+      assert(!/no AI in the app/i.test(copy));
+      assert(copy.includes('No AI-generated scripture commentary.'));
       assert(!/interlinear|Strong['’]s|\bESV\b|\bNIV\b|\bNASB\b|voice reflections|word clouds|liturgical|ambient audio|macOS|120,000|free trial|shared revelation|\bstars\b/i.test(copy));
       assert(!copy.includes('in development'));
       for(const id of ['explorer-showcase','spaces-showcase','channels-showcase','live-showcase'])assert.equal(await page.locator(`#${id}`).count(),1);
@@ -42,7 +48,7 @@ const normalizedHtml = value => value.toString().replace(/\r/g, '').replace(/<sc
       assert(copy.includes('invite-only Early Access'));
       await page.getByRole('button',{name:'Request Early Access'}).click();
       assert(await page.getByRole('dialog').isVisible());
-      assert((await page.getByRole('dialog').innerText()).includes('does not submit a request'));
+      assert((await page.getByRole('dialog').innerText()).includes('signup is not connected on this website preview yet'));
       await page.keyboard.press('Escape');
       assert(!await page.getByRole('dialog').isVisible());
       assert(await page.getByRole('button',{name:'Request Early Access'}).evaluate(el=>document.activeElement===el));
