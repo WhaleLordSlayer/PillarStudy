@@ -34,6 +34,8 @@ The existing concept UI approach continues, with explicit captions, no fabricate
 
 ## Validation
 
+Published from commit `7ee8e71` on October 7, 2026. Cloudflare build succeeded. Live browser QA passes at all four widths, including the four showcases, Early Access dialog, direct load/refresh, links, images, and console/network checks. All eight original production routes and eight detail routes pass. The main homepage matches the pre-publication snapshot after excluding hosting-injected analytics. Live evidence: `../PillarStudy-QA/positioning-live/`.
+
 Production build and the homepage TypeScript check pass. Lint completes without errors, retaining existing warnings. Real Edge browser checks pass at 390, 768, 1440, and 1920px: direct load/refresh, navigation, keyboard skip link, mobile menu, overflow and bounds, three hero devices, four showcases, six workflow steps, feature depth, Early Access dialog behavior/focus restoration, internal links, images, and console/network checks. All eight original production routes and eight `/new/` detail routes return 200; original production route HTML matches the built output after hosting/line-ending normalization.
 
 Evidence: `../PillarStudy-QA/positioning-built/`, including full pages, heroes, all primary/showcase sections, and `results.json`. Visually reviewed the desktop full page, mobile Channels and Live, and mobile/tablet Study and Explorer.

@@ -1,5 +1,7 @@
 # Full marketing site QA — October 6, 2026
 
+Latest publication — October 7, 2026: the positioning revision is live at https://www.cultivatestudy.com/new/ from `7ee8e71`. Cloudflare build and browser QA at 390, 768, 1440, and 1920px pass. Early Access dialog behavior, all four showcases, existing routes, and unchanged production homepage content are verified. Evidence: `../PillarStudy-QA/positioning-live/`. The local-review note below records the checkpoint before publication approval.
+
 Current positioning pass — October 7, 2026: local review at http://127.0.0.1:8765/new/?review=positioning. Equal primary pillars and four substantial showcase sections are verified at 390, 768, 1440, and 1920px. Build/typecheck pass; lint has no errors. Early Access opens an honest placeholder dialog, with dismissal and focus restoration checked. Evidence: `../PillarStudy-QA/positioning-built/`. This latest revision is not published; see POSITIONING-REVIEW.md. Publication notes below refer to the prior version.
 
 Publication verification — October 7, 2026: approved redesign published under https://www.cultivatestudy.com/new/ from `e286b34`. Cloudflare build succeeded. Live editorial checks pass at 390, 768, 1440, and 1920px; all existing production and detail routes load successfully. Main homepage content matches the pre-publication snapshot, excluding Cloudflare's injected analytics beacon. Evidence: `../PillarStudy-QA/stitch-live/`. HTML comparisons account for line-ending normalization and hosting analytics.
