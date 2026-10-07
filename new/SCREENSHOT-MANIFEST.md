@@ -33,3 +33,24 @@ This manifest is intentionally created before final screenshot capture. Build an
 - Avoid OS notifications, personal names, email addresses, debug overlays, beta banners that will date quickly, or real participant data.
 - Keep one canonical file for each ID and reuse it across pages rather than taking near-duplicates.
 - Capture both light/dark only if the website design explicitly needs both; current site direction assumes the app imagery can sit naturally in the warm light editorial system.
+
+
+## Additional detail-page captures
+
+| ID | Page | What to capture | Device / orientation | Reuse |
+|---|---|---|---|---|
+| EXPLORER-EVIDENCE-01 | Explorer | Entity/connection with visible scripture evidence | iPhone/iPad | Explorer |
+| EXPLORER-MAP-01 | Explorer | Map, graph, or connection overview | iPhone/iPad | Explorer/Labs |
+| READER-VERSE-01 | Reader | One-verse mode with study tools | iPhone portrait | Reader |
+| READER-CHAPTER-01 | Reader | Full chapter mode | iPhone portrait | Reader |
+| TOPICAL-OVERVIEW-01 | Topical Guide | Topic browsing / landing state | iPhone portrait | Topical |
+| TOPICAL-DETAIL-01 | Topical Guide | Topic with scripture references and related topics | iPhone portrait | Topical |
+| PLANS-OVERVIEW-01 | More | Reading plan overview | iPhone portrait | Study |
+| PLANS-PROGRESS-01 | More | Reading plan with progress | iPhone portrait | Study |
+| LIBRARY-OVERVIEW-01 | More | Saved study/library overview | iPhone/iPad | Study/Lessons |
+| LIBRARY-FLAGSHIP-01 | More | Strongest saved-study collection view | iPhone/iPad | Study/Lessons |
+| MASTERY-PRACTICE-01 | More | Active Mastery exercise | iPhone portrait | Mastery |
+| LABS-PROVENANCE-01 | Labs | Product/data provenance visual | Purpose-built or Explorer reuse | Labs |
+| LABS-EVIDENCE-01 | Labs | Evidence-first connection flow | Purpose-built or Explorer reuse | Labs |
+| DOWNLOAD-HERO-01 | Download | App/device composition | Composite | Download |
+| LESSON-FINISHED-01 | Lessons | Completed lesson ready to teach/share | iPad landscape | Lessons/Channels |
