@@ -43,8 +43,8 @@ export default function JoinPage() {
       <main className="join-page">
         <section className="join-card join-card-invalid" aria-labelledby="invalid-title">
           <div className="join-brand" aria-label="Cultivate Study">
-            <span className="join-brand-mark" aria-hidden="true">✦</span>
-            <span>Cultivate Study</span>
+            <img className="join-brand-logo" src="/new/assets/cultivate-logo.svg" alt="" aria-hidden="true" />
+            <span>Cultivate</span>
           </div>
           <p className="join-eyebrow">Group invite</p>
           <h1 id="invalid-title">This invite link {hasDisplayCode ? 'is incomplete' : 'isn’t valid'}</h1>
@@ -84,11 +84,11 @@ export default function JoinPage() {
     <main className="join-page">
       <section className="join-card" aria-labelledby="join-title">
         <div className="join-brand" aria-label="Cultivate Study">
-          <span className="join-brand-mark" aria-hidden="true">✦</span>
-          <span>Cultivate Study</span>
+          <img className="join-brand-logo" src="/new/assets/cultivate-logo.svg" alt="" aria-hidden="true" />
+          <span>Cultivate</span>
         </div>
 
-        <div className="join-hero-icon" aria-hidden="true">⌂</div>
+        <div className="join-hero-icon" aria-hidden="true">↗</div>
         <p className="join-eyebrow">You’re invited</p>
         <h1 id="join-title">Study together in Cultivate</h1>
         <p className="join-copy">Join this scripture study group in Cultivate.</p>
@@ -110,7 +110,7 @@ export default function JoinPage() {
 
         <p className="join-fallback">
           <strong>Cultivate not installed yet?</strong><br />
-          Cultivate is coming soon. Save this invitation and use the code when you install the app.
+          <a href="/new/download/">Get Cultivate</a>, then return to this invitation. Keep the join code above as a fallback.
         </p>
         {copyState === 'failed' && (
           <p className="join-status" role="status">Copy didn’t work — press and hold the code to copy it.</p>
