@@ -67,3 +67,79 @@
   .early-panel{padding:28px;border-radius:22px}
   .subpage-footer-grid{grid-template-columns:1fr}
 }
+
+
+/* Hybrid subpages: editorial layouts with original Cultivate navy/paper/teal contrast. */
+.subpage-hero{
+  color:#fff;
+  position:relative;
+  isolation:isolate;
+}
+.subpage-hero:before{
+  content:'';
+  position:absolute;
+  z-index:-1;
+  top:0;
+  bottom:0;
+  left:50%;
+  width:100vw;
+  transform:translateX(-50%);
+  background:
+    radial-gradient(circle at 80% 12%,rgba(16,198,180,.17),transparent 30%),
+    linear-gradient(180deg,#07111f,#091623 78%,#0b1824);
+}
+.subpage-hero h1 em{color:#75dfd3}
+.subpage-hero .lede{color:#c9d2d9}
+.subpage-hero .button.secondary{
+  color:#fff;
+  border-color:rgba(255,255,255,.18);
+  background:rgba(255,255,255,.05);
+}
+.subpage-hero .platform-note{color:#90a0ab}
+.subpage-visual{
+  background:rgba(255,255,255,.06);
+  border-color:rgba(255,255,255,.12);
+  box-shadow:0 30px 80px rgba(0,0,0,.25);
+}
+.subpage-hero .shot-slot{
+  background:linear-gradient(145deg,#fff,#eef3ef);
+  color:var(--ink);
+  border-color:#dce1de;
+}
+
+.subpage-section{background:var(--surface)}
+.subpage-section.alt{background:#fbfaf6}
+.subpage-section.sage{
+  background:
+    radial-gradient(circle at 82% 10%,rgba(16,198,180,.12),transparent 30%),
+    linear-gradient(180deg,#07111f,#091623);
+}
+.subpage-section.sage .eyebrow{color:#75dfd3}
+.subpage-section.sage p{color:#b9c5cd}
+
+.use-case-band{background:#eef2ef}
+.early-panel{
+  background:linear-gradient(180deg,#07111f,#091623);
+  box-shadow:0 28px 80px rgba(4,13,23,.18);
+}
+.early-panel .early-badge{background:rgba(16,198,180,.12);color:#8ce4da}
+.early-panel h2 em{color:#75dfd3}
+.early-panel p{color:#c9d2d9}
+
+.subpage-cta{background:#eef3ef}
+.subpage-footer{
+  background:#07111f;
+  color:#d6e0e5;
+}
+.subpage-footer .footer-brand p,
+.subpage-footer nav,
+.subpage-footer .footer-bottom p,
+.subpage-footer .footer-bottom span{color:#81919b}
+.subpage-footer nav h3{color:#d6e0e5}
+.subpage-footer a{color:#c6d0d7}
+.subpage-footer a:hover{color:#69d8cd}
+
+.route-card,.scenario-card,.process-card{background:#fff;border-color:#dce1de}
+.feature-list div{background:#fff;border-color:#dce1de}
+.shot-slot{background:linear-gradient(145deg,#fff,#f2f5f3);border-color:#cbd7d3}
+.process-number{background:#e5ece7;color:#4e8678}
