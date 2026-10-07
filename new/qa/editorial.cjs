@@ -90,8 +90,20 @@ const normalizedHtml = value => value.toString().replace(/\r/g, '').replace(/<sc
       await context.close();
     }
     const context=await browser.newContext();
-    for(const route of productionRoutes){const url=new URL('../'+route,base);const response=await context.request.get(url.href);assert.equal(response.status(),200,url.href);const local=await fs.readFile(path.join(root,'dist',route,'index.html'));assert.equal(createHash('sha256').update(normalizedHtml(await response.body())).digest('hex'),createHash('sha256').update(normalizedHtml(local)).digest('hex'),url.href);}
-    for(const route of detailRoutes)assert.equal((await context.request.get(new URL(route,base).href)).status(),200,route);
+    for(const route of productionRoutes){
+      const url=new URL('../'+route,base);
+      const response=await context.request.get(url.href);
+      assert.equal(response.status(),200,url.href);
+      const body=await response.body();
+      assert(!body.toString().includes('/new/posthog.js'),`PostHog staging loader leaked into production route: ${url.href}`);
+      const local=await fs.readFile(path.join(root,'dist',route,'index.html'));
+      assert.equal(createHash('sha256').update(normalizedHtml(body)).digest('hex'),createHash('sha256').update(normalizedHtml(local)).digest('hex'),url.href);
+    }
+    for(const route of detailRoutes){
+      const response=await context.request.get(new URL(route,base).href);
+      assert.equal(response.status(),200,route);
+      assert((await response.text()).includes('/new/posthog.js'),`Missing PostHog loader: ${route}`);
+    }
 
     const joinPage=await context.newPage();
     const secureToken='a'.repeat(64);
@@ -110,6 +122,6 @@ const normalizedHtml = value => value.toString().replace(/\r/g, '').replace(/<sc
 
     await context.close();
     await fs.writeFile(path.join(output,'results.json'),JSON.stringify({results,productionRoutes,detailRoutes,joinInvite:true},null,2));
-    console.log('PASS production routes, twenty /new/ review routes, and secure /new/join invite smoke test; production HTML matches build after normalizing line endings and hosting analytics');
+    console.log('PASS production routes, /new/ PostHog boundary, twenty /new/ review routes, and secure /new/join invite smoke test; production HTML matches build after normalizing line endings and hosting analytics');
   } finally { await browser.close(); }
 })().catch(error=>{console.error(error);process.exitCode=1});
