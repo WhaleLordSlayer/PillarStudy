@@ -1,5 +1,19 @@
 # Full marketing site QA — October 6, 2026
 
+Current homepage QA — October 7, 2026: the Stitch-based React homepage is verified with `node new/qa/editorial.cjs`, not the previous homepage's tab-based tests below. Build and `npx tsc --noEmit -p new/tsconfig.json` pass. Browser checks pass at 390, 768, 1440, and 1920px, including direct load/refresh, three visible device mockups, navigation, menu, skip link, overflow/bounds, internal links, content checks, and console/network. Eight existing production routes and eight existing detail routes load; production source is unchanged. Reviewed full desktop/mobile/tablet and per-section/footer screenshots in ../PillarStudy-QA/stitch-built/. STITCH-REVIEW.md contains the full current report. Everything below records earlier iterations.
+
+## Botanical redesign follow-up
+
+Positioning follow-up: families/classes, Study Spaces, and shared lessons now lead the hero, navigation, and homepage sections. Explorer follows with offline, source-backed discovery and no AI-generated commentary in the app. Removed the homepage Builder screenshot; sharing and Live precede Builder on the Lessons page. Production build, lint, and strict image audit pass (13 image elements); browser evidence for the revised hierarchy is in ../PillarStudy-QA/people-built.
+
+Palette follow-up: inspected the actual published main site's screenshot and computed colors, then aligned /new/ to its navy, teal, paper, and neutral supporting palette. All page heroes, buttons, dark sections, decorative motifs, and footer colors follow that palette. Production evidence for this pass is in ../PillarStudy-QA/palette-built.
+
+The new homepage introduces a botanical hero, an accessible interactive feature chooser, distinct feature compositions, and a shared visual update across all nine pages. Source notes are in DESIGN.md. The prior publication described below remains historical; this follow-up has not been deployed.
+
+Production build and lint pass (lint retains pre-existing warnings in unrelated files). Strict Pillow audit passes for all 14 image elements. Production browser QA passes on all nine routes at 1440, 1280, 1024, 768, 430, and 390px: images, image hashes, links, overflow, skip link, mobile menus, section anchors, FAQ controls, console, and network. Added click and keyboard checks for all five homepage tabs, including wraparound, Home, End, selected state, and destination links. Image aspect-ratio measurement now uses computed dimensions because transformed bounding rectangles measure the rotation, not the image's proportions.
+
+Evidence: ../PillarStudy-QA/garden-built. Visually reviewed desktop homepage and Lessons, mobile homepage, feature chooser, and Download. Removed decorative ring overflow and corrected whitespace when mobile paragraph line breaks disappear. No product screenshots were synthesized. Homepage group/topic illustrations replace its old pending screenshot slots; detail-page capture slots remain.
+
 ## Scope and outcome
 
 Nine coherent static pages under /new/: Home, Lessons, Study groups, Explorer, Reader, Topical Guide, More to explore, Labs, and Download. Each page uses the shared editorial style, self-hosted fonts, navigation, conversion CTA, and legal footer. The build registers every route explicitly in vite.config.ts; direct links do not depend on an SPA fallback. No site JavaScript is needed for the menu or FAQ controls.

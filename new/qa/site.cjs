@@ -36,7 +36,8 @@ const localAssets = path.resolve(__dirname, '../assets');
         const images = [];
         for (const img of await page.locator('img').all()) {
           await img.scrollIntoViewIfNeeded();
-          images.push(await img.evaluate(async img => { await img.decode(); const r=img.getBoundingClientRect(); return { src: img.src, width: img.naturalWidth, height: img.naturalHeight, displayedWidth: r.width, displayedHeight: r.height, alt: img.alt }; }));
+          // CSS rotation expands bounding rectangles; computed sizes measure the image itself.
+          images.push(await img.evaluate(async img => { await img.decode(); const s=getComputedStyle(img); return { src: img.src, width: img.naturalWidth, height: img.naturalHeight, displayedWidth: parseFloat(s.width), displayedHeight: parseFloat(s.height), alt: img.alt }; }));
         }
         for (const img of images) {
           assert(img.width > 0 && img.height > 0 && img.alt);
@@ -70,6 +71,24 @@ const localAssets = path.resolve(__dirname, '../assets');
           await page.waitForFunction(id=>Math.abs(document.querySelector(id).getBoundingClientRect().top-24)<3,href);
         }
         if(route==='download/') for(const summary of await page.locator('.download-faq summary').all()) {await summary.click();assert(await summary.evaluate(el=>el.parentElement.open));await summary.click();}
+        if(route==='') {
+          const tabs=page.getByRole('tab');
+          assert.equal(await tabs.count(),5);
+          for(const tab of await tabs.all()) {
+            await tab.click();
+            assert.equal(await tab.getAttribute('aria-selected'),'true');
+            const key=await tab.getAttribute('data-path');
+            assert((await page.locator('[data-path-link]').getAttribute('href')).endsWith(`/${key}/`));
+            assert.equal(await page.getByRole('tab',{selected:true}).count(),1);
+          }
+          await tabs.last().focus();
+          await page.keyboard.press('ArrowRight');
+          assert.equal(await tabs.first().getAttribute('aria-selected'),'true');
+          await page.keyboard.press('End');
+          assert.equal(await tabs.last().getAttribute('aria-selected'),'true');
+          await page.keyboard.press('Home');
+          assert.equal(await tabs.first().getAttribute('aria-selected'),'true');
+        }
         for(const href of await page.locator('a:not([href^="#"])').evaluateAll(xs=>[...new Set(xs.map(x=>x.href))])) links.add(href);
         assert.equal(await page.locator('video').count(),0);
         assert(!await page.locator('main').evaluate(el=>/[\u00c2\u00c3\ufffd]/.test(el.innerText)));

@@ -1,11 +1,15 @@
 # Cultivate marketing site direction
 
+Publication authorization — October 7, 2026: the user explicitly approved pushing the reviewed site to the real site under `/new/`. This supersedes the earlier deployment restriction below. Keep the production homepage and existing production routes intact.
+
+Current homepage direction — October 7, 2026: the user's pasted Stitch brief supersedes the earlier homepage layout, palette, and no-concept-mockup instruction below. Implement only the `/new/` homepage and reusable design system in this pass. Stitch is the visual reference, not the product source. Study / Together / Teach lead the cream/sage/terracotta editorial page. Conceptual product views are authorized, must use real Cultivate concepts, and must be labelled. Shared participation and Live need cautious availability language. Do not merge, deploy, replace production, or build new deep pages. See STITCH-REVIEW.md for current implementation, deviations, validation, and PM review items. Earlier notes below document the previous iteration and existing detail pages.
+
 User direction — October 6, 2026.
 
 The site’s goal is to bring people into the app. Homepage priorities:
-1. Shareable Lessons
-2. Study groups
-3. Scripture Explorer
+1. Connect families, friends, and classes through Study groups and Shared lessons. Lesson Builder is a supporting tool, not the lead product story.
+2. Deep, offline scripture discovery with no AI in the app: Scripture Explorer and source-backed references.
+3. Shared lessons for Live and self-paced participation; keep Reading Study Spaces and Lesson Channels distinct.
 4. Modern reader: Chapter and Scroller
 5. Topical Guide
 
