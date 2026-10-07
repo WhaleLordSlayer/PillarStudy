@@ -7,7 +7,7 @@ const base = process.env.QA_URL || 'http://127.0.0.1:8765/new/';
 const output = process.env.QA_OUTPUT || path.resolve(__dirname, '../../../PillarStudy-QA/stitch-built');
 const root = path.resolve(__dirname, '../..');
 const productionRoutes = ['', 'join/', 'privacy/', 'account-deletion/', 'beta/', 'explorer/', 'topical-guide/', 'new-site/'];
-const detailRoutes = ['study/', 'together/', 'teach/', 'channels/', 'live/', 'lessons/', 'groups/', 'explorer/', 'reader/', 'topical-guide/', 'more/', 'labs/', 'download/'];
+const detailRoutes = ['study/', 'together/', 'teach/', 'channels/', 'live/', 'lessons/', 'groups/', 'explorer/', 'reader/', 'topical-guide/', 'more/', 'labs/', 'labs/explorer/', 'labs/topical-guide/', 'privacy/', 'account-deletion/', 'beta/', 'join/', 'download/'];
 // Hosting injects a versioned analytics beacon; Linux builds also normalize line endings.
 const normalizedHtml = value => value.toString().replace(/\r/g, '').replace(/<script\b[^>]*src="https:\/\/static\.cloudflareinsights\.com\/[^\"]*"[^>]*>[\s\S]*?<\/script>\n?/g, '');
 (async () => {
@@ -95,14 +95,14 @@ const normalizedHtml = value => value.toString().replace(/\r/g, '').replace(/<sc
 
     const joinPage=await context.newPage();
     const secureToken='a'.repeat(64);
-    const validJoin=new URL(`../join/?code=ABC123&inviteToken=${secureToken}`,base);
+    const validJoin=new URL(`join/?code=ABC123&inviteToken=${secureToken}`,base);
     assert.equal((await joinPage.goto(validJoin.href)).status(),200);
     await joinPage.getByRole('heading',{name:'Study together in Cultivate'}).waitFor();
     assert.equal((await joinPage.locator('.join-code').innerText()).trim(),'ABC123');
     assert(await joinPage.getByRole('button',{name:'Open Cultivate'}).isVisible());
     assert(await joinPage.getByRole('link',{name:'Get Cultivate'}).isVisible());
 
-    const incompleteJoin=new URL('../join/?code=ABC123',base);
+    const incompleteJoin=new URL('join/?code=ABC123',base);
     assert.equal((await joinPage.goto(incompleteJoin.href)).status(),200);
     assert((await joinPage.locator('h1').innerText()).includes('incomplete'));
     assert.equal((await joinPage.locator('.join-code').innerText()).trim(),'ABC123');
@@ -110,6 +110,6 @@ const normalizedHtml = value => value.toString().replace(/\r/g, '').replace(/<sc
 
     await context.close();
     await fs.writeFile(path.join(output,'results.json'),JSON.stringify({results,productionRoutes,detailRoutes,joinInvite:true},null,2));
-    console.log('PASS production routes, thirteen /new/ routes, and secure Study Space join-link smoke test; production HTML matches build after normalizing line endings and hosting analytics');
+    console.log('PASS production routes, nineteen /new/ review routes, and secure /new/join invite smoke test; production HTML matches build after normalizing line endings and hosting analytics');
   } finally { await browser.close(); }
 })().catch(error=>{console.error(error);process.exitCode=1});
