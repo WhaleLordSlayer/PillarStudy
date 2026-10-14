@@ -12,6 +12,7 @@ export default defineConfig({
       input: {
         main: resolve(projectRoot, 'index.html'),
         join: resolve(projectRoot, 'join/index.html'),
+        lesson: resolve(projectRoot, 'lesson/index.html'),
         privacy: resolve(projectRoot, 'privacy/index.html'),
         accountDeletion: resolve(projectRoot, 'account-deletion/index.html'),
         beta: resolve(projectRoot, 'beta/index.html'),

@@ -1,0 +1,39 @@
+/* The lesson invitation reuses the join page's card (../join/join.css). */
+.lesson-secondary-button {
+  display: inline-flex;
+  width: 100%;
+  margin-top: 12px;
+  padding: 14px 20px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--glass-border-strong);
+  border-radius: 14px;
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-decoration: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.lesson-secondary-button:hover { background: var(--glass-mid); }
+
+.lesson-privacy {
+  margin-top: 22px;
+  color: var(--text-tertiary);
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.lesson-steps {
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.lesson-steps li + li { margin-top: 8px; }
+.lesson-steps strong { color: var(--text-primary); }
