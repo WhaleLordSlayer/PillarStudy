@@ -1,0 +1,2314 @@
+{
+ "/": {
+  "hash": "66e9e487cafb27c2",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/study/": {
+  "hash": "7c4808921be35696",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/connect/": {
+  "hash": "444acf049888b477",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/teach/": {
+  "hash": "e4a46f7e1d197339",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/download/": {
+  "hash": "0becc95ab822ded3",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/404.html": {
+  "hash": "38980ec47117be1f",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/explorer/": {
+  "hash": "eaa958598dda588c",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/about/": {
+  "hash": "54b47129a2d0d309",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/search/": {
+  "hash": "fc33495d0b2bda91",
+  "lastmod": "2026-10-16T19:20:41.318Z"
+ },
+ "/explorer/people/": {
+  "hash": "02644962e461672b",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/": {
+  "hash": "51ea957561949d55",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/explorer/events/": {
+  "hash": "f0c6727d677601a4",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/explorer/groups/": {
+  "hash": "ef4f3062b87afa01",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/explorer/people/aaron-son-of-mosiah/": {
+  "hash": "cfd6f76be85c9a93",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/abinadi/": {
+  "hash": "f1f17332b6522a49",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/abish/": {
+  "hash": "39534fe41ea5907f",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/akish/": {
+  "hash": "0ade931ef64c8c10",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/alma-the-elder/": {
+  "hash": "1ecba118c55dfecf",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/alma-the-younger/": {
+  "hash": "d42aa58b95ef9227",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/amalickiah/": {
+  "hash": "3695fda1dca55399",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/amlici/": {
+  "hash": "3d85031cf0e1aaa6",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/ammaron/": {
+  "hash": "23991d0a850c91bc",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/ammon-son-of-mosiah/": {
+  "hash": "5243ae9f301ae45d",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/ammon-zarahemla-explorer/": {
+  "hash": "edda982935e5573b",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/ammoron/": {
+  "hash": "1a011bcdf8499ae8",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/amulek/": {
+  "hash": "c8ab48c73cc41c89",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/amulon/": {
+  "hash": "60d5b75d69cc7a57",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/anti-nephi-lehi/": {
+  "hash": "9899be7da28f33a2",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/brother-of-jared/": {
+  "hash": "07375b269ac2fbe7",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/captain-moroni/": {
+  "hash": "961c3523b703a1be",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/corianton/": {
+  "hash": "5d5e6c4aaaaad616",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/coriantumr-final-jaredite-king/": {
+  "hash": "369c484368a7e253",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/coriantumr-nephite-commander/": {
+  "hash": "95ac220c6ea76fba",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/daughter-of-jared/": {
+  "hash": "dbdd57f5d9d1b4ba",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/ether/": {
+  "hash": "afe0c5bd04723e35",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/father-of-lamoni/": {
+  "hash": "5df2ee259efe1323",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/gadianton/": {
+  "hash": "49421e9bf10c4aeb",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/giddianhi/": {
+  "hash": "85ab0e022f45fc79",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/gideon/": {
+  "hash": "450ffe4655a60636",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/gidgiddoni/": {
+  "hash": "7513aa277d207c47",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/groups/amalekites/": {
+  "hash": "4ab978444ffe64bb",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/groups/amalickiahites/": {
+  "hash": "74c04289a04c6b16",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/groups/amlicites/": {
+  "hash": "6b97656a50e50a42",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/groups/amulonites/": {
+  "hash": "c6ebbcce2f3c5440",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/groups/anti-nephi-lehies/": {
+  "hash": "19da8807ab33cd19",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/groups/church-of-christ/": {
+  "hash": "4918c455b866a4fa",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/groups/freemen/": {
+  "hash": "6c743f9e4c2f332b",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/groups/gadianton-robbers/": {
+  "hash": "8e9169b6e4c180f4",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/groups/jaredites/": {
+  "hash": "6031bbc4575c2e80",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/groups/king-men/": {
+  "hash": "8a90b7c800234cba",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/groups/lamanites/": {
+  "hash": "d4b82636872a126b",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/groups/nephites/": {
+  "hash": "32bf1e4b6ee33c7d",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/groups/the-people-of-akish/": {
+  "hash": "f4b079408d11a3de",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/groups/the-people-of-lehi/": {
+  "hash": "f2601feb3adbf059",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/groups/priests-of-noah/": {
+  "hash": "9f8fb2bb4b53de05",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/groups/zoramites/": {
+  "hash": "37caf8b797331b72",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/groups/stripling-warriors/": {
+  "hash": "866cae0201b235ff",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/helaman-son-of-alma/": {
+  "hash": "2a9bdc4571f39793",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/helaman-son-of-helaman/": {
+  "hash": "fba68eed86be0de2",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/ishmael/": {
+  "hash": "a35d018576dbc8c8",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/jacob-son-of-lehi/": {
+  "hash": "e8dbc10fd5c09064",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/jared-jaredite-founder-brother-of-the-brother-of-jared/": {
+  "hash": "a8aa484d04c79080",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/jared-son-of-omer/": {
+  "hash": "d6cbb076ba467be5",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/jesus-christ/": {
+  "hash": "d188c110412f75ad",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/joseph-son-of-lehi/": {
+  "hash": "80aba3e07653fc23",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/king-benjamin/": {
+  "hash": "8e3c88dae2868ebc",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/king-lamoni/": {
+  "hash": "ef6a77fd93f30f50",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/king-noah/": {
+  "hash": "57a0deadcfcecf87",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/kishkumen/": {
+  "hash": "10bb1145b16372a8",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/korihor/": {
+  "hash": "5af1eb4c170e0d79",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/laban/": {
+  "hash": "d2af831799136c37",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/lachoneus/": {
+  "hash": "cd9bb46bdddcc72e",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/laman/": {
+  "hash": "2047bfb2fe4c1380",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/lehi-nephite-captain/": {
+  "hash": "e2f06479a48efc7c",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/lehi-patriarch/": {
+  "hash": "71d73834441c5fd5",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/lehi-son-of-helaman/": {
+  "hash": "2fb4b673993e1833",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/lemuel/": {
+  "hash": "5ad13e7d8ad21411",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/limhi/": {
+  "hash": "aa8e279a807660d7",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/mormon/": {
+  "hash": "81d60f7311f429c7",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/moroni-son-of-mormon/": {
+  "hash": "a6d649c035a66981",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/mosiah-ii/": {
+  "hash": "7f669c70b187c835",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/nehor/": {
+  "hash": "62816f18ef23ec4c",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/nephi-disciple-of-christ/": {
+  "hash": "e9116d730d315b52",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/nephi-son-of-helaman/": {
+  "hash": "ac05edbc4471eecf",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/nephi-son-of-lehi/": {
+  "hash": "5d7e17f1a8ecc5b2",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/omer/": {
+  "hash": "fb9357f588466747",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/aaron-teaches-lamoni-s-father/": {
+  "hash": "c009dc1146e36c83",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/aaron-preaches-and-is-imprisoned-at-middoni/": {
+  "hash": "640dac417dda23f5",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/abinadi-testifies-before-noah-and-his-priests/": {
+  "hash": "3660044d7b0874a3",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/abinadi-prophesies-against-noah-and-is-sought/": {
+  "hash": "9556e6693722a895",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/abinadi-condemned-and-put-to-death/": {
+  "hash": "109f4355932095b2",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/abish-gathers-the-people-during-lamoni-s-conversion/": {
+  "hash": "737e5ba4cfffab7d",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/akish-civil-war-and-omer-s-restoration/": {
+  "hash": "adf754ef3a8a245c",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/jared-s-rebellion-and-akish-s-secret-combination/": {
+  "hash": "308f668ab54801b3",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/alma-and-amulek-preach-in-ammonihah-and-confront-zeezrom/": {
+  "hash": "00e2bea10c4dc2f2",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/alma-and-amulek-preach-as-the-church-spreads-throughout-the-land/": {
+  "hash": "572a3d686cb17e30",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/alma-and-amulek-are-delivered-from-prison/": {
+  "hash": "2446c1748b2913b5",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/alma-believes-abinadi-and-flees-from-noah/": {
+  "hash": "7c12d13444d6413c",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/alma-counsels-corianton/": {
+  "hash": "ebbcf8a1d224cf31",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/alma-departs-and-helaman-assumes-responsibility-for-the-church/": {
+  "hash": "0fac7db2b55642ea",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/alma-s-people-journey-to-and-settle-helam/": {
+  "hash": "24a1a04d7a011e9a",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/alma-preaches-in-melek-and-is-rejected-at-ammonihah/": {
+  "hash": "56744e12719a1ffb",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/alma-ministers-to-the-people-of-gideon/": {
+  "hash": "a318580afdbd0db0",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/alma-preaches-and-sets-the-church-in-order-at-zarahemla/": {
+  "hash": "11c122ffa6e8949f",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/alma-s-people-in-bondage-under-amulon-and-lamanites/": {
+  "hash": "ffdb5462f7062775",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/the-lord-delivers-alma-s-people-from-bondage/": {
+  "hash": "a7847b7da9b8fe41",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/alma-s-people-return-and-are-received-in-zarahemla/": {
+  "hash": "4e1924fed0128993",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/alma-relinquishes-the-judgment-seat-to-focus-on-preaching/": {
+  "hash": "e6b169bed76c74ae",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/an-angel-sends-alma-back-to-ammonihah-where-he-meets-amulek/": {
+  "hash": "34b838ef3b0867c8",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/alma-baptizes-at-the-waters-of-mormon/": {
+  "hash": "601de4a052434100",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/conversion-of-alma-the-younger-and-the-sons-of-mosiah/": {
+  "hash": "2f5222005e0a4ba1",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/amalickiah-captures-nephite-cities-along-the-east-coast/": {
+  "hash": "d703fc9002e27dba",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/amalickiah-seizes-the-lamanite-kingdom/": {
+  "hash": "76a8d9d66e6b2833",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/amlicite-rebellion-and-battle/": {
+  "hash": "40626b14ebe4ccf9",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/ammaron-hides-the-records-and-commissions-mormon/": {
+  "hash": "3f4bfecc801fb39b",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/ammon-s-expedition-discovers-limhi-s-people/": {
+  "hash": "ddb12c444977a5e7",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/ammon-serves-lamoni-and-defends-the-flocks-at-sebus/": {
+  "hash": "24b60c5a95e8fffc",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/ammon-teaches-king-lamoni/": {
+  "hash": "699343511ad534a2",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/believers-are-expelled-and-families-and-scriptures-are-burned/": {
+  "hash": "7eb84259434ebd87",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/nephite-forces-recover-the-captives-after-consulting-alma/": {
+  "hash": "1c0878d72d4b1a7b",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/lamanite-armies-destroy-ammonihah/": {
+  "hash": "10d9ea4aab532a57",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/explorer/events/converted-community-migrates-and-the-missionaries-reunite-with-alma/": {
+  "hash": "6e0236fdb9a23967",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/persecution-leads-the-converted-community-to-leave-nephi/": {
+  "hash": "00495f61a8a39139",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/anti-nephi-lehies-refuse-resistance-and-attackers-repent/": {
+  "hash": "1098a507fc3b7d4e",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/explorer/events/anti-nephi-lehi-succeeds-his-father-as-king/": {
+  "hash": "9ed37776fc001854",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/anti-nephi-lehies-covenant-against-bloodshed/": {
+  "hash": "de820d7650c754e1",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/converted-community-takes-the-name-anti-nephi-lehies/": {
+  "hash": "be432f4ac5a612f2",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/lehi-s-company-arrives-at-bountiful/": {
+  "hash": "8c1f7a83dc0101bb",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/sons-of-lehi-obtain-the-brass-plates-from-laban/": {
+  "hash": "4b9f38e02b08fa70",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/nephi-returns-with-the-brass-plates-and-zoram/": {
+  "hash": "4c7dbdefc356ff43",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/divine-chastening-barge-preparation-and-mount-shelem-theophany/": {
+  "hash": "538c52cf8a5085af",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/captain-moroni-raises-the-title-of-liberty-against-amalickiah-s-rebellion/": {
+  "hash": "74680095f18c49c7",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/jesus-christ-s-first-visitation-at-bountiful/": {
+  "hash": "2b16c7904657665f",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/the-sign-of-christ-s-birth-fulfills-samuel-s-prophecy/": {
+  "hash": "ba5862f739af73c7",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/great-destruction-and-darkness-at-christ-s-death/": {
+  "hash": "4aab4f3766a65e01",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/explorer/events/jesus-christ-appears-again-to-the-disciples/": {
+  "hash": "977f1ad54dcb8e4d",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/jesus-christ-s-second-visitation-and-three-day-ministry/": {
+  "hash": "8acc984975b6ba8d",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/the-voice-of-christ-speaks-in-the-darkness/": {
+  "hash": "135d3fad5c869653",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/wars-of-shared-gilead-and-lib/": {
+  "hash": "f1c6795ab8a6a4c8",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/coriantumr-captures-zarahemla-and-is-defeated/": {
+  "hash": "6cb60419301ec555",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/corihor-s-rebellion-and-shule-s-restoration/": {
+  "hash": "9af10ba0598d9247",
+  "lastmod": "2026-10-16T19:20:41.318Z"
+ },
+ "/explorer/events/final-battle-of-cumorah/": {
+  "hash": "741a9199343ca1a3",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/lehi-s-family-departs-jerusalem-into-the-wilderness/": {
+  "hash": "269defba0df912cc",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/disciples-minister-and-the-church-of-christ-community-grows/": {
+  "hash": "d78f80b07a6d62c9",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/explorer/events/prosperity-under-emer-and-coriantum/": {
+  "hash": "facd0974ea16f1ec",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/explorer/events/ether-begins-his-prophetic-ministry/": {
+  "hash": "1cc6328cc99e7616",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/ether-is-rejected-and-warns-coriantumr/": {
+  "hash": "7250aff67d3220b0",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/nephi-s-famine-leads-the-people-to-repentance/": {
+  "hash": "84176e99fc8b4b27",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/gadianton-robbers-infiltrate-the-nephite-government/": {
+  "hash": "8d9992787aaa451e",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/explorer/events/gadianton-combinations-revive-as-society-collapses/": {
+  "hash": "9241fa2988380b5b",
+  "lastmod": "2026-10-16T19:20:41.318Z"
+ },
+ "/explorer/events/a-new-robber-band-adopts-gadianton-s-secret-plans/": {
+  "hash": "db4f70227da121ff",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/explorer/events/gadianton-siege-defeat-and-postwar-settlement/": {
+  "hash": "90f1e0a2e3f93d35",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/gadianton-robbers-resurge-and-war-spreads/": {
+  "hash": "c47053e30d393158",
+  "lastmod": "2026-10-16T19:20:41.318Z"
+ },
+ "/explorer/events/nephites-gather-at-cumorah-and-mormon-deposits-the-records/": {
+  "hash": "0f98c2c103443a0a",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/giddianhi-s-ultimatum-and-lachoneus-s-gathering/": {
+  "hash": "d529d7482323f297",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/gideon-confronts-noah-limhi-becomes-king/": {
+  "hash": "39d38e4827bd4557",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/hearthom-s-captive-line-com-and-renewed-robbers/": {
+  "hash": "90e442fff6b7a37e",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/explorer/events/helaman-s-army-gains-antiparah-and-cumeni/": {
+  "hash": "ed30c8021099a108",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/helaman-s-young-warriors-help-antipus-defeat-the-lamanites/": {
+  "hash": "e16feea825494cb1",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/northward-expansion-church-growth-and-nephi-succeeds-helaman/": {
+  "hash": "5bcc11eaa0e56ed7",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/helaman-s-forces-recover-manti-by-stratagem/": {
+  "hash": "0e00368d31558e6e",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/heth-s-usurpation-famine-and-poisonous-serpents/": {
+  "hash": "e15b0be6ef2a574f",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/explorer/events/ishmael-dies-and-is-buried-at-nahom/": {
+  "hash": "9686c6248705fc75",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/ishmael-s-family-joins-lehi-in-the-wilderness/": {
+  "hash": "1e6f419f2d2ebc65",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/great-tower-departure-and-wilderness-migration/": {
+  "hash": "075a11a63dc6fc42",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/establishment-of-jaredite-kingship-and-reign-of-orihah/": {
+  "hash": "216fdf4f97c71eb3",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/ocean-crossing-and-arrival-in-the-promised-land/": {
+  "hash": "d9c100c71f0f67a2",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/kim-through-lib-captivity-restoration-and-prosperity/": {
+  "hash": "c8a5c711eaa09d0a",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/explorer/events/king-benjamin-s-address-at-the-temple/": {
+  "hash": "7df7a9f0b2125915",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/moroni-suppresses-the-king-men-during-the-invasion-crisis/": {
+  "hash": "50be8bbd857321e6",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/kishkumen-s-plot-against-helaman-and-gadianton-s-escape/": {
+  "hash": "289cf9f8e91ea734",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/korihor-s-confrontation-with-alma/": {
+  "hash": "8d2472ba9dd48d98",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/lamanite-conquest-drives-the-nephites-to-bountiful/": {
+  "hash": "fe05b23d0e1342ec",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/lamanite-war-reaches-ammonihah-and-further-converts-join-the-community/": {
+  "hash": "9c97a223fa915f15",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/ammon-and-lamoni-encounter-lamoni-s-father/": {
+  "hash": "a739a382159e1a75",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/late-jaredite-kingdom-collapse-and-ether-s-birth/": {
+  "hash": "1c496dc3fe9e804b",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/lehi-s-prophetic-call-in-jerusalem/": {
+  "hash": "5be032f5bbd3ce77",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/lehi-s-tree-of-life-vision/": {
+  "hash": "feffcc0e8a595cee",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/lehi-s-company-crosses-the-ocean/": {
+  "hash": "598c4533b71e33ea",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/deliverance-of-limhi-s-people-from-bondage/": {
+  "hash": "0892cc5c3ce81788",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/limhi-s-people-in-lamanite-bondage/": {
+  "hash": "8e7f4cdfbdccc23a",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/missionaries-are-released-from-prison-at-middoni/": {
+  "hash": "fd99130491131a5f",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/mormon-obtains-the-plates-of-nephi/": {
+  "hash": "712ed628daff610e",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/mormon-refuses-to-lead-the-nephites/": {
+  "hash": "d8f810090e492b08",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/mormon-resumes-command-without-hope/": {
+  "hash": "18afe2e7be02ffd5",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/mormon-is-slain-and-moroni-continues-the-record/": {
+  "hash": "4cc7d236003e2181",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/mormon-takes-command-during-the-nephite-retreat/": {
+  "hash": "3d991f59ca9c3e17",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/mormon-s-youth-amid-war-and-spiritual-collapse/": {
+  "hash": "7cd63ea096ffb1c4",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/moroni-abridges-the-jaredite-record/": {
+  "hash": "1dc9e43f5bee7868",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/moroni-rejects-ammoron-s-terms-and-frees-the-prisoners-at-gid/": {
+  "hash": "ba43f1236b98f233",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/moroni-gives-his-final-exhortation-and-seals-the-record/": {
+  "hash": "27ea696ac5f7ce7a",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/moroni-fortifies-the-nephite-lands-and-repels-amalickiah-s-first-invasion/": {
+  "hash": "a6b42bd1242a0322",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/moroni-confronts-the-government-and-learns-pahoran-has-been-driven-out/": {
+  "hash": "5002a7d986ba416f",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/moroni-and-pahoran-defeat-the-rebels-and-restore-zarahemla/": {
+  "hash": "062d11d7c92e688b",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/moroni-retires-as-peace-returns-and-helaman-resumes-his-ministry/": {
+  "hash": "cc4d629a4cf38b76",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/moroni-survives-longer-than-expected-and-writes-more/": {
+  "hash": "b74d2773c28e21e2",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/mosiah-ii-begins-to-reign/": {
+  "hash": "246ec84e96a7ccb7",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/moroni-lehi-and-teancum-retake-mulek/": {
+  "hash": "758891a1a3ce3089",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/nehor-s-trial-and-death/": {
+  "hash": "093a292c89395158",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/nephi-s-broken-bow-and-the-food-crisis/": {
+  "hash": "9627bb38fa280b48",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/nephi-builds-a-ship-at-bountiful/": {
+  "hash": "2dcb51f616696c96",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/nephi-s-expanded-vision-of-the-tree-of-life/": {
+  "hash": "db652c3539e387a5",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/nephi-relinquishes-the-judgment-seat-and-preaches-with-lehi/": {
+  "hash": "03c1d16280399346",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/nephi-and-lehi-are-delivered-from-prison-and-lamanites-convert/": {
+  "hash": "97f6338b3f0c4acd",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/nephi-is-made-ruler-and-teacher/": {
+  "hash": "4ad10f6c3cec6f63",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/nephi-ministers-amid-the-tribal-division/": {
+  "hash": "6fee5600427cafd1",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/nephi-departs-and-entrusts-the-records-to-his-son/": {
+  "hash": "8d533b3012d25293",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/the-lord-grants-nephi-sealing-power/": {
+  "hash": "4afcf9c0e075f63a",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/nephi-preaches-from-his-tower-against-gadianton-corruption/": {
+  "hash": "71b05be08302fa5c",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/the-lamanites-capture-nephihah-as-moroni-waits-for-reinforcements/": {
+  "hash": "a7ccf32062a93370",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/moroni-and-pahoran-recover-nephihah-and-send-prisoners-to-the-people-of-ammon/": {
+  "hash": "bda6068b6b623ac6",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/nephite-collapse-accelerates-and-mormon-recovers-all-records/": {
+  "hash": "a5d87a08a5f889d2",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/prosperity-pride-and-collapse-of-nephite-government/": {
+  "hash": "583bc59840371355",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/explorer/events/lamanite-and-nephite-identities-re-emerge/": {
+  "hash": "de3820194f7011d7",
+  "lastmod": "2026-10-16T19:20:41.318Z"
+ },
+ "/explorer/events/separation-of-nephites-and-lamanites/": {
+  "hash": "c0fba43b5c0dd120",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/nephites-and-lamanites-become-one-people/": {
+  "hash": "a61dc0f80c92849b",
+  "lastmod": "2026-10-16T19:20:41.318Z"
+ },
+ "/explorer/events/noah-succeeds-zeniff-and-establishes-oppressive-rule/": {
+  "hash": "81da18d2ecfc260c",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/pahoran-succession-crisis/": {
+  "hash": "ed5bbd9003703e39",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/converted-community-settles-in-jershon-and-becomes-known-as-the-people-of-ammon/": {
+  "hash": "19a2a18db105f382",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/lehi-s-company-arrives-in-the-promised-land/": {
+  "hash": "8b1d759f9c960c15",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/gathering-at-ramah-and-destruction-of-the-jaredites/": {
+  "hash": "fd779237ce32ece9",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/mosiah-establishes-the-reign-of-the-judges/": {
+  "hash": "df80b4d2da029b5b",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/royal-protection-enables-widespread-lamanite-conversion/": {
+  "hash": "99eda43c9ce3c16b",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/samuel-the-lamanite-preaches-on-the-wall/": {
+  "hash": "5d895e567a540f9c",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/nephi-foretells-and-reveals-seezoram-s-murder/": {
+  "hash": "3493a867129fe8d7",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/nephites-defend-at-shem-and-make-a-territorial-treaty/": {
+  "hash": "2bdf840f1aeda57a",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/shez-riplakish-and-morianton/": {
+  "hash": "48a0b4e8d6a88c8e",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/explorer/events/shiz-s-war-of-destruction-against-coriantumr/": {
+  "hash": "5367045af14cd980",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/sons-of-mosiah-obtain-authorization-for-the-lamanite-mission/": {
+  "hash": "268fa58c06d961bb",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/missionaries-separate-at-the-lamanite-borders/": {
+  "hash": "0bac184bef86124a",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/the-sons-of-the-people-of-ammon-form-helaman-s-army/": {
+  "hash": "31b8aee4ab23eead",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/teancum-kills-amalickiah-and-ammoron-succeeds-him/": {
+  "hash": "ef8e92af1116431a",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/teancum-kills-ammoron-and-the-lamanite-armies-are-driven-out/": {
+  "hash": "888a56cf1e04a8ce",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/three-disciples-are-changed-and-begin-their-ministry/": {
+  "hash": "04188a28252e0ccc",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/explorer/events/lehi-s-company-camps-in-the-valley-of-lemuel/": {
+  "hash": "aad4c7a4a91446a2",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/lehi-s-company-travels-by-the-liahona/": {
+  "hash": "71c1d58633ff72bd",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/zeezrom-is-healed-and-the-church-is-established-at-sidom/": {
+  "hash": "651a9e6a9c2cb44e",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/zeniff-leads-expedition-from-zarahemla-toward-nephi/": {
+  "hash": "a371b7726123ad7d",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/zeniff-s-reign-and-defense-against-lamanites/": {
+  "hash": "9b0b21616bbc5ff4",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/moroni-and-lehi-defeat-zerahemnah-s-army/": {
+  "hash": "c5b3966dd28994e9",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/events/alma-and-companions-minister-to-the-zoramites-at-antionum/": {
+  "hash": "186182c8041cd8e4",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/paanchi/": {
+  "hash": "651a0794aee3da67",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/pahoran/": {
+  "hash": "29dafade852b6b61",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/pahoran-son-of-pahoran-pahoran-ii/": {
+  "hash": "200a6c29848a1a46",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/land-of-lehi-nephi/": {
+  "hash": "f63968760c4ff280",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/antiparah/": {
+  "hash": "728d0f77dbae3856",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/land-of-ishmael/": {
+  "hash": "cda0ad2618330748",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/city-of-zarahemla/": {
+  "hash": "1ae1582814d0a9a9",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/antum/": {
+  "hash": "1bc2dc2ba4ce4aca",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/land-of-moriancumer/": {
+  "hash": "086a77af1bc08511",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/city-of-jerusalem/": {
+  "hash": "3d152f2033df6edc",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/ripliancum/": {
+  "hash": "3b6af46bb40c7883",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/city-of-morianton/": {
+  "hash": "5ad003070fdfdd22",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/city-of-nephihah/": {
+  "hash": "0396ecbddd8d7aeb",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/cumorah/": {
+  "hash": "05e57bdcbff9b480",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/shazer/": {
+  "hash": "42e1c2234a443330",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/land-of-nephi/": {
+  "hash": "55a7b540a5d3e20d",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/waters-of-mormon/": {
+  "hash": "26f0a0630269645a",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/city-of-moroni/": {
+  "hash": "89bf59f48e73849f",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/land-of-manti/": {
+  "hash": "5ef8b34496023e27",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/land-of-noah/": {
+  "hash": "1e5e4bc5b00a887d",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/land-of-desolation/": {
+  "hash": "325f7eab6f7fd7bf",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/ogath/": {
+  "hash": "bfb1bc5e570b720f",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/valley-of-lemuel/": {
+  "hash": "ee072a400c06f847",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/hill-shim/": {
+  "hash": "6337a33ea7af82e2",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/city-of-noah/": {
+  "hash": "ca58490c5e8da654",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/city-of-manti/": {
+  "hash": "73033b5c33eeb53c",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/shelem/": {
+  "hash": "40bbe76b5b2880f7",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/gid-ii/": {
+  "hash": "f918f9d3ce58006f",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/waters-of-sebus/": {
+  "hash": "46c1f9a73f4b2e29",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/city-of-lemuel/": {
+  "hash": "8a85b8e2369bdfd1",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/melek/": {
+  "hash": "bc7efea44b32c6c5",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/land-of-moroni/": {
+  "hash": "d917def1bfaac1e7",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/city-of-shilom/": {
+  "hash": "b4c2c3050a0b3f94",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/city-of-jerusalem-ii/": {
+  "hash": "ecc1c2f22bcee817",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/city-of-helam/": {
+  "hash": "43bb5b25113470bc",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/city-of-judea/": {
+  "hash": "da1c762e7bd5dbe3",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/land-of-nehor/": {
+  "hash": "9f523d7c7622b5cf",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/explorer/places/land-of-zarahemla/": {
+  "hash": "971ac2d5a651a10d",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/middoni/": {
+  "hash": "71174a6e6f92a898",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/hill-cumorah/": {
+  "hash": "15371c78adb4a414",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/land-of-shemlon/": {
+  "hash": "f0ed82484d93f9ad",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/land-of-jerusalem/": {
+  "hash": "cfe4489213be3fab",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/city-of-bountiful/": {
+  "hash": "6d8fb857c46b06a4",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/nahom/": {
+  "hash": "d0a2ec42c880b877",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/jershon/": {
+  "hash": "46acd6c2a6a0d62b",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/city-of-nephi/": {
+  "hash": "41505c73c70ab3a4",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/land-of-gideon/": {
+  "hash": "1f4e6a6b0b222986",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/valley-of-nimrod/": {
+  "hash": "dd8d7e79b7e261e7",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/river-sidon/": {
+  "hash": "845c62b79743fa6c",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/city-of-omner/": {
+  "hash": "108ba529af60696e",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/city-of-ammonihah/": {
+  "hash": "43a9cc91f177c533",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/land-of-antionum/": {
+  "hash": "e2245ff3d61a013d",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/valley-of-gideon/": {
+  "hash": "482b4df481d72398",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/ani-anti/": {
+  "hash": "b73ba453f9efcedc",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/land-of-ammonihah/": {
+  "hash": "9858543ce9583193",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/midian/": {
+  "hash": "6c61f3e2605c38a3",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/cumeni/": {
+  "hash": "baea12d0a2ac3cf9",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/city-of-lehi/": {
+  "hash": "b6989f7ee7213408",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/moron/": {
+  "hash": "9349ce4bbe3b156e",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/city-of-lehi-nephi/": {
+  "hash": "ae7a21799b346d82",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/plains-of-agosh/": {
+  "hash": "0b25a34584875233",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/city-of-mulek/": {
+  "hash": "a9f5bc9bfb74ec4b",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/hill-ephraim/": {
+  "hash": "878c8d283767c3af",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/explorer/places/sidom/": {
+  "hash": "954564fad711852a",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/land-of-shilom/": {
+  "hash": "fd36a82d5dbe6b6c",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/land-of-bountiful-new-world/": {
+  "hash": "94c263ad5ad61c40",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/land-of-lehi-ii/": {
+  "hash": "d5fc44ef37afeebb",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/land-of-helam/": {
+  "hash": "139a075a8608d989",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/hill-riplah/": {
+  "hash": "40929e0f2791c3bd",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/places/bountiful-old-world/": {
+  "hash": "5e5a2fcbc84fe3f2",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/sam/": {
+  "hash": "645561954504461f",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/samuel-the-lamanite/": {
+  "hash": "a2b9d8cf5b40e686",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/sariah/": {
+  "hash": "14822ff57958b80f",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/shiblon/": {
+  "hash": "c4568635a0cba629",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/shiz/": {
+  "hash": "d8bf411436a03c41",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/teancum/": {
+  "hash": "454f96291a6df272",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/zeezrom/": {
+  "hash": "5a1ccd971330b384",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/zemnarihah/": {
+  "hash": "ef86fa97051c9cb5",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/zeniff/": {
+  "hash": "120a34a7140ed0c6",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/zerahemnah/": {
+  "hash": "190c010a77624943",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/explorer/people/zoram-servant-of-laban/": {
+  "hash": "4418de60682cd11c",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/": {
+  "hash": "b990227b68230794",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/": {
+  "hash": "e7b0eb8fc26e1075",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/1-nephi/": {
+  "hash": "9cbe7e0984ad815a",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/2-nephi/": {
+  "hash": "7853e24e743c6bbc",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/jacob/": {
+  "hash": "ae7c6382d8ecffb9",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/enos/": {
+  "hash": "1eda1bc39a5cb160",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/jarom/": {
+  "hash": "449d413d29c6b104",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/omni/": {
+  "hash": "8c79a3d9b2a329f0",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/words-of-mormon/": {
+  "hash": "b1f5b2d0a2143527",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/mosiah/": {
+  "hash": "7c6b7e65f230099e",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/alma/": {
+  "hash": "42996a123b1a2d0d",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/helaman/": {
+  "hash": "0d8811dc3f91dd37",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/3-nephi/": {
+  "hash": "9880467fcc8d644b",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/4-nephi/": {
+  "hash": "f3b59e973428ccc7",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/mormon/": {
+  "hash": "5e6978f5eaaf3aaf",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/ether/": {
+  "hash": "94f0353fabbddead",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/moroni/": {
+  "hash": "20e5d5e3da2316b9",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/1-nephi/1/": {
+  "hash": "f31f0daaf2ef2886",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/1-nephi/2/": {
+  "hash": "c9d60f0c3f05b2d2",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/1-nephi/3/": {
+  "hash": "73da6cc68bf4eeda",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/1-nephi/4/": {
+  "hash": "3d5dc7f666c80e8e",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/1-nephi/5/": {
+  "hash": "51a678dab4c5de09",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/1-nephi/6/": {
+  "hash": "bdd439f5c6f98cb7",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/1-nephi/7/": {
+  "hash": "8c9a4e4b1818fd93",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/1-nephi/8/": {
+  "hash": "8ff62670e3efe144",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/1-nephi/9/": {
+  "hash": "fb9a98de30888bd1",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/1-nephi/10/": {
+  "hash": "6e7611749ff7a043",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/1-nephi/11/": {
+  "hash": "ad4515a1c2cb92e2",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/1-nephi/12/": {
+  "hash": "1f8be1a7517f5f57",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/1-nephi/13/": {
+  "hash": "be8ee55bd462e9f6",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/1-nephi/14/": {
+  "hash": "424798123372a54c",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/1-nephi/15/": {
+  "hash": "0f4bfa666684757b",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/1-nephi/16/": {
+  "hash": "439f99244cd6865d",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/1-nephi/17/": {
+  "hash": "8508ca5a83b0e3c7",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/1-nephi/18/": {
+  "hash": "75062e1101963033",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/1-nephi/19/": {
+  "hash": "3d85de33dfe9bea3",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/1-nephi/20/": {
+  "hash": "bfd980b3b4d65415",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/1-nephi/21/": {
+  "hash": "0b7e6225b28a0f24",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/1-nephi/22/": {
+  "hash": "2345e71692005bcc",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/2-nephi/1/": {
+  "hash": "7190dc1fd7c7c441",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/2-nephi/2/": {
+  "hash": "5879b65c827cff1c",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/2-nephi/3/": {
+  "hash": "4447fe96a9265f4c",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/2-nephi/4/": {
+  "hash": "677753111d481ce2",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/2-nephi/5/": {
+  "hash": "616dbcc91c8893d4",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/2-nephi/6/": {
+  "hash": "a0f28330c8b634a1",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/2-nephi/7/": {
+  "hash": "d5d438aee3934607",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/2-nephi/8/": {
+  "hash": "6e9ac46d0370f899",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/2-nephi/9/": {
+  "hash": "b5273e7c64df2fe8",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/2-nephi/10/": {
+  "hash": "15cd05c5b450b85c",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/2-nephi/11/": {
+  "hash": "626c99d020e5d9fa",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/2-nephi/12/": {
+  "hash": "aceb7abf80dccfaa",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/2-nephi/13/": {
+  "hash": "f30b5bc180e3783b",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/2-nephi/14/": {
+  "hash": "7d436f69e497a64e",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/2-nephi/15/": {
+  "hash": "a5707a34fa925903",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/2-nephi/16/": {
+  "hash": "92e640362fb90cf3",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/2-nephi/17/": {
+  "hash": "792f0ad7bae1ae03",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/2-nephi/18/": {
+  "hash": "b68fc27d67044e30",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/2-nephi/19/": {
+  "hash": "1f0a6b8baccb4fb2",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/2-nephi/20/": {
+  "hash": "09122be33e4051c3",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/2-nephi/21/": {
+  "hash": "222574439d5f2562",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/2-nephi/22/": {
+  "hash": "c1d736d5ddf9f5e6",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/2-nephi/23/": {
+  "hash": "4bcc151266e9555b",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/2-nephi/24/": {
+  "hash": "e62cea5da3ce36fa",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/2-nephi/25/": {
+  "hash": "5ba9f8dc16f5b2e5",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/2-nephi/26/": {
+  "hash": "90efe3b56e05bb2c",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/2-nephi/27/": {
+  "hash": "17edbe58dad8d8c0",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/2-nephi/28/": {
+  "hash": "4bea1edf48d18fa4",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/2-nephi/29/": {
+  "hash": "61f099bd0976c000",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/2-nephi/30/": {
+  "hash": "e5e1efcdbd0b9109",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/2-nephi/31/": {
+  "hash": "5ee0b17abe2a65c1",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/2-nephi/32/": {
+  "hash": "0bb1b6e73ca3e358",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/2-nephi/33/": {
+  "hash": "73709d9c6c20f2aa",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/jacob/1/": {
+  "hash": "0fbc0b4b1d2a1321",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/jacob/2/": {
+  "hash": "0f43e4275008fae6",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/jacob/3/": {
+  "hash": "70a175fd576b9cc4",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/jacob/4/": {
+  "hash": "c463b6e6ac0a703d",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/jacob/5/": {
+  "hash": "087a9eeed9780d5d",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/jacob/6/": {
+  "hash": "71efc214c48a9cf7",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/jacob/7/": {
+  "hash": "f3a07f3ca8d9ebca",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/enos/1/": {
+  "hash": "f94556e8d2c1eb21",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/jarom/1/": {
+  "hash": "8cb6400f1e54131a",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/omni/1/": {
+  "hash": "120efb0fa857980e",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/words-of-mormon/1/": {
+  "hash": "417cf262064c3ee0",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mosiah/1/": {
+  "hash": "dd0481d2f5fb3f9c",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mosiah/2/": {
+  "hash": "01b16c3b1acc4f68",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mosiah/3/": {
+  "hash": "4fd623d58d1840b7",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mosiah/4/": {
+  "hash": "c64d492e40ddde1c",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mosiah/5/": {
+  "hash": "5cb95773e246872d",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mosiah/6/": {
+  "hash": "6cdf0a61cb914017",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mosiah/7/": {
+  "hash": "ec81adfa358fcf3e",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mosiah/8/": {
+  "hash": "d2a1dde6f7791cf8",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mosiah/9/": {
+  "hash": "6f4e004f281a308e",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mosiah/10/": {
+  "hash": "7fe086621d2ee38d",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mosiah/11/": {
+  "hash": "7979695a84769d82",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mosiah/12/": {
+  "hash": "c29bdea7203e8efc",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mosiah/13/": {
+  "hash": "0788e2de9bcfce48",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mosiah/14/": {
+  "hash": "61e707fc9bd26491",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/mosiah/15/": {
+  "hash": "31f51032d8d462d6",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mosiah/16/": {
+  "hash": "9e0ac4bc9868ddcd",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mosiah/17/": {
+  "hash": "9b9048263127220a",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mosiah/18/": {
+  "hash": "4457acf94ca43d6f",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mosiah/19/": {
+  "hash": "aa3760e4b8a1c2a6",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mosiah/20/": {
+  "hash": "841fff5d97e6a7d2",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mosiah/21/": {
+  "hash": "909508edb179e453",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mosiah/22/": {
+  "hash": "1608e537c233b61f",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mosiah/23/": {
+  "hash": "bb02f4f4484dd93b",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mosiah/24/": {
+  "hash": "85ec4cca716d6ce3",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mosiah/25/": {
+  "hash": "2e3f15a1e97dfd69",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mosiah/26/": {
+  "hash": "c55dedf09ab5a9eb",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mosiah/27/": {
+  "hash": "c1dc43be70034d99",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mosiah/28/": {
+  "hash": "043903bcc2d75d15",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mosiah/29/": {
+  "hash": "7d9765b9e970179d",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/1/": {
+  "hash": "05166e6a429031a2",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/2/": {
+  "hash": "495ff6082f45e5ea",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/3/": {
+  "hash": "60916c1e20808362",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/4/": {
+  "hash": "f4c3de53781878c9",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/5/": {
+  "hash": "e3b0d89614a39d9e",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/6/": {
+  "hash": "01fbb067be4e1927",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/7/": {
+  "hash": "6e7e34ae4b72a57c",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/alma/8/": {
+  "hash": "6f5f93f49f91ce09",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/9/": {
+  "hash": "8d98315ba1a34d48",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/10/": {
+  "hash": "cb86e19851ea1e36",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/11/": {
+  "hash": "01c8728935bc8c71",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/12/": {
+  "hash": "aacfa3e92ac9578d",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/13/": {
+  "hash": "19a8363e4811af7a",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/14/": {
+  "hash": "a9bb5424bf3693c8",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/15/": {
+  "hash": "5956ab0459e2dd0e",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/16/": {
+  "hash": "8f2769f85cd90916",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/17/": {
+  "hash": "a6984829c710d2cf",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/18/": {
+  "hash": "c02a7b54b089a996",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/19/": {
+  "hash": "18665d7f806a0aa0",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/20/": {
+  "hash": "2f86367cd3c844e1",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/21/": {
+  "hash": "99e0855479d506b8",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/22/": {
+  "hash": "6aa0420ae1f2b673",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/23/": {
+  "hash": "03e96355e490ee7e",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/24/": {
+  "hash": "265ad01017cb1c31",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/25/": {
+  "hash": "aac445a47a7ca4e8",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/26/": {
+  "hash": "49fe1391708c430c",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/alma/27/": {
+  "hash": "f9dd3705f6d7e96a",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/28/": {
+  "hash": "9475ec3a36121d39",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/alma/29/": {
+  "hash": "7809d53f6bec9ba8",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/alma/30/": {
+  "hash": "ceef61cecf237a3c",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/31/": {
+  "hash": "7deef7eaa04f7291",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/32/": {
+  "hash": "de36f0b2423289f8",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/33/": {
+  "hash": "9d0565bef359622a",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/34/": {
+  "hash": "40fe25ecb23e1111",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/35/": {
+  "hash": "e44752a03b66249f",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/36/": {
+  "hash": "d555b1ebfa8fe93a",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/37/": {
+  "hash": "9a61e39cbefd1200",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/38/": {
+  "hash": "7b6d0e7d7f614241",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/39/": {
+  "hash": "84d958632cb59410",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/alma/40/": {
+  "hash": "c9656d5060014f64",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/alma/41/": {
+  "hash": "fdbbbe03af9e9b60",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/alma/42/": {
+  "hash": "249ab4e8f168d8f1",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/alma/43/": {
+  "hash": "89f0122b5ed54ec6",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/44/": {
+  "hash": "913741e338793590",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/45/": {
+  "hash": "23ddd97d334901f6",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/46/": {
+  "hash": "24640e7babaa98d6",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/47/": {
+  "hash": "25d7296c7c43fecf",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/48/": {
+  "hash": "e5961b76b897f67f",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/49/": {
+  "hash": "89e76f4c6ebc90bb",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/50/": {
+  "hash": "e472ce7904fe1848",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/51/": {
+  "hash": "19c90ce7607fd86b",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/52/": {
+  "hash": "3fef753e62e6cf1b",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/53/": {
+  "hash": "fda0608f81ba1c9a",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/54/": {
+  "hash": "b7081deffdb36aae",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/55/": {
+  "hash": "3d114562438ad72a",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/56/": {
+  "hash": "6556aeb9e52a3801",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/57/": {
+  "hash": "15bf6a431103d598",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/58/": {
+  "hash": "47e50e8cc45b5720",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/59/": {
+  "hash": "8193e5f9826b36db",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/60/": {
+  "hash": "4d5dcdad078943b4",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/61/": {
+  "hash": "e825c97c625e1238",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/62/": {
+  "hash": "b05e132f70f8209d",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/alma/63/": {
+  "hash": "8b218b93e4afea58",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/helaman/1/": {
+  "hash": "55b667757b22671b",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/helaman/2/": {
+  "hash": "2368545c3c990d3a",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/helaman/3/": {
+  "hash": "399084a7b4261e73",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/helaman/4/": {
+  "hash": "fa17a9144667339e",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/helaman/5/": {
+  "hash": "c9922f453faadb7b",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/helaman/6/": {
+  "hash": "797dc796ca3bf65c",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/helaman/7/": {
+  "hash": "37a8325bfc403827",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/helaman/8/": {
+  "hash": "0f070c8d379730b0",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/helaman/9/": {
+  "hash": "470f30f4f7159372",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/helaman/10/": {
+  "hash": "6c5cc37e6c3e397f",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/helaman/11/": {
+  "hash": "06647638bce7fb29",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/helaman/12/": {
+  "hash": "4cab45cc2c573119",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/helaman/13/": {
+  "hash": "b8b72427f5e0eae4",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/helaman/14/": {
+  "hash": "eaa5384151f301f5",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/helaman/15/": {
+  "hash": "91c910a2d5dce509",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/helaman/16/": {
+  "hash": "ab26e01364be517a",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/3-nephi/1/": {
+  "hash": "8ee9fb0c7a74d665",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/3-nephi/2/": {
+  "hash": "04017563ceb3028b",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/3-nephi/3/": {
+  "hash": "6bc36200cbf0496d",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/3-nephi/4/": {
+  "hash": "c91c4354fab619a4",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/3-nephi/5/": {
+  "hash": "b9ba5f8c400ab24a",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/3-nephi/6/": {
+  "hash": "37fb3dabb2ee3277",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/3-nephi/7/": {
+  "hash": "6522e74d6d57c68d",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/3-nephi/8/": {
+  "hash": "d9d39c98d2f45f4c",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/3-nephi/9/": {
+  "hash": "5658e8a4dc3257b9",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/3-nephi/10/": {
+  "hash": "5036094a6514a8ab",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/3-nephi/11/": {
+  "hash": "ac043e6092023709",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/3-nephi/12/": {
+  "hash": "a631b5c9a59d5f5e",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/3-nephi/13/": {
+  "hash": "74cf6f5297492038",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/3-nephi/14/": {
+  "hash": "9788cc937607b429",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/3-nephi/15/": {
+  "hash": "ef1c76568dfd784d",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/3-nephi/16/": {
+  "hash": "98ae13e944181104",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/3-nephi/17/": {
+  "hash": "2da2ab13363b461d",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/3-nephi/18/": {
+  "hash": "a265edbacde62d45",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/3-nephi/19/": {
+  "hash": "91e4dcfe91f63239",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/3-nephi/20/": {
+  "hash": "0dd9fbd766ed83a1",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/3-nephi/21/": {
+  "hash": "df0c404932300623",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/3-nephi/22/": {
+  "hash": "528863e62b667efa",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/3-nephi/23/": {
+  "hash": "4bf7b7fbd42d80de",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/3-nephi/24/": {
+  "hash": "50a0efde1b9ab8a6",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/3-nephi/25/": {
+  "hash": "1bff613c65018bec",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/3-nephi/26/": {
+  "hash": "bfddde4bf581c794",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/3-nephi/27/": {
+  "hash": "43764bb13fb4a02e",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/3-nephi/28/": {
+  "hash": "a74e49be0728eb7a",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/3-nephi/29/": {
+  "hash": "6b5820cba4f16811",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/3-nephi/30/": {
+  "hash": "aaddbeb577c7b525",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/4-nephi/1/": {
+  "hash": "80dd5646520b6235",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mormon/1/": {
+  "hash": "3857528d5ac56143",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mormon/2/": {
+  "hash": "e565f8f825fe0962",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mormon/3/": {
+  "hash": "4104234e2bac9770",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mormon/4/": {
+  "hash": "b445a5265a7de450",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mormon/5/": {
+  "hash": "af781162cfc86a7f",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mormon/6/": {
+  "hash": "9c60f911e8089648",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mormon/7/": {
+  "hash": "c12bb1bba17f0556",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mormon/8/": {
+  "hash": "5c360bb3c2d0b759",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/mormon/9/": {
+  "hash": "c3f84009dc533271",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/ether/1/": {
+  "hash": "5fd2bf701eb4e424",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/ether/2/": {
+  "hash": "cf33744e560664d5",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/ether/3/": {
+  "hash": "36a584b676855808",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/ether/4/": {
+  "hash": "53979aee0a2ee589",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/ether/5/": {
+  "hash": "94c5e41b48330f11",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/ether/6/": {
+  "hash": "e47da71182c647e0",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/ether/7/": {
+  "hash": "91177b2e3260ff2a",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/ether/8/": {
+  "hash": "1dc5fa8d04f88018",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/ether/9/": {
+  "hash": "b6d455ba8fda7b12",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/ether/10/": {
+  "hash": "177281fffd121e78",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/ether/11/": {
+  "hash": "8d9ca21a2e048997",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/ether/12/": {
+  "hash": "e8da1e7dc7adddf4",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/ether/13/": {
+  "hash": "02ca72a41366e8b8",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/ether/14/": {
+  "hash": "243a24dd444b85df",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/ether/15/": {
+  "hash": "169e52fc93d3360c",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/moroni/1/": {
+  "hash": "d9c612fd16fc68d6",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/moroni/2/": {
+  "hash": "1bf4539429f7affe",
+  "lastmod": "2026-10-16T19:16:32.585Z"
+ },
+ "/scriptures/book-of-mormon/moroni/3/": {
+  "hash": "cdc8ae58c8c6436f",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/moroni/4/": {
+  "hash": "f490e34417f8f187",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/moroni/5/": {
+  "hash": "90e521272a4cbf3f",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/moroni/6/": {
+  "hash": "c74181b50a0ee952",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/moroni/7/": {
+  "hash": "d1691ea4db71f017",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/moroni/8/": {
+  "hash": "41e7319d0d5ed644",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/moroni/9/": {
+  "hash": "1311567180fa4c42",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ },
+ "/scriptures/book-of-mormon/moroni/10/": {
+  "hash": "c72bf43463ea24e1",
+  "lastmod": "2026-10-16T19:21:29.677Z"
+ }
+}

@@ -1,0 +1,22 @@
+{
+  "releaseId": "app-bundled-baseline-eeddbe57b388",
+  "publishedAt": "2026-10-16T19:15:51.277Z",
+  "dbSha256": "eeddbe57b388a3de9ac1d2b4fc84c79a00cf5f3f229f0bb28efe8e9a69aa0807",
+  "source": "app-bundled-baseline",
+  "builtAt": "2026-10-16T19:46:04.193Z",
+  "corpora": [
+    "BOM"
+  ],
+  "stats": {
+    "entities": {
+      "person": 70,
+      "place": 67,
+      "event": 155,
+      "group": 17
+    },
+    "relationships": 0,
+    "excludedRelationships": 0,
+    "summaries": 107,
+    "mentionChapters": 202
+  }
+}

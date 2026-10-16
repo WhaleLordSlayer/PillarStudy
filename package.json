@@ -7,7 +7,11 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:new": "node site/build.mjs --base /new --out public/new",
+    "preview:new": "node scripts/serve.mjs dist",
+    "test": "node --test tests/*.test.mjs",
+    "explorer:sync": "node scripts/explorer-sync.mjs"
   },
   "dependencies": {
     "lucide-react": "^1.25.0",
@@ -21,6 +25,7 @@
     "@vitejs/plugin-react": "^6.0.3",
     "oxlint": "^1.71.0",
     "typescript": "~6.0.2",
-    "vite": "^8.1.1"
+    "vite": "^8.1.1",
+    "sql.js": "1.13.0"
   }
 }
