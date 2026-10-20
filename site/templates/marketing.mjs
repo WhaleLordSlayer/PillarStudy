@@ -4,7 +4,7 @@ import { KIND, KINDS, displayName } from '../lib/model.mjs';
 import { abs, page } from './layout.mjs';
 import { resolveSpans } from './scriptures.mjs';
 
-const DIMS = { 'lesson-builder.webp': [600, 417], 'reader.webp': [300, 652], 'mastery.webp': [420, 913], 'explorer-connections.webp': [369, 802], 'lesson-template.webp': [538, 374], 'explorer-map.webp': [280, 608], 'study-space.webp': [660, 1434], 'live-host.webp': [280, 608], 'reading-plans.webp': [660, 1434] };
+const DIMS = { 'lesson-builder.webp': [600, 417], 'reader.webp': [300, 652], 'mastery.webp': [420, 913], 'explorer-connections.webp': [369, 802], 'lesson-template.webp': [538, 374], 'explorer-map.webp': [280, 608], 'live-host.webp': [280, 608], 'reading-plans.webp': [660, 1434] };
 const shot = (src, alt, cls = '', eager = false) => html`<div class="device ${cls}"><img src="/assets/site/img/screens/${src}" alt="${alt}" width="${DIMS[src][0]}" height="${DIMS[src][1]}" ${eager ? '' : raw('loading="lazy" decoding="async"')}></div>`;
 const ticks = items => html`<ul class="ticks">${items.map(t => html`<li>${icon('chevron-forward')}<span>${t}</span></li>`)}</ul>`;
 
@@ -112,7 +112,7 @@ export function homePage(ctx) {
       ${ticks(['Works across iPhone, iPad and Android', 'Shared reading plans and cooperative progress', 'Personal notes stay private unless you share them', 'Join with an invite link or a six-character code'])}
       <a class="btn btn-secondary" href="/connect/">More about Connect</a>
     </div>
-    <div class="shots">${shot('study-space.webp', 'A family Study Space with its join code, shared reading plan and progress')}${shot('reading-plans.webp', 'Study plans: a family plan with today’s reading and lesson playlists')}</div>
+    <div class="shots">${shot('reading-plans.webp', 'Study plans: a family plan with today’s reading and lesson playlists')}</div>
   </div>
 </section>
 
@@ -176,7 +176,7 @@ export function connectPage(ctx) {
     h1: 'Study together without turning scripture into a feed.',
     lede: 'Study Spaces are private groups for the people you already study with. Read together, see progress together, and share only what you choose.',
     sections: [
-      { eyebrow: 'Study Spaces', title: 'A shared plan and a shared rhythm.', text: 'Pick a reading plan for the group. Everyone reads on their own time and sees how the group is moving through it.', ticks: ['Shared reading plans and schedules', 'Cooperative progress, not rankings', 'Gentle nudges with notification controls'], visual: shot('study-space.webp', 'A family Study Space with a shared reading plan') },
+      { eyebrow: 'Study Spaces', title: 'A shared plan and a shared rhythm.', text: 'Pick a reading plan for the group. Everyone reads on their own time and sees how the group is moving through it.', ticks: ['Shared reading plans and schedules', 'Cooperative progress, not rankings', 'Gentle nudges with notification controls'], visual: null },
       { eyebrow: 'Shared thoughts', title: 'Share a thought, keep your notes.', text: 'Pick one entry from your notes to share with the space. The rest of your study stays private.', ticks: ['Thoughts attached to the verse they came from', 'Private by default'], visual: null },
       { eyebrow: 'Joining', title: 'Invite anyone, on any phone.', text: 'Send an invite link or read out a six-character code. Study Spaces work on iPhone, iPad and Android.', cta: html`<a class="btn btn-secondary" href="/download/">Get the app</a>`, visual: null },
     ],
